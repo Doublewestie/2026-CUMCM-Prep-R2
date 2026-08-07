@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# docs logs should be tracked (human-facing zone per agent-memory skill)
+!docs/logs/*.log

@@ -1,0 +1,10 @@
+2026-08-07 agent-memory 衔接修正（对照题目1 标准）
+
+- 23:10 自查发现衔接漏洞：migration_prompt Step2 未引用 PLAN_details.md（568 行完整建模方案）→ 新 agent 会漏读；README 仅有 2 行且未被引用
+- 23:15 README.md 更新为核心结果速览：当前进度（M1 ✅ / M2 进行中）+ 关键数字表（lag1=0.011/弃电775万MWh/超容E30·F67h/东区弃电率88-91%/白名单三层）+ 文档指针 + 环境
+- 23:20 migration_prompt.md 重写对齐题目1 标准：Step2 四块（项目状态含 PLAN_details.md+README / 决策历史 sum_1+CONSTITUTION+INDEX / 速读 logs 最新 2 篇 / 代码现状含运行命令）；Step3 按 Phase 含关键数字 + 待完成按优先级 + 当前聚焦 M2；Step4 硬约束 10 条；Step5 回退策略
+- 23:25 校验：migration_prompt 全部引用路径存在性检查通过（10/10 OK）；specs/ 空目录待架构决策生成；测试状态: 文档校验通过，pytest 未建
+
+2026-08-07 三 skill 轻量重审与 PLAN_details v2.1 微调
+- 23:40 审查意见：P0×2（任务侧 MAPE 失真→分层指标；单次验证噪声→0-2351 内部 5 折滚动 CV 类选）+ P1×4（seed_everything/NSGA-II 3 seed/requirements.txt/TCN 确定性）
+- 23:45 PLAN_details v2.1：§5.3 防泄露三段协议+分层指标表；§5.1b 特征集 v1；变更记录追加
