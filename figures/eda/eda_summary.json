@@ -1,0 +1,82 @@
+{
+  "D1": {
+    "mean_lag1": 0.0109,
+    "mean_lag24": -0.006,
+    "range_n_tasks_hour": [
+      0,
+      36
+    ]
+  },
+  "D2": {
+    "all_regions_identical": true,
+    "day0_eq_day1": true,
+    "range_MW": [
+      500.0,
+      1100.0
+    ]
+  },
+  "D3": {
+    "RegionA": 3,
+    "RegionB": 4,
+    "RegionC": 6,
+    "RegionD": 3,
+    "RegionE": 30,
+    "RegionF": 67
+  },
+  "D4": {
+    "total_curtail_MWh": 7754925.747989,
+    "utilization_pct": 32.86225213082707,
+    "curtail_by_region_pct": {
+      "RegionA": 91.4,
+      "RegionB": 89.9,
+      "RegionC": 88.1,
+      "RegionD": 52.9,
+      "RegionE": 39.0,
+      "RegionF": 41.6
+    }
+  },
+  "D5": {
+    "nonAI_load_peak_valley_diff_pct": 67.4,
+    "valley_price": 468.1,
+    "peak_price": 1044.3
+  },
+  "D6": {
+    "RealTimeInference": 1,
+    "BatchInference": 5,
+    "AITraining": 6
+  },
+  "D7": {
+    "Flat": {
+      "mean": 708.2,
+      "spread_pct": 19.7
+    },
+    "Peak": {
+      "mean": 1044.3,
+      "spread_pct": 9.9
+    },
+    "Valley": {
+      "mean": 468.1,
+      "spread_pct": 9.9
+    }
+  },
+  "D8": {
+    "rt_slack_median": 4,
+    "rt_slack_range": [
+      1,
+      7
+    ]
+  },
+  "D9": {
+    "gpu_demand": {
+      "min": 1,
+      "median": 13,
+      "max": 127
+    },
+    "n_tasks": 50000,
+    "type_counts": {
+      "RealTimeInference": 16724,
+      "BatchInference": 16717,
+      "AITraining": 16559
+    }
+  }
+}

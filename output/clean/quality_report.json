@@ -1,0 +1,27 @@
+{
+  "workload_nan": 0,
+  "region_time_nan": 0,
+  "contradict_tasks": 0,
+  "negative_slack_tasks": 0,
+  "latest_finish_above_2406": 0,
+  "arrival_range": [
+    0,
+    2399
+  ],
+  "region_hour_counts": {
+    "RegionA": 2407,
+    "RegionB": 2407,
+    "RegionC": 2407,
+    "RegionD": 2407,
+    "RegionE": 2407,
+    "RegionF": 2407
+  },
+  "hour_range": [
+    0,
+    2406
+  ],
+  "data_periods": {
+    "Main_0_2399": 14400,
+    "Closure_2400_2406": 42
+  }
+}
