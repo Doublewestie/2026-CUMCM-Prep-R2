@@ -22,6 +22,10 @@
 | M3 | step2.1_nsga2.py（自研 NSGA-II） | docs/sums/sum_4 | ✅ |
 | M3 | step2.2_rule_extraction.py（CART 规则） | docs/sums/sum_4 | ✅ |
 | M3 | step2.3_delay_scan.py（时延裁决+proof） | docs/sums/sum_4 | ✅ |
+| B1 | step1.8_deploy_gate.py（类选 v3 部署口径） | docs/sums/sum_5 | ✅ |
+| B5 | step1.9_e1_v2.py（E1 干净对照） | docs/sums/sum_5 | ✅ |
+| B6 | step2.4_method_arena.py / step2.4+_verdict.py（五方法裁决） | docs/sums/sum_5 | ✅ |
+| C4 | step3.0_lp_baseline.py（Q3 LP 框架+标定） | docs/sums/sum_5 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
@@ -50,6 +54,11 @@
 | Q2 规则提取（CART 路径→运营规则） | step2.2_rule_extraction.py:extract_rules | rules.json |
 | 时延形式裁决（T1 纯加权，T2/T3 零违约） | step2.3_delay_scan.py:delay_forms | delay_scan.json |
 | baseline_proof（四方案四目标对照） | step2.3_delay_scan.py:s2_baseline_proof | baseline_proof.json |
+| 类选 v3（部署口径复检，MAPE 降幅≥5%） | step1.8_deploy_gate.py:main | deploy_arena.csv |
+| E1 v2 干净对照（套利/预留分解） | step1.9_e1_v2.py:main | e1_v2.json |
+| 五方法判别（NSGA-II/III/MOEA-D/ALNS/拉格朗日） | step2.4_method_arena.py:main | method_front_*.csv |
+| 五方法裁决（2D HV/成本端点共识） | step2.4+_verdict.py:main | method_verdict.json |
+| Q3 LP（附件1 平衡+弃电下界，HiGHS） | step3.0_lp_baseline.py:solve_region | lp_calibration.json |
 
 ## 产物清单（output/clean/）
 workload_clean.csv / region_time_clean.csv / whitelist.csv / occupancy_local.csv

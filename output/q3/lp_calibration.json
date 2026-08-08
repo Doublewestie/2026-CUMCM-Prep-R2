@@ -1,0 +1,26 @@
+{
+  "region": "RegionD",
+  "calibration": {
+    "24h": {
+      "status": 0,
+      "solve_s": 0.2,
+      "cost_wan": -99.96,
+      "curtail_MWh": 4769.92
+    },
+    "168h": {
+      "status": 0,
+      "solve_s": 0.0,
+      "cost_wan": -683.08,
+      "curtail_MWh": 33484.41
+    },
+    "2407h": {
+      "status": 0,
+      "solve_s": 0.1,
+      "cost_wan": -9618.95,
+      "curtail_MWh": 477678.07
+    }
+  },
+  "extrapolate_6regions_min": 0.0,
+  "caliber": "给定负荷=Baseline_AI+NonAI；消纳模板口径（R1）；效率分区制（step0.5）；SOC(2406)≥Initial；弃电松弛 Q 目标惩罚 1e-4；pulp/CBC",
+  "note": "Q3 铺路（M4 前置）：LP 模型构建+标定+计时外推；全量 6 区域与 MPC/Sobol 留 M4"
+}

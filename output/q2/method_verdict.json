@@ -1,0 +1,51 @@
+{
+  "per_method": {
+    "nsga2": {
+      "n_unique": 42,
+      "best_cost": 183706.1092957157,
+      "cost_gap_vs_construct_pct": -2.3321579724266987e-09,
+      "best_latency": 25.29443813683393,
+      "lat_span_ms": 2.500911966985626,
+      "hv2d_cost_lat": 5137676.910299549,
+      "surviving_share_2d": 1.0
+    },
+    "nsga3": {
+      "n_unique": 5,
+      "best_cost": 183706.1092957157,
+      "cost_gap_vs_construct_pct": -2.3321579724266987e-09,
+      "best_latency": 26.813364004091536,
+      "lat_span_ms": 0.9819860997280188,
+      "hv2d_cost_lat": 5114510.128846116,
+      "surviving_share_2d": 1.0
+    },
+    "moead": {
+      "n_unique": 1,
+      "best_cost": 183706.1092957157,
+      "cost_gap_vs_construct_pct": -2.3321579724266987e-09,
+      "best_latency": 27.795350103819555,
+      "lat_span_ms": 0.0,
+      "hv2d_cost_lat": 5108632.918517662,
+      "surviving_share_2d": 1.0
+    },
+    "alns": {
+      "n_unique": 1,
+      "best_cost": 183706.1092957157,
+      "cost_gap_vs_construct_pct": -2.3321579724266987e-09,
+      "best_latency": 27.795350103819555,
+      "lat_span_ms": 0.0,
+      "hv2d_cost_lat": 5108632.918517662,
+      "surviving_share_2d": 1.0
+    },
+    "lagrangian": {
+      "n_unique": 1,
+      "best_cost": 183709.13057865397,
+      "cost_gap_vs_construct_pct": 0.0016446261180292907,
+      "best_latency": 27.813470391802703,
+      "lat_span_ms": 0.0,
+      "hv2d_cost_lat": 5112271.191578133,
+      "surviving_share_2d": 0.0
+    }
+  },
+  "winner_2d_hv": "nsga2",
+  "verdict": "成本端点五方法一致（=构造解全迁移，gap≈0）→ 差异仅在帕累托多样性；2D HV 与 surviving_share 裁决权衡面质量；4 维 HV 因稀疏性弃用（数学本质，非实现缺陷）"
+}

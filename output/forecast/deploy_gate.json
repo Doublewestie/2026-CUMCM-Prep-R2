@@ -1,0 +1,280 @@
+{
+  "n_series": 42,
+  "cv_deploy_mismatch_share": 0.9047619047619048,
+  "deploy_pass_share": 0.5416666666666666,
+  "n_series_with_deploy_best": 29,
+  "cv_best_dist": {
+    "tabpfn": 18,
+    "gbm_quantile": 6,
+    "xgboost_point": 6,
+    "deep_lstm": 5,
+    "qrf_quantile": 4,
+    "deep_tcn": 3
+  },
+  "deploy_best_dist": {
+    "lgbm_point": 8,
+    "lgbm_quantile": 7,
+    "tabpfn": 3,
+    "gbm_quantile": 3,
+    "qrf_quantile": 3,
+    "deep_lstm": 2,
+    "xgboost_point": 2,
+    "deep_tcn": 1
+  },
+  "per_series": [
+    {
+      "series": "RegionA|AITraining",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "RegionA|BatchInference",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "tabpfn",
+      "mismatch": true
+    },
+    {
+      "series": "RegionA|RealTimeInference",
+      "cv_best": "deep_lstm",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "RegionB|AITraining",
+      "cv_best": "deep_lstm",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "RegionB|BatchInference",
+      "cv_best": "deep_tcn",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "RegionB|RealTimeInference",
+      "cv_best": "qrf_quantile",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "RegionC|AITraining",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "gbm_quantile",
+      "mismatch": false
+    },
+    {
+      "series": "RegionC|BatchInference",
+      "cv_best": "deep_tcn",
+      "deploy_best": "qrf_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "RegionC|RealTimeInference",
+      "cv_best": "qrf_quantile",
+      "deploy_best": "tabpfn",
+      "mismatch": true
+    },
+    {
+      "series": "RegionD|AITraining",
+      "cv_best": "qrf_quantile",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "RegionD|BatchInference",
+      "cv_best": "deep_tcn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "RegionD|RealTimeInference",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "gbm_quantile",
+      "mismatch": false
+    },
+    {
+      "series": "RegionE|AITraining",
+      "cv_best": "deep_lstm",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "RegionE|BatchInference",
+      "cv_best": "deep_lstm",
+      "deploy_best": "deep_lstm",
+      "mismatch": false
+    },
+    {
+      "series": "RegionE|RealTimeInference",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "deep_tcn",
+      "mismatch": true
+    },
+    {
+      "series": "RegionF|AITraining",
+      "cv_best": "qrf_quantile",
+      "deploy_best": "xgboost_point",
+      "mismatch": true
+    },
+    {
+      "series": "RegionF|BatchInference",
+      "cv_best": "deep_lstm",
+      "deploy_best": "deep_lstm",
+      "mismatch": false
+    },
+    {
+      "series": "RegionF|RealTimeInference",
+      "cv_best": "gbm_quantile",
+      "deploy_best": "tabpfn",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionA|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionA|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionA|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionA|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionB|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "xgboost_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionB|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": "qrf_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionB|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionB|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionC|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionC|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": "gbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionC|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionC|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionD|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionD|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": "qrf_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionD|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionD|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionE|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionE|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionE|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionE|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionF|carbon",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_quantile",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionF|nonai",
+      "cv_best": "tabpfn",
+      "deploy_best": null,
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionF|price",
+      "cv_best": "tabpfn",
+      "deploy_best": "lgbm_point",
+      "mismatch": true
+    },
+    {
+      "series": "energy|RegionF|renewable",
+      "cv_best": "xgboost_point",
+      "deploy_best": null,
+      "mismatch": true
+    }
+  ],
+  "protocol": "v3: CV 初筛 → 部署复检（全段拟合+冻结段, MAPE 降幅≥5%）→ 校准 → 冻结验证；部署入选集=最终裁决，CV 仅稳定性佐证",
+  "note": "B1 修复：类选改部署口径（A1 实证收益 MAPE 中位 15.4%）；冻结段 24h 排名噪声物理受限 → 只做入选集裁决，不做第一名裁决"
+}

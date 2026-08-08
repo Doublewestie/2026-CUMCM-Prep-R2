@@ -1,0 +1,51 @@
+{
+  "per_method": {
+    "nsga2": {
+      "n_front": 69,
+      "not_dominated_share": 1.0,
+      "hv": 788.3877398133905
+    },
+    "nsga3": {
+      "n_front": 42,
+      "not_dominated_share": 1.0,
+      "hv": 0.0
+    },
+    "moead": {
+      "n_front": 120,
+      "not_dominated_share": 1.0,
+      "hv": 0.0
+    },
+    "alns": {
+      "n_front": 3,
+      "not_dominated_share": 1.0,
+      "hv": 0.0
+    },
+    "lagrangian": {
+      "n_front": 3,
+      "not_dominated_share": 0.0,
+      "hv": 0.0
+    }
+  },
+  "best_cost": {
+    "nsga2": 183706.10929571567,
+    "nsga3": 183706.10929571567,
+    "moead": 183706.10929571567,
+    "alns": 183706.10929571567,
+    "lagrangian": 183709.13057865395
+  },
+  "gap_vs_construct_pct": {
+    "nsga2": 5.06010179269558e-06,
+    "nsga3": 5.06010179269558e-06,
+    "moead": 5.06010179269558e-06,
+    "alns": 5.06010179269558e-06,
+    "lagrangian": 0.001649688635238188
+  },
+  "winner": "nsga2",
+  "ref_point": [
+    194038.61790448872,
+    2127614.600781951,
+    29.204143911392844,
+    0.7059977134350717
+  ],
+  "caliber": "阶段A 策略空间(NSGA-II/III-lite/MOEA-D, 40×60×3seed)；阶段B 任务级(ALNS 300轮, 拉格朗日 30轮, 3seed)；统一模板口径评估器；HV 蒙特卡洛 2e4 样本"
+}

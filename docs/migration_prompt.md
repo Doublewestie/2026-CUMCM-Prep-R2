@@ -18,11 +18,15 @@
 - `Code/docs/sums/sum_1_数据侦察与证据链.md` — D1-D9 全实证 + 东区弃电率新发现
 - `Code/docs/sums/sum_2_M2_预测系统与调度闭环.md` — 竞技榜/κ_ε/E1/套利结构/融合
 - **`Code/docs/sums/sum_3_建模缺口闭环.md` — R0-R3 修复（消纳模板/SOC/校准段/冻结段结构）**
+- `Code/docs/sums/sum_4_M3_Q2三段式调度.md` — 构造→NSGA-II→规则
+- **`Code/docs/sums/sum_5_准确层修复与Q3铺路.md` — B1-B6 修复闭环/五方法裁决/Q3 LP 铺路**
+- `Code/docs/reviews/review_A0_错误结论清算.md` — 错误 vs 结论三关清算
+- `Code/docs/reviews/review_A1-A6_审查定稿.md` — 审查结论
 - `Code/Reference/docs/CONSTITUTION.md` — 硬约束速查（口径/约束/预测纪律/工程纪律）
 - `Code/Reference/docs/INDEX.md` — 公式↔代码↔文档映射
 
 ### 速读（了解近期动态）
-- `Code/docs/logs/latest_4.log` — R0-R3 建模缺口闭环（消纳模板逆向/SOC 破案/校准修复/冻结段结构）
+- `Code/docs/logs/latest_4.log` — R0-R3 建模缺口闭环
 - `Code/docs/logs/latest_3.log` — agent-memory 衔接修正 + PLAN_details v2.1
 
 ### 必读（代码现状）
