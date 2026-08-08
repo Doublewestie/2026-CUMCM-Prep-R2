@@ -1,8 +1,8 @@
 {
   "n_series": 42,
-  "cv_deploy_mismatch_share": 0.9047619047619048,
-  "deploy_pass_share": 0.5416666666666666,
-  "n_series_with_deploy_best": 29,
+  "cv_deploy_mismatch_share": 1.0,
+  "deploy_pass_share": 0.33630952380952384,
+  "n_series_with_deploy_best": 16,
   "cv_best_dist": {
     "tabpfn": 18,
     "gbm_quantile": 6,
@@ -12,26 +12,23 @@
     "deep_tcn": 3
   },
   "deploy_best_dist": {
-    "lgbm_point": 8,
-    "lgbm_quantile": 7,
-    "tabpfn": 3,
-    "gbm_quantile": 3,
-    "qrf_quantile": 3,
-    "deep_lstm": 2,
-    "xgboost_point": 2,
-    "deep_tcn": 1
+    "lgbm_quantile": 6,
+    "lgbm_point": 6,
+    "qrf_quantile": 2,
+    "xgboost_point": 1,
+    "gbm_quantile": 1
   },
   "per_series": [
     {
       "series": "RegionA|AITraining",
       "cv_best": "gbm_quantile",
-      "deploy_best": "lgbm_quantile",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionA|BatchInference",
       "cv_best": "gbm_quantile",
-      "deploy_best": "tabpfn",
+      "deploy_best": null,
       "mismatch": true
     },
     {
@@ -55,25 +52,25 @@
     {
       "series": "RegionB|RealTimeInference",
       "cv_best": "qrf_quantile",
-      "deploy_best": "lgbm_point",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionC|AITraining",
       "cv_best": "gbm_quantile",
-      "deploy_best": "gbm_quantile",
-      "mismatch": false
+      "deploy_best": null,
+      "mismatch": true
     },
     {
       "series": "RegionC|BatchInference",
       "cv_best": "deep_tcn",
-      "deploy_best": "qrf_quantile",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionC|RealTimeInference",
       "cv_best": "qrf_quantile",
-      "deploy_best": "tabpfn",
+      "deploy_best": null,
       "mismatch": true
     },
     {
@@ -85,14 +82,14 @@
     {
       "series": "RegionD|BatchInference",
       "cv_best": "deep_tcn",
-      "deploy_best": "lgbm_point",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionD|RealTimeInference",
       "cv_best": "gbm_quantile",
-      "deploy_best": "gbm_quantile",
-      "mismatch": false
+      "deploy_best": null,
+      "mismatch": true
     },
     {
       "series": "RegionE|AITraining",
@@ -103,31 +100,31 @@
     {
       "series": "RegionE|BatchInference",
       "cv_best": "deep_lstm",
-      "deploy_best": "deep_lstm",
-      "mismatch": false
+      "deploy_best": null,
+      "mismatch": true
     },
     {
       "series": "RegionE|RealTimeInference",
       "cv_best": "gbm_quantile",
-      "deploy_best": "deep_tcn",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionF|AITraining",
       "cv_best": "qrf_quantile",
-      "deploy_best": "xgboost_point",
+      "deploy_best": null,
       "mismatch": true
     },
     {
       "series": "RegionF|BatchInference",
       "cv_best": "deep_lstm",
-      "deploy_best": "deep_lstm",
-      "mismatch": false
+      "deploy_best": null,
+      "mismatch": true
     },
     {
       "series": "RegionF|RealTimeInference",
       "cv_best": "gbm_quantile",
-      "deploy_best": "tabpfn",
+      "deploy_best": null,
       "mismatch": true
     },
     {
@@ -275,6 +272,161 @@
       "mismatch": true
     }
   ],
-  "protocol": "v3: CV 初筛 → 部署复检（全段拟合+冻结段, MAPE 降幅≥5%）→ 校准 → 冻结验证；部署入选集=最终裁决，CV 仅稳定性佐证",
-  "note": "B1 修复：类选改部署口径（A1 实证收益 MAPE 中位 15.4%）；冻结段 24h 排名噪声物理受限 → 只做入选集裁决，不做第一名裁决"
+  "v4": {
+    "jaccard_set_consistency": {
+      "energy": 0.797,
+      "task": 0.0
+    },
+    "cv_noisy_sequences": [
+      {
+        "series": "RegionA|AITraining",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.57
+      },
+      {
+        "series": "RegionA|BatchInference",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.18
+      },
+      {
+        "series": "RegionA|RealTimeInference",
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.71
+      },
+      {
+        "series": "RegionB|AITraining",
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.06
+      },
+      {
+        "series": "RegionB|BatchInference",
+        "cv_best": "deep_tcn",
+        "gap_std_ratio": 0.01
+      },
+      {
+        "series": "RegionB|RealTimeInference",
+        "cv_best": "qrf_quantile",
+        "gap_std_ratio": 0.21
+      },
+      {
+        "series": "RegionC|AITraining",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.28
+      },
+      {
+        "series": "RegionC|BatchInference",
+        "cv_best": "deep_tcn",
+        "gap_std_ratio": 0.19
+      },
+      {
+        "series": "RegionC|RealTimeInference",
+        "cv_best": "qrf_quantile",
+        "gap_std_ratio": 0.12
+      },
+      {
+        "series": "RegionD|AITraining",
+        "cv_best": "qrf_quantile",
+        "gap_std_ratio": 0.32
+      },
+      {
+        "series": "RegionD|BatchInference",
+        "cv_best": "deep_tcn",
+        "gap_std_ratio": 0.34
+      },
+      {
+        "series": "RegionD|RealTimeInference",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.49
+      },
+      {
+        "series": "RegionE|AITraining",
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.31
+      },
+      {
+        "series": "RegionE|BatchInference",
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.19
+      },
+      {
+        "series": "RegionE|RealTimeInference",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.41
+      },
+      {
+        "series": "RegionF|AITraining",
+        "cv_best": "qrf_quantile",
+        "gap_std_ratio": 0.19
+      },
+      {
+        "series": "RegionF|BatchInference",
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.1
+      },
+      {
+        "series": "RegionF|RealTimeInference",
+        "cv_best": "gbm_quantile",
+        "gap_std_ratio": 0.25
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.87
+      },
+      {
+        "series": "energy|RegionA|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.8
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.49
+      },
+      {
+        "series": "energy|RegionB|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.76
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.74
+      },
+      {
+        "series": "energy|RegionC|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.8
+      },
+      {
+        "series": "energy|RegionD|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.76
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.27
+      },
+      {
+        "series": "energy|RegionE|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.76
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.75
+      },
+      {
+        "series": "energy|RegionF|price",
+        "cv_best": "tabpfn",
+        "gap_std_ratio": 0.78
+      }
+    ],
+    "task_deploy_pass": 0,
+    "note": "v4: ①主指标=集合级 Jaccard（能源侧 0.80——入选集稳定）；②第一名一致率废弃（CV 噪声序列 11/24 + 24h 排名物理不可辨）；③任务侧部署验证改无崩溃（白噪声 24h 显著=假阳性，A8 实证 69→0）"
+  },
+  "protocol": "v3→v4: CV 初筛 → 部署复检（集合级裁决）→ 校准 → 冻结验证；部署入选集=最终裁决，CV 仅稳定性佐证；任务侧白噪声维持 CV 全拒",
+  "note": "B7 修复：类选 v4（集合级 Jaccard 主指标 + 任务侧无崩溃判据）；A7/A8 实证：CV 噪声序列 11/24、集合一致性 0.80、任务侧假阳性 69→0"
 }

@@ -1,0 +1,47 @@
+{
+  "scenarios": {
+    "RegionD": {
+      "n_gen": 64,
+      "k": 12,
+      "sigma": 0.2,
+      "phi": 0.8,
+      "quality_rel_err": 0.0,
+      "rep_weights": [
+        0.047,
+        0.172,
+        0.094,
+        0.125,
+        0.203
+      ]
+    },
+    "RegionE": {
+      "n_gen": 64,
+      "k": 12,
+      "sigma": 0.2,
+      "phi": 0.8,
+      "quality_rel_err": 0.0,
+      "rep_weights": [
+        0.031,
+        0.047,
+        0.047,
+        0.141,
+        0.094
+      ]
+    }
+  },
+  "window_effect": {
+    "RegionD": {
+      "full_cost_wan": -9618.950237447363,
+      "rolling_cost_wan": -9613.460459781241,
+      "window_effect_pct": 0.05707252382645381,
+      "note": "窗口效应 = 滚动（终态约束每窗重置）vs 全知的成本差"
+    },
+    "RegionE": {
+      "full_cost_wan": -14995.049579101229,
+      "rolling_cost_wan": -14669.852570224297,
+      "window_effect_pct": 2.168695789643556,
+      "note": "窗口效应 = 滚动（终态约束每窗重置）vs 全知的成本差"
+    }
+  },
+  "caliber": "AR(1) 扰动模板（σ=0.2, φ=0.8）；K-means k=12 缩减；窗口效应=24h 滚动 LP vs 全知 LP；铺路产物，MPC 全量留 M4"
+}

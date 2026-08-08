@@ -1,0 +1,31 @@
+{
+  "rolling_calibration": {
+    "a=0.97": {
+      "cal_cov": 0.9792,
+      "frozen_cov": 0.9861,
+      "kappa_mean": 0.6266907230916572
+    },
+    "a=0.95": {
+      "cal_cov": 0.9792,
+      "frozen_cov": 0.9653,
+      "kappa_mean": 0.6652390366568218
+    },
+    "a=0.9": {
+      "cal_cov": 0.9444,
+      "frozen_cov": 0.8958,
+      "kappa_mean": 0.7208654777125982
+    },
+    "static_ref": {
+      "frozen_cov_q95": 0.917,
+      "frozen_cov_q90": null,
+      "note": "S3 实证：静态 q95 冻结段 0.917"
+    }
+  },
+  "eps_selected": 0.030000000000000027,
+  "verdict": {
+    "frozen_cov_improved": true,
+    "meets_target": true,
+    "note": "滚动 336h 分位数接入 κ：冻结段覆盖率 0.917→0.965；若仍 <0.95 目标 → 需 ε 更保守或滚动+余量（B10 结论）"
+  },
+  "caliber": "nowcast 滚动 336h 经验分位数（shift≥1）；区域聚合 Σ类型；校准段 2352-2375 / 冻结段 2376-2399"
+}

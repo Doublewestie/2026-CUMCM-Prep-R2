@@ -176,5 +176,38 @@ def main() -> None:
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
 
+def solve_all_regions() -> dict:
+    """六区域 LP 全量（探路扩大，用户批准：前期经验，后续可删）。"""
+    import importlib.util
+    root = Path(__file__).resolve().parent
+    spec = importlib.util.spec_from_file_location(
+        "s10", root / "step1.0_baseline_schedule.py")
+    s10 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(s10)
+    rt = pd.read_csv(CLEAN / "region_time_clean.csv")
+    consume = s10.fit_consume_ratio(rt)["consume_ratio"]
+    out = {}
+    for r in REGIONS:
+        d = load_region_data(r)
+        d["c_h"] = np.array(consume[r], dtype=float)
+        res = solve_region(d)
+        out[r] = {"status": res["status"], "cost_wan": res["cost_wan"],
+                  "carbon_t": res["carbon_t"], "curtail_MWh": res["curtail"],
+                  "nu": res["nu"]}
+        if res["rows"]:
+            pd.DataFrame(res["rows"]).to_csv(
+                OUT_Q3 / f"lp_baseline_{r}.csv", index=False)
+        print(f"[LP] {r}: cost={res['cost_wan']:.0f}万 "
+              f"curtail={res['curtail']:.0f}MWh nu={res['nu']:.2f}",
+              flush=True)
+    with open(OUT_Q3 / "lp_all_regions.json", "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=2)
+    return out
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--all":
+        solve_all_regions()
+    else:
+        main()

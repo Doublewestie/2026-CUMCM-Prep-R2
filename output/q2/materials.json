@@ -1,0 +1,67 @@
+{
+  "compromise_policy": [
+    11.900413723864377,
+    0.0,
+    11.768483237453207,
+    7.014796912153019,
+    0.0
+  ],
+  "c6_marginal": {
+    "median_exchange_t_per_wan": 14.417977285932459,
+    "range": [
+      0.20762147585404805,
+      727.3755507620848
+    ],
+    "note": "沿前沿省 1 万元成本 → 碳降 X 吨（中位口径，abs）；成本-碳正相关（E-F3 共线）→ 交换率单调"
+  },
+  "c7_pruning": [
+    {
+      "depth": 1,
+      "acc": 0.8841,
+      "n_rules": 2
+    },
+    {
+      "depth": 2,
+      "acc": 0.8841,
+      "n_rules": 3
+    },
+    {
+      "depth": 3,
+      "acc": 0.8841,
+      "n_rules": 5
+    },
+    {
+      "depth": 4,
+      "acc": 0.8841,
+      "n_rules": 8
+    },
+    {
+      "depth": 5,
+      "acc": 0.8841,
+      "n_rules": 14
+    },
+    {
+      "depth": 6,
+      "acc": 0.8841,
+      "n_rules": 21
+    }
+  ],
+  "c8_sobol": {
+    "S1": {
+      "p0": 5.012,
+      "p1": NaN,
+      "p2": 1.0,
+      "p3": 1.0,
+      "p4": 1.588
+    },
+    "names": [
+      "mig_gpu",
+      "mig_dur",
+      "shift_BI",
+      "shift_AT",
+      "headroom"
+    ],
+    "n_samples": 32,
+    "note": "简化 Saltelli（固定中位扰动法），与 Q3 完整 Sobol 呼应"
+  }
+}

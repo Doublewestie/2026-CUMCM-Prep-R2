@@ -58,12 +58,18 @@ def main() -> None:
             imp = float("nan")
         else:
             imp = (b["mape_mean"] - f_mape) / b["mape_mean"]
+        # v4 裁决：任务侧（白噪声）不适用"冻结段显著"判据（24h 假阳性，A8 实证）
+        #   → 任务侧 deploy_pass 一律 False，类选维持 CV 全拒（无崩溃验证由 step1.5 承担）
+        if r["layer"] == "task":
+            dp = False
+        else:
+            dp = bool(imp >= GATE_IMP)
         rows.append({"series": r["series"], "model": r["model"],
                      "layer": r["layer"],
                      "cv_mape": r["mape_mean"], "cv_gate": r["gate"],
                      "frozen_mape": f_mape,
                      "frozen_imp": round(imp, 4),
-                     "deploy_pass": bool(imp >= GATE_IMP)})
+                     "deploy_pass": dp})
     d = pd.DataFrame(rows)
     d.to_csv(OUT_F / "deploy_arena.csv", index=False)
 
@@ -87,6 +93,33 @@ def main() -> None:
     mismatch = cmp["mismatch"].fillna(True).mean()
     n_dep = d[d.deploy_pass].groupby("series").size()
 
+    # v4：集合级一致性（Jaccard）——主指标替代第一名一致率
+    vals = arena["gate"].tolist()
+    cvpass = [len(v) >= 2 and ord(v[0]) == 0x901a and ord(v[1]) == 0x8fc7
+              for v in vals]
+    arena["cv_pass"] = cvpass
+    m = arena.merge(d[["series", "model", "deploy_pass"]],
+                    on=["series", "model"], how="inner")
+    jaccard = {}
+    for lay in ("energy", "task"):
+        sub = m[m.layer == lay]
+        both = ((sub.cv_pass) & (sub.deploy_pass)).sum()
+        cv_only = (sub.cv_pass & ~sub.deploy_pass).sum()
+        dep_only = (~sub.cv_pass & sub.deploy_pass).sum()
+        jaccard[lay] = round(both / max(both + cv_only + dep_only, 1), 3)
+
+    # v4：CV 噪声序列（最优-次优差距 < 最优 std）标注——不承诺第一名
+    noisy = []
+    for name, g in arena[arena.family != "统计基线"].groupby("series"):
+        gg = g[g.n_folds > 0].sort_values("mape_mean")
+        if len(gg) < 2:
+            continue
+        b = gg.iloc[0]
+        gap = gg.iloc[1]["mape_mean"] - b["mape_mean"]
+        if gap < b["mape_std"]:
+            noisy.append({"series": name, "cv_best": b["model"],
+                          "gap_std_ratio": round(gap / max(b["mape_std"], 1e-9), 2)})
+
     report = {
         "n_series": int(len(cmp)),
         "cv_deploy_mismatch_share": float(mismatch),
@@ -95,10 +128,18 @@ def main() -> None:
         "cv_best_dist": pd.Series(cv_best).value_counts().to_dict(),
         "deploy_best_dist": pd.Series(dp_best).value_counts().to_dict(),
         "per_series": rows2,
-        "protocol": ("v3: CV 初筛 → 部署复检（全段拟合+冻结段, MAPE 降幅≥5%）→ "
-                     "校准 → 冻结验证；部署入选集=最终裁决，CV 仅稳定性佐证"),
-        "note": ("B1 修复：类选改部署口径（A1 实证收益 MAPE 中位 15.4%）；"
-                 "冻结段 24h 排名噪声物理受限 → 只做入选集裁决，不做第一名裁决"),
+        "v4": {
+            "jaccard_set_consistency": jaccard,     # 主指标（集合级）
+            "cv_noisy_sequences": noisy,            # 不承诺第一名的序列
+            "task_deploy_pass": int(d[d.layer == "task"].deploy_pass.sum()),
+            "note": ("v4: ①主指标=集合级 Jaccard（能源侧 0.80——入选集稳定）；"
+                     "②第一名一致率废弃（CV 噪声序列 11/24 + 24h 排名物理不可辨）；"
+                     "③任务侧部署验证改无崩溃（白噪声 24h 显著=假阳性，A8 实证 69→0）"),
+        },
+        "protocol": ("v3→v4: CV 初筛 → 部署复检（集合级裁决）→ 校准 → 冻结验证；"
+                     "部署入选集=最终裁决，CV 仅稳定性佐证；任务侧白噪声维持 CV 全拒"),
+        "note": ("B7 修复：类选 v4（集合级 Jaccard 主指标 + 任务侧无崩溃判据）；"
+                 "A7/A8 实证：CV 噪声序列 11/24、集合一致性 0.80、任务侧假阳性 69→0"),
     }
     with open(OUT_F / "deploy_gate.json", "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)

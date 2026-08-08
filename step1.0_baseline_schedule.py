@@ -207,16 +207,21 @@ def _fit_sine(h: np.ndarray, y: np.ndarray) -> dict:
 
 
 def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
-                      params: dict, consume_ratio: dict | None = None
+                      params: dict, consume_ratio: dict | None = None,
+                      include_baseline_charge: bool = False
                       ) -> tuple[dict, pd.DataFrame]:
     """统一评估器：四指标 + 弃电 + 区域小时级明细（step1.2/1.2+ 复用）.
 
-    口径（Q1 无储能，R1 升级）：
+    口径（Q1 无储能，R1 升级 + B9 充电项选项）：
       consume_ratio 给定（模板格式 {r: np.ndarray(24)}）→
         U = c_r(h)·D（主时段 0-2399 日内模板）；U = min(W, D)（Closure 2400+）
       consume_ratio 给定（标量格式 {r: float}，旧版兼容）→ U=min(W, c_r·D)
       consume_ratio None → U=min(W, D)（新能源全覆盖口径，优化场景用）
-      S=min(SellLimit, W−U)；G=D−U（自洽功率平衡）；Curtail=W−U−S。
+      S=min(SellLimit, W−U)；G=D−U（自洽功率平衡）；Curtail=W−U−S
+      include_baseline_charge=True（B9，对照题目基线口径）→ 基线充电 RC 模板
+        计入利用率分子与弃电扣减：NU=(U+S+RC)/W；Curtail=W−U−S−RC
+        （实证：评估器弃电 vs 题目 775.5 万 偏差 9.18 万 = 充电 20.8 万 +
+         外送口径差 11.6 万——B9 消除充电项部分）
     """
     region_map = sched.set_index("TaskID")["Region"]
     start_map = sched.set_index("TaskID")["StartHour"]
@@ -226,7 +231,8 @@ def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
                          values=["NonAI_IT_Load_MW", "AvailableRenewable_MW",
                                  "ElectricityPrice_CNY_per_MWh",
                                  "SellPrice_CNY_per_MWh",
-                                 "CarbonIntensity_tCO2_per_MWh"],
+                                 "CarbonIntensity_tCO2_per_MWh",
+                                 "RenewableCharge_MW"],
                          aggfunc="first").reindex(index=range(HOURS_TOTAL))
     nonai = rtv["NonAI_IT_Load_MW"][REGIONS].fillna(0.0).to_numpy()
     w = rtv["AvailableRenewable_MW"][REGIONS].fillna(0.0).to_numpy()
@@ -257,11 +263,18 @@ def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
     s = np.minimum(sell_arr, np.maximum(0.0, w - w_used))
     g = np.maximum(0.0, total - w_used)
     curtail = w - w_used - s
+    if include_baseline_charge:
+        # B9：题目基线充电模板（RenewableCharge_MW）——对照口径
+        rc = rtv["RenewableCharge_MW"][REGIONS].fillna(0.0).to_numpy()
+        curtail = np.maximum(0.0, curtail - rc)
+        nu_num = w_used + s + rc
+    else:
+        nu_num = w_used + s
 
     metrics = {
         "cost_wan": float((g * price - s * sellp).sum() / 1e4),
         "carbon_t": float((g * carb).sum()),
-        "nu_pct": float((w_used.sum() + s.sum()) / w.sum() * 100.0),
+        "nu_pct": float(nu_num.sum() / w.sum() * 100.0),
         "curtail_MWh": float(curtail.sum()),
         "viol_h": int((parallel > cap_arr).sum()),
         "viol_by_region": {r: int((parallel[:, i] > cap_arr[i]).sum())
