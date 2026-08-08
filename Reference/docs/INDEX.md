@@ -9,7 +9,11 @@
 | M1 | step0_config.py | docs/sums/sum_1_数据侦察与证据链.md | ✅ |
 | M1 | step0_loader.py → output/clean/* | docs/migration_prompt.md Step4 口径 | ✅ |
 | M1 | step0_eda.py → figures/eda/figD1-D9 | docs/sums/sum_1（D1-D9 实证表） | ✅ |
-| M2 | step1.0_baseline_schedule.py / step1.1_forecast_arena.py / step1.2_robust_schedule.py（待建） | （待写） | ⏳ |
+| M2 | step1.0_baseline_schedule.py | docs/sums/sum_2 + specs/spec_M2 | ✅ |
+| M2 | step1.1_forecast_arena.py | docs/sums/sum_2（竞技榜/类选） | ✅ |
+| M2 | step1.2_robust_schedule.py | docs/sums/sum_2（κ_ε/E1） | ✅ |
+| M2 | step1.2+/step1.2++ | docs/sums/sum_2（机理/实验群） | ✅ |
+| M2 | step1.3/1.4/1.5/1.6（补强收尾） | docs/sums/sum_2（严谨性/构造数据） | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
@@ -18,7 +22,17 @@
 | 任务小时占用展开（GPU-hour 重叠折算） | step0_loader.py:expand_occupancy | 195,047 行占用表 |
 | 18 序列聚合（区域×类型 GPU 需求） | step0_loader.py:build_series | series_gpu_demand.csv |
 | 质量检查（NaN/矛盾任务/时段完整性） | step0_loader.py:check_quality | quality_report.json |
-| （后续公式 1.1-4.4 随 step1-4 落地时填充） | | |
+| 消纳系数校准 c_r（U=min(W,c_r·D)） | step1.0_baseline_schedule.py:fit_consume_ratio | baseline_metrics.json |
+| 四指标评估器（成本/碳/利用率/超容） | step1.0_baseline_schedule.py:evaluate_schedule | local/greedy_hourly.csv |
+| η 可预测性（η=1−Var(残差)/Var(Y)） | step1.3_rigor_analysis.py:a1_eta_profile | rigor_pack.json |
+| 分位数预测 q_α（pinball 最小化） | step1.1_forecast_arena.py:QuantileEnsemble | fuse_quantiles_task.csv |
+| 验证门（显著门限+宽度限制） | step1.1_forecast_arena.py:apply_gate | arena_table.csv |
+| 融合（不确定性元特征 Ridge stacking） | step1.1_forecast_arena.py:fuse_energy | fuse_point_energy.csv |
+| κ_ε 预留（κ=1−q_{1−ε}/C_r） | step1.2_robust_schedule.py:compute_kappa | kappa_fit.json |
+| E1 三方对照（gap<5pp 判据） | step1.2_robust_schedule.py:run_e1 | e1_three_way.json |
+| 套利分解（迁移/错峰/oracle 上界） | step1.3_rigor_analysis.py:a3_oracle_upper_bound | rigor_pack.json |
+| 冻结段最终评估（三段协议闭环） | step1.5_frozen_test.py:main | frozen_test.json |
+| 构造数据指纹（KS/对称性/零膨胀） | step1.6_generator_fingerprint.py:f1_fingerprints | generator_fingerprint.json |
 
 ## 产物清单（output/clean/）
 workload_clean.csv / region_time_clean.csv / whitelist.csv / occupancy_local.csv
