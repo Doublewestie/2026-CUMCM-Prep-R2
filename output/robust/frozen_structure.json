@@ -94,7 +94,1142 @@
     ],
     "median_hour_template_mape_pct": 1.271777247740259,
     "median_period_template_mape_pct": 2.47771295772323,
-    "note": "冻结段价格非纯日模板（MAPE 1.27%）；段标签均值预测更差时说明冻结段存在段内价格结构（模型残差修正的价值来源）；step1.5 冻结段 0.19% 来自 RF 残差修正精确命中段内结构"
+    "note": "冻结段价格含日内结构（日模板 1.27% < 段标签均值 2.48%）；真实冻结段 2376-2399 修复评估后 price 最优 = lgbm_point 0.34%（残差修正真实增益）；旧 0.19% 系 step1.5 评估段误用 closure（2400-2406）所致——closure 价格=完美日模板（stat_hist 0.19%）"
+  },
+  "s6_power_curve": {
+    "windows": [
+      24,
+      48,
+      96,
+      168,
+      336
+    ],
+    "summary": {
+      "24": {
+        "cv_consistency": 0.11352040816326531,
+        "cv_std": 0.12115975030916225,
+        "deploy_consistency": 0.5671768707482993,
+        "deploy_std": 0.2714115029336326,
+        "mismatch_share": 1.0,
+        "n_series": 24
+      },
+      "48": {
+        "cv_consistency": 0.11564625850340136,
+        "cv_std": 0.12944614027131754,
+        "deploy_consistency": 0.6028911564625851,
+        "deploy_std": 0.25975205908198923,
+        "mismatch_share": 1.0,
+        "n_series": 24
+      },
+      "96": {
+        "cv_consistency": 0.08680555555555557,
+        "cv_std": 0.12525135758341915,
+        "deploy_consistency": 0.6857638888888888,
+        "deploy_std": 0.23505420238655875,
+        "mismatch_share": 1.0,
+        "n_series": 24
+      },
+      "168": {
+        "cv_consistency": 0.07738095238095238,
+        "cv_std": 0.13958467146762651,
+        "deploy_consistency": 0.7351190476190476,
+        "deploy_std": 0.27822415578746895,
+        "mismatch_share": 1.0,
+        "n_series": 24
+      },
+      "336": {
+        "cv_consistency": 0.10714285714285714,
+        "cv_std": 0.18956822934201062,
+        "deploy_consistency": 0.7142857142857143,
+        "deploy_std": 0.30956362222054934,
+        "mismatch_share": 1.0,
+        "n_series": 24
+      }
+    },
+    "per_series_window": [
+      {
+        "series": "energy|RegionA|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionA|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionA|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionA|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionA|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 98,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 49,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 24,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "xgboost_point",
+        "deploy_best": "stat_hist"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "W": 24,
+        "cv_consistency": 0.2755102040816326,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "W": 48,
+        "cv_consistency": 0.30612244897959184,
+        "deploy_consistency": 0.3877551020408163,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "W": 96,
+        "cv_consistency": 0.25,
+        "deploy_consistency": 0.5416666666666666,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "W": 168,
+        "cv_consistency": 0.35714285714285715,
+        "deploy_consistency": 0.35714285714285715,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "W": 24,
+        "cv_consistency": 0.29591836734693877,
+        "deploy_consistency": 0.3979591836734694,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "W": 48,
+        "cv_consistency": 0.30612244897959184,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "W": 96,
+        "cv_consistency": 0.25,
+        "deploy_consistency": 0.625,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "W": 168,
+        "cv_consistency": 0.2857142857142857,
+        "deploy_consistency": 0.42857142857142855,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "W": 24,
+        "cv_consistency": 0.2653061224489796,
+        "deploy_consistency": 0.37755102040816324,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "W": 48,
+        "cv_consistency": 0.2653061224489796,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "W": 96,
+        "cv_consistency": 0.25,
+        "deploy_consistency": 0.5,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "W": 168,
+        "cv_consistency": 0.35714285714285715,
+        "deploy_consistency": 0.35714285714285715,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "W": 24,
+        "cv_consistency": 0.2857142857142857,
+        "deploy_consistency": 0.32653061224489793,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "W": 48,
+        "cv_consistency": 0.30612244897959184,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "W": 96,
+        "cv_consistency": 0.3333333333333333,
+        "deploy_consistency": 0.4166666666666667,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "W": 168,
+        "cv_consistency": 0.21428571428571427,
+        "deploy_consistency": 0.5,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "W": 24,
+        "cv_consistency": 0.2755102040816326,
+        "deploy_consistency": 0.3673469387755102,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "W": 48,
+        "cv_consistency": 0.32653061224489793,
+        "deploy_consistency": 0.30612244897959184,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "W": 96,
+        "cv_consistency": 0.3333333333333333,
+        "deploy_consistency": 0.4583333333333333,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "W": 168,
+        "cv_consistency": 0.35714285714285715,
+        "deploy_consistency": 0.35714285714285715,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "W": 24,
+        "cv_consistency": 0.2755102040816326,
+        "deploy_consistency": 0.3469387755102041,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "W": 48,
+        "cv_consistency": 0.2857142857142857,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "W": 96,
+        "cv_consistency": 0.3333333333333333,
+        "deploy_consistency": 0.4166666666666667,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "W": 168,
+        "cv_consistency": 0.2857142857142857,
+        "deploy_consistency": 0.42857142857142855,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "W": 336,
+        "cv_consistency": 0.42857142857142855,
+        "deploy_consistency": 0.2857142857142857,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|carbon",
+        "W": 24,
+        "cv_consistency": 0.1326530612244898,
+        "deploy_consistency": 0.6020408163265306,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|carbon",
+        "W": 48,
+        "cv_consistency": 0.16326530612244897,
+        "deploy_consistency": 0.5918367346938775,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|carbon",
+        "W": 96,
+        "cv_consistency": 0.041666666666666664,
+        "deploy_consistency": 0.7916666666666666,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "W": 24,
+        "cv_consistency": 0.19387755102040816,
+        "deploy_consistency": 0.5204081632653061,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "W": 48,
+        "cv_consistency": 0.20408163265306123,
+        "deploy_consistency": 0.6122448979591837,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "W": 96,
+        "cv_consistency": 0.08333333333333333,
+        "deploy_consistency": 0.75,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "W": 24,
+        "cv_consistency": 0.17346938775510204,
+        "deploy_consistency": 0.40816326530612246,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "W": 48,
+        "cv_consistency": 0.12244897959183673,
+        "deploy_consistency": 0.46938775510204084,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "W": 96,
+        "cv_consistency": 0.041666666666666664,
+        "deploy_consistency": 0.6666666666666666,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "W": 24,
+        "cv_consistency": 0.1836734693877551,
+        "deploy_consistency": 0.5510204081632653,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "W": 48,
+        "cv_consistency": 0.16326530612244897,
+        "deploy_consistency": 0.6530612244897959,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "W": 96,
+        "cv_consistency": 0.08333333333333333,
+        "deploy_consistency": 0.7916666666666666,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "W": 24,
+        "cv_consistency": 0.1836734693877551,
+        "deploy_consistency": 0.4387755102040816,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "W": 48,
+        "cv_consistency": 0.20408163265306123,
+        "deploy_consistency": 0.5102040816326531,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "W": 96,
+        "cv_consistency": 0.041666666666666664,
+        "deploy_consistency": 0.75,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "W": 24,
+        "cv_consistency": 0.16326530612244897,
+        "deploy_consistency": 0.37755102040816324,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "W": 48,
+        "cv_consistency": 0.12244897959183673,
+        "deploy_consistency": 0.4489795918367347,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "W": 96,
+        "cv_consistency": 0.041666666666666664,
+        "deploy_consistency": 0.5833333333333334,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.9285714285714286,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8571428571428571,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "W": 24,
+        "cv_consistency": 0.01020408163265306,
+        "deploy_consistency": 0.5714285714285714,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.7142857142857143,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.8333333333333334,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.45918367346938777,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5306122448979592,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5833333333333334,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.6428571428571429,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.7142857142857143,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5714285714285714,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5918367346938775,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5833333333333334,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.7857142857142857,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.7142857142857143,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "W": 24,
+        "cv_consistency": 0.01020408163265306,
+        "deploy_consistency": 0.32653061224489793,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.3673469387755102,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.7142857142857143,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.1836734693877551,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "xgboost_point"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.1836734693877551,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "xgboost_point"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.16666666666666666,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "xgboost_point"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.21428571428571427,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "xgboost_point"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.14285714285714285,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "xgboost_point"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "W": 24,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.37755102040816324,
+        "n_windows": 98,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "W": 48,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.46938775510204084,
+        "n_windows": 49,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "W": 96,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5,
+        "n_windows": 24,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "W": 168,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 0.5,
+        "n_windows": 14,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "W": 336,
+        "cv_consistency": 0.0,
+        "deploy_consistency": 1.0,
+        "n_windows": 7,
+        "cv_best": "tabpfn",
+        "deploy_best": "lgbm_point"
+      }
+    ],
+    "caliber": "判别实验：模型全段拟合（含窗口），窗内 MAPE 最优 vs 双参考；非深度 6 模型子集；训练段 0-2351 内滑窗",
+    "finding": "① TabPFN 统治是 CV(5折) 口径现象；全段拟合(2352点)下树类更优（训练规模迁移：few-shot 优势在长训练段消失），24/24 能源序列 CV-部署最优错位（mismatch=1.00）；② 真实冻结段 2376-2399 评估（R2 修复 step1.5 段误用）一致率 0.119、price 最优 lgbm 0.34%（残差修正真实增益）、旧 8.3%/0.19% 系 closure 段口径产物"
   },
   "conclusion": "冻结段需求抬升是生成器收尾结构（S1 z=2.86/100 百分位）→ 常数历史分位数外推欠覆盖（S3 0.917→滚动 336h 0.944）→ 覆盖风险条件于需求水平（S2 gap −1.8pp）→ 冻结段职责=最终验证（S4 超容率 4.86%≈ε=5% 设计）而非排名裁决（短窗排名噪声是次级效应）",
   "caliber": "覆盖率为区域聚合 144 点口径（与 step1.2 一致）；滚动分位数为 nowcast（t 用 [t-K,t-1]，shift≥1 防泄漏）"

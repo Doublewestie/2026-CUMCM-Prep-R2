@@ -100,6 +100,18 @@ def test_gate_significance_requirement():
     assert s11.apply_gate(energy_win, base).startswith("通过")
 
 
+def test_gate_v2_pinball_guard():
+    """v2 守卫：cov 通道通过但 pinball 显著恶化 → 拒绝（宽度换覆盖防御）。"""
+    base = {"cov_mean": 0.895, "cov_std": 0.019, "width_mean": 102.3,
+            "pinball_mean": 27.6, "mape_mean": 2.8, "layer": "task"}
+    edge = {"n_folds": 5, "layer": "task", "cov_mean": 0.923,
+            "width_mean": 116.0, "pinball_mean": 28.7}   # pinball 恶化 -4.0%
+    assert s11.apply_gate(edge, base).startswith("拒绝")
+    ok = {"n_folds": 5, "layer": "task", "cov_mean": 0.923,
+          "width_mean": 116.0, "pinball_mean": 27.0}    # pinball 持平
+    assert s11.apply_gate(ok, base).startswith("通过")
+
+
 def test_fuse_task_quantiles_all(task_series):
     y = task_series["y"]
     pool = s11.build_model_pool("task")

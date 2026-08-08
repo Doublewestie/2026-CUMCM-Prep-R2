@@ -26,6 +26,7 @@ import random
 import sys
 import time
 from functools import lru_cache
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -553,6 +554,14 @@ def run_cv_series(name: str, layer: str, y: np.ndarray, X: pd.DataFrame,
 
 
 def apply_gate(row: dict, base: dict) -> str:
+    """验证门 v2：v1 双通道 + 交叉指标守卫（防"宽度换覆盖/精度换覆盖率"）。
+
+    v1 缺陷（T1 修复）: RegionC|RT TabPFN 经 cov 通道通过但 pinball 恶化 −37%
+    （宽度换覆盖率）——单通道通过无交叉守卫。
+    v2 规则（任务侧）:
+      cov 通道: cov 显著增益 + 宽度 ≤1.15× + pinball 不显著恶化（≥ −2pp）
+      pinball 通道: pinball 降幅 ≥5% + cov 不崩溃（gain ≥ −基线std）
+    """
     if row.get("n_folds", 0) == 0:
         return "拒绝:训练失败"
     if base is None:
@@ -564,18 +573,45 @@ def apply_gate(row: dict, base: dict) -> str:
         width_ok = row["width_mean"] <= 1.15 * base["width_mean"]
         pin_imp = ((base["pinball_mean"] - row["pinball_mean"])
                    / max(base["pinball_mean"], 1e-9))
-        if (cov_sig and width_ok) or pin_imp >= 0.05:
+        pin_ok = pin_imp >= -0.02          # v2 守卫：pinball 不允许显著恶化
+        cov_ok = cov_gain >= -base["cov_std"]  # v2 对称守卫（pinball 通道）
+        if (cov_sig and width_ok and pin_ok) or (pin_imp >= 0.05 and cov_ok):
             return (f"通过:cov显著增益={cov_gain:+.3f} "
                     f"pinball降幅={pin_imp*100:.1f}%")
         return (f"拒绝:cov增益={cov_gain:+.3f}(<基线std={base['cov_std']:.3f}) "
                 f"或宽度失控({row['width_mean']:.0f}>"
                 f"{1.15*base['width_mean']:.0f}) "
-                f"pinball降幅={pin_imp*100:.1f}%(<5%)")
+                f"或pinball恶化({pin_imp*100:.1f}%<-2%) "
+                f"pinball降幅={pin_imp*100:.1f}%")
     imp = ((base["mape_mean"] - row["mape_mean"])
            / max(base["mape_mean"], 1e-9))
     if imp >= 0.05:
         return f"通过:MAPE降幅={imp*100:.1f}%"
     return f"拒绝:MAPE降幅={imp*100:.1f}%(<5%)"
+
+
+def regate_arena(path: Path | str = OUTPUT / "forecast" / "arena_table.csv"
+                 ) -> pd.DataFrame:
+    """基于现有竞技榜指标重算 gate（v2），免重训（论文数字追溯）。
+
+    仅更新 gate 列 + 追加 gate_v2 说明；统计基线行标记不变。
+    """
+    t = pd.read_csv(path)
+    base_map = {}
+    for _, r in t[t.family == "统计基线"].iterrows():
+        base_map[r["series"]] = r.to_dict()
+    gates = []
+    for _, r in t.iterrows():
+        if r["family"] == "统计基线":
+            gates.append("通过:统计基线(门)")
+        else:
+            gates.append(apply_gate(r.to_dict(), base_map.get(r["series"])))
+    t["gate"] = gates
+    t.to_csv(path, index=False)
+    npass = sum(1 for g in gates
+                if g.startswith("通过") and "统计基线" not in g)
+    print(f"regate v2: 非基线通过 {npass}/{len(gates) - len(base_map)}")
+    return t
 
 
 def _build_meta(oofdf: pd.DataFrame, wdf: pd.DataFrame, yv: np.ndarray,
@@ -823,4 +859,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == "regate":
+        regate_arena()
+    else:
+        main()

@@ -177,12 +177,12 @@
     "criterion_note": "E1a 的 4.6% 为 C2 启发式；oracle 上界给出套利潜力上限"
   },
   "a4_threshold": {
-    "energy_gate_3pct": 129,
-    "energy_gate_5pct": 127,
-    "energy_gate_7pct": 127,
+    "energy_gate_3pct": 128,
+    "energy_gate_5pct": 126,
+    "energy_gate_7pct": 126,
     "task_cov_85": 1,
     "task_cov_90": 1,
-    "task_cov_95": 1,
+    "task_cov_95": 0,
     "kappa_target_90": {
       "passed": [
         0.01,

@@ -26,7 +26,9 @@ plt.rcParams["figure.dpi"] = 150
 
 OUT_R = OUTPUT / "robust"
 FIG_S1 = FIGURES / "step1"
-SEG_TRAIN, SEG_TEST = 2352, 2400
+SEG_TRAIN = 2352
+SEG_TEST = 2376            # R2 修复：冻结段 2376-2399（原误为 2400 → 只评估了 closure 段）
+SEG_END = 2400
 
 
 def load_s11():
@@ -42,7 +44,7 @@ def eval_frozen(s11, name, info):
     y = info["y"]
     X = s11.build_features(y, info["layer"], info.get("region"))
     pool = s11.build_model_pool(info["layer"])
-    seg = np.arange(SEG_TEST, HOURS_TOTAL)
+    seg = np.arange(SEG_TEST, SEG_END)
     y_true = y[seg]
     rows = []
     for m in pool:
@@ -102,6 +104,23 @@ def consistency(series: dict, frozen: dict) -> dict:
             "match_rate": round(match / max(total, 1), 3)}
 
 
+def window_noise_benchmark() -> dict:
+    """短窗排名噪声基准（R2/S6 数据）：24h 窗口排名一致率（噪声基准）。
+
+    来源: step1.7 s6_power_curve（全段拟合 + 窗内最优 vs 双参考）。
+    用途: 冻结段 24h 评估只承担"不崩溃验证"，不承担"排名裁决"。
+    """
+    try:
+        fs = json.loads((OUT_R / "frozen_structure.json")
+                        .read_text(encoding="utf-8"))
+        s6 = fs["s6_power_curve"]["summary"]["24"]
+        return {"window_24h_deploy_consistency": s6["deploy_consistency"],
+                "window_24h_cv_consistency": s6["cv_consistency"],
+                "frozen_consistency": None}
+    except Exception:
+        return {"error": "frozen_structure.json 未生成（先跑 step1.7）"}
+
+
 def main() -> None:
     s11 = load_s11()
     series = s11.make_series_dict()
@@ -136,6 +155,11 @@ def main() -> None:
     plt.close(fig)
 
     out = {"consistency": cons,
+           "window_noise_benchmark": window_noise_benchmark(),
+           "interpretation": ("冻结段 2376-2399 一次性评估（R2 修复：原误用 closure "
+                              "2400-2406）；一致率低同时受短窗噪声（W=24 基准见 "
+                              "window_noise_benchmark）与 CV-部署错位（S6 mismatch）"
+                              "影响——冻结段只承担不崩溃验证，不承担排名裁决"),
            "per_series": {n: {r["model"]: {k: r[k] for k in
                           ("mape", "rmse", "cov", "width", "pinball")
                           if k in r} for r in fd}

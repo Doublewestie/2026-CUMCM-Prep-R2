@@ -174,13 +174,108 @@ def s5_price_mystery() -> dict:
                 [x["hour_template_mape_pct"] for x in rows])),
             "median_period_template_mape_pct": float(np.median(
                 [x["period_template_mape_pct"] for x in rows])),
-            "note": "冻结段价格非纯日模板（MAPE 1.27%）；段标签均值预测更差时"
-                    "说明冻结段存在段内价格结构（模型残差修正的价值来源）；"
-                    "step1.5 冻结段 0.19% 来自 RF 残差修正精确命中段内结构"}
+            "note": ("冻结段价格含日内结构（日模板 1.27% < 段标签均值 2.48%）；"
+                     "真实冻结段 2376-2399 修复评估后 price 最优 = lgbm_point 0.34%"
+                     "（残差修正真实增益）；旧 0.19% 系 step1.5 评估段误用 closure"
+                     "（2400-2406）所致——closure 价格=完美日模板（stat_hist 0.19%）")}
 
 
-def plot_structure(s1: dict, s2: dict, s3: dict, tot: np.ndarray) -> None:
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.2))
+def s6_power_curve(series: dict) -> dict:
+    """S6 功效曲线（双口径）：窗口长度 vs 一致率（短窗排名噪声的统计功效）.
+
+    口径（判别实验，与 step1.5 冻结段一致）: 模型 0-2351 全段拟合后预测全段，
+    按窗口切片评估；窗内最优与参考最优的一致率随 W 变化。模型子集: 6 个非深度。
+
+    双参考（R2 深化发现）:
+      cv_best: arena CV(5折) 最优 → 揭示"CV 类选 → 全段部署"的训练规模错位
+               （实证: TabPFN CV 统治但全段拟合下树类更优——tabpfn 对训练
+               规模敏感，2352 点下 few-shot 优势消失）
+      deploy_best: 全段拟合最优 → 纯"短窗排名噪声"功效曲线（预期随 W 上升）
+    用途: 支撑"短窗只承担不崩溃验证" + 类选-部署错位的方法学声明。
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "s11", Path(__file__).resolve().parent / "step1.1_forecast_arena.py")
+    s11 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(s11)
+    cv = pd.read_csv(OUTPUT / "forecast" / "arena_table.csv")
+    cv_best = {}
+    for name, g in cv[cv.family != "统计基线"].groupby("series"):
+        g = g[g.n_folds > 0]
+        if len(g):
+            cv_best[name] = g.loc[g.mape_mean.idxmin(), "model"]
+    wins = [24, 48, 96, 168, 336]
+    rows = []
+    for name, info in series.items():
+        if info["layer"] != "energy" or name not in cv_best:
+            continue
+        y = info["y"][:2352]
+        X = s11.build_features(y, "energy", info.get("region"))
+        pool = [m for m in s11.build_model_pool("energy")
+                if m.family != "深度"]
+        preds = {}
+        for m in pool:
+            m = s11._fresh_model(m)
+            try:
+                if isinstance(m, s11.StatisticalBaseline):
+                    m.fit(y[:2352])
+                else:
+                    m.fit(X.iloc[:2352], y[:2352])
+                preds[m.name] = m.predict_point(X.iloc[:2352], 0)
+            except Exception:
+                continue
+        if not preds:
+            continue
+        full_mape = {mn: float(np.mean(np.abs(p - y)
+                                       / np.maximum(y, 1e-9)))
+                     for mn, p in preds.items()}
+        deploy_best = min(full_mape, key=full_mape.get)
+        cb = cv_best[name]
+        for W in wins:
+            n, m_cv, m_dep = 0, 0, 0
+            for t0 in range(0, 2352 - W + 1, W):
+                n += 1
+                seg = np.arange(t0, t0 + W)
+                mape = {mn: float(np.mean(np.abs(p[seg] - y[seg])
+                                          / np.maximum(y[seg], 1e-9)))
+                        for mn, p in preds.items()}
+                win_best = min(mape, key=mape.get)
+                m_cv += (win_best == cb)
+                m_dep += (win_best == deploy_best)
+            rows.append({"series": name, "W": W,
+                         "cv_consistency": m_cv / max(n, 1),
+                         "deploy_consistency": m_dep / max(n, 1),
+                         "n_windows": n,
+                         "cv_best": cb, "deploy_best": deploy_best})
+    df = pd.DataFrame(rows)
+    agg = df.groupby("W")[["cv_consistency", "deploy_consistency"]].agg(
+        ["mean", "std", "count"])
+    mismatch = df.groupby("W").apply(
+        lambda d: float(np.mean(d["cv_best"] != d["deploy_best"])),
+        include_groups=False)
+    return {"windows": wins,
+            "summary": {int(w): {"cv_consistency": float(r[("cv_consistency", "mean")]),
+                                 "cv_std": float(r[("cv_consistency", "std")]),
+                                 "deploy_consistency": float(r[("deploy_consistency", "mean")]),
+                                 "deploy_std": float(r[("deploy_consistency", "std")]),
+                                 "mismatch_share": float(mismatch[w]),
+                                 "n_series": int(r[("cv_consistency", "count")])}
+                        for w, r in agg.iterrows()},
+            "per_series_window": df.to_dict("records"),
+            "caliber": "判别实验：模型全段拟合（含窗口），窗内 MAPE 最优 vs 双参考；"
+                       "非深度 6 模型子集；训练段 0-2351 内滑窗",
+            "finding": ("① TabPFN 统治是 CV(5折) 口径现象；全段拟合(2352点)下树类更优"
+                        "（训练规模迁移：few-shot 优势在长训练段消失），"
+                        "24/24 能源序列 CV-部署最优错位（mismatch=1.00）；"
+                        "② 真实冻结段 2376-2399 评估（R2 修复 step1.5 段误用）"
+                        "一致率 0.119、price 最优 lgbm 0.34%（残差修正真实增益）、"
+                        "旧 8.3%/0.19% 系 closure 段口径产物")}
+
+
+def plot_structure(s1: dict, s2: dict, s3: dict, tot: np.ndarray,
+                   s6: dict | None = None) -> None:
+    n_panels = 4 if s6 is not None else 3
+    fig, axes = plt.subplots(1, n_panels, figsize=(5 * n_panels, 4.2))
     win = np.array([tot[t * 24:(t + 1) * 24].mean() for t in range(98)])
     axes[0].hist(win, bins=16, color="#95a5a6", edgecolor="white",
                  label="训练段 98 窗口均值")
@@ -202,7 +297,24 @@ def plot_structure(s1: dict, s2: dict, s3: dict, tot: np.ndarray) -> None:
     axes[2].axhline(0.95, color="k", ls="--", lw=0.8)
     axes[2].set_title("S3 滚动重估: 冻结段 95% 覆盖率")
     axes[2].set_ylim(0.8, 1.0)
-    fig.suptitle("冻结段结构研究: 需求抬升 → 静态分位数外推失效 → 滚动重估修复")
+    if s6 is not None:
+        ws = s6["windows"]
+        m_cv = [s6["summary"][w]["cv_consistency"] for w in ws]
+        m_dep = [s6["summary"][w]["deploy_consistency"] for w in ws]
+        e_cv = [s6["summary"][w]["cv_std"] for w in ws]
+        e_dep = [s6["summary"][w]["deploy_std"] for w in ws]
+        axes[3].errorbar(ws, m_dep, yerr=e_dep, fmt="o-", color="#8e44ad",
+                         label="vs 部署最优(全段拟合)")
+        axes[3].errorbar(ws, m_cv, yerr=e_cv, fmt="s--", color="#c0392b",
+                         label="vs CV 最优(5折)")
+        axes[3].axhline(1.0, color="k", ls="--", lw=0.8)
+        axes[3].set_title("S6 功效曲线: 窗口 vs 一致率")
+        axes[3].set_xlabel("评估窗口 W (h)")
+        axes[3].set_ylabel("窗内最优一致率")
+        axes[3].set_ylim(0, 1.05)
+        axes[3].legend(fontsize=8)
+    fig.suptitle("冻结段结构研究: 需求抬升 → 外推失效 → 滚动重估修复"
+                 + (" → 短窗功效" if s6 is not None else ""))
     fig.tight_layout()
     fig.savefig(FIG_S1 / "fig_frozen_structure.png", bbox_inches="tight")
     plt.close(fig)
@@ -217,9 +329,15 @@ def main() -> None:
     s3 = s3_rolling_requantile(act)
     s4 = s4_kappa_final_validation(s3)
     s5 = s5_price_mystery()
+    s11 = None
+    spec = importlib.util.spec_from_file_location(
+        "s11b", Path(__file__).resolve().parent / "step1.1_forecast_arena.py")
+    s11 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(s11)
+    s6 = s6_power_curve(s11.make_series_dict())
     report = {"s1_discrimination": s1, "s2_conditional_cov": s2,
               "s3_rolling_requantile": s3, "s4_kappa_final": s4,
-              "s5_price_mystery": s5,
+              "s5_price_mystery": s5, "s6_power_curve": s6,
               "conclusion": ("冻结段需求抬升是生成器收尾结构（S1 z=2.86/100 百分位）→ "
                              "常数历史分位数外推欠覆盖（S3 0.917→滚动 336h 0.944）→ "
                              "覆盖风险条件于需求水平（S2 gap −1.8pp）→ "
@@ -229,7 +347,7 @@ def main() -> None:
                          "滚动分位数为 nowcast（t 用 [t-K,t-1]，shift≥1 防泄漏）"}
     with open(OUT_R / "frozen_structure.json", "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
-    plot_structure(s1, s2, s3, tot)
+    plot_structure(s1, s2, s3, tot, s6)
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
 
