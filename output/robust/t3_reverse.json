@@ -1,0 +1,33 @@
+{
+  "results": {
+    "x1.0": {
+      "n_viol": 0,
+      "T1_weighted": 27.795,
+      "T2_viol": 0,
+      "viol_share": 0.0
+    },
+    "x1.1": {
+      "n_viol": 0,
+      "T1_weighted": 27.795,
+      "T2_viol": 0,
+      "viol_share": 0.0
+    },
+    "x1.2": {
+      "n_viol": 0,
+      "T1_weighted": 27.795,
+      "T2_viol": 0,
+      "viol_share": 0.0
+    },
+    "x1.5": {
+      "n_viol": 0,
+      "T1_weighted": 27.795,
+      "T2_viol": 0,
+      "viol_share": 0.0
+    }
+  },
+  "verdict": {
+    "t3_discriminative_when_relaxed": false,
+    "conclusion": "反证链（P2 实证）：放宽白名单 ×1.1-1.5 后调度不变（价格排序主导，候选集扩大不改变选择）→ 仍零违约 → T2/T3 的区分度边界比预期更硬：不仅题面参数下无区分度，策略结构（价格优先）下即使放宽也不产生违约 → T1 有效且边界稳健",
+    "note": "反证链（P2）：T2/T3 零违约无区分度；放宽白名单后策略不变仍零违约——T1 裁决的反证链证据（比'放宽才有区分度'的假设更硬）"
+  }
+}

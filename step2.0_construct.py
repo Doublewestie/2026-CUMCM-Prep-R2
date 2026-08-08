@@ -78,7 +78,9 @@ def _hourly_price(rt: pd.DataFrame) -> pd.DataFrame:
 
 
 def schedule_constructive(wt: pd.DataFrame, rt: pd.DataFrame, s10,
-                          params: dict, policy: tuple | None = None
+                          params: dict, policy: tuple | None = None,
+                          whitelist_override: pd.DataFrame | None = None,
+                          capacity_factor: np.ndarray | None = None
                           ) -> pd.DataFrame:
     """构造性调度：RT 固定到达即开工；BI/AT 按白名单+区域评分迁移（容量贪心）.
 
@@ -93,11 +95,20 @@ def schedule_constructive(wt: pd.DataFrame, rt: pd.DataFrame, s10,
     mig_gpu, mig_dur, sh_bi, sh_at, headroom = (policy if policy is not None
                                                 else (0.0, 0.0, 0.0, 0.0, 0.0))
     wl = {(r.TaskType, r.SourceRegion): r.Reachable.split("|")
-          for r in pd.read_csv(CLEAN / "whitelist.csv").itertuples(index=False)}
+          for r in (whitelist_override
+                    if whitelist_override is not None
+                    else pd.read_csv(CLEAN / "whitelist.csv"))
+          .itertuples(index=False)}
     ranks = region_rank(rt, wl, s10, params, LAMBDA)
     price = _hourly_price(rt).to_numpy(dtype=float)   # (2407, 6) numpy
     cap_arr = np.array([params["cap"][r] for r in REGIONS], dtype=float)
     cap_arr = cap_arr * (1 - headroom)
+    if capacity_factor is not None:
+        # 逐时容量因子（κ 预留）: (2407,6) → 有效容量矩阵（仅弹性任务生效）
+        cap_eff = cap_arr[None, :] * capacity_factor
+    else:
+        cap_eff = np.broadcast_to(cap_arr, (HOURS_TOTAL, len(REGIONS)))
+    cap_rt = cap_arr                                # RT 刚性：不受预留压缩
     occ = np.zeros((HOURS_TOTAL, len(REGIONS)))
     shift_max = {"RealTimeInference": 0.0,
                  "BatchInference": sh_bi, "AITraining": sh_at}
@@ -123,17 +134,34 @@ def schedule_constructive(wt: pd.DataFrame, rt: pd.DataFrame, s10,
                 hi = min(int(rec.LatestFinishHour - dur), last)
                 if hi < lo:
                     continue
-                if occ[lo:hi + 1, ri].max() + g > cap_arr[ri]:
+                if occ[lo:hi + 1, ri].max() + g > cap_eff[lo:hi + 1, ri].max():
                     continue                    # 区域级：窗口内放不下
                 for s in range(lo, hi + 1):
                     h1 = min(int(np.ceil(s + dur)), HOURS_TOTAL)
                     if h1 <= s:
                         break
-                    if (occ[s:h1, ri] + g - cap_arr[ri]).max() <= 0:
+                    if (occ[s:h1, ri] + g - cap_eff[s:h1, ri].max()).max() <= 0:
                         r, st = ri, s
                         break
                 if r is not None:
                     break
+            if r is None:
+                # 容量修复：错峰窗口内放不下 → 全窗口延后扫描（viol=0 硬底线）
+                for c in cands:
+                    ri = REGIONS.index(c)
+                    lo = int(rec.ArrivalHour)
+                    hi = min(int(rec.LatestFinishHour - dur), 2405)
+                    if hi < lo:
+                        continue
+                    if occ[lo:hi + 1, ri].max() + g > cap_eff[lo:hi + 1, ri].max():
+                        continue
+                    for s in range(lo, hi + 1):
+                        h1 = min(int(np.ceil(s + dur)), HOURS_TOTAL)
+                        if (occ[s:h1, ri] + g - cap_eff[s:h1, ri].max()).max() <= 0:
+                            r, st = ri, s
+                            break
+                    if r is not None:
+                        break
             if r is None:
                 r = REGIONS.index(rec.SourceRegion)
                 st = int(rec.ArrivalHour)
@@ -171,9 +199,14 @@ def compute_latency(wt: pd.DataFrame, sched: pd.DataFrame) -> float:
 
 
 def evaluate_4obj(wt: pd.DataFrame, rt: pd.DataFrame, sched: pd.DataFrame,
-                  s10, params: dict, consume: dict) -> dict:
-    """四目标评估（模板口径）：Cost₂/CE₂/NU 复用评估器 + Lat 单独计算。"""
-    m, _ = s10.evaluate_schedule(sched, wt, rt, params, consume)
+                  s10, params: dict, consume: dict,
+                  include_baseline_charge: bool = False) -> dict:
+    """四目标评估（模板口径）：Cost₂/CE₂/NU 复用评估器 + Lat 单独计算.
+
+    include_baseline_charge=True（B2）: 对照题目基线口径（充电项计入 NU/弃电）。
+    """
+    m, _ = s10.evaluate_schedule(sched, wt, rt, params, consume,
+                                 include_baseline_charge=include_baseline_charge)
     lat = compute_latency(wt, sched)
     return {"cost_wan": m["cost_wan"], "carbon_t": m["carbon_t"],
             "nu_pct": m["nu_pct"], "latency_ms": lat,

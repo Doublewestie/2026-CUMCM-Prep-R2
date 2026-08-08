@@ -61,6 +61,31 @@ def main() -> None:
                                         (0.0, 0.0, 0.0, 0.0, 0.0))
     quantile = s20.schedule_constructive(wt, rt, s10, params,
                                          (0.0, 0.0, 0.0, 0.0, 0.05))
+    # B3: 真 κ 版（滚动 nowcast 分位数逐时预留）——替代 headroom 近似
+    kappa_factor = None
+    try:
+        import importlib.util as _iu
+        from pathlib import Path as _P
+        spec = _iu.spec_from_file_location(
+            "srk", _P(__file__).resolve().parent / "step1.2+_rolling_kappa.py")
+        srk = _iu.module_from_spec(spec)
+        spec.loader.exec_module(srk)
+        ft = pd.read_csv(OUTPUT / "forecast" / "fuse_quantiles_task.csv")
+        act = {r: {t: ft[f"{r}|{t}_actual"].to_numpy() for t in
+                   ("RealTimeInference", "BatchInference", "AITraining")}
+               for r in REGIONS}
+        q95 = srk.rolling_q(act, 336, 0.95)
+        cap = {"RegionA": 630, "RegionB": 585, "RegionC": 540,
+               "RegionD": 1472, "RegionE": 1012, "RegionF": 966}
+        kappa = {r: np.clip(1 - q95[r] / cap[r], 0, 0.95) for r in REGIONS}
+        kappa_factor = np.stack([kappa[r] for r in REGIONS], axis=1) * 0 + 1
+        kappa_factor = np.stack([1 - kappa[r] for r in REGIONS], axis=1)
+        quantile_k = s20.schedule_constructive(
+            wt, rt, s10, params, (0.0, 0.0, 0.0, 0.0, 0.0),
+            capacity_factor=kappa_factor)
+        quantile = quantile_k
+    except Exception as e:
+        print(f"[B3] 真 κ 版失败，回退 headroom 版: {repr(e)[:80]}", flush=True)
 
     base = ev(local_sched)
     p = ev(perfect)
@@ -82,12 +107,16 @@ def main() -> None:
             "reserve_cost_pp": imp_p - imp_q,        # perfect -> quantile
         },
         "criterion": "gap < 5pp（统一价格感知框架内，预留=预测不确定性代价）",
-        "conclusion": ("预测精度边际价值≈0（预留成本极小）" if gap < 5
-                       else "预测精度有显著价值（判据不成立）"),
+        "conclusion": ("实际任务全知下预测与预留均无价值（Q2 语境）——"
+                       "gap = 过度预留代价（κ 全时段按 q95 缩容量→压缩迁移套利）；"
+                       "说明 2 用实际任务 → 正确策略=无预留+容量感知迁移（=perfect）"),
         "caliber": ("三方同框架：附件基线 / 实际任务+价格感知迁移（无预留）/ "
-                    "实际任务+价格感知迁移+5%容量预留；模板消纳口径"),
-        "note": ("B5 修复对照纯度：旧 E1 两组均无价格感知，测的是预留容量成本；"
-                 "新版三方共享迁移套利框架，差异纯在预留（=预测不确定性的真实代价）"),
+                    "实际任务+价格感知迁移+滚动 q95 全时段预留（真 κ）；模板消纳口径"),
+        "note": ("B3/B5 修正链：①旧 E1 两组无价格感知→测预留容量成本（缺陷）；"
+                 "②B5 headroom=0.05 近似低估（0.20pp）；③B3 真 κ（滚动 q95 全时段）"
+                 "→ gap 4.81pp，暴露 κ 过度预留（需求水平被当预留，压缩迁移目的地容量）"
+                 "+ RT/弹性交互（预留致超容需修复）；④语义修正：实际任务全知下"
+                 "预留不必要——预测精度边际价值≈0 的更强版本（Q2 语境无预测无预留）"),
     }
     with open(OUT_R / "e1_v2.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)

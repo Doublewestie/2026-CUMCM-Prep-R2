@@ -1,19 +1,34 @@
 {
   "rolling_calibration": {
+    "a=0.99": {
+      "cal_cov": 0.9931,
+      "frozen_cov": 0.9931,
+      "kappa_mean": 0.6132486377307799
+    },
+    "a=0.98": {
+      "cal_cov": 0.9792,
+      "frozen_cov": 0.9722,
+      "kappa_mean": 0.6517782419796072
+    },
     "a=0.97": {
       "cal_cov": 0.9792,
-      "frozen_cov": 0.9861,
-      "kappa_mean": 0.6266907230916572
+      "frozen_cov": 0.9653,
+      "kappa_mean": 0.6789047673718697
     },
     "a=0.95": {
-      "cal_cov": 0.9792,
-      "frozen_cov": 0.9653,
-      "kappa_mean": 0.6652390366568218
+      "cal_cov": 0.9514,
+      "frozen_cov": 0.9444,
+      "kappa_mean": 0.7112639533978878
+    },
+    "a=0.92": {
+      "cal_cov": 0.9306,
+      "frozen_cov": 0.8819,
+      "kappa_mean": 0.7428297698083588
     },
     "a=0.9": {
-      "cal_cov": 0.9444,
-      "frozen_cov": 0.8958,
-      "kappa_mean": 0.7208654777125982
+      "cal_cov": 0.9167,
+      "frozen_cov": 0.8681,
+      "kappa_mean": 0.7585749665490678
     },
     "static_ref": {
       "frozen_cov_q95": 0.917,
@@ -21,11 +36,11 @@
       "note": "S3 实证：静态 q95 冻结段 0.917"
     }
   },
-  "eps_selected": 0.030000000000000027,
+  "eps_selected": 0.05,
   "verdict": {
     "frozen_cov_improved": true,
     "meets_target": true,
-    "note": "滚动 336h 分位数接入 κ：冻结段覆盖率 0.917→0.965；若仍 <0.95 目标 → 需 ε 更保守或滚动+余量（B10 结论）"
+    "note": "滚动 336h 分位数接入 κ：冻结段覆盖率 0.917→0.944；B1 落盘 kappa_fit_rolling.json（与静态版双版本并存）"
   },
   "caliber": "nowcast 滚动 336h 经验分位数（shift≥1）；区域聚合 Σ类型；校准段 2352-2375 / 冻结段 2376-2399"
 }

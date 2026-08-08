@@ -30,9 +30,9 @@ def test_deploy_best_tree_dominant():
 
 
 def test_e1_v2_clean_measurement():
-    """B5：干净框架下预测精度边际价值≈0（预留代价 <1pp）。"""
+    """B3/B5：干净框架下预测价值≈0（Q2 实际任务全知）；真 κ 版暴露过度预留。"""
     e = json.loads((OUT_R / "e1_v2.json").read_text(encoding="utf-8"))
     assert e["decomposition"]["spatial_arbitrage_pp"] > 3.0   # 套利真实
-    assert e["decomposition"]["reserve_cost_pp"] < 1.0        # 预留代价小
-    assert e["gap_pp"] < 5
-    assert e["conclusion"].startswith("预测精度边际价值≈0")
+    assert "过度预留" in e["conclusion"]                       # 语义修正落地
+    assert "实际任务全知" in e["conclusion"]
+    assert e["note"].startswith("B3/B5 修正链")

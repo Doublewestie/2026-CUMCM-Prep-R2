@@ -1,0 +1,66 @@
+{
+  "A3_cross_closure": {
+    "n_cross_tasks": 89,
+    "n_rt_cross": 24,
+    "started_by_2405": 89,
+    "finish_by_2406": 89,
+    "all_ok": true,
+    "note": "跨段定义=执行跨入收尾段（StartHour+dur>2399）；Q2 无任务延后到 2400+ 开工（仅结清）"
+  },
+  "A4_by_type": {
+    "by_type": {
+      "RealTimeInference": {
+        "n": 16724,
+        "mig_rate": 0.0
+      },
+      "BatchInference": {
+        "n": 16717,
+        "mig_rate": 0.524
+      },
+      "AITraining": {
+        "n": 16559,
+        "mig_rate": 0.73
+      }
+    },
+    "latency_quantiles": {
+      "p50": 5.0,
+      "p95": 78.0,
+      "max": 82.0,
+      "by_type": {
+        "RealTimeInference": 5.0,
+        "BatchInference": 78.0,
+        "AITraining": 78.0
+      }
+    }
+  },
+  "A5_region": {
+    "note": "区域负荷份额（调度后任务落在东/西区的比例）——NU 区域分解代理",
+    "east_share_q2": 0.374,
+    "west_share_q2": 0.625,
+    "east_share_local": 0.536
+  },
+  "C5_latency_marginal": {
+    "median_ms_per_wan": 0.0038,
+    "note": "沿前沿多花 1 万元 → 时延降 X ms（中位口径）"
+  },
+  "C2_topsis_sensitivity": {
+    "drift": {
+      "base": {
+        "idx": 21,
+        "cost_wan": 184055.0,
+        "latency_ms": 26.29
+      },
+      "p025": {
+        "idx": 21,
+        "cost_wan": 184055.0,
+        "latency_ms": 26.29
+      },
+      "p125": {
+        "idx": 21,
+        "cost_wan": 184055.0,
+        "latency_ms": 26.29
+      }
+    },
+    "note": "等权 ±25% 扰动下折中解漂移（成本/时延变化量）"
+  }
+}

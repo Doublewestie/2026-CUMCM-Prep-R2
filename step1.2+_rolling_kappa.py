@@ -26,18 +26,20 @@ SEG_TE_S, SEG_TE_E = 2376, 2400
 
 
 def rolling_q(act: dict, k: int = 336, a: float = 0.95) -> dict:
-    """每序列最近 k 小时滚动经验分位数（nowcast，shift≥1）。"""
+    """区域聚合需求直接滚动分位数（Σ类型 实际需求，nowcast shift≥1）.
+
+    修正（第 17 项问题）：独立分位数聚合（Σ 各类型 q95）比聚合需求分位数
+    保守（Σq95 ≥ q95(Σ) 恒成立）→ κ 预留虚高（实测 κ 均值 0.665）——
+    改为对聚合需求直接滚动分位数（更紧、更真实）。
+    """
     out = {}
     for r in REGIONS:
-        cols = []
-        for t in TASK_TYPES:
-            y = act[r][t]
-            q = np.zeros(len(y))
-            for t0 in range(len(y)):
-                lo = max(0, t0 - k)
-                q[t0] = np.quantile(y[lo:t0], a) if t0 > lo else y[t0]
-            cols.append(q)
-        out[r] = np.sum(cols, axis=0)
+        y = np.sum([act[r][t] for t in TASK_TYPES], axis=0)
+        q = np.zeros(len(y))
+        for t0 in range(len(y)):
+            lo = max(0, t0 - k)
+            q[t0] = np.quantile(y[lo:t0], a) if t0 > lo else y[t0]
+        out[r] = q
     return out
 
 
@@ -47,7 +49,7 @@ def main() -> None:
            for r in REGIONS}
     stat_agg = {r: np.sum([act[r][t] for t in TASK_TYPES], axis=0)
                 for r in REGIONS}
-    q_roll = {a: rolling_q(act, 336, a) for a in (0.95, 0.90, 0.97)}
+    q_roll = {a: rolling_q(act, 336, a) for a in (0.99, 0.98, 0.97, 0.95, 0.92, 0.90)}
     seg_cal = np.arange(SEG_CAL_S, SEG_CAL_E)
     seg_te = np.arange(SEG_TE_S, SEG_TE_E)
     cap = {"RegionA": 630, "RegionB": 585, "RegionC": 540,
@@ -58,7 +60,7 @@ def main() -> None:
             [q[r][seg] >= stat_agg[r][seg] for r in REGIONS])))
 
     res = {}
-    for a in (0.97, 0.95, 0.90):
+    for a in (0.99, 0.98, 0.97, 0.95, 0.92, 0.90):
         c_cal = cov(q_roll[a], seg_cal)
         c_te = cov(q_roll[a], seg_te)
         k = {r: np.clip(1 - q_roll[a][r] / cap[r], 0, 0.95) for r in REGIONS}
@@ -67,9 +69,19 @@ def main() -> None:
     # 静态对照（现有 κ 流程数值）
     res["static_ref"] = {"frozen_cov_q95": 0.917, "frozen_cov_q90": None,
                          "note": "S3 实证：静态 q95 冻结段 0.917"}
-    # ε 选择（校准段 ≥0.95 达标集取最大 ε）
-    passed = [a for a in (0.97, 0.95, 0.90) if res[f"a={a}"]["cal_cov"] >= 0.95]
-    eps_sel = 1 - max(passed) if passed else None
+    # ε 网格扫描（与主流程 kappa_fit 同构，滚动分位数版——B1 产物）
+    grid = {round(1 - a, 2): {"cal_cov": res[f"a={a}"]["cal_cov"],
+                              "frozen_cov": res[f"a={a}"]["frozen_cov"]}
+            for a in (0.99, 0.98, 0.97, 0.95, 0.92, 0.90)}
+    passed = [e for e, v in grid.items() if v["cal_cov"] >= 0.95]
+    eps_sel = max(passed) if passed else 0.02
+    kfr = {"eps_grid": list(grid.keys()), "eps_selected": eps_sel,
+           "calibration": {f"{e:.2f}": {"cov": grid[e]["cal_cov"]}
+                           for e in grid},
+           "frozen_cov": {f"{e:.2f}": grid[e]["frozen_cov"] for e in grid},
+           "note": "滚动 336h nowcast 分位数版（B1/B10）；静态版见 kappa_fit.json"}
+    with open(OUT_R / "kappa_fit_rolling.json", "w", encoding="utf-8") as f:
+        json.dump(kfr, f, ensure_ascii=False, indent=2)
     report = {
         "rolling_calibration": res,
         "eps_selected": eps_sel,
@@ -78,7 +90,7 @@ def main() -> None:
             "meets_target": res["a=0.95"]["frozen_cov"] >= 0.94,
             "note": ("滚动 336h 分位数接入 κ：冻结段覆盖率 0.917→"
                      f"{res['a=0.95']['frozen_cov']:.3f}；"
-                     "若仍 <0.95 目标 → 需 ε 更保守或滚动+余量（B10 结论）"),
+                     "B1 落盘 kappa_fit_rolling.json（与静态版双版本并存）"),
         },
         "caliber": "nowcast 滚动 336h 经验分位数（shift≥1）；区域聚合 Σ类型；"
                    "校准段 2352-2375 / 冻结段 2376-2399",
