@@ -1,0 +1,60 @@
+{
+  "local": {
+    "cost_wan": 192871.87719559588,
+    "carbon_t": 2108008.077355303,
+    "latency_ms": 5.0,
+    "nu_pct": 32.067232683563255,
+    "viol_h": 113,
+    "curtail_MWh": 7846756.593259398
+  },
+  "greedy": {
+    "cost_wan": 192870.12465645614,
+    "carbon_t": 2108006.1234111497,
+    "latency_ms": 5.0,
+    "nu_pct": 32.06710646387919,
+    "viol_h": 0,
+    "curtail_MWh": 7846771.172602727
+  },
+  "q1_quantile": {
+    "cost_wan": 192713.41572657737,
+    "carbon_t": 2107494.8425027938,
+    "latency_ms": 5.0,
+    "nu_pct": 32.068360143793605,
+    "viol_h": 512,
+    "curtail_MWh": 7846626.362939838
+  },
+  "q2_compromise": {
+    "cost_wan": 184054.7805731425,
+    "carbon_t": 2017069.1126165804,
+    "latency_ms": 26.28738355505838,
+    "nu_pct": 32.843495766739146,
+    "viol_h": 0,
+    "curtail_MWh": 7757092.242657556
+  },
+  "greedy_vs_local": {
+    "cost_pct": 0.0009086545769233398,
+    "carbon_pct": 9.269149270072131e-05,
+    "nu_pp": -0.00012621968406278938,
+    "latency_ratio": 1.0
+  },
+  "q1_quantile_vs_local": {
+    "cost_pct": 0.08215892919308927,
+    "carbon_pct": 0.024346911096897194,
+    "nu_pp": 0.0011274602303501524,
+    "latency_ratio": 1.0
+  },
+  "q2_compromise_vs_local": {
+    "cost_pct": 4.571478616092779,
+    "carbon_pct": 4.313976104532484,
+    "nu_pp": 0.7762630831758912,
+    "latency_ratio": 5.257476711011676
+  },
+  "q2_compromise_policy": [
+    11.900413723864377,
+    0.0,
+    11.768483237453207,
+    7.014796912153019,
+    0.0
+  ],
+  "note": "Q2 折中解 vs Q1 greedy 的增量 = 迁移/错峰优化；vs local = 全链改进（baseline_proof，消融 H 输入）"
+}

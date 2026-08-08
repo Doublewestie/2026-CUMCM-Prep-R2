@@ -1,0 +1,90 @@
+{
+  "sample_n": 10,
+  "rows": [
+    {
+      "cost_wan": 184409.14986693932,
+      "T1_weighted_ms": 25.361174624564722,
+      "T2_viol_count": 0,
+      "T3_base": 25.361174624564722,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 183735.0112167346,
+      "T1_weighted_ms": 27.65665476610788,
+      "T2_viol_count": 0,
+      "T3_base": 27.65665476610788,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 183864.6537708311,
+      "T1_weighted_ms": 27.213541819520785,
+      "T2_viol_count": 0,
+      "T3_base": 27.213541819520785,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184294.0811782405,
+      "T1_weighted_ms": 25.396928105545637,
+      "T2_viol_count": 0,
+      "T3_base": 25.396928105545637,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184296.7345458925,
+      "T1_weighted_ms": 25.41398691311981,
+      "T2_viol_count": 0,
+      "T3_base": 25.41398691311981,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184294.0811782405,
+      "T1_weighted_ms": 25.396928105545637,
+      "T2_viol_count": 0,
+      "T3_base": 25.396928105545637,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184211.1652029449,
+      "T1_weighted_ms": 25.716013166980517,
+      "T2_viol_count": 0,
+      "T3_base": 25.716013166980517,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 183932.9107008805,
+      "T1_weighted_ms": 26.96862074060313,
+      "T2_viol_count": 0,
+      "T3_base": 26.96862074060313,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184735.0009261278,
+      "T1_weighted_ms": 25.321730198062355,
+      "T2_viol_count": 0,
+      "T3_base": 25.321730198062355,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    },
+    {
+      "cost_wan": 184211.1652029449,
+      "T1_weighted_ms": 25.716013166980517,
+      "T2_viol_count": 0,
+      "T3_base": 25.716013166980517,
+      "min_margin_ms": 2.0,
+      "p95_ms": 78.0
+    }
+  ],
+  "verdict": {
+    "T2_all_zero": true,
+    "T3_equals_T1": true,
+    "conclusion": "白名单硬约束下前沿解零违约 → T2/T3 违约项恒 0 无区分度 → T1 纯加权是唯一有效时延目标形式（数据裁决，T2/T3 不引入）"
+  }
+}

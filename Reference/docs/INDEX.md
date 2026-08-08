@@ -18,6 +18,10 @@
 | R1 | step1.0_baseline_schedule.py（c_r(h) 模板升级） | docs/sums/sum_3 | ✅ |
 | R2 | step1.7_frozen_structure.py（冻结段结构研究） | docs/sums/sum_3 | ✅ |
 | R3 | step0.5_soc_rebuild.py（SOC 递推重建） | docs/sums/sum_3 | ✅ |
+| M3 | step2.0_construct.py（Q2 构造层） | docs/sums/sum_4 | ✅ |
+| M3 | step2.1_nsga2.py（自研 NSGA-II） | docs/sums/sum_4 | ✅ |
+| M3 | step2.2_rule_extraction.py（CART 规则） | docs/sums/sum_4 | ✅ |
+| M3 | step2.3_delay_scan.py（时延裁决+proof） | docs/sums/sum_4 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
@@ -30,15 +34,22 @@
 | 四指标评估器（成本/碳/利用率/超容，模板口径） | step1.0_baseline_schedule.py:evaluate_schedule | local/greedy_hourly.csv |
 | η 可预测性（η=1−Var(残差)/Var(Y)） | step1.3_rigor_analysis.py:a1_eta_profile | rigor_pack.json |
 | 分位数预测 q_α（pinball 最小化） | step1.1_forecast_arena.py:QuantileEnsemble | fuse_quantiles_task.csv |
-| 验证门（显著门限+宽度限制） | step1.1_forecast_arena.py:apply_gate | arena_table.csv |
+| 验证门 v2（cov+宽度+pinball 守卫） | step1.1_forecast_arena.py:apply_gate | arena_table.csv |
 | 融合（不确定性元特征 Ridge stacking） | step1.1_forecast_arena.py:fuse_energy | fuse_point_energy.csv |
 | κ_ε 预留（κ=1−q_{1−ε}/C_r，校准段 2352-2375） | step1.2_robust_schedule.py:compute_kappa | kappa_fit.json |
 | E1 三方对照（gap<5pp 判据） | step1.2_robust_schedule.py:run_e1 | e1_three_way.json |
 | 套利分解（迁移/错峰/oracle 上界） | step1.3_rigor_analysis.py:a3_oracle_upper_bound | rigor_pack.json |
-| 冻结段结构（判别/条件覆盖率/滚动重估） | step1.7_frozen_structure.py:main | frozen_structure.json |
+| 冻结段结构（判别/条件覆盖率/滚动重估/功效曲线） | step1.7_frozen_structure.py:main | frozen_structure.json |
 | SOC 递推重建（分区效率 + E 区偏移修正） | step0.5_soc_rebuild.py:rebuild_region | soc_rebuilt.csv |
 | 冻结段最终评估（三段协议闭环） | step1.5_frozen_test.py:main | frozen_test.json |
 | 构造数据指纹（KS/对称性/零膨胀） | step1.6_generator_fingerprint.py:f1_fingerprints | generator_fingerprint.json |
+| Q2 构造层（白名单+排序启发式，策略参数化） | step2.0_construct.py:schedule_constructive | construct_schedule.csv |
+| Q2 四目标评估（Cost₂/CE₂/Lat/NU，模板口径） | step2.0_construct.py:evaluate_4obj | construct_metrics.json |
+| 时延 GPU-hours 加权（ω=L(s,r)） | step2.0_construct.py:compute_latency | — |
+| Q2 NSGA-II（策略阈值进化，Deb 2002） | step2.1_nsga2.py:run_seed | nsga2_front.csv |
+| Q2 规则提取（CART 路径→运营规则） | step2.2_rule_extraction.py:extract_rules | rules.json |
+| 时延形式裁决（T1 纯加权，T2/T3 零违约） | step2.3_delay_scan.py:delay_forms | delay_scan.json |
+| baseline_proof（四方案四目标对照） | step2.3_delay_scan.py:s2_baseline_proof | baseline_proof.json |
 
 ## 产物清单（output/clean/）
 workload_clean.csv / region_time_clean.csv / whitelist.csv / occupancy_local.csv
