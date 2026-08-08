@@ -1,0 +1,101 @@
+{
+  "s1_discrimination": {
+    "train_window_mean": 613.108418367347,
+    "train_window_std": 39.836927877245394,
+    "train_window_max": 719.375,
+    "frozen_window_mean": 727.0416666666666,
+    "z_score": 2.8599908268628718,
+    "percentile": 100.0,
+    "conclusion": "冻结段需求水平系统性抬升（生成器收尾结构），非 24h 随机噪声"
+  },
+  "s2_conditional_cov": {
+    "bins": [
+      {
+        "bin": 0,
+        "demand_level": "Q0-20%",
+        "cov": 0.9642361111111111
+      },
+      {
+        "bin": 1,
+        "demand_level": "Q20-40%",
+        "cov": 0.9538194444444444
+      },
+      {
+        "bin": 2,
+        "demand_level": "Q40-60%",
+        "cov": 0.9510416666666666
+      },
+      {
+        "bin": 3,
+        "demand_level": "Q60-80%",
+        "cov": 0.9470029239766081
+      },
+      {
+        "bin": 4,
+        "demand_level": "Q80-100%",
+        "cov": 0.9345760233918128
+      }
+    ],
+    "low_cov": 0.9590277777777778,
+    "high_cov": 0.9407894736842104,
+    "gap": -0.018238304093567415
+  },
+  "s3_rolling_requantile": {
+    "static_all_train": 0.9166666666666666,
+    "rolling_168h": 0.9236111111111112,
+    "rolling_336h": 0.9444444444444444
+  },
+  "s4_kappa_final": {
+    "static_q95_cov_frozen": 0.9166666666666666,
+    "rolling_q95_cov_frozen": 0.9444444444444444,
+    "schedule_viol_hours_frozen": 7,
+    "viol_rate_frozen_pct": 4.861111111111112,
+    "eps_design": 0.05,
+    "note": "ε=5% 设计保障 vs 冻结段实测超容率（预留贪心 + 静态分位数 κ）；覆盖率口径见 s3（聚合 144 点）"
+  },
+  "s5_price_mystery": {
+    "per_region": [
+      {
+        "region": "RegionA",
+        "hour_template_mape_pct": 1.271712888274548,
+        "period_template_mape_pct": 2.477674416359503,
+        "residual_std_frozen": 19.33090581991243
+      },
+      {
+        "region": "RegionB",
+        "hour_template_mape_pct": 1.271797000033613,
+        "period_template_mape_pct": 2.477611241966891,
+        "residual_std_frozen": 18.524273330985043
+      },
+      {
+        "region": "RegionC",
+        "hour_template_mape_pct": 1.2717574954469049,
+        "period_template_mape_pct": 2.477751499086957,
+        "residual_std_frozen": 17.988345848511013
+      },
+      {
+        "region": "RegionD",
+        "hour_template_mape_pct": 1.2716646966888914,
+        "period_template_mape_pct": 2.4775329869447944,
+        "residual_std_frozen": 11.544037065254908
+      },
+      {
+        "region": "RegionE",
+        "hour_template_mape_pct": 1.2718857276068287,
+        "period_template_mape_pct": 2.4777775256538663,
+        "residual_std_frozen": 10.20222233253229
+      },
+      {
+        "region": "RegionF",
+        "hour_template_mape_pct": 1.2719011007347307,
+        "period_template_mape_pct": 2.4779727787990984,
+        "residual_std_frozen": 10.739794807197278
+      }
+    ],
+    "median_hour_template_mape_pct": 1.271777247740259,
+    "median_period_template_mape_pct": 2.47771295772323,
+    "note": "冻结段价格非纯日模板（MAPE 1.27%）；段标签均值预测更差时说明冻结段存在段内价格结构（模型残差修正的价值来源）；step1.5 冻结段 0.19% 来自 RF 残差修正精确命中段内结构"
+  },
+  "conclusion": "冻结段需求抬升是生成器收尾结构（S1 z=2.86/100 百分位）→ 常数历史分位数外推欠覆盖（S3 0.917→滚动 336h 0.944）→ 覆盖风险条件于需求水平（S2 gap −1.8pp）→ 冻结段职责=最终验证（S4 超容率 4.86%≈ε=5% 设计）而非排名裁决（短窗排名噪声是次级效应）",
+  "caliber": "覆盖率为区域聚合 144 点口径（与 step1.2 一致）；滚动分位数为 nowcast（t 用 [t-K,t-1]，shift≥1 防泄漏）"
+}

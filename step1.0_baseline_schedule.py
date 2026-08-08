@@ -4,11 +4,13 @@
   local    附件基线复现：st=ArrivalHour 原样执行，超容如实计入 Viol（缺陷标本）
   greedy   基础调度基线：实时固定 + 弹性任务按优先级贪心延后至容量允许（可行化）
 
-统一评估器四指标（Q1 口径，附件1）:
+统一评估器四指标（Q1 口径，附件1，R1 消纳模板升级）:
   cost_wan  购电成本 − 售电收入（万元）
   carbon_t  碳排放（tCO2）
   nu_pct    新能源利用率 = (直接消纳 + 外送) / 可用（与 D4 口径一致）
   viol_h    超容小时数 Σ 1[O_parallel(r,t) > C_r]
+  消纳口径  基线评估: U = c_r(h)·D 日内模板（R1 逆向生成规则，命中率 100%）
+            Closure 段(2400+): U = min(W, D)；优化场景: U = min(W, D)
 辅助报告: curtail_MWh（弃电） / fail_tasks（贪心未就位任务）
 
 锚点自检（数据核查纪律）:
@@ -126,33 +128,82 @@ def build_greedy_schedule(wt: pd.DataFrame, cap: dict) -> tuple[pd.DataFrame, pd
 
 
 def fit_consume_ratio(rt: pd.DataFrame) -> dict:
-    """从题目基线数据校准区域消纳系数 c_r（软编码，不写死）.
+    """从题目基线数据逆向消纳模板 c_r(h)（R1 升级：常数 c_r → 日内模板）.
 
-    口径: U = min(W, c_r × D)。实证（sum_1/D4）：题目基线主时段仅消纳
-    负荷的 12%-56%（区域差异），收尾段 100%（U==min(W,D) 命中率 1.0）。
-    校准量: 主时段 U/D 中位数；附命中率与 Closure 段验证。
+    实证（R1/sum_3）: U/D 对每个小时跨天完全恒定（max std=0.000000），
+    生成规则 U = c_r(h)·D(r,t)，c_r(h) 为确定性日内模板，与 W 无关：
+      A/B/C: 夜间平台(0-6h) + 白天单峰(12-15h)，归一化形状完全相同（基准等差 0.12/0.15/0.18）
+      D/F:   完美单正弦（R²=1.0000，相位 φ≈π/3 全域一致）
+      E:     平台 0.55 + 白天对称钟形（峰 0.73@12h）
+    尾段 2352-2399 与训练模板完全一致（max dev=0.000000）；Closure 段（2400-2406）
+    U = min(W, D)（hit=1.0 实证）→ 评估器分口径处理。
+    返回 consume_ratio[r] = np.ndarray(24)（模板小时表）。
     """
-    main = rt[rt["DataPeriod"] == "Main_0_2399"]
-    ratio = main["UsedRenewable_MW"] / main["Total_Load_MW"]
-    fit = {}
+    main = rt[rt["DataPeriod"] == "Main_0_2399"].copy()
+    main["h"] = main["Hour"] % 24
+    main["ud"] = main["UsedRenewable_MW"] / main["Total_Load_MW"]
+    fit, stats_rows = {}, []
     for r in REGIONS:
-        vals = ratio[main["Region"] == r].dropna()
-        fit[r] = float(vals.median())
+        m = main[main["Region"] == r]
+        g = m.groupby("h")["ud"].agg(["mean", "std"])
+        c_h = g["mean"]
+        max_std = float(g["std"].max())
+        pred = (c_h.loc[m["h"].values].to_numpy()
+                * m["Total_Load_MW"].to_numpy())
+        hit = np.isclose(m["UsedRenewable_MW"].to_numpy(), pred,
+                         atol=0.6).mean()
+        rel_err = float(np.abs(pred - m["UsedRenewable_MW"].to_numpy())
+                        .mean() / m["Total_Load_MW"].to_numpy().mean())
+        sine = _fit_sine(c_h.index.to_numpy(), c_h.to_numpy())
+        fit[r] = c_h.to_numpy()
+        stats_rows.append({
+            "Region": r,
+            "template_hit_rate": float(hit),
+            "max_std_within_hour": max_std,
+            "mean_rel_err": rel_err,
+            "sine1": sine["sine1"],
+            "sine2": sine["sine2"],
+            "c_h": np.round(c_h.to_numpy(), 6).tolist(),
+        })
     clos = rt[rt["DataPeriod"] == "Closure_2400_2406"]
     clos_hit = np.isclose(clos["UsedRenewable_MW"],
                           np.minimum(clos["AvailableRenewable_MW"],
                                      clos["Total_Load_MW"]), atol=0.6).mean()
-    stats_rows = []
-    for r in REGIONS:
-        m = main[main["Region"] == r]
-        c = fit[r]
-        hit = np.isclose(m["UsedRenewable_MW"],
-                         np.minimum(m["AvailableRenewable_MW"],
-                                    c * m["Total_Load_MW"]), atol=0.6).mean()
-        stats_rows.append({"Region": r, "consume_ratio": c, "fit_hit_rate": hit})
     return {"consume_ratio": fit, "fit_stats": stats_rows,
             "closure_minWD_hit": float(clos_hit),
-            "note": "U=min(W, c_r*D) 主时段口径；Closure 段 U=min(W,D)"}
+            "form": "U = c_r(h)*D（日内模板，R1 实证 max std=0）; "
+                    "Closure 段 U=min(W,D)",
+            "note": "常数 c_r 形式（U=min(W,cD)）命中率 D/F 仅 8-24% 系形式错误；"
+                    "模板形式构造性命中 100%（R1 修正）"}
+
+
+def _fit_sine(h: np.ndarray, y: np.ndarray) -> dict:
+    """c(h) 正弦参数化（论文素材）：线性最小二乘（24h + 12h 谐波）.
+
+    模型: c(h) = a + b1·sin(2πh/24) + b2·cos(2πh/24) [+ c1·sin(2πh/12) + c2·cos(2πh/12)]
+    返回振幅-相位形式 (A, φ) 与 R²。
+    """
+    out = {}
+    for nm, k in (("sine1", 1), ("sine2", 2)):
+        cols = [np.ones_like(h, dtype=float)]
+        for kk in range(1, k + 1):
+            cols += [np.sin(2 * np.pi * kk * h / 24),
+                     np.cos(2 * np.pi * kk * h / 24)]
+        X = np.column_stack(cols)
+        beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+        yhat = X @ beta
+        r2 = 1 - np.sum((y - yhat) ** 2) / np.sum((y - y.mean()) ** 2)
+        a, b1, b2 = beta[0], beta[1], beta[2]
+        amp = float(np.hypot(b1, b2))
+        phi = float(np.arctan2(b2, b1))
+        rec = {"a": float(a), "amp": amp, "phi_rad": phi,
+               "r2": float(r2)}
+        if nm == "sine2":
+            c1, c2 = beta[3], beta[4]
+            rec["amp_12h"] = float(np.hypot(c1, c2))
+            rec["phi_12h"] = float(np.arctan2(c2, c1))
+        out[nm] = rec
+    return out
 
 
 def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
@@ -160,8 +211,10 @@ def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
                       ) -> tuple[dict, pd.DataFrame]:
     """统一评估器：四指标 + 弃电 + 区域小时级明细（step1.2/1.2+ 复用）.
 
-    口径（Q1 无储能）：
-      consume_ratio 给定 → U=min(W, c_r·D)（基线消纳口径，c_r 校准自题目基线）
+    口径（Q1 无储能，R1 升级）：
+      consume_ratio 给定（模板格式 {r: np.ndarray(24)}）→
+        U = c_r(h)·D（主时段 0-2399 日内模板）；U = min(W, D)（Closure 2400+）
+      consume_ratio 给定（标量格式 {r: float}，旧版兼容）→ U=min(W, c_r·D)
       consume_ratio None → U=min(W, D)（新能源全覆盖口径，优化场景用）
       S=min(SellLimit, W−U)；G=D−U（自洽功率平衡）；Curtail=W−U−S。
     """
@@ -187,8 +240,18 @@ def evaluate_schedule(sched: pd.DataFrame, wt: pd.DataFrame, rt: pd.DataFrame,
 
     total = (nonai + ai_mw) * pue_arr
     if consume_ratio is not None:
-        c_arr = np.array([consume_ratio.get(r, 1.0) for r in REGIONS])
-        w_used = np.minimum(w, c_arr * total)
+        first = next(iter(consume_ratio.values()))
+        if isinstance(first, (np.ndarray, list, tuple)):
+            c_mat = np.stack([np.asarray(consume_ratio.get(r, np.ones(24)),
+                                         dtype=float) for r in REGIONS],
+                             axis=1)
+            cap_d = c_mat[np.arange(HOURS_TOTAL) % 24]
+            w_used = np.minimum(w, cap_d * total)
+            closure = np.arange(HOURS_TOTAL) >= 2400
+            w_used[closure] = np.minimum(w, total)[closure]
+        else:
+            c_arr = np.array([consume_ratio.get(r, 1.0) for r in REGIONS])
+            w_used = np.minimum(w, c_arr * total)
     else:
         w_used = np.minimum(w, total)
     s = np.minimum(sell_arr, np.maximum(0.0, w - w_used))
@@ -258,8 +321,12 @@ def main() -> None:
     greedy_metrics["fail_tasks"] = int(len(greedy_fail))
 
     anchors = anchor_check(local_hourly, rt)
+    consume_report = {
+        **consume_fit,
+        "consume_ratio": {r: v.tolist() for r, v in consume_fit["consume_ratio"].items()},
+    }
     report = {"local": local_metrics, "greedy": greedy_metrics,
-              "anchor": anchors, "consume_fit": consume_fit}
+              "anchor": anchors, "consume_fit": consume_report}
 
     local_sched.to_csv(OUT_BASE / "local_schedule.csv", index=False)
     greedy_sched.to_csv(OUT_BASE / "greedy_schedule.csv", index=False)

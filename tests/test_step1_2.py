@@ -35,12 +35,16 @@ def test_kappa_pseudo_consistent():
     assert abs(pseudo - real) < 0.06, f"选中 ε={e_sel} 伪/真校准偏差过大"
 
 
-def test_kappa_drift_recorded():
-    """发现记录：ε=0.10 伪 0.939 vs 真 0.875 → 校准段分布漂移（论文讨论素材）。"""
+def test_kappa_calibration_segment_fixed():
+    """R0 修正守卫：校准段必须为 2352-2375（原实现误用冻结段 2376-2399）。
+
+    修正后 ε=0.10 伪校准(0.939) 与真校准(0.938) 偏差 <1pp —— "漂移"假象解除。
+    """
     kf = load("kappa_fit.json")
-    drift = kf["pseudo_calibration"]["0.10"]["mean"] - \
-        kf["calibration"]["0.10"]["cov"]
-    assert drift > 0.03, "漂移未复现（记录断言守护）"
+    assert kf.get("calibration_fix"), "校准段修正记录缺失"
+    drift = abs(kf["pseudo_calibration"]["0.10"]["mean"]
+                - kf["calibration"]["0.10"]["cov"])
+    assert drift < 0.01, f"修正后伪/真校准仍偏差 {drift:.3f}（应≈0.2pp）"
 
 
 def test_e1_criterion_holds():

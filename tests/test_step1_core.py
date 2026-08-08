@@ -66,10 +66,18 @@ def test_consume_ratio_closure(metrics):
     assert metrics["consume_fit"]["closure_minWD_hit"] == 1.0
 
 
-def test_consume_ratio_regions(metrics):
+def test_consume_ratio_template(metrics):
+    """R1 升级：c_r 为日内模板（24 值），构造性命中率 1.0（形式修正实证）。"""
     c = metrics["consume_fit"]["consume_ratio"]
     assert set(c) == set(REGIONS)
-    assert all(0.05 <= v <= 1.0 for v in c.values())
+    for r in REGIONS:
+        v = np.asarray(c[r], dtype=float)
+        assert v.shape == (24,), f"{r} 模板应为 24 值"
+        assert np.all((0.0 <= v) & (v <= 1.0))
+    stats = {s["Region"]: s for s in metrics["consume_fit"]["fit_stats"]}
+    for r in REGIONS:
+        assert stats[r]["template_hit_rate"] == 1.0
+        assert stats[r]["max_std_within_hour"] < 1e-6
 
 
 def test_occupancy_row_order_independent(data):

@@ -1,9 +1,9 @@
 {
   "baseline": {
-    "cost_wan": 197813.6975143045,
-    "carbon_t": 2144037.487401901,
-    "nu_pct": 31.1541501246696,
-    "curtail_MWh": 7952224.644572765,
+    "cost_wan": 192871.87719559588,
+    "carbon_t": 2108008.077355303,
+    "nu_pct": 32.067232683563255,
+    "curtail_MWh": 7846756.593259398,
     "viol_h": 113,
     "viol_by_region": {
       "RegionA": 3,
@@ -17,10 +17,10 @@
     "ai_load_MWh": 738927.9853333334
   },
   "quantile": {
-    "cost_wan": 197666.23578499226,
-    "carbon_t": 2143888.84763097,
-    "nu_pct": 31.15382505218639,
-    "curtail_MWh": 7952262.192942301,
+    "cost_wan": 192713.41572657737,
+    "carbon_t": 2107494.8425027938,
+    "nu_pct": 32.068360143793605,
+    "curtail_MWh": 7846626.362939838,
     "viol_h": 512,
     "viol_by_region": {
       "RegionA": 1,
@@ -34,10 +34,10 @@
     "ai_load_MWh": 738927.9853333334
   },
   "perfect": {
-    "cost_wan": 197811.39286132055,
-    "carbon_t": 2144033.059491946,
-    "nu_pct": 31.154150124669595,
-    "curtail_MWh": 7952224.644572765,
+    "cost_wan": 192870.12465645614,
+    "carbon_t": 2108006.1234111497,
+    "nu_pct": 32.06710646387919,
+    "curtail_MWh": 7846771.172602727,
     "viol_h": 0,
     "viol_by_region": {
       "RegionA": 0,
@@ -50,9 +50,9 @@
     "total_load_MWh": 6514466.903846847,
     "ai_load_MWh": 738927.9853333334
   },
-  "improve_perfect_cost_pct": 0.0011650623859332933,
-  "improve_quantile_cost_pct": 0.0745457625863315,
-  "gap_pp": 0.0733807002003982,
+  "improve_perfect_cost_pct": 0.0009086545769233398,
+  "improve_quantile_cost_pct": 0.08215892919308927,
+  "gap_pp": 0.08125027461616594,
   "viol_h": {
     "local": 113,
     "perfect": 0,

@@ -1,0 +1,68 @@
+{
+  "eta_c": {
+    "RegionA": 0.93,
+    "RegionB": 0.93,
+    "RegionC": 0.93,
+    "RegionD": 0.94,
+    "RegionE": 0.94,
+    "RegionF": 0.94
+  },
+  "eta_d": {
+    "RegionA": 0.92,
+    "RegionB": 0.92,
+    "RegionC": 0.92,
+    "RegionD": 0.93,
+    "RegionE": 0.93,
+    "RegionF": 0.93
+  },
+  "initial_soc": {
+    "RegionA": 157.5,
+    "RegionB": 144.0,
+    "RegionC": 135.0,
+    "RegionD": 405.0,
+    "RegionE": 370.0,
+    "RegionF": 382.5
+  },
+  "per_region": {
+    "RegionA": {
+      "mean_abs_diff": 0.00019591595296874765,
+      "max_abs_diff": 0.0004905217403461393,
+      "diff_at_hour0": 0.0,
+      "n_hours": 2407
+    },
+    "RegionB": {
+      "mean_abs_diff": 0.0007855165383084942,
+      "max_abs_diff": 0.0015996956550452524,
+      "diff_at_hour0": 0.0,
+      "n_hours": 2407
+    },
+    "RegionC": {
+      "mean_abs_diff": 0.002233910500021833,
+      "max_abs_diff": 0.004538304354753109,
+      "diff_at_hour0": 0.0,
+      "n_hours": 2407
+    },
+    "RegionD": {
+      "mean_abs_diff": 0.00016556587219262344,
+      "max_abs_diff": 0.0007154623659744175,
+      "diff_at_hour0": 3.400000002784509e-05,
+      "n_hours": 2407
+    },
+    "RegionE": {
+      "mean_abs_diff": 1.0019908889041573,
+      "max_abs_diff": 1.0038816344091117,
+      "diff_at_hour0": 0.9999439999999709,
+      "n_hours": 2407
+    },
+    "RegionF": {
+      "mean_abs_diff": 0.0005423606146504669,
+      "max_abs_diff": 0.0013722365582395923,
+      "diff_at_hour0": 4.999999998744897e-05,
+      "n_hours": 2407
+    },
+    "note": "分区效率递推（A/B/C: 0.93/0.92; D/E/F: 0.94/0.93）与数据表吻合：A/B/C/D/F mean|diff|<=0.005；RegionE 全程恒定偏移 +1.0 MWh（数据表 = 递推 − 1.0，官方确认录入误差，Q3 以递推为准）"
+  },
+  "caliber": "SOC(t)=SOC(t-1)+eta_c*ChargePower(t)-DischargePower(t)/eta_d; SOC_MWh 为时段末；InitialSOC 为 Hour0 前（附件口径）",
+  "official_feedback": "主办方确认 RegionE SOC(0) 数据表与递推差 ~1MWh 为局部录入误差/口径残差；建议'以储能递推公式重新计算'",
+  "q3_usage": "Q3 储能优化输入 = SOC_rebuilt_MWh（递推为准，E 区偏移修正）"
+}

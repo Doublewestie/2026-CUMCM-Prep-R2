@@ -168,11 +168,11 @@
     "summary": "到达过程：dispersion≈1 支持泊松，p 值低=偏离泊松（白噪声表述以 ACF 为主，计数分布为补充）"
   },
   "a3_oracle": {
-    "C0_local_cost": 197813.6975143045,
-    "C1_greedy_imp_pct": 0.0011650623859332933,
-    "C2_migrate_imp_pct": 4.584981913872889,
-    "C3_migrate_shift_imp_pct": 3.5681878038868553,
-    "C4_oracle_price_imp_pct": 1.9482924910723116,
+    "C0_local_cost": 192871.87719559588,
+    "C1_greedy_imp_pct": 0.0009086545769233398,
+    "C2_migrate_imp_pct": 4.752257318771775,
+    "C3_migrate_shift_imp_pct": 3.7831984037319875,
+    "C4_oracle_price_imp_pct": 2.0360064794319332,
     "oracle_upper_bound_note": "价格感知贪心=套利潜力的启发式上界（非全局最优，标注为 oracle 贪心）",
     "criterion_note": "E1a 的 4.6% 为 C2 启发式；oracle 上界给出套利潜力上限"
   },
@@ -189,9 +189,11 @@
         0.02,
         0.03,
         0.05,
-        0.08
+        0.08,
+        0.1,
+        0.15
       ],
-      "selected": 0.08
+      "selected": 0.15
     },
     "kappa_target_95": {
       "passed": [
@@ -205,30 +207,29 @@
     "kappa_target_98": {
       "passed": [
         0.01,
-        0.02,
-        0.03
+        0.02
       ],
-      "selected": 0.03
+      "selected": 0.02
     },
-    "e1_gap_pp": 0.0733807002003982,
+    "e1_gap_pp": 0.08125027461616594,
     "e1_criteria_3pp": true,
     "e1_criteria_8pp": true
   },
   "a5_consume": {
     "minus10": {
-      "gap_pp": 0.0749924749058737,
-      "imp_perfect_pct": 0.0012366355412017464,
-      "imp_quantile_pct": 0.07622911044707545
+      "gap_pp": 0.08388207443413684,
+      "imp_perfect_pct": 0.0010190378522404765,
+      "imp_quantile_pct": 0.08490111228637731
     },
     "base": {
-      "gap_pp": 0.0733807002003982,
-      "imp_perfect_pct": 0.0011650623859332933,
-      "imp_quantile_pct": 0.0745457625863315
+      "gap_pp": 0.08125027461616594,
+      "imp_perfect_pct": 0.0009086545769233398,
+      "imp_quantile_pct": 0.08215892919308927
     },
     "plus10": {
-      "gap_pp": 0.06924943878159988,
-      "imp_perfect_pct": 0.0010864719732695273,
-      "imp_quantile_pct": 0.0703359107548694
+      "gap_pp": 0.05926877306798753,
+      "imp_perfect_pct": 0.000690046341156619,
+      "imp_quantile_pct": 0.059958819409144146
     }
   },
   "a6_gate_v2": {

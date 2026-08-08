@@ -303,13 +303,14 @@ def a4_threshold_sensitivity() -> dict:
 
 
 def a5_consume_sensitivity(s10, wt, rt, params, consume) -> dict:
-    """c_r ±10% 扰动下 E1 收益差幅的稳定性。"""
+    """c_r(h) 模板 ±10% 扰动下 E1 收益差幅的稳定性（R1 模板口径适配）。"""
     qs = pd.read_csv(OUT_R / "quantile_schedule.csv")
     gs = pd.read_csv(OUT_R.parent / "baseline" / "greedy_schedule.csv")
     ls = pd.read_csv(OUT_R.parent / "baseline" / "local_schedule.csv")
     out = {}
     for tag, fac in (("minus10", 0.9), ("base", 1.0), ("plus10", 1.1)):
-        cr = {r: min(1.0, c * fac) for r, c in consume.items()}
+        cr = {r: np.clip(np.asarray(c, dtype=float) * fac, 0.0, 1.0)
+              for r, c in consume.items()}
         ev = lambda s: s10.evaluate_schedule(s, wt, rt, params, cr)[0]
         base = ev(ls)
         perfect = ev(gs)

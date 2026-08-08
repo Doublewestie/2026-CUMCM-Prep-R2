@@ -2,9 +2,10 @@
 
 方法（PLAN_details §5.5 / 附录 C）:
   κ_ε(t) = 1 − q_{1−ε}^agg(t) / C_r      区域聚合分位数（Σ_类型，独立近似）
-  ε ∈ {0.01..0.20} 对数刻度 8 值网格
-  伪校准: 训练段 0-2351 滚动 24h 窗口覆盖率 mean±std（96 窗口，仅稳定性佐证，不选参）
-  真实校准: 2352-2375 覆盖率裁决（达标集取最大 ε；空 → ε=0.02 保守回退）
+   ε ∈ {0.01..0.20} 对数刻度 8 值网格
+   伪校准: 训练段 0-2351 滚动 24h 窗口覆盖率 mean±std（96 窗口，仅稳定性佐证，不选参）
+   真实校准: 2352-2375 覆盖率裁决（达标集取最大 ε；空 → ε=0.02 保守回退）
+   冻结段: 2376-2399 仅验证（R0 修正：原实现误用冻结段作校准段，已改为 2352-2375）
   覆盖率口径: P(q_{1−ε}^agg(r,t) ≥ 实际需求(r,t)) = 预留保障率（逐点）
 E1 三方对照（胜负手）:
   基线 greedy（step1.0 产物）vs 分布调度（预留贪心）vs 完美预测（= 无预留贪心）
@@ -36,7 +37,10 @@ FIG_S1 = FIGURES / "step1"
 
 EPS_GRID = (0.01, 0.02, 0.03, 0.05, 0.08, 0.10, 0.15, 0.20)
 COV_TARGET = 0.95
-SEG_TRAIN, SEG_CAL, SEG_TEST = 2352, 2376, 2400
+SEG_TRAIN = 2352            # 训练段边界（0-2351）
+SEG_CAL_START = 2352        # 真实校准段 2352-2375（决策用，三段协议内）
+SEG_CAL_END = 2376
+SEG_TEST = 2400             # 冻结段 2376-2399（纯验证，不参与任何决策）
 KAPPA_A = tuple(1 - e for e in EPS_GRID)
 
 
@@ -246,7 +250,7 @@ def main() -> None:
     pseudo = pseudo_calibration(q, act)
     cal_stats = {}
     for eps in EPS_GRID:
-        seg = np.arange(SEG_CAL, SEG_TEST)
+        seg = np.arange(SEG_CAL_START, SEG_CAL_END)
         cal_stats[f"{eps:.2f}"] = {
             "cov": coverage_rate(q, act, 1 - eps, seg),
             "n_points": int(len(seg) * len(REGIONS))}
@@ -278,6 +282,8 @@ def main() -> None:
         "kappa_means": kappa_means,
         "note": "伪校准仅稳定性佐证（训练段滚动 24h，不选参）；"
                 "真实校准 2352-2375 裁决；分位数区域聚合为 Σ_类型 独立近似",
+        "calibration_fix": "R0 修正: 原实现误用 2376-2399（冻结段）作校准段，"
+                           "已改为 2352-2375（三段协议：校准段决策、冻结段纯验证）",
     }
     with open(OUT_R / "kappa_fit.json", "w", encoding="utf-8") as f:
         json.dump(kappa_fit, f, ensure_ascii=False, indent=2)

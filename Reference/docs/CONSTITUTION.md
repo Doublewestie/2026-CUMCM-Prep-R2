@@ -16,6 +16,8 @@
 - 实时推理: 到达即开工；任务不可抢占/不可拆分/不可中途迁移
 - 时域: 0-2399 决策；2400-2405 仅结清末端；2406 不安排任务
 - 储能: MinSOC ≤ SOC ≤ Cap；充放功率上限；SOC(2406) ≥ InitialSOC
+- SOC 口径: 效率分区制（A/B/C 0.93/0.92；D/E/F 0.94/0.93）；SOC 以递推公式重建
+  （RegionE 数据表全程偏移 −1.0 MWh 系录入误差，官方确认；Q3 用 step0.5 产物）
 - 购售电: MaxGridImport / MaxGridExport / SellLimit 硬约束
 
 ## 预测纪律
