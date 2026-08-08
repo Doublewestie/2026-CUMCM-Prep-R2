@@ -1,0 +1,152 @@
+{
+  "f1": {
+    "price_seg_residual": {
+      "RegionA|Valley": {
+        "std": 12.55,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.045
+      },
+      "RegionA|Flat": {
+        "std": 32.94,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionA|Peak": {
+        "std": 28.17,
+        "ks_norm_p": 0.005,
+        "ks_unif_p": 0.119
+      },
+      "RegionB|Valley": {
+        "std": 12.03,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.046
+      },
+      "RegionB|Flat": {
+        "std": 31.57,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionB|Peak": {
+        "std": 27.0,
+        "ks_norm_p": 0.006,
+        "ks_unif_p": 0.119
+      },
+      "RegionC|Valley": {
+        "std": 11.68,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.046
+      },
+      "RegionC|Flat": {
+        "std": 30.65,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionC|Peak": {
+        "std": 26.22,
+        "ks_norm_p": 0.006,
+        "ks_unif_p": 0.118
+      },
+      "RegionD|Valley": {
+        "std": 7.49,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.046
+      },
+      "RegionD|Flat": {
+        "std": 19.67,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionD|Peak": {
+        "std": 16.82,
+        "ks_norm_p": 0.006,
+        "ks_unif_p": 0.119
+      },
+      "RegionE|Valley": {
+        "std": 6.62,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.047
+      },
+      "RegionE|Flat": {
+        "std": 17.38,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionE|Peak": {
+        "std": 14.87,
+        "ks_norm_p": 0.006,
+        "ks_unif_p": 0.117
+      },
+      "RegionF|Valley": {
+        "std": 6.97,
+        "ks_norm_p": 0.003,
+        "ks_unif_p": 0.046
+      },
+      "RegionF|Flat": {
+        "std": 18.3,
+        "ks_norm_p": 0.0,
+        "ks_unif_p": 0.0
+      },
+      "RegionF|Peak": {
+        "std": 15.65,
+        "ks_norm_p": 0.006,
+        "ks_unif_p": 0.119
+      }
+    },
+    "latency_asymmetry": {
+      "n_asymmetric": 0,
+      "pairs": {}
+    },
+    "zero_inflation_task": {
+      "RegionA|RealTimeInference": 0.694,
+      "RegionA|BatchInference": 0.249,
+      "RegionA|AITraining": 0.081,
+      "RegionB|RealTimeInference": 0.694,
+      "RegionB|BatchInference": 0.246,
+      "RegionB|AITraining": 0.113,
+      "RegionC|RealTimeInference": 0.709,
+      "RegionC|BatchInference": 0.339,
+      "RegionC|AITraining": 0.168,
+      "RegionD|RealTimeInference": 0.1,
+      "RegionD|BatchInference": 0.259,
+      "RegionD|AITraining": 0.812,
+      "RegionE|RealTimeInference": 0.177,
+      "RegionE|BatchInference": 0.396,
+      "RegionE|AITraining": 0.768,
+      "RegionF|RealTimeInference": 0.176,
+      "RegionF|BatchInference": 0.423,
+      "RegionF|AITraining": 0.815
+    },
+    "spec_gamma": {
+      "shape": 0.68,
+      "loc": 1.0,
+      "scale": 24.08
+    },
+    "note": "生成器指纹：段内残差 KS 正态/均匀对比、时延对称性、零膨胀参数、规格形态"
+  },
+  "f2": {
+    "resample_RegionA|RealTimeInference": {
+      "base": {
+        "stat": 0.8954081632653061,
+        "lgbm": 0.8311224489795919
+      },
+      "resampled": {
+        "stat": 0.8918367346938776,
+        "lgbm": 0.8316326530612246
+      },
+      "stat_still_best": true
+    },
+    "resample_RegionD|AITraining": {
+      "base": {
+        "stat": 0.9051020408163266,
+        "lgbm": 0.8540816326530611
+      },
+      "resampled": {
+        "stat": 0.9076530612244896,
+        "lgbm": 0.8821428571428573
+      },
+      "stat_still_best": true
+    },
+    "tabpfn_frozen_mape_pct": 0.546,
+    "note": "到达重采样（泊松 λ=实际）下统计基线仍最优=类选结论稳健；TabPFN 冻结段 MAPE 报告"
+  }
+}

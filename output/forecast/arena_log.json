@@ -1,0 +1,934 @@
+{
+  "seed": 42,
+  "budget_h": 3.0,
+  "data_hash": {
+    "occupancy_local.csv": "4c1a4737165a4200",
+    "occupancy_parallel.csv": "111d7a3ea031fc5d",
+    "region_time_clean.csv": "c37e88dd689a44b3",
+    "series_arrivals.csv": "b9ca27173d8b990f",
+    "series_gpu_demand.csv": "c31bca3214ea1c4f",
+    "storage_params.csv": "a230a86195651a67"
+  },
+  "torch_cuda": true,
+  "python": "3.13.12",
+  "start": "2026-08-08 01:35:19",
+  "resume": true,
+  "passed_counts": {
+    "task": 1,
+    "energy": 18,
+    "passed_models": {
+      "RegionC|RealTimeInference": [
+        "tabpfn"
+      ],
+      "energy|RegionA|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionB|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionC|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionD|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionE|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionF|price": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionA|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionB|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionC|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionD|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionE|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionF|carbon": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionA|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionB|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionC|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "energy|RegionD|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionE|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "energy|RegionF|nonai": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ]
+    }
+  },
+  "fuse_task": {
+    "RegionA|RealTimeInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionA|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionA|AITraining": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionB|RealTimeInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionB|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionB|AITraining": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionC|RealTimeInference": {
+      "fuse": "入选模型等权分位数",
+      "names": [
+        "tabpfn"
+      ]
+    },
+    "RegionC|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionC|AITraining": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionD|RealTimeInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionD|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionD|AITraining": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionE|RealTimeInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionE|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionE|AITraining": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionF|RealTimeInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionF|BatchInference": {
+      "fuse": "统计基线(无入选)"
+    },
+    "RegionF|AITraining": {
+      "fuse": "统计基线(无入选)"
+    }
+  },
+  "fuse_energy": {
+    "energy|RegionA|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionB|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionC|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionD|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionE|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionF|renewable": {
+      "fuse": "统计基线(无入选)"
+    },
+    "energy|RegionA|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.2883843284416415,
+      "best_single_mape": 1.0413620698783925,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionB|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.29386556151287196,
+      "best_single_mape": 1.0908247145261019,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionC|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.2996348159206775,
+      "best_single_mape": 1.1229457152568487,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionD|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.30017180181046793,
+      "best_single_mape": 1.1302544527375367,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionE|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.2987521368220082,
+      "best_single_mape": 1.017164949913688,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionF|price": {
+      "fuse": "stacking",
+      "meta_mape": 0.2988288552397682,
+      "best_single_mape": 1.0935481763555723,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionA|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 0.5493431883840849,
+      "best_single_mape": 0.11405316813726542,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionB|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 0.6035592032067622,
+      "best_single_mape": 0.11955018187258296,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionC|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 0.6487084269775595,
+      "best_single_mape": 0.11952353350220321,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionD|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 0.892856166543127,
+      "best_single_mape": 0.1183848239415146,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionE|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 1.453895655475917,
+      "best_single_mape": 0.1205806508681529,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionF|carbon": {
+      "fuse": "最优单模型(等权OOF均值)",
+      "meta_mape": 1.3282686289055081,
+      "best_single_mape": 0.11998773142802811,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionA|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 4.068143795007314,
+      "best_single_mape": 4.219365658831835,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionB|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 3.9962240637024733,
+      "best_single_mape": 4.072419523387243,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionC|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 3.9283799845816216,
+      "best_single_mape": 4.036337721056282,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionD|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 11.240741470965215,
+      "best_single_mape": 11.57457068157835,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionE|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 9.380365933920702,
+      "best_single_mape": 10.11828662363655,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    },
+    "energy|RegionF|nonai": {
+      "fuse": "stacking",
+      "meta_mape": 8.073646314008492,
+      "best_single_mape": 8.356613850512018,
+      "names": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "lgbm_quantile",
+        "gbm_quantile",
+        "deep_lstm",
+        "deep_tcn",
+        "tabpfn"
+      ],
+      "meta_cols": [
+        "lgbm_point_q50",
+        "lgbm_point_rollerr",
+        "xgboost_point_q50",
+        "xgboost_point_rollerr",
+        "qrf_quantile_q50",
+        "qrf_quantile_width",
+        "qrf_quantile_rollerr",
+        "lgbm_quantile_q50",
+        "lgbm_quantile_width",
+        "lgbm_quantile_rollerr",
+        "gbm_quantile_q50",
+        "gbm_quantile_width",
+        "gbm_quantile_rollerr",
+        "deep_lstm_q50",
+        "deep_lstm_width",
+        "deep_lstm_rollerr",
+        "deep_tcn_q50",
+        "deep_tcn_width",
+        "deep_tcn_rollerr",
+        "tabpfn_q50",
+        "tabpfn_width",
+        "tabpfn_rollerr",
+        "hour_sin",
+        "hour_cos"
+      ]
+    }
+  },
+  "elapsed_s": 1566.8,
+  "end": "2026-08-08 02:01:26"
+}

@@ -1,0 +1,71 @@
+{
+  "baseline": {
+    "cost_wan": 197813.6975143045,
+    "carbon_t": 2144037.487401901,
+    "nu_pct": 31.1541501246696,
+    "curtail_MWh": 7952224.644572765,
+    "viol_h": 113,
+    "viol_by_region": {
+      "RegionA": 3,
+      "RegionB": 4,
+      "RegionC": 6,
+      "RegionD": 3,
+      "RegionE": 30,
+      "RegionF": 67
+    },
+    "total_load_MWh": 6514466.903846847,
+    "ai_load_MWh": 738927.9853333334
+  },
+  "quantile": {
+    "cost_wan": 197666.23578499226,
+    "carbon_t": 2143888.84763097,
+    "nu_pct": 31.15382505218639,
+    "curtail_MWh": 7952262.192942301,
+    "viol_h": 512,
+    "viol_by_region": {
+      "RegionA": 1,
+      "RegionB": 5,
+      "RegionC": 5,
+      "RegionD": 85,
+      "RegionE": 158,
+      "RegionF": 258
+    },
+    "total_load_MWh": 6514466.903846847,
+    "ai_load_MWh": 738927.9853333334
+  },
+  "perfect": {
+    "cost_wan": 197811.39286132055,
+    "carbon_t": 2144033.059491946,
+    "nu_pct": 31.154150124669595,
+    "curtail_MWh": 7952224.644572765,
+    "viol_h": 0,
+    "viol_by_region": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 0,
+      "RegionF": 0
+    },
+    "total_load_MWh": 6514466.903846847,
+    "ai_load_MWh": 738927.9853333334
+  },
+  "improve_perfect_cost_pct": 0.0011650623859332933,
+  "improve_quantile_cost_pct": 0.0745457625863315,
+  "gap_pp": 0.0733807002003982,
+  "viol_h": {
+    "local": 113,
+    "perfect": 0,
+    "quantile": 512
+  },
+  "viol_rate_quantile_pct": 3.5452153441351615,
+  "criterion": "gap_pp < 5pp（成本维度，绝对差稳健）",
+  "conclusion": "结构套利主导",
+  "note": "Q1 无价格套利→成本收益≈0，收益度量以成本+超容双维度报告；分布调度超容=ε 设计内风险（1−ε=95% 保障），预测精度边际价值=消除该风险，成本代价<0.1%",
+  "metrics": [
+    "cost_wan",
+    "carbon_t",
+    "nu_pct",
+    "viol_h"
+  ]
+}

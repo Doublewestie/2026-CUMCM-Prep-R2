@@ -1,0 +1,234 @@
+{
+  "e2i": [
+    {
+      "series": "energy|RegionA|price",
+      "members": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "deep_tcn"
+      ],
+      "ridge_hetero": 0.6042599952040364,
+      "rf_hetero": 0.3823438713498923,
+      "equal_hetero": 2.444049577154097,
+      "width_inverse": 1.1295995377969084,
+      "ridge_tree3_only": 0.6061695611271635,
+      "hetero_gain": 0.31502174401107613
+    },
+    {
+      "series": "energy|RegionD|carbon",
+      "members": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "deep_tcn"
+      ],
+      "ridge_hetero": 0.8918237637572766,
+      "rf_hetero": 0.05422168736106041,
+      "equal_hetero": 0.14054586481657835,
+      "width_inverse": 0.20782821212584185,
+      "ridge_tree3_only": 1.1311244006948307,
+      "hetero_gain": 21.15599635111361
+    },
+    {
+      "series": "energy|RegionF|nonai",
+      "members": [
+        "lgbm_point",
+        "xgboost_point",
+        "qrf_quantile",
+        "deep_tcn"
+      ],
+      "ridge_hetero": 8.336995656154784,
+      "rf_hetero": 7.395517074478004,
+      "equal_hetero": 8.442817939787187,
+      "width_inverse": 8.441182964587194,
+      "ridge_tree3_only": 8.471420828123858,
+      "hetero_gain": 1.5868078648956063
+    }
+  ],
+  "e2b_multi": {
+    "per_series": [
+      {
+        "series": "energy|RegionA|price",
+        "ridge": 0.5946130509291946,
+        "rf": 0.3884669833965267,
+        "equal": 0.8549862458352278,
+        "best_single": 0.7647251820082066,
+        "winner": "rf"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "ridge": 0.5861661368766861,
+        "rf": 0.3826971097184694,
+        "equal": 0.8746435337106709,
+        "best_single": 0.7605934022726412,
+        "winner": "rf"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "ridge": 1.1318085163853273,
+        "rf": 0.05738459755435843,
+        "equal": 0.14118144978992525,
+        "best_single": 0.080082649845248,
+        "winner": "rf"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "ridge": 0.7286211841231265,
+        "rf": 0.05689646797475674,
+        "equal": 0.13889673627524693,
+        "best_single": 0.07690211717888844,
+        "winner": "rf"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "ridge": 4.2881880276223265,
+        "rf": 3.8264613603089783,
+        "equal": 4.2897804775379855,
+        "best_single": 4.344831823580818,
+        "winner": "rf"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "ridge": 8.502105555486814,
+        "rf": 7.606840054140577,
+        "equal": 8.569974453934591,
+        "best_single": 8.662715402070159,
+        "winner": "rf"
+      }
+    ],
+    "winner_counts": {
+      "rf": 6
+    }
+  },
+  "e2c_rebuild": {
+    "n_rows": 35280,
+    "n_series": 18,
+    "results": {
+      "ridge": 52.94819921475537,
+      "rf": 73.32124017476478
+    },
+    "note": "修正版：OOF 全样本（4.2 万行）+ 序列统计/时间特征 + RF 量纲无关"
+  },
+  "e2g": {
+    "energy|RegionA|price": {
+      "series": "energy|RegionA|price",
+      "carrier1_residual_t": {
+        "seg_offset": {
+          "t": 2.07662079368325,
+          "p": 0.038490887221576175,
+          "sig": true
+        },
+        "hinge_boundary": {
+          "t": -3.4547286076781205,
+          "p": 0.0006113348956657749,
+          "sig": true
+        },
+        "fourier2": {
+          "t": -4.887749032293446,
+          "p": 1.4926849128725363e-06,
+          "sig": true
+        },
+        "saturation": {
+          "t": 9.8574955538934,
+          "p": 1.2933620677103562e-20,
+          "sig": true
+        },
+        "zero_infl_log": {
+          "t": 7.691383182886083,
+          "p": 1.2000160270332644e-13,
+          "sig": true
+        },
+        "multiplicative": {
+          "t": 8.86963268015296,
+          "p": 2.6715408792034173e-17,
+          "sig": true
+        },
+        "phase_shift": {
+          "t": 8.869632680152957,
+          "p": 2.6715408792034746e-17,
+          "sig": true
+        },
+        "count_link": {
+          "t": -7.712990550609522,
+          "p": 1.03617478740983e-13,
+          "sig": true
+        }
+      },
+      "carrier2_lgbm": {
+        "base": 2.5388968076885274,
+        "plus_basis": 2.0776620663600283,
+        "gain_pct": 18.166738401172687
+      },
+      "carrier3_fusion": {
+        "base": 0.5978326722370874,
+        "plus_basis": 0.5768784025152721,
+        "gain_pct": 3.505039235042885
+      }
+    },
+    "energy|RegionD|carbon": {
+      "series": "energy|RegionD|carbon",
+      "carrier1_residual_t": {
+        "seg_offset": {
+          "t": 0.17859782405602012,
+          "p": 0.8583462414063326,
+          "sig": false
+        },
+        "hinge_boundary": {
+          "t": -0.16190366374984985,
+          "p": 0.8714655622684175,
+          "sig": false
+        },
+        "fourier2": {
+          "t": -0.08527392383431143,
+          "p": 0.9320873799224261,
+          "sig": false
+        },
+        "saturation": {
+          "t": 1.1060942583016522,
+          "p": 0.26936754696886633,
+          "sig": false
+        },
+        "zero_infl_log": {
+          "t": 1.2605840103281647,
+          "p": 0.20821241543128685,
+          "sig": false
+        },
+        "multiplicative": {
+          "t": 1.1652847116849474,
+          "p": 0.24461597870672785,
+          "sig": false
+        },
+        "phase_shift": {
+          "t": 1.1652847116849452,
+          "p": 0.24461597870672872,
+          "sig": false
+        },
+        "count_link": {
+          "t": -1.2860057470787483,
+          "p": 0.19920403596730435,
+          "sig": false
+        }
+      },
+      "carrier2_lgbm": {
+        "base": 0.09934057550767132,
+        "plus_basis": 0.08261626412588009,
+        "gain_pct": 16.83532765571681
+      },
+      "carrier3_fusion": {
+        "base": 1.1318913133328576,
+        "plus_basis": 0.8906306100486048,
+        "gain_pct": 21.31482947544318
+      }
+    }
+  },
+  "e2c_std": {
+    "n_rows": 35280,
+    "n_series": 18,
+    "results": {
+      "ridge": 2.703843815479328,
+      "rf": 2.621660939654194
+    },
+    "note": "E2c'' 标准化修正：per-sequence z-score 特征与目标，修跨序列量纲迁移缺陷"
+  }
+}

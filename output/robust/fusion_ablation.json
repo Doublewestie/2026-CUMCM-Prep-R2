@@ -1,0 +1,266 @@
+{
+  "e2e": {
+    "wins": [
+      {
+        "series": "energy|RegionA|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0410647870331027,
+        "baseline_mape": 1.9241775013017728,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 4.1082474425842825,
+        "baseline_mape": 4.843959183724357,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionA|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5265933212897999,
+        "baseline_mape": 2.806988687716089,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionA|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      },
+      {
+        "series": "energy|RegionB|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0411776861872561,
+        "baseline_mape": 1.923097200418188,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 4.008410133452523,
+        "baseline_mape": 4.667865741751166,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionB|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5285232207082421,
+        "baseline_mape": 2.8069841192685314,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionB|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      },
+      {
+        "series": "energy|RegionC|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0409614655312716,
+        "baseline_mape": 1.9252833316888247,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 3.931130051234896,
+        "baseline_mape": 4.682230286197816,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionC|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5267992608978456,
+        "baseline_mape": 2.8069941852609794,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionC|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      },
+      {
+        "series": "energy|RegionD|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0407927972417824,
+        "baseline_mape": 1.9240171172698664,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionD|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 11.402062765892127,
+        "baseline_mape": 15.47311988428757,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionD|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5271299234384197,
+        "baseline_mape": 2.806967301541274,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionD|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      },
+      {
+        "series": "energy|RegionE|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0407377121889549,
+        "baseline_mape": 1.92219185427376,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 9.687312290127588,
+        "baseline_mape": 12.74381424488458,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionE|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5258960939910192,
+        "baseline_mape": 2.8070108380161094,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionE|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      },
+      {
+        "series": "energy|RegionF|carbon",
+        "winner": "tabpfn",
+        "winner_mape": 0.0410603181168349,
+        "baseline_mape": 1.923738324097045,
+        "bucket": "结构类",
+        "type": "carbon"
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "winner": "tabpfn",
+        "winner_mape": 8.183260446874316,
+        "baseline_mape": 10.347908311145266,
+        "bucket": "结构类",
+        "type": "nonai"
+      },
+      {
+        "series": "energy|RegionF|price",
+        "winner": "tabpfn",
+        "winner_mape": 0.5262654224084649,
+        "baseline_mape": 2.80698932210347,
+        "bucket": "结构类",
+        "type": "price"
+      },
+      {
+        "series": "energy|RegionF|renewable",
+        "winner": "xgboost_point",
+        "winner_mape": 0.0468888784698581,
+        "baseline_mape": 5.938656534198713e-16,
+        "bucket": "模板类",
+        "type": "renewable"
+      }
+    ],
+    "bucket_winrate": {
+      "模板类|xgboost_point": 6,
+      "结构类|tabpfn": 18
+    },
+    "bucket_counts": {
+      "结构类": 18,
+      "模板类": 6
+    }
+  },
+  "e2d": {
+    "energy|RegionA|price": {
+      "matrix": [
+        [
+          0.9999999999999999,
+          0.9163139553017051,
+          0.8248700280153926
+        ],
+        [
+          0.9163139553017052,
+          0.9999999999999999,
+          0.7950987270643316
+        ],
+        [
+          0.8248700280153926,
+          0.7950987270643317,
+          1.0
+        ]
+      ],
+      "pairs": {
+        "lgbm_point|xgboost_point": 0.9163139553017051,
+        "lgbm_point|qrf_quantile": 0.8248700280153926,
+        "xgboost_point|qrf_quantile": 0.7950987270643316
+      },
+      "mean_abs_corr": 0.8454275701271432
+    }
+  },
+  "e2b": {
+    "ridge_stacking": 0.6072093896394826,
+    "rf_metalearner": 0.3943502242384547,
+    "equal_weight": 0.8658292174797318,
+    "width_inverse": 0.8539864085317714,
+    "n_series": 1,
+    "n_models": 3
+  },
+  "e2c": {
+    "cross_series_mape": 3.7256619679589265,
+    "n_series": 18,
+    "n_rows": 990,
+    "note": "GroupKFold 按序列分组：验证序列完全未参与训练"
+  },
+  "e2f": {
+    "global": 124.7999035554906,
+    "price": 0.4247137120089845,
+    "carbon": 2.702665239007118,
+    "nonai": 7.049415700164694
+  },
+  "hurdle": {
+    "hurdle_cov": 0.871938775510204,
+    "baseline_cov": 0.9454545454545454,
+    "hurdle_pinball": 38.912526472727876,
+    "baseline_pinball": 27.6,
+    "note": "白噪声下无条件分位数渐近最优：Hurdle 无增益=白噪声强证据"
+  },
+  "ablation": {
+    "with_priceperiod": 0.797115546146236,
+    "without_priceperiod": 2.6150803782393077,
+    "residual_correction": 0.844461415902941,
+    "direct_target": 0.797115546146236
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "b1": [
+    {
+      "series": "energy|RegionA|price",
+      "drift_period": {
+        "Flat": "lgbm_point",
+        "Peak": "xgboost_point",
+        "Valley": "xgboost_point"
+      },
+      "drift_level": {
+        "Q1": "xgboost_point",
+        "Q2": "lgbm_point",
+        "Q3": "qrf_quantile",
+        "Q4": "xgboost_point"
+      },
+      "drift_fraction_period": 0.6666666666666666,
+      "oracle_routing_mape": 0.591457870710264,
+      "best_single_mape": 0.7647251820082066,
+      "equal_weight_mape": 0.8653030388060836,
+      "ridge_mape": 0.6040564169868752,
+      "conditional_weight_mape": 0.8371827953136737,
+      "note": "oracle routing=事后真实最优模型选择（融合潜力理论上界）；条件权重=按时段分箱的最优权重"
+    },
+    {
+      "series": "energy|RegionF|nonai",
+      "drift_period": {
+        "Flat": "qrf_quantile",
+        "Peak": "qrf_quantile",
+        "Valley": "xgboost_point"
+      },
+      "drift_level": {
+        "Q1": "qrf_quantile",
+        "Q2": "qrf_quantile",
+        "Q3": "xgboost_point",
+        "Q4": "qrf_quantile"
+      },
+      "drift_fraction_period": 0.6666666666666666,
+      "oracle_routing_mape": 6.766645661929345,
+      "best_single_mape": 8.662715402070159,
+      "equal_weight_mape": 8.56387766741748,
+      "ridge_mape": 8.488620870990644,
+      "conditional_weight_mape": 8.562177207748398,
+      "note": "oracle routing=事后真实最优模型选择（融合潜力理论上界）；条件权重=按时段分箱的最优权重"
+    },
+    {
+      "series": "energy|RegionD|carbon",
+      "drift_period": {
+        "Flat": "xgboost_point",
+        "Peak": "lgbm_point",
+        "Valley": "xgboost_point"
+      },
+      "drift_level": {
+        "Q1": "xgboost_point",
+        "Q2": "lgbm_point",
+        "Q3": "xgboost_point",
+        "Q4": "xgboost_point"
+      },
+      "drift_fraction_period": 0.6666666666666666,
+      "oracle_routing_mape": 0.043946486794625865,
+      "best_single_mape": 0.080082649845248,
+      "equal_weight_mape": 0.1414077381234389,
+      "ridge_mape": 1.1316049265649484,
+      "conditional_weight_mape": 0.09072601165821337,
+      "note": "oracle routing=事后真实最优模型选择（融合潜力理论上界）；条件权重=按时段分箱的最优权重"
+    }
+  ],
+  "b2": {
+    "series": "energy|RegionA|price",
+    "basis": {
+      "seg_offset": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.7597268841454271,
+        "median_coef": -0.0014677338361357428,
+        "significant": false
+      },
+      "hinge_boundary": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.11044751282110062,
+        "median_coef": -0.006435540940572082,
+        "significant": false
+      },
+      "fourier2": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": 0.10864316162219827,
+        "median_coef": 0.012699710671398634,
+        "significant": false
+      },
+      "saturation": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.11942880865020772,
+        "median_coef": -0.0003052642882059864,
+        "significant": false
+      },
+      "zero_infl_log": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": 0.037347770075736045,
+        "median_coef": 0.09024228778775978,
+        "significant": false
+      },
+      "multiplicative": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.04115534910657741,
+        "median_coef": -9.823871086522828e-05,
+        "significant": false
+      },
+      "phase_shift": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.041155349146384905,
+        "median_coef": -9.823871096009511e-08,
+        "significant": false
+      },
+      "count_link": {
+        "sig_folds": 0,
+        "n_folds": 5,
+        "median_t": -0.03059787379340337,
+        "median_coef": -0.21427642457638285,
+        "significant": false
+      }
+    },
+    "note": "F/t 检验裁决领域基函数是否显著；显著≥3 折视为机理存在"
+  },
+  "b3": {
+    "energy|RegionA|price": {
+      "series": "energy|RegionA|price",
+      "pairs": {
+        "lgbm_point|xgboost_point": 0.9163139553017051,
+        "lgbm_point|qrf_quantile": 0.8058210425403952,
+        "lgbm_point|deep_tcn": 0.008893014525291558,
+        "lgbm_point|tabpfn": 0.8885749216388807,
+        "xgboost_point|qrf_quantile": 0.7773535769639647,
+        "xgboost_point|deep_tcn": -0.04960631190613256,
+        "xgboost_point|tabpfn": 0.9102631451843604,
+        "qrf_quantile|deep_tcn": 0.08528105044677703,
+        "qrf_quantile|tabpfn": 0.7345229086275489,
+        "deep_tcn|tabpfn": -0.0785456619864979
+      }
+    },
+    "energy|RegionD|carbon": {
+      "series": "energy|RegionD|carbon",
+      "pairs": {
+        "lgbm_point|xgboost_point": 0.49830462874237624,
+        "lgbm_point|qrf_quantile": 0.38503747900299556,
+        "lgbm_point|deep_tcn": 0.12226355584644105,
+        "lgbm_point|tabpfn": 0.2765781521746376,
+        "xgboost_point|qrf_quantile": 0.419533471975609,
+        "xgboost_point|deep_tcn": 0.13704446071491586,
+        "xgboost_point|tabpfn": 0.06023568878967198,
+        "qrf_quantile|deep_tcn": 0.38846773245219895,
+        "qrf_quantile|tabpfn": -0.07872347030363248,
+        "deep_tcn|tabpfn": 0.01970785473725711
+      }
+    }
+  },
+  "b4": {
+    "n_series": 18,
+    "n_rows": 990,
+    "configs": {
+      "{'n_estimators': 200, 'max_depth': 6}": 6.11726326990241,
+      "{'n_estimators': 400, 'max_depth': 10}": 5.828044969204876,
+      "{'n_estimators': 200, 'max_depth': None}": 5.845252919001568
+    },
+    "note": "RF 尺度不变：global 融合不再因量纲爆炸"
+  },
+  "b5": {
+    "profile_table": {
+      "carbon": {
+        "基础模型": 0.041,
+        "树类": 0.113,
+        "深度": 0.273
+      },
+      "nonai": {
+        "基础模型": 6.146,
+        "树类": 6.563,
+        "深度": 7.107
+      },
+      "price": {
+        "基础模型": 0.527,
+        "树类": 1.109,
+        "深度": 6.49
+      },
+      "renewable": {
+        "基础模型": 0.156,
+        "树类": 0.181,
+        "深度": 0.245
+      }
+    },
+    "tabpfn_stability": {
+      "mean_cov_std": 0.031210273543254164,
+      "mean_mape_std": 0.2619775953281919,
+      "best_series": 24,
+      "n_series": 24
+    }
+  }
+}

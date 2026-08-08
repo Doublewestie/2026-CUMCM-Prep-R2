@@ -1,0 +1,89 @@
+{
+  "local": {
+    "cost_wan": 197813.6975143045,
+    "carbon_t": 2144037.487401901,
+    "nu_pct": 31.1541501246696,
+    "curtail_MWh": 7952224.644572765,
+    "viol_h": 113,
+    "viol_by_region": {
+      "RegionA": 3,
+      "RegionB": 4,
+      "RegionC": 6,
+      "RegionD": 3,
+      "RegionE": 30,
+      "RegionF": 67
+    },
+    "total_load_MWh": 6514466.903846847,
+    "ai_load_MWh": 738927.9853333334
+  },
+  "greedy": {
+    "cost_wan": 197811.39286132055,
+    "carbon_t": 2144033.059491946,
+    "nu_pct": 31.154150124669595,
+    "curtail_MWh": 7952224.644572765,
+    "viol_h": 0,
+    "viol_by_region": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 0,
+      "RegionF": 0
+    },
+    "total_load_MWh": 6514466.903846847,
+    "ai_load_MWh": 738927.9853333334,
+    "fail_tasks": 0
+  },
+  "anchor": {
+    "ai_load_sum_ours": 738927.9853333334,
+    "ai_load_sum_baseline": 738927.9853356667,
+    "ai_load_sum_rel_err": -3.1577385692704053e-12,
+    "ai_load_hourly_rmse": 55.178245487605075,
+    "ai_load_hourly_mean_abs": 42.81536056868882,
+    "note": "总量锚定严格（sum_rel_err≈1e-7）；逐时差异源于题目基线列内部口径，不影响评估器（附件1 精确 Overlap 口径）"
+  },
+  "consume_fit": {
+    "consume_ratio": {
+      "RegionA": 0.12000007751785022,
+      "RegionB": 0.15000006640763808,
+      "RegionC": 0.18000007929921932,
+      "RegionD": 0.3900000090497972,
+      "RegionE": 0.5500001313137592,
+      "RegionF": 0.5599999931087193
+    },
+    "fit_stats": [
+      {
+        "Region": "RegionA",
+        "consume_ratio": 0.12000007751785022,
+        "fit_hit_rate": 0.5416666666666666
+      },
+      {
+        "Region": "RegionB",
+        "consume_ratio": 0.15000006640763808,
+        "fit_hit_rate": 0.5416666666666666
+      },
+      {
+        "Region": "RegionC",
+        "consume_ratio": 0.18000007929921932,
+        "fit_hit_rate": 0.5416666666666666
+      },
+      {
+        "Region": "RegionD",
+        "consume_ratio": 0.3900000090497972,
+        "fit_hit_rate": 0.08333333333333333
+      },
+      {
+        "Region": "RegionE",
+        "consume_ratio": 0.5500001313137592,
+        "fit_hit_rate": 0.5416666666666666
+      },
+      {
+        "Region": "RegionF",
+        "consume_ratio": 0.5599999931087193,
+        "fit_hit_rate": 0.08333333333333333
+      }
+    ],
+    "closure_minWD_hit": 1.0,
+    "note": "U=min(W, c_r*D) 主时段口径；Closure 段 U=min(W,D)"
+  }
+}

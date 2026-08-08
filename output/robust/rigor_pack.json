@@ -1,0 +1,636 @@
+{
+  "a1_eta": {
+    "task": {
+      "eta_mean": 0.0,
+      "eta_max": 0.0,
+      "eta_dist": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "energy": {
+      "eta_mean": 0.9390454268325352,
+      "eta_min": 0.8160063639267894,
+      "by_type": {
+        "carbon": 0.877,
+        "nonai": 0.889,
+        "price": 0.99,
+        "renewable": 1.0
+      }
+    },
+    "note": "任务侧基准=无条件均值（白噪声下最优拟合）；能源侧基准=日模板（确定性结构）"
+  },
+  "a2_arrival_gof": {
+    "per_series": {
+      "RegionA|RT": {
+        "mean": 2.444302721088435,
+        "var": 2.4375600410304488,
+        "dispersion": 0.9972414709520988,
+        "poisson_gof_p": 0.3482498884174687,
+        "negbin_gof_p": 2.178767486839377e-123
+      },
+      "RegionA|BI": {
+        "mean": 1.3869047619047619,
+        "var": 1.4146816957323125,
+        "dispersion": 1.020028003789822,
+        "poisson_gof_p": 0.8556831538783172,
+        "negbin_gof_p": 5.614912375432151e-16
+      },
+      "RegionA|AT": {
+        "mean": 0.3681972789115646,
+        "var": 0.37054068756383884,
+        "dispersion": 1.0063645463627586,
+        "poisson_gof_p": 0.735835378285806,
+        "negbin_gof_p": null
+      },
+      "RegionB|RT": {
+        "mean": 2.0871598639455784,
+        "var": 2.087253180727842,
+        "dispersion": 1.0000447099351975,
+        "poisson_gof_p": 0.03241311834826282,
+        "negbin_gof_p": 4.60206217956542e-85
+      },
+      "RegionB|BI": {
+        "mean": 1.3805272108843538,
+        "var": 1.3272769656565304,
+        "dispersion": 0.9614276018553001,
+        "poisson_gof_p": 0.3697203762749687,
+        "negbin_gof_p": 5.951859663312055e-22
+      },
+      "RegionB|AT": {
+        "mean": 0.36096938775510207,
+        "var": 0.3515682644814625,
+        "dispersion": 0.9739558987755003,
+        "poisson_gof_p": 0.6423947401775281,
+        "negbin_gof_p": null
+      },
+      "RegionC|RT": {
+        "mean": 1.7568027210884354,
+        "var": 1.702633414063201,
+        "dispersion": 0.9691659704444938,
+        "poisson_gof_p": 0.021781187389506608,
+        "negbin_gof_p": 1.5844839922222349e-57
+      },
+      "RegionC|BI": {
+        "mean": 1.0539965986394557,
+        "var": 1.0140971637485279,
+        "dispersion": 0.9621446265173609,
+        "poisson_gof_p": 0.4076464436772457,
+        "negbin_gof_p": 0.010932487401899045
+      },
+      "RegionC|AT": {
+        "mean": 0.3401360544217687,
+        "var": 0.3317274166153063,
+        "dispersion": 0.9752786048490005,
+        "poisson_gof_p": 0.8113232047677342,
+        "negbin_gof_p": null
+      },
+      "RegionD|RT": {
+        "mean": 0.20280612244897958,
+        "var": 0.19151913211052182,
+        "dispersion": 0.9443459092745228,
+        "poisson_gof_p": 0.10875707736333044,
+        "negbin_gof_p": null
+      },
+      "RegionD|BI": {
+        "mean": 1.3915816326530612,
+        "var": 1.4012561958003107,
+        "dispersion": 1.0069522066979317,
+        "poisson_gof_p": 0.4331358483605736,
+        "negbin_gof_p": 4.077242976529117e-16
+      },
+      "RegionD|AT": {
+        "mean": 2.3924319727891157,
+        "var": 2.5813633726565914,
+        "dispersion": 1.0789704376201001,
+        "poisson_gof_p": 0.008692034182804408,
+        "negbin_gof_p": 1.3517132914454688e-93
+      },
+      "RegionE|RT": {
+        "mean": 0.2699829931972789,
+        "var": 0.2771419818459072,
+        "dispersion": 1.0265164429946043,
+        "poisson_gof_p": 0.04416126756670953,
+        "negbin_gof_p": null
+      },
+      "RegionE|BI": {
+        "mean": 0.9009353741496599,
+        "var": 0.8574725402708937,
+        "dispersion": 0.9517581003856262,
+        "poisson_gof_p": 0.015090836314490562,
+        "negbin_gof_p": null
+      },
+      "RegionE|AT": {
+        "mean": 1.6985544217687074,
+        "var": 1.6466503977175728,
+        "dispersion": 0.9694422366537501,
+        "poisson_gof_p": 0.8508341947066069,
+        "negbin_gof_p": 4.90976910553089e-49
+      },
+      "RegionF|RT": {
+        "mean": 0.20578231292517007,
+        "var": 0.20689126352369958,
+        "dispersion": 1.0053889500159947,
+        "poisson_gof_p": 0.20806566042931324,
+        "negbin_gof_p": null
+      },
+      "RegionF|BI": {
+        "mean": 0.8490646258503401,
+        "var": 0.8402458282334626,
+        "dispersion": 0.9896135142739629,
+        "poisson_gof_p": 0.6879660143589683,
+        "negbin_gof_p": null
+      },
+      "RegionF|AT": {
+        "mean": 1.7274659863945578,
+        "var": 1.744919479914467,
+        "dispersion": 1.0101035236915643,
+        "poisson_gof_p": 0.38826127451038256,
+        "negbin_gof_p": 1.7990050101117792e-45
+      }
+    },
+    "summary": "到达过程：dispersion≈1 支持泊松，p 值低=偏离泊松（白噪声表述以 ACF 为主，计数分布为补充）"
+  },
+  "a3_oracle": {
+    "C0_local_cost": 197813.6975143045,
+    "C1_greedy_imp_pct": 0.0011650623859332933,
+    "C2_migrate_imp_pct": 4.584981913872889,
+    "C3_migrate_shift_imp_pct": 3.5681878038868553,
+    "C4_oracle_price_imp_pct": 1.9482924910723116,
+    "oracle_upper_bound_note": "价格感知贪心=套利潜力的启发式上界（非全局最优，标注为 oracle 贪心）",
+    "criterion_note": "E1a 的 4.6% 为 C2 启发式；oracle 上界给出套利潜力上限"
+  },
+  "a4_threshold": {
+    "energy_gate_3pct": 129,
+    "energy_gate_5pct": 127,
+    "energy_gate_7pct": 127,
+    "task_cov_85": 1,
+    "task_cov_90": 1,
+    "task_cov_95": 1,
+    "kappa_target_90": {
+      "passed": [
+        0.01,
+        0.02,
+        0.03,
+        0.05,
+        0.08
+      ],
+      "selected": 0.08
+    },
+    "kappa_target_95": {
+      "passed": [
+        0.01,
+        0.02,
+        0.03,
+        0.05
+      ],
+      "selected": 0.05
+    },
+    "kappa_target_98": {
+      "passed": [
+        0.01,
+        0.02,
+        0.03
+      ],
+      "selected": 0.03
+    },
+    "e1_gap_pp": 0.0733807002003982,
+    "e1_criteria_3pp": true,
+    "e1_criteria_8pp": true
+  },
+  "a5_consume": {
+    "minus10": {
+      "gap_pp": 0.0749924749058737,
+      "imp_perfect_pct": 0.0012366355412017464,
+      "imp_quantile_pct": 0.07622911044707545
+    },
+    "base": {
+      "gap_pp": 0.0733807002003982,
+      "imp_perfect_pct": 0.0011650623859332933,
+      "imp_quantile_pct": 0.0745457625863315
+    },
+    "plus10": {
+      "gap_pp": 0.06924943878159988,
+      "imp_perfect_pct": 0.0010864719732695273,
+      "imp_quantile_pct": 0.0703359107548694
+    }
+  },
+  "a6_gate_v2": {
+    "v2_rejects": [
+      {
+        "series": "energy|RegionA|price",
+        "model": "lgbm_point",
+        "imp": 71.6,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|price",
+        "model": "xgboost_point",
+        "imp": 72.8,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|price",
+        "model": "qrf_quantile",
+        "imp": 60.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|price",
+        "model": "lgbm_quantile",
+        "imp": 50.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|price",
+        "model": "gbm_quantile",
+        "imp": 20.9,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|price",
+        "model": "tabpfn",
+        "imp": 81.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "lgbm_point",
+        "imp": 71.9,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "xgboost_point",
+        "imp": 73.0,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "qrf_quantile",
+        "imp": 59.7,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "lgbm_quantile",
+        "imp": 43.7,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "gbm_quantile",
+        "imp": 34.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionB|price",
+        "model": "tabpfn",
+        "imp": 81.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "lgbm_point",
+        "imp": 71.4,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "xgboost_point",
+        "imp": 72.8,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "qrf_quantile",
+        "imp": 62.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "lgbm_quantile",
+        "imp": 48.4,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "gbm_quantile",
+        "imp": 26.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionC|price",
+        "model": "tabpfn",
+        "imp": 81.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "lgbm_point",
+        "imp": 72.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "xgboost_point",
+        "imp": 73.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "qrf_quantile",
+        "imp": 60.9,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "lgbm_quantile",
+        "imp": 35.6,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "gbm_quantile",
+        "imp": 27.3,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionD|price",
+        "model": "tabpfn",
+        "imp": 81.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "lgbm_point",
+        "imp": 71.6,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "xgboost_point",
+        "imp": 73.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "qrf_quantile",
+        "imp": 61.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "lgbm_quantile",
+        "imp": 48.1,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "gbm_quantile",
+        "imp": 24.0,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionE|price",
+        "model": "tabpfn",
+        "imp": 81.3,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "lgbm_point",
+        "imp": 72.2,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "xgboost_point",
+        "imp": 72.9,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "qrf_quantile",
+        "imp": 58.4,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "lgbm_quantile",
+        "imp": 44.0,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "gbm_quantile",
+        "imp": 23.8,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionF|price",
+        "model": "tabpfn",
+        "imp": 81.3,
+        "base_cv": 53.1
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "lgbm_point",
+        "imp": 7.6,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "xgboost_point",
+        "imp": 10.3,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "qrf_quantile",
+        "imp": 10.1,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "lgbm_quantile",
+        "imp": 8.8,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "gbm_quantile",
+        "imp": 11.4,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionA|nonai",
+        "model": "tabpfn",
+        "imp": 15.2,
+        "base_cv": 9.2
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "lgbm_point",
+        "imp": 8.4,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "xgboost_point",
+        "imp": 8.9,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "qrf_quantile",
+        "imp": 10.5,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "lgbm_quantile",
+        "imp": 8.7,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "gbm_quantile",
+        "imp": 11.7,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionB|nonai",
+        "model": "tabpfn",
+        "imp": 14.1,
+        "base_cv": 7.6
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "model": "lgbm_point",
+        "imp": 9.3,
+        "base_cv": 7.8
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "model": "xgboost_point",
+        "imp": 8.0,
+        "base_cv": 7.8
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "model": "qrf_quantile",
+        "imp": 10.8,
+        "base_cv": 7.8
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "model": "lgbm_quantile",
+        "imp": 11.2,
+        "base_cv": 7.8
+      },
+      {
+        "series": "energy|RegionC|nonai",
+        "model": "gbm_quantile",
+        "imp": 12.3,
+        "base_cv": 7.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "lgbm_point",
+        "imp": 14.9,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "xgboost_point",
+        "imp": 18.2,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "qrf_quantile",
+        "imp": 15.3,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "lgbm_quantile",
+        "imp": 13.3,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "gbm_quantile",
+        "imp": 15.6,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "deep_lstm",
+        "imp": 18.1,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "deep_tcn",
+        "imp": 16.2,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionE|nonai",
+        "model": "tabpfn",
+        "imp": 24.0,
+        "base_cv": 33.8
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "model": "lgbm_point",
+        "imp": 14.3,
+        "base_cv": 8.0
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "model": "qrf_quantile",
+        "imp": 15.9,
+        "base_cv": 8.0
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "model": "lgbm_quantile",
+        "imp": 14.4,
+        "base_cv": 8.0
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "model": "deep_lstm",
+        "imp": 12.1,
+        "base_cv": 8.0
+      },
+      {
+        "series": "energy|RegionF|nonai",
+        "model": "deep_tcn",
+        "imp": 7.3,
+        "base_cv": 8.0
+      }
+    ],
+    "n_changed": 66,
+    "note": "v2 判据仅作稳健性验证，主榜结论保持 v1 判据不变"
+  }
+}

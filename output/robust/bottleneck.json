@@ -1,0 +1,47 @@
+{
+  "n_delayed": 191,
+  "n_delayed_pct": 0.382,
+  "delay_hours_median": 1.0,
+  "delay_hours_max": 3,
+  "by_region": {
+    "RegionA": {
+      "count": 3.0,
+      "median": 1.0,
+      "sum": 3.0
+    },
+    "RegionB": {
+      "count": 4.0,
+      "median": 1.0,
+      "sum": 4.0
+    },
+    "RegionC": {
+      "count": 3.0,
+      "median": 2.0,
+      "sum": 6.0
+    },
+    "RegionD": {
+      "count": 5.0,
+      "median": 1.0,
+      "sum": 5.0
+    },
+    "RegionE": {
+      "count": 62.0,
+      "median": 1.0,
+      "sum": 82.0
+    },
+    "RegionF": {
+      "count": 114.0,
+      "median": 1.0,
+      "sum": 137.0
+    }
+  },
+  "by_period": {
+    "Flat": 80,
+    "Valley": 71,
+    "Peak": 40
+  },
+  "top_types": {
+    "AITraining": 191
+  },
+  "heuristic_input": "延后集中在 E/F 超容时段附近 → M3 构造层优先迁移方向"
+}
