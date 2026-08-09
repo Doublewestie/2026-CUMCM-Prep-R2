@@ -116,3 +116,9 @@ storage_params.csv / quality_report.json / figures/eda/eda_summary.json
 | Phase | Reference/docs/PhaseN | 内容 |
 |-------|------------------------|------|
 | （不适用） | | 竞赛题无开源代码对照（paper_code_summary/reference_analysis/guidance 为论文复现项目模板）——决策：跳过 PhaseN 三文件，方法论学习记入 Reference/sums/（sum_9 已建） |
+
+## 方法学记录（Reference/sums/）
+| 文件 | 内容 | 状态 |
+|------|------|------|
+| sum_9_结构侦察方法学.md | S9 结构侦察：10 条系统性教训 + 侦察工具箱 + 适用边界 | ✅ |
+| sum_10_高层方法论语病与更新.md | math-methods v2 修订记录：高层缺陷 10 条 + 抽象检查项 8 条 + 落地清单 | ✅ |
