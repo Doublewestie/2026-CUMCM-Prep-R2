@@ -3,79 +3,250 @@
     "carbon": {
       "0.1": {
         "construct": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 27.795350103819555,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q2_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 26.28738355505838,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q4_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
-          "latency_ms": 27.772289019689776,
+          "cost_wan": null,
+          "carbon_t": null,
+          "latency_ms": 27.76490953862777,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         }
       },
       "0.2": {
         "construct": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 27.795350103819555,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q2_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 26.28738355505838,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q4_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
-          "latency_ms": 27.772289019689776,
+          "cost_wan": null,
+          "carbon_t": null,
+          "latency_ms": 27.76490953862777,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         }
       },
       "0.3": {
         "construct": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 27.795350103819555,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q2_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
+          "cost_wan": null,
+          "carbon_t": null,
           "latency_ms": 26.28738355505838,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         },
         "q4_compromise": {
-          "cost_wan": 0.0,
-          "carbon_t": 0.0,
-          "latency_ms": 27.772289019689776,
+          "cost_wan": null,
+          "carbon_t": null,
+          "latency_ms": 27.76490953862777,
           "infeasible": true,
           "lever_needed": true,
+          "lever_ok": false,
+          "lever_best": null,
+          "lever_variants": {
+            "A_shift24": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "B_migrate": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            },
+            "C_joint": {
+              "ok": false,
+              "cost": null,
+              "carbon": null
+            }
+          },
           "lever_cost_wan": null
         }
       }
@@ -87,24 +258,24 @@
           "carbon_t": 1903756.2819985317,
           "latency_ms": 27.795350103819555,
           "nu_pct": 35.639091714731904,
-          "peak_net_MW": 478.52640035208117,
-          "infeasible": false
+          "infeasible": false,
+          "peak_net_MW": 478.52640035208117
         },
         "q2_compromise": {
           "cost_wan": 163973.70283644993,
           "carbon_t": 1906360.0515245977,
           "latency_ms": 26.28738355505838,
           "nu_pct": 35.61723903589944,
-          "peak_net_MW": 479.0016003960002,
-          "infeasible": false
+          "infeasible": false,
+          "peak_net_MW": 479.0016003960002
         },
         "q4_compromise": {
-          "cost_wan": 163578.4131352272,
-          "carbon_t": 1903828.1322946409,
-          "latency_ms": 27.772289019689776,
-          "nu_pct": 35.640737233555875,
-          "peak_net_MW": 478.52640035208117,
-          "infeasible": false
+          "cost_wan": 163574.63285107928,
+          "carbon_t": 1903823.4504428979,
+          "latency_ms": 27.76490953862777,
+          "nu_pct": 35.641470270126874,
+          "infeasible": false,
+          "peak_net_MW": 478.52640035208117
         }
       },
       "1.5": {
@@ -113,156 +284,191 @@
           "carbon_t": 1903756.2819985317,
           "latency_ms": 27.795350103819555,
           "nu_pct": 35.639091714731904,
-          "peak_net_MW": 478.52640035208117,
-          "infeasible": false
+          "infeasible": false,
+          "peak_net_MW": 478.52640035208117
         },
         "q2_compromise": {
           "cost_wan": 164034.66119262288,
           "carbon_t": 1906360.0515245977,
           "latency_ms": 26.28738355505838,
           "nu_pct": 35.61723903589944,
-          "peak_net_MW": 479.0016003960002,
-          "infeasible": false
+          "infeasible": false,
+          "peak_net_MW": 479.0016003960002
         },
         "q4_compromise": {
-          "cost_wan": 163639.35674704003,
-          "carbon_t": 1903828.1322946409,
-          "latency_ms": 27.772289019689776,
-          "nu_pct": 35.640737233555875,
-          "peak_net_MW": 478.52640035208117,
-          "infeasible": false
+          "cost_wan": 163635.57611131438,
+          "carbon_t": 1903823.4504428979,
+          "latency_ms": 27.76490953862777,
+          "nu_pct": 35.641470270126874,
+          "infeasible": false,
+          "peak_net_MW": 478.52640035208117
         }
       }
     },
     "volatility": {
       "0.1": {
         "construct": {
-          "cost_wan": 163850.71178411032,
-          "carbon_t": 1903767.2483626064,
+          "cost_wan": 163832.2370425699,
+          "carbon_t": 1903768.4124098697,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 35.5009908992154,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 35.496772553330715,
+          "infeasible": false,
+          "peak_net_MW": 478.526,
+          "peak_expect_MW": 478.526,
+          "peak_worst_MW": 478.526,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q2_compromise": {
-          "cost_wan": 164240.9697107911,
-          "carbon_t": 1906368.7756056413,
+          "cost_wan": 164224.77434130423,
+          "carbon_t": 1906371.5545517285,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 35.47950615951553,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 35.47438188087254,
+          "infeasible": false,
+          "peak_net_MW": 479.002,
+          "peak_expect_MW": 479.002,
+          "peak_worst_MW": 479.002,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q4_compromise": {
-          "cost_wan": 163849.27855120052,
-          "carbon_t": 1903838.3932053465,
-          "latency_ms": 27.772289019689776,
-          "nu_pct": 35.50167906040852,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "cost_wan": 163827.48099192185,
+          "carbon_t": 1903835.7068596398,
+          "latency_ms": 27.76490953862777,
+          "nu_pct": 35.497776222408916,
+          "infeasible": false,
+          "peak_net_MW": 478.526,
+          "peak_expect_MW": 478.526,
+          "peak_worst_MW": 478.526,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         }
       },
       "0.2": {
         "construct": {
-          "cost_wan": 164329.63460025445,
-          "carbon_t": 1875636.5680533242,
+          "cost_wan": 164434.71994040723,
+          "carbon_t": 1881380.9082646146,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 36.458945139453,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 36.47749272391031,
+          "infeasible": false,
+          "peak_net_MW": 479.145,
+          "peak_expect_MW": 479.145,
+          "peak_worst_MW": 518.101,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q2_compromise": {
-          "cost_wan": 164781.31835460235,
-          "carbon_t": 1883916.831104906,
+          "cost_wan": 164903.55178474373,
+          "carbon_t": 1887448.2300937783,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 36.167921917824955,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 36.30540341431426,
+          "infeasible": false,
+          "peak_net_MW": 479.653,
+          "peak_expect_MW": 479.653,
+          "peak_worst_MW": 520.665,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q4_compromise": {
-          "cost_wan": 164372.85644965203,
-          "carbon_t": 1881283.409248915,
-          "latency_ms": 27.772289019689776,
-          "nu_pct": 36.18650435761362,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "cost_wan": 164431.9223394279,
+          "carbon_t": 1881453.0040918745,
+          "latency_ms": 27.76490953862777,
+          "nu_pct": 36.47852709948699,
+          "infeasible": false,
+          "peak_net_MW": 479.145,
+          "peak_expect_MW": 479.145,
+          "peak_worst_MW": 518.101,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         }
       },
       "0.3": {
         "construct": {
-          "cost_wan": 164954.2367649026,
-          "carbon_t": 1838383.4519063132,
+          "cost_wan": 164872.1951792927,
+          "carbon_t": 1849037.6167589661,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 38.05332064135766,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 37.61254265009325,
+          "infeasible": false,
+          "peak_net_MW": 478.526,
+          "peak_expect_MW": 478.526,
+          "peak_worst_MW": 510.0,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q2_compromise": {
-          "cost_wan": 165280.96063571092,
-          "carbon_t": 1833629.1874897555,
+          "cost_wan": 165290.52995428685,
+          "carbon_t": 1851819.5513576395,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 38.43778010218303,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "nu_pct": 37.59685037411228,
+          "infeasible": false,
+          "peak_net_MW": 479.002,
+          "peak_expect_MW": 479.002,
+          "peak_worst_MW": 510.0,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         },
         "q4_compromise": {
-          "cost_wan": 164872.86740819094,
-          "carbon_t": 1844104.498033744,
-          "latency_ms": 27.772289019689776,
-          "nu_pct": 37.69748439252073,
-          "peak_net_MW": 0.0,
-          "infeasible": false
+          "cost_wan": 164863.93624501146,
+          "carbon_t": 1849089.2608777825,
+          "latency_ms": 27.76490953862777,
+          "nu_pct": 37.61333519555551,
+          "infeasible": false,
+          "peak_net_MW": 478.526,
+          "peak_expect_MW": 478.526,
+          "peak_worst_MW": 510.0,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
         }
       }
     }
   },
   "strategy_change": {
     "carbon|0.1": {
-      "best_policy": "construct",
-      "cost_wan": 0.0,
-      "vs_baseline_cost_pct": 0.0,
-      "peak_net_MW": null
+      "best_policy": null,
+      "cost_wan": null,
+      "vs_baseline_cost_pct": null,
+      "peak_net_MW": null,
+      "note": "该档全部策略不可行（储能层可行域下界，见 q4_shadow）"
     },
     "carbon|0.2": {
-      "best_policy": "construct",
-      "cost_wan": 0.0,
-      "vs_baseline_cost_pct": 0.0,
-      "peak_net_MW": null
+      "best_policy": null,
+      "cost_wan": null,
+      "vs_baseline_cost_pct": null,
+      "peak_net_MW": null,
+      "note": "该档全部策略不可行（储能层可行域下界，见 q4_shadow）"
     },
     "carbon|0.3": {
-      "best_policy": "construct",
-      "cost_wan": 0.0,
-      "vs_baseline_cost_pct": 0.0,
-      "peak_net_MW": null
+      "best_policy": null,
+      "cost_wan": null,
+      "vs_baseline_cost_pct": null,
+      "peak_net_MW": null,
+      "note": "该档全部策略不可行（储能层可行域下界，见 q4_shadow）"
     },
     "price|1.2": {
       "best_policy": "q4_compromise",
-      "cost_wan": 163578.41,
+      "cost_wan": 163574.63,
       "vs_baseline_cost_pct": -0.24,
-      "peak_net_MW": 478.52640035208117
+      "peak_net_MW": 478.52640035208117,
+      "lever_ok": null
     },
     "price|1.5": {
       "best_policy": "q4_compromise",
-      "cost_wan": 163639.36,
+      "cost_wan": 163635.58,
       "vs_baseline_cost_pct": -0.24,
-      "peak_net_MW": 478.52640035208117
+      "peak_net_MW": 478.52640035208117,
+      "lever_ok": null
     },
     "volatility|0.1": {
       "best_policy": "q4_compromise",
-      "cost_wan": 163849.28,
+      "cost_wan": 163827.48,
       "vs_baseline_cost_pct": -0.24,
-      "peak_net_MW": 0.0
+      "peak_net_MW": 478.526,
+      "lever_ok": null
     },
     "volatility|0.2": {
-      "best_policy": "construct",
-      "cost_wan": 164329.63,
-      "vs_baseline_cost_pct": -0.27,
-      "peak_net_MW": 0.0
+      "best_policy": "q4_compromise",
+      "cost_wan": 164431.92,
+      "vs_baseline_cost_pct": -0.29,
+      "peak_net_MW": 479.145,
+      "lever_ok": null
     },
     "volatility|0.3": {
       "best_policy": "q4_compromise",
-      "cost_wan": 164872.87,
-      "vs_baseline_cost_pct": -0.25,
-      "peak_net_MW": 0.0
+      "cost_wan": 164863.94,
+      "vs_baseline_cost_pct": -0.26,
+      "peak_net_MW": 478.526,
+      "lever_ok": null
     }
   },
   "price_ratio_scan": {
@@ -278,5 +484,34 @@
     }
   },
   "caliber": "碳约束=区域碳限额×(1−τ)；峰谷比=时段均值+k×(原价−均值)保均值重构；波动=W 模板×AR(1)σ×K-means12 场景期望；代表策略集=Q4 折中/Q2 折中/构造（C3 决策：策略迁移即结论）；场景自造声明（题面未给场景数据）",
-  "spec": "spec_M4_Q4 场景章节；档位依据：Sobol 归因 + Q3 SIGMAS + step4.1 预扫"
+  "spec": "spec_M4_Q4 场景章节；档位依据：Sobol 归因 + Q3 SIGMAS + step4.1 预扫",
+  "carbon_lever_floor": {
+    "scan": [
+      {
+        "mig_gpu_min": 0.0,
+        "carbon_t": 1903947.0,
+        "cost_wan": 163867.6
+      },
+      {
+        "mig_gpu_min": 6.0,
+        "carbon_t": 1904285.0,
+        "cost_wan": 163920.2
+      },
+      {
+        "mig_gpu_min": 11.9,
+        "carbon_t": 1906558.0,
+        "cost_wan": 164260.6
+      },
+      {
+        "mig_gpu_min": 15.0,
+        "carbon_t": 1908500.0,
+        "cost_wan": 164536.1
+      }
+    ],
+    "base_carbon_t": 1908500.0,
+    "min_carbon_t": 1903947.0516238783,
+    "max_lever_pct": 0.239,
+    "verdict": "任务层碳杠杆上限 ≈0.1-0.3%（NonAI 底数稀释+成本驱动调度器）→ 等比例区域碳限额 τ≥1% 即超杠杆能力，τ∈{10%,20%,30%} 不可达系结构性（政策级结论：减排需源头或跨区电量调度，非任务调度杠杆）",
+    "base_nu_pct": 35.62
+  }
 }

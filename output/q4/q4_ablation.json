@@ -26,10 +26,10 @@
   },
   "joint_vs_alternate": {
     "joint": {
-      "cost_wan": 163868.3025,
-      "carbon_t": 1904022.9802,
-      "latency_ms": 27.7723,
-      "one_minus_qos": 0.163,
+      "cost_wan": 163864.2087,
+      "carbon_t": 1904018.0292,
+      "latency_ms": 27.7649,
+      "one_minus_qos": 0.1699,
       "one_minus_nu": 0.645,
       "peak_net_MW": 478.5264
     },
@@ -41,7 +41,7 @@
       "one_minus_nu": 0.6452,
       "peak_net_MW": 479.0016
     },
-    "cost_gap_pct": -0.239,
+    "cost_gap_pct": -0.241,
     "verdict": "交替迭代次优——联合必要（诚实呈现）"
   },
   "monotonicity": {

@@ -3,32 +3,38 @@
     "RegionA": {
       "cost_wan": 57601.8,
       "carbon_t": 540570.7,
-      "peak_net_MW": 479.0
+      "peak_net_MW": 479.0,
+      "sell_lim": 0.0
     },
     "RegionB": {
       "cost_wan": 52938.06,
       "carbon_t": 483521.1,
-      "peak_net_MW": 451.7
+      "peak_net_MW": 451.7,
+      "sell_lim": 0.0
     },
     "RegionC": {
       "cost_wan": 50913.13,
       "carbon_t": 453514.8,
-      "peak_net_MW": 456.6
+      "peak_net_MW": 456.6,
+      "sell_lim": 0.0
     },
     "RegionD": {
       "cost_wan": 4697.36,
       "carbon_t": 220103.2,
-      "peak_net_MW": 279.0
+      "peak_net_MW": 279.0,
+      "sell_lim": 180.0
     },
     "RegionE": {
       "cost_wan": -2146.2,
       "carbon_t": 90865.0,
-      "peak_net_MW": 255.8
+      "peak_net_MW": 255.8,
+      "sell_lim": 220.0
     },
     "RegionF": {
       "cost_wan": -71.09,
       "carbon_t": 117785.3,
-      "peak_net_MW": 238.3
+      "peak_net_MW": 238.3,
+      "sell_lim": 220.0
     }
   },
   "pi_carbon": {
@@ -138,21 +144,21 @@
         }
       }
     ],
-    "marginal": {
+    "marginal_diff": {
       "0.02-0.05": {
         "d_cost_wan": 0.0,
-        "d_cap": 57190.8,
-        "pi_per_unit": 0.0
+        "d_cap": 57190.802,
+        "pi_diff": 0.0
       },
       "0.05-0.10": {
         "d_cost_wan": 0.0,
-        "d_cap": 95318.0,
-        "pi_per_unit": 0.0
+        "d_cap": 95318.003,
+        "pi_diff": 0.0
       },
       "0.10-0.20": {
         "d_cost_wan": 0.0,
-        "d_cap": 190636.01,
-        "pi_per_unit": 0.0
+        "d_cap": 190636.005,
+        "pi_diff": 0.0
       }
     },
     "activity_knee": {
@@ -164,8 +170,8 @@
     "rows": [
       {
         "frac": 0.02,
-        "total_cost_wan": -2217.2902855929915,
-        "total_carbon_t": 208649.22152718593,
+        "total_cost_wan": -2217.29,
+        "total_carbon_t": 208649.2,
         "n_infeasible_regions": 4,
         "per_region": {
           "RegionA": {
@@ -182,18 +188,28 @@
           },
           "RegionE": {
             "cost_wan": -2146.1998109370106,
-            "carbon_t": 90863.91256127872
+            "carbon_t": 90863.91256127872,
+            "pi_exact": {
+              "max_MW": 3.9999999999992045e-06,
+              "mean_MW": 1.6618196925630264e-09,
+              "sum_MW": 3.9999999999992045e-06
+            }
           },
           "RegionF": {
             "cost_wan": -71.09047465598076,
-            "carbon_t": 117785.30896590721
+            "carbon_t": 117785.30896590721,
+            "pi_exact": {
+              "max_MW": 7.999999999998409e-06,
+              "mean_MW": 3.3236393851260528e-09,
+              "sum_MW": 7.999999999998409e-06
+            }
           }
         }
       },
       {
         "frac": 0.05,
-        "total_cost_wan": -2217.290191806742,
-        "total_carbon_t": 208649.22152718593,
+        "total_cost_wan": -2217.29,
+        "total_carbon_t": 208649.2,
         "n_infeasible_regions": 4,
         "per_region": {
           "RegionA": {
@@ -210,18 +226,28 @@
           },
           "RegionE": {
             "cost_wan": -2146.1997743532943,
-            "carbon_t": 90863.91256127872
+            "carbon_t": 90863.91256127872,
+            "pi_exact": {
+              "max_MW": 7.999999999998409e-06,
+              "mean_MW": 4.985459077689079e-09,
+              "sum_MW": 1.1999999999997613e-05
+            }
           },
           "RegionF": {
             "cost_wan": -71.09041745344761,
-            "carbon_t": 117785.30896590721
+            "carbon_t": 117785.30896590721,
+            "pi_exact": {
+              "max_MW": 7.999999999998409e-06,
+              "mean_MW": 3.3236393851260528e-09,
+              "sum_MW": 7.999999999998409e-06
+            }
           }
         }
       },
       {
         "frac": 0.1,
-        "total_cost_wan": -2217.2898029200464,
-        "total_carbon_t": 208649.22152718593,
+        "total_cost_wan": -2217.29,
+        "total_carbon_t": 208649.2,
         "n_infeasible_regions": 4,
         "per_region": {
           "RegionA": {
@@ -238,18 +264,28 @@
           },
           "RegionE": {
             "cost_wan": -2146.199480804154,
-            "carbon_t": 90863.91256127872
+            "carbon_t": 90863.91256127872,
+            "pi_exact": {
+              "max_MW": 1.2000000000000454e-05,
+              "mean_MW": 1.3294557540506574e-08,
+              "sum_MW": 3.199999999999932e-05
+            }
           },
           "RegionF": {
             "cost_wan": -71.09032211589236,
-            "carbon_t": 117785.30896590721
+            "carbon_t": 117785.30896590721,
+            "pi_exact": {
+              "max_MW": 7.999999999998409e-06,
+              "mean_MW": 3.3236393851260528e-09,
+              "sum_MW": 7.999999999998409e-06
+            }
           }
         }
       },
       {
         "frac": 0.2,
-        "total_cost_wan": -2217.288454167313,
-        "total_carbon_t": 208649.22152718593,
+        "total_cost_wan": -2217.288,
+        "total_carbon_t": 208649.2,
         "n_infeasible_regions": 4,
         "per_region": {
           "RegionA": {
@@ -266,30 +302,40 @@
           },
           "RegionE": {
             "cost_wan": -2146.198570958578,
-            "carbon_t": 90863.91256127872
+            "carbon_t": 90863.91256127872,
+            "pi_exact": {
+              "max_MW": 1.2000000000000454e-05,
+              "mean_MW": 1.9526381387619394e-08,
+              "sum_MW": 4.699999999999988e-05
+            }
           },
           "RegionF": {
             "cost_wan": -71.08988320873522,
-            "carbon_t": 117785.30896590721
+            "carbon_t": 117785.30896590721,
+            "pi_exact": {
+              "max_MW": 9.00000000000034e-06,
+              "mean_MW": 1.287910261736611e-08,
+              "sum_MW": 3.1000000000000225e-05
+            }
           }
         }
       }
     ],
-    "marginal": {
+    "marginal_diff": {
       "0.02-0.05": {
         "d_cost_wan": 0.0,
-        "d_cap": 64.81,
-        "pi_per_unit": 0.0145
+        "d_cap": 64.813,
+        "pi_diff": 0.0145
       },
       "0.05-0.10": {
         "d_cost_wan": 0.0,
-        "d_cap": 108.02,
-        "pi_per_unit": 0.036
+        "d_cap": 108.021,
+        "pi_diff": 0.036
       },
       "0.10-0.20": {
-        "d_cost_wan": 0.0,
-        "d_cap": 216.04,
-        "pi_per_unit": 0.0624
+        "d_cost_wan": 0.001,
+        "d_cap": 216.043,
+        "pi_diff": 0.0624
       }
     },
     "activity_knee": {
@@ -297,26 +343,244 @@
       "type": "infeasible"
     }
   },
-  "perturb_verify": {
-    "carbon": {
-      "d_cost_measured": 0.0,
-      "d_cost_approx": 0.0,
-      "note": "储能层减排/降峰空间=0 的机理：功率平衡+弃电下界隐含 G ≥ D−cap_h（消纳模板锁定购电下界），成本最优解已把 G 压到下界 → 碳排/峰值即可行域下界，约束收紧即 infeasible；⇒ 减排/降峰杠杆在上层调度（错峰把负荷移到 cap_h 大的时段、迁移换区域）",
-      "activity_knee": {
+  "pi_sell": {
+    "rows": [
+      {
         "frac": 0.02,
-        "type": "infeasible"
+        "total_cost_wan": 164768.285,
+        "total_carbon_t": 1906359.0,
+        "n_infeasible_regions": 0,
+        "per_region": {
+          "RegionA": {
+            "cost_wan": 57601.80098875396,
+            "carbon_t": 540570.7162846309,
+            "pi_exact": null
+          },
+          "RegionB": {
+            "cost_wan": 52938.059357309416,
+            "carbon_t": 483521.0622828001,
+            "pi_exact": null
+          },
+          "RegionC": {
+            "cost_wan": 50913.130826003086,
+            "carbon_t": 453514.7702180785,
+            "pi_exact": null
+          },
+          "RegionD": {
+            "cost_wan": 4982.772645257733,
+            "carbon_t": 220103.19240505435,
+            "pi_exact": null
+          },
+          "RegionE": {
+            "cost_wan": -1876.8022844949537,
+            "carbon_t": 90863.91256127872,
+            "pi_exact": null
+          },
+          "RegionF": {
+            "cost_wan": 209.32304446694846,
+            "carbon_t": 117785.30896590721,
+            "pi_exact": null
+          }
+        }
+      },
+      {
+        "frac": 0.05,
+        "total_cost_wan": 166041.715,
+        "total_carbon_t": 1906356.5,
+        "n_infeasible_regions": 0,
+        "per_region": {
+          "RegionA": {
+            "cost_wan": 57601.80098875396,
+            "carbon_t": 540570.7162846309,
+            "pi_exact": null
+          },
+          "RegionB": {
+            "cost_wan": 52938.059357309416,
+            "carbon_t": 483521.0622828001,
+            "pi_exact": null
+          },
+          "RegionC": {
+            "cost_wan": 50913.130826003086,
+            "carbon_t": 453514.7702180785,
+            "pi_exact": null
+          },
+          "RegionD": {
+            "cost_wan": 5410.886956457732,
+            "carbon_t": 220103.1924050543,
+            "pi_exact": null
+          },
+          "RegionE": {
+            "cost_wan": -1463.4622103346735,
+            "carbon_t": 90865.00136812654,
+            "pi_exact": null
+          },
+          "RegionF": {
+            "cost_wan": 641.2991162092978,
+            "carbon_t": 117781.79675489251,
+            "pi_exact": null
+          }
+        }
+      },
+      {
+        "frac": 0.1,
+        "total_cost_wan": 168229.586,
+        "total_carbon_t": 1906360.1,
+        "n_infeasible_regions": 0,
+        "per_region": {
+          "RegionA": {
+            "cost_wan": 57601.80098875396,
+            "carbon_t": 540570.7162846309,
+            "pi_exact": null
+          },
+          "RegionB": {
+            "cost_wan": 52938.059357309416,
+            "carbon_t": 483521.0622828001,
+            "pi_exact": null
+          },
+          "RegionC": {
+            "cost_wan": 50913.130826003086,
+            "carbon_t": 453514.7702180785,
+            "pi_exact": null
+          },
+          "RegionD": {
+            "cost_wan": 6124.410808457732,
+            "carbon_t": 220103.1924050543,
+            "pi_exact": null
+          },
+          "RegionE": {
+            "cost_wan": -745.3206411346944,
+            "carbon_t": 90865.00136812654,
+            "pi_exact": null
+          },
+          "RegionF": {
+            "cost_wan": 1397.504878432972,
+            "carbon_t": 117785.30896590721,
+            "pi_exact": null
+          }
+        }
+      },
+      {
+        "frac": 0.2,
+        "total_cost_wan": 172760.871,
+        "total_carbon_t": 1906360.1,
+        "n_infeasible_regions": 0,
+        "per_region": {
+          "RegionA": {
+            "cost_wan": 57601.80098875396,
+            "carbon_t": 540570.7162846309,
+            "pi_exact": null
+          },
+          "RegionB": {
+            "cost_wan": 52938.059357309416,
+            "carbon_t": 483521.0622828001,
+            "pi_exact": null
+          },
+          "RegionC": {
+            "cost_wan": 50913.130826003086,
+            "carbon_t": 453514.7702180785,
+            "pi_exact": null
+          },
+          "RegionD": {
+            "cost_wan": 7551.458512457732,
+            "carbon_t": 220103.1924050543,
+            "pi_exact": null
+          },
+          "RegionE": {
+            "cost_wan": 769.8937235534353,
+            "carbon_t": 90865.00136812654,
+            "pi_exact": null
+          },
+          "RegionF": {
+            "cost_wan": 2986.527749451259,
+            "carbon_t": 117785.30896590721,
+            "pi_exact": null
+          }
+        }
+      }
+    ],
+    "marginal_diff": {
+      "0.02-0.05": {
+        "d_cost_wan": 1273.43,
+        "d_cap": 18.6,
+        "pi_diff": 684640.0307
+      },
+      "0.05-0.10": {
+        "d_cost_wan": 2187.871,
+        "d_cap": 31.0,
+        "pi_diff": 705764.8979
+      },
+      "0.10-0.20": {
+        "d_cost_wan": 4531.285,
+        "d_cap": 62.0,
+        "pi_diff": 730852.4096
       }
     },
-    "peak": {
-      "d_cost_measured": 0.0,
-      "d_cost_approx": 0.0,
-      "rel_err_pct": 0.0,
-      "activity_knee": {
-        "frac": 0.02,
-        "type": "infeasible"
-      }
+    "activity_knee": {
+      "frac": 0.05,
+      "type": "cost_active"
     }
   },
-  "explain_domain": "影子价格仅对给定调度（Q4 基线）成立——数值差分（RHS 收紧 τ/δ），非对偶向量；核心发现（机理级）：G ≥ D−cap_h 隐含下界（消纳模板锁定）→ 成本最优解碳排/峰值已在可行域下界，储能层内减碳降峰空间=0，收紧即 infeasible；⇒ 碳/峰值的真正杠杆在上层任务调度（错峰/迁移），即 Q4 双层结构的必要性实证",
-  "caliber": "碳限额=区域碳排基线×(1−τ)；峰值限额=区域峰值×(1−δ)；主时段峰值"
+  "cross_verify": {
+    "carbon": {
+      "feasible_bands": []
+    },
+    "peak": {
+      "feasible_bands": []
+    },
+    "sell": {
+      "feasible_bands": [],
+      "note": "bounds 对偶 scipy 不返回，SellLimit 载体仅数值差分（π_sell 见 marginal_diff）"
+    }
+  },
+  "mechanism": "储能层减排/降峰空间=0 的机理：功率平衡+弃电下界隐含 G ≥ D−cap_h（消纳模板锁定购电下界），成本最优解已把 G 压到下界 → 碳排/峰值即可行域下界，约束收紧即 infeasible；⇒ 减排/降峰杠杆在上层调度（错峰把负荷移到 cap_h 大的时段、迁移换区域）——Q4 双层结构的必要性实证；π_sell（卖电上限）是唯一始终可行载体：外送通道收紧的边际代价",
+  "explain_domain": "影子价格仅对给定调度（Q4 基线）成立；方法=数值差分（T5 验证门裁决：HiGHS marginals 为退化顶点基内梯度，不可代表全局边际——储能 LP 多重最优，Q3 平坦面同源，总账 +7）；π_sell=唯一可行载体（外送通道瓶颈的边际代价）；inactive → π=0 如实；infeasible → 无对偶（如实）",
+  "caliber": "碳限额=区域碳排基线×(1−τ)；峰值限额=区域峰值×(1−δ)；卖电上限=区域 SellLimit×(1−σ)；主时段峰值；单位：π_carbon 万元/吨、π_peak 万元/MW、π_sell 万元/(MW 上限)",
+  "dual_verify": {
+    "region": "RegionD",
+    "power_balance": [
+      {
+        "hour": 2,
+        "label": "charge_hour",
+        "marginal_exact_yuan_MW": 279.86,
+        "marginal_diff_yuan_MW": 179.11,
+        "rel_err_pct": 56.25,
+        "pass": false
+      },
+      {
+        "hour": 18,
+        "label": "discharge_hour",
+        "marginal_exact_yuan_MW": 630.02,
+        "marginal_diff_yuan_MW": 374.862,
+        "rel_err_pct": 68.0672,
+        "pass": false
+      },
+      {
+        "hour": 10,
+        "label": "neutral_hour",
+        "marginal_exact_yuan_MW": 432.75,
+        "marginal_diff_yuan_MW": 257.486,
+        "rel_err_pct": 68.0672,
+        "pass": false
+      }
+    ],
+    "terminal_soc": {
+      "init_x1.01": {
+        "marginal_exact": 0.0,
+        "marginal_diff": 0.0,
+        "rel_err_pct": 0.0,
+        "pass": true
+      },
+      "init_x0.99": {
+        "marginal_exact": 0.0,
+        "marginal_diff": -0.0,
+        "rel_err_pct": 0.0,
+        "pass": true
+      }
+    },
+    "degradation": {
+      "evidence": "功率平衡对偶≈电价（逐时吻合），但数值差分斜率系统性低 28-45%（如 t=18：630 vs 375 元/MW）且 δ∈[1e-4,1] 恒定——顶点基内梯度 ≠ 最优值函数斜率 ⇒ 储能 LP 退化（多重最优，成本面平坦 Q3 E6 同源）",
+      "verdict": "HiGHS marginals 为顶点基内对偶，退化下不可代表全局边际 →不投产解析对偶；影子价格以数值差分为准（T5 修正，总账 +7）"
+    },
+    "verdict": "不一致（退化诊断见 degradation）：解析对偶不投产，回退数值差分——退化本身为【实证】发现（Q3 平坦面同源）"
+  }
 }

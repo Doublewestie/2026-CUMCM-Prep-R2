@@ -228,17 +228,17 @@
     },
     "q4_compromise": {
       "policy": [
-        0.9080645358301842,
-        0.0,
-        0.0,
-        0.07145210165350052,
-        0.0026865113419895035,
-        0.5202750695118168
+        0.484990428107258,
+        0.024635465454229316,
+        3.3849788599135175,
+        1.924503092230001,
+        0.002184352430981498,
+        0.5
       ],
-      "mig_rate": 0.53192,
-      "opt_cost_wan": 163868.3,
-      "rule_cost_wan": 163871.17,
-      "rule_cost_gap_pct": 0.002,
+      "mig_rate": 0.53188,
+      "opt_cost_wan": 163864.21,
+      "rule_cost_wan": 163760.53,
+      "rule_cost_gap_pct": -0.063,
       "rule_infeasible": false,
       "n_rules": 8,
       "rules": [
@@ -272,7 +272,7 @@
           ],
           "pred": "True",
           "n_samples": 7598,
-          "purity": 0.846,
+          "purity": 0.845,
           "n_mig": 0
         },
         {
@@ -284,7 +284,7 @@
           ],
           "pred": "True",
           "n_samples": 3830,
-          "purity": 0.568,
+          "purity": 0.566,
           "n_mig": 0
         },
         {
@@ -296,7 +296,7 @@
           ],
           "pred": "True",
           "n_samples": 2931,
-          "purity": 0.702,
+          "purity": 0.704,
           "n_mig": 0
         },
         {
@@ -320,7 +320,7 @@
           ],
           "pred": "False",
           "n_samples": 1220,
-          "purity": 0.913,
+          "purity": 0.909,
           "n_mig": 0
         },
         {
@@ -332,12 +332,12 @@
           ],
           "pred": "True",
           "n_samples": 1040,
-          "purity": 0.889,
+          "purity": 0.888,
           "n_mig": 0
         }
       ],
       "tree_text": "|--- type_RealTimeInference <= 0.50\n|   |--- src_RegionE <= 0.50\n|   |   |--- GPU_Demand <= 24.50\n|   |   |   |--- type_BatchInference <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- type_BatchInference >  0.50\n|   |   |   |   |--- class: True\n|   |   |--- GPU_Demand >  24.50\n|   |   |   |--- src_RegionF <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- src_RegionF >  0.50\n|   |   |   |   |--- class: True\n|   |--- src_RegionE >  0.50\n|   |   |--- GPU_Demand <= 24.50\n|   |   |   |--- GPU_Demand <= 15.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  15.50\n|   |   |   |   |--- class: False\n|   |   |--- GPU_Demand >  24.50\n|   |   |   |--- GPU_Demand <= 46.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  46.50\n|   |   |   |   |--- class: True\n|--- type_RealTimeInference >  0.50\n|   |--- class: False\n",
-      "latency_ms": 27.77
+      "latency_ms": 27.76
     }
   },
   "caliber": "CART max_depth=4, min_samples_leaf=500；y=是否迁移；规则化代价=规则模拟调度 vs 最优解成本差；策略变化呈现=三档迁移率/规则差异 + step4.3 最优策略切换",

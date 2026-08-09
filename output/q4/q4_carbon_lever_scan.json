@@ -1,0 +1,121 @@
+{
+ "scan": [
+  {
+   "mig_gpu_min": 0.0,
+   "cost_wan": 163867.6,
+   "carbon_t": 1903947.0,
+   "n_migrated": 26602,
+   "latency_ms": 27.813,
+   "per_region_carbon": {
+    "RegionA": 538097.0,
+    "RegionB": 481231.0,
+    "RegionC": 452314.0,
+    "RegionD": 223669.0,
+    "RegionE": 89948.0,
+    "RegionF": 118688.0
+   }
+  },
+  {
+   "mig_gpu_min": 2.0,
+   "cost_wan": 163867.6,
+   "carbon_t": 1903947.0,
+   "n_migrated": 26602,
+   "latency_ms": 27.813,
+   "per_region_carbon": {
+    "RegionA": 538097.0,
+    "RegionB": 481231.0,
+    "RegionC": 452314.0,
+    "RegionD": 223669.0,
+    "RegionE": 89948.0,
+    "RegionF": 118688.0
+   }
+  },
+  {
+   "mig_gpu_min": 4.0,
+   "cost_wan": 163867.6,
+   "carbon_t": 1903947.0,
+   "n_migrated": 26602,
+   "latency_ms": 27.813,
+   "per_region_carbon": {
+    "RegionA": 538097.0,
+    "RegionB": 481231.0,
+    "RegionC": 452314.0,
+    "RegionD": 223669.0,
+    "RegionE": 89948.0,
+    "RegionF": 118688.0
+   }
+  },
+  {
+   "mig_gpu_min": 6.0,
+   "cost_wan": 163920.2,
+   "carbon_t": 1904285.0,
+   "n_migrated": 25157,
+   "latency_ms": 27.585,
+   "per_region_carbon": {
+    "RegionA": 538493.0,
+    "RegionB": 481584.0,
+    "RegionC": 452410.0,
+    "RegionD": 223202.0,
+    "RegionE": 90092.0,
+    "RegionF": 118503.0
+   }
+  },
+  {
+   "mig_gpu_min": 8.0,
+   "cost_wan": 164024.4,
+   "carbon_t": 1904970.0,
+   "n_migrated": 23724,
+   "latency_ms": 27.224,
+   "per_region_carbon": {
+    "RegionA": 539030.0,
+    "RegionB": 482080.0,
+    "RegionC": 452766.0,
+    "RegionD": 222417.0,
+    "RegionE": 90273.0,
+    "RegionF": 118405.0
+   }
+  },
+  {
+   "mig_gpu_min": 11.9,
+   "cost_wan": 164260.6,
+   "carbon_t": 1906558.0,
+   "n_migrated": 20837,
+   "latency_ms": 26.287,
+   "per_region_carbon": {
+    "RegionA": 540579.0,
+    "RegionB": 483532.0,
+    "RegionC": 453523.0,
+    "RegionD": 220248.0,
+    "RegionE": 90875.0,
+    "RegionF": 117801.0
+   }
+  },
+  {
+   "mig_gpu_min": 15.0,
+   "cost_wan": 164536.1,
+   "carbon_t": 1908500.0,
+   "n_migrated": 18717,
+   "latency_ms": 25.397,
+   "per_region_carbon": {
+    "RegionA": 542092.0,
+    "RegionB": 484967.0,
+    "RegionC": 454579.0,
+    "RegionD": 218231.0,
+    "RegionE": 91445.0,
+    "RegionF": 117185.0
+   }
+  },
+  {
+   "mig_gpu_min": 30.0,
+   "viol": 130
+  },
+  {
+   "mig_gpu_min": "q2_compromise",
+   "cost_wan": 164260.6,
+   "carbon_t": 1906558.0,
+   "n_migrated": 20837,
+   "latency_ms": 26.287
+  }
+ ],
+ "note": "mig 旋钮全档扫描：总碳排响应（成本驱动调度器无碳感知）"
+}
