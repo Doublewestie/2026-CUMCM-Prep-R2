@@ -1,0 +1,282 @@
+{
+  "grid": {
+    "carbon": {
+      "0.1": {
+        "construct": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.795350103819555,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q2_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 26.28738355505838,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q4_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.772289019689776,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        }
+      },
+      "0.2": {
+        "construct": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.795350103819555,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q2_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 26.28738355505838,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q4_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.772289019689776,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        }
+      },
+      "0.3": {
+        "construct": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.795350103819555,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q2_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 26.28738355505838,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        },
+        "q4_compromise": {
+          "cost_wan": 0.0,
+          "carbon_t": 0.0,
+          "latency_ms": 27.772289019689776,
+          "infeasible": true,
+          "lever_needed": true,
+          "lever_cost_wan": null
+        }
+      }
+    },
+    "price": {
+      "1.2": {
+        "construct": {
+          "cost_wan": 163581.99703732796,
+          "carbon_t": 1903756.2819985317,
+          "latency_ms": 27.795350103819555,
+          "nu_pct": 35.639091714731904,
+          "peak_net_MW": 478.52640035208117,
+          "infeasible": false
+        },
+        "q2_compromise": {
+          "cost_wan": 163973.70283644993,
+          "carbon_t": 1906360.0515245977,
+          "latency_ms": 26.28738355505838,
+          "nu_pct": 35.61723903589944,
+          "peak_net_MW": 479.0016003960002,
+          "infeasible": false
+        },
+        "q4_compromise": {
+          "cost_wan": 163578.4131352272,
+          "carbon_t": 1903828.1322946409,
+          "latency_ms": 27.772289019689776,
+          "nu_pct": 35.640737233555875,
+          "peak_net_MW": 478.52640035208117,
+          "infeasible": false
+        }
+      },
+      "1.5": {
+        "construct": {
+          "cost_wan": 163642.82294537063,
+          "carbon_t": 1903756.2819985317,
+          "latency_ms": 27.795350103819555,
+          "nu_pct": 35.639091714731904,
+          "peak_net_MW": 478.52640035208117,
+          "infeasible": false
+        },
+        "q2_compromise": {
+          "cost_wan": 164034.66119262288,
+          "carbon_t": 1906360.0515245977,
+          "latency_ms": 26.28738355505838,
+          "nu_pct": 35.61723903589944,
+          "peak_net_MW": 479.0016003960002,
+          "infeasible": false
+        },
+        "q4_compromise": {
+          "cost_wan": 163639.35674704003,
+          "carbon_t": 1903828.1322946409,
+          "latency_ms": 27.772289019689776,
+          "nu_pct": 35.640737233555875,
+          "peak_net_MW": 478.52640035208117,
+          "infeasible": false
+        }
+      }
+    },
+    "volatility": {
+      "0.1": {
+        "construct": {
+          "cost_wan": 163850.71178411032,
+          "carbon_t": 1903767.2483626064,
+          "latency_ms": 27.795350103819555,
+          "nu_pct": 35.5009908992154,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q2_compromise": {
+          "cost_wan": 164240.9697107911,
+          "carbon_t": 1906368.7756056413,
+          "latency_ms": 26.28738355505838,
+          "nu_pct": 35.47950615951553,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q4_compromise": {
+          "cost_wan": 163849.27855120052,
+          "carbon_t": 1903838.3932053465,
+          "latency_ms": 27.772289019689776,
+          "nu_pct": 35.50167906040852,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        }
+      },
+      "0.2": {
+        "construct": {
+          "cost_wan": 164329.63460025445,
+          "carbon_t": 1875636.5680533242,
+          "latency_ms": 27.795350103819555,
+          "nu_pct": 36.458945139453,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q2_compromise": {
+          "cost_wan": 164781.31835460235,
+          "carbon_t": 1883916.831104906,
+          "latency_ms": 26.28738355505838,
+          "nu_pct": 36.167921917824955,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q4_compromise": {
+          "cost_wan": 164372.85644965203,
+          "carbon_t": 1881283.409248915,
+          "latency_ms": 27.772289019689776,
+          "nu_pct": 36.18650435761362,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        }
+      },
+      "0.3": {
+        "construct": {
+          "cost_wan": 164954.2367649026,
+          "carbon_t": 1838383.4519063132,
+          "latency_ms": 27.795350103819555,
+          "nu_pct": 38.05332064135766,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q2_compromise": {
+          "cost_wan": 165280.96063571092,
+          "carbon_t": 1833629.1874897555,
+          "latency_ms": 26.28738355505838,
+          "nu_pct": 38.43778010218303,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        },
+        "q4_compromise": {
+          "cost_wan": 164872.86740819094,
+          "carbon_t": 1844104.498033744,
+          "latency_ms": 27.772289019689776,
+          "nu_pct": 37.69748439252073,
+          "peak_net_MW": 0.0,
+          "infeasible": false
+        }
+      }
+    }
+  },
+  "strategy_change": {
+    "carbon|0.1": {
+      "best_policy": "construct",
+      "cost_wan": 0.0,
+      "vs_baseline_cost_pct": 0.0,
+      "peak_net_MW": null
+    },
+    "carbon|0.2": {
+      "best_policy": "construct",
+      "cost_wan": 0.0,
+      "vs_baseline_cost_pct": 0.0,
+      "peak_net_MW": null
+    },
+    "carbon|0.3": {
+      "best_policy": "construct",
+      "cost_wan": 0.0,
+      "vs_baseline_cost_pct": 0.0,
+      "peak_net_MW": null
+    },
+    "price|1.2": {
+      "best_policy": "q4_compromise",
+      "cost_wan": 163578.41,
+      "vs_baseline_cost_pct": -0.24,
+      "peak_net_MW": 478.52640035208117
+    },
+    "price|1.5": {
+      "best_policy": "q4_compromise",
+      "cost_wan": 163639.36,
+      "vs_baseline_cost_pct": -0.24,
+      "peak_net_MW": 478.52640035208117
+    },
+    "volatility|0.1": {
+      "best_policy": "q4_compromise",
+      "cost_wan": 163849.28,
+      "vs_baseline_cost_pct": -0.24,
+      "peak_net_MW": 0.0
+    },
+    "volatility|0.2": {
+      "best_policy": "construct",
+      "cost_wan": 164329.63,
+      "vs_baseline_cost_pct": -0.27,
+      "peak_net_MW": 0.0
+    },
+    "volatility|0.3": {
+      "best_policy": "q4_compromise",
+      "cost_wan": 164872.87,
+      "vs_baseline_cost_pct": -0.25,
+      "peak_net_MW": 0.0
+    }
+  },
+  "price_ratio_scan": {
+    "1.2": {
+      "peak_ratio": 4.76,
+      "current_peak_ratio": 4.67,
+      "mean_drift_pct": 0.0
+    },
+    "1.5": {
+      "peak_ratio": 4.91,
+      "current_peak_ratio": 4.67,
+      "mean_drift_pct": 0.0
+    }
+  },
+  "caliber": "碳约束=区域碳限额×(1−τ)；峰谷比=时段均值+k×(原价−均值)保均值重构；波动=W 模板×AR(1)σ×K-means12 场景期望；代表策略集=Q4 折中/Q2 折中/构造（C3 决策：策略迁移即结论）；场景自造声明（题面未给场景数据）",
+  "spec": "spec_M4_Q4 场景章节；档位依据：Sobol 归因 + Q3 SIGMAS + step4.1 预扫"
+}

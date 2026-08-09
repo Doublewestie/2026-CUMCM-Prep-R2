@@ -1,0 +1,63 @@
+{
+  "component_ablation": {
+    "no_storage": {
+      "cost_wan": 184054.7805731425,
+      "carbon_t": 2017069.1126165804,
+      "latency_ms": 26.28738355505838,
+      "nu_pct": 32.843495766739146,
+      "note": "Q2 口径（无储能，G=D−U 模板消纳）"
+    },
+    "no_migration": {
+      "cost_wan": 172393.07283915338,
+      "carbon_t": 1996561.371739152,
+      "latency_ms": 5.0,
+      "nu_pct": 34.97389509559304,
+      "peak_net_MW": 496.07712039599346,
+      "note": "Q1 greedy（本地执行）+ M3_final 下层"
+    },
+    "no_shift": {
+      "cost_wan": 164262.14177716422,
+      "carbon_t": 1906583.4145757752,
+      "latency_ms": 26.27366692627738,
+      "nu_pct": 35.474716158626954,
+      "peak_net_MW": 479.0016003960002,
+      "note": "Q2 折中（shift 旋钮=0）+ M3_final 下层"
+    }
+  },
+  "joint_vs_alternate": {
+    "joint": {
+      "cost_wan": 163868.3025,
+      "carbon_t": 1904022.9802,
+      "latency_ms": 27.7723,
+      "one_minus_qos": 0.163,
+      "one_minus_nu": 0.645,
+      "peak_net_MW": 478.5264
+    },
+    "alternate": {
+      "cost_wan": 164260.592,
+      "carbon_t": 1906557.7341,
+      "latency_ms": 26.2874,
+      "one_minus_qos": 0.1342,
+      "one_minus_nu": 0.6452,
+      "peak_net_MW": 479.0016
+    },
+    "cost_gap_pct": -0.239,
+    "verdict": "交替迭代次优——联合必要（诚实呈现）"
+  },
+  "monotonicity": {
+    "sells": [
+      1.0,
+      0.9,
+      0.8
+    ],
+    "costs_wan": [
+      163933.064,
+      168229.586,
+      172760.871
+    ],
+    "monotone": true,
+    "verdict": "单调不减（ε-约束验收通过）",
+    "note": "载体=SellLimit 收紧（碳限额不可行域，见 step4.2）"
+  },
+  "caliber": "组件消融口径：无储能=Q2 评估器（G=D−U 模板）；无迁移=Q1 greedy；无错峰=shift 旋钮 0；单调性=碳限额收紧成本不减（ε-约束验收三件套）"
+}

@@ -1,0 +1,322 @@
+{
+  "base": {
+    "RegionA": {
+      "cost_wan": 57601.8,
+      "carbon_t": 540570.7,
+      "peak_net_MW": 479.0
+    },
+    "RegionB": {
+      "cost_wan": 52938.06,
+      "carbon_t": 483521.1,
+      "peak_net_MW": 451.7
+    },
+    "RegionC": {
+      "cost_wan": 50913.13,
+      "carbon_t": 453514.8,
+      "peak_net_MW": 456.6
+    },
+    "RegionD": {
+      "cost_wan": 4697.36,
+      "carbon_t": 220103.2,
+      "peak_net_MW": 279.0
+    },
+    "RegionE": {
+      "cost_wan": -2146.2,
+      "carbon_t": 90865.0,
+      "peak_net_MW": 255.8
+    },
+    "RegionF": {
+      "cost_wan": -71.09,
+      "carbon_t": 117785.3,
+      "peak_net_MW": 238.3
+    }
+  },
+  "pi_carbon": {
+    "rows": [
+      {
+        "frac": 0.02,
+        "total_cost_wan": 0.0,
+        "total_carbon_t": 0.0,
+        "n_infeasible_regions": 6,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "infeasible": true
+          },
+          "RegionF": {
+            "infeasible": true
+          }
+        }
+      },
+      {
+        "frac": 0.05,
+        "total_cost_wan": 0.0,
+        "total_carbon_t": 0.0,
+        "n_infeasible_regions": 6,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "infeasible": true
+          },
+          "RegionF": {
+            "infeasible": true
+          }
+        }
+      },
+      {
+        "frac": 0.1,
+        "total_cost_wan": 0.0,
+        "total_carbon_t": 0.0,
+        "n_infeasible_regions": 6,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "infeasible": true
+          },
+          "RegionF": {
+            "infeasible": true
+          }
+        }
+      },
+      {
+        "frac": 0.2,
+        "total_cost_wan": 0.0,
+        "total_carbon_t": 0.0,
+        "n_infeasible_regions": 6,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "infeasible": true
+          },
+          "RegionF": {
+            "infeasible": true
+          }
+        }
+      }
+    ],
+    "marginal": {
+      "0.02-0.05": {
+        "d_cost_wan": 0.0,
+        "d_cap": 57190.8,
+        "pi_per_unit": 0.0
+      },
+      "0.05-0.10": {
+        "d_cost_wan": 0.0,
+        "d_cap": 95318.0,
+        "pi_per_unit": 0.0
+      },
+      "0.10-0.20": {
+        "d_cost_wan": 0.0,
+        "d_cap": 190636.01,
+        "pi_per_unit": 0.0
+      }
+    },
+    "activity_knee": {
+      "frac": 0.02,
+      "type": "infeasible"
+    }
+  },
+  "pi_peak": {
+    "rows": [
+      {
+        "frac": 0.02,
+        "total_cost_wan": -2217.2902855929915,
+        "total_carbon_t": 208649.22152718593,
+        "n_infeasible_regions": 4,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "cost_wan": -2146.1998109370106,
+            "carbon_t": 90863.91256127872
+          },
+          "RegionF": {
+            "cost_wan": -71.09047465598076,
+            "carbon_t": 117785.30896590721
+          }
+        }
+      },
+      {
+        "frac": 0.05,
+        "total_cost_wan": -2217.290191806742,
+        "total_carbon_t": 208649.22152718593,
+        "n_infeasible_regions": 4,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "cost_wan": -2146.1997743532943,
+            "carbon_t": 90863.91256127872
+          },
+          "RegionF": {
+            "cost_wan": -71.09041745344761,
+            "carbon_t": 117785.30896590721
+          }
+        }
+      },
+      {
+        "frac": 0.1,
+        "total_cost_wan": -2217.2898029200464,
+        "total_carbon_t": 208649.22152718593,
+        "n_infeasible_regions": 4,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "cost_wan": -2146.199480804154,
+            "carbon_t": 90863.91256127872
+          },
+          "RegionF": {
+            "cost_wan": -71.09032211589236,
+            "carbon_t": 117785.30896590721
+          }
+        }
+      },
+      {
+        "frac": 0.2,
+        "total_cost_wan": -2217.288454167313,
+        "total_carbon_t": 208649.22152718593,
+        "n_infeasible_regions": 4,
+        "per_region": {
+          "RegionA": {
+            "infeasible": true
+          },
+          "RegionB": {
+            "infeasible": true
+          },
+          "RegionC": {
+            "infeasible": true
+          },
+          "RegionD": {
+            "infeasible": true
+          },
+          "RegionE": {
+            "cost_wan": -2146.198570958578,
+            "carbon_t": 90863.91256127872
+          },
+          "RegionF": {
+            "cost_wan": -71.08988320873522,
+            "carbon_t": 117785.30896590721
+          }
+        }
+      }
+    ],
+    "marginal": {
+      "0.02-0.05": {
+        "d_cost_wan": 0.0,
+        "d_cap": 64.81,
+        "pi_per_unit": 0.0145
+      },
+      "0.05-0.10": {
+        "d_cost_wan": 0.0,
+        "d_cap": 108.02,
+        "pi_per_unit": 0.036
+      },
+      "0.10-0.20": {
+        "d_cost_wan": 0.0,
+        "d_cap": 216.04,
+        "pi_per_unit": 0.0624
+      }
+    },
+    "activity_knee": {
+      "frac": 0.02,
+      "type": "infeasible"
+    }
+  },
+  "perturb_verify": {
+    "carbon": {
+      "d_cost_measured": 0.0,
+      "d_cost_approx": 0.0,
+      "note": "储能层减排/降峰空间=0 的机理：功率平衡+弃电下界隐含 G ≥ D−cap_h（消纳模板锁定购电下界），成本最优解已把 G 压到下界 → 碳排/峰值即可行域下界，约束收紧即 infeasible；⇒ 减排/降峰杠杆在上层调度（错峰把负荷移到 cap_h 大的时段、迁移换区域）",
+      "activity_knee": {
+        "frac": 0.02,
+        "type": "infeasible"
+      }
+    },
+    "peak": {
+      "d_cost_measured": 0.0,
+      "d_cost_approx": 0.0,
+      "rel_err_pct": 0.0,
+      "activity_knee": {
+        "frac": 0.02,
+        "type": "infeasible"
+      }
+    }
+  },
+  "explain_domain": "影子价格仅对给定调度（Q4 基线）成立——数值差分（RHS 收紧 τ/δ），非对偶向量；核心发现（机理级）：G ≥ D−cap_h 隐含下界（消纳模板锁定）→ 成本最优解碳排/峰值已在可行域下界，储能层内减碳降峰空间=0，收紧即 infeasible；⇒ 碳/峰值的真正杠杆在上层任务调度（错峰/迁移），即 Q4 双层结构的必要性实证",
+  "caliber": "碳限额=区域碳排基线×(1−τ)；峰值限额=区域峰值×(1−δ)；主时段峰值"
+}

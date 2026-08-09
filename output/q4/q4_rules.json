@@ -1,0 +1,345 @@
+{
+  "rules": {
+    "construct": {
+      "policy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "mig_rate": 0.53176,
+      "opt_cost_wan": 163871.17,
+      "rule_cost_wan": 163871.17,
+      "rule_cost_gap_pct": 0.0,
+      "rule_infeasible": false,
+      "n_rules": 8,
+      "rules": [
+        {
+          "conditions": [
+            "type_RealTimeInference >= 0.5"
+          ],
+          "pred": "False",
+          "n_samples": 16724,
+          "purity": 1.0,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 27.5",
+            "type_BatchInference >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 14545,
+          "purity": 1.0,
+          "n_mig": 1
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 27.5",
+            "src_RegionF < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 7374,
+          "purity": 0.84,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 27.5",
+            "src_RegionF >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 3714,
+          "purity": 0.567,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand >= 24.5",
+            "GPU_Demand >= 57.5"
+          ],
+          "pred": "True",
+          "n_samples": 2553,
+          "purity": 0.718,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 27.5",
+            "type_BatchInference < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 1380,
+          "purity": 0.891,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand < 24.5",
+            "GPU_Demand < 15.5"
+          ],
+          "pred": "False",
+          "n_samples": 1299,
+          "purity": 1.0,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand < 24.5",
+            "GPU_Demand >= 15.5"
+          ],
+          "pred": "False",
+          "n_samples": 1220,
+          "purity": 0.917,
+          "n_mig": 0
+        }
+      ],
+      "tree_text": "|--- type_RealTimeInference <= 0.50\n|   |--- src_RegionE <= 0.50\n|   |   |--- GPU_Demand <= 27.50\n|   |   |   |--- type_BatchInference <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- type_BatchInference >  0.50\n|   |   |   |   |--- class: True\n|   |   |--- GPU_Demand >  27.50\n|   |   |   |--- src_RegionF <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- src_RegionF >  0.50\n|   |   |   |   |--- class: True\n|   |--- src_RegionE >  0.50\n|   |   |--- GPU_Demand <= 24.50\n|   |   |   |--- GPU_Demand <= 15.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  15.50\n|   |   |   |   |--- class: False\n|   |   |--- GPU_Demand >  24.50\n|   |   |   |--- GPU_Demand <= 57.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  57.50\n|   |   |   |   |--- class: True\n|--- type_RealTimeInference >  0.50\n|   |--- class: False\n",
+      "latency_ms": 27.8
+    },
+    "q2_compromise": {
+      "policy": [
+        11.900413723864377,
+        0.0,
+        11.768483237453207,
+        7.014796912153019,
+        0.0,
+        0.5
+      ],
+      "mig_rate": 0.41674,
+      "opt_cost_wan": 164260.59,
+      "rule_cost_wan": null,
+      "rule_cost_gap_pct": null,
+      "rule_infeasible": true,
+      "n_rules": 8,
+      "rules": [
+        {
+          "conditions": [
+            "GPU_Demand < 11.5"
+          ],
+          "pred": "False",
+          "n_samples": 23368,
+          "purity": 1.0,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 23.5",
+            "type_BatchInference >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 8755,
+          "purity": 1.0,
+          "n_mig": 1
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 23.5",
+            "src_RegionF < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 7666,
+          "purity": 0.858,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 23.5",
+            "src_RegionF >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 3871,
+          "purity": 0.593,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand >= 23.5",
+            "GPU_Demand >= 49.5"
+          ],
+          "pred": "True",
+          "n_samples": 2827,
+          "purity": 0.662,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand < 23.5",
+            "GPU_Demand >= 16.5"
+          ],
+          "pred": "False",
+          "n_samples": 1032,
+          "purity": 0.924,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand >= 23.5",
+            "GPU_Demand < 49.5"
+          ],
+          "pred": "False",
+          "n_samples": 956,
+          "purity": 0.559,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "GPU_Demand >= 11.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 23.5",
+            "type_BatchInference < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 931,
+          "purity": 0.888,
+          "n_mig": 0
+        }
+      ],
+      "tree_text": "|--- GPU_Demand <= 11.50\n|   |--- class: False\n|--- GPU_Demand >  11.50\n|   |--- src_RegionE <= 0.50\n|   |   |--- GPU_Demand <= 23.50\n|   |   |   |--- type_BatchInference <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- type_BatchInference >  0.50\n|   |   |   |   |--- class: True\n|   |   |--- GPU_Demand >  23.50\n|   |   |   |--- src_RegionF <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- src_RegionF >  0.50\n|   |   |   |   |--- class: True\n|   |--- src_RegionE >  0.50\n|   |   |--- GPU_Demand <= 23.50\n|   |   |   |--- GPU_Demand <= 16.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  16.50\n|   |   |   |   |--- class: False\n|   |   |--- GPU_Demand >  23.50\n|   |   |   |--- GPU_Demand <= 49.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  49.50\n|   |   |   |   |--- class: True\n",
+      "latency_ms": 26.29
+    },
+    "q4_compromise": {
+      "policy": [
+        0.9080645358301842,
+        0.0,
+        0.0,
+        0.07145210165350052,
+        0.0026865113419895035,
+        0.5202750695118168
+      ],
+      "mig_rate": 0.53192,
+      "opt_cost_wan": 163868.3,
+      "rule_cost_wan": 163871.17,
+      "rule_cost_gap_pct": 0.002,
+      "rule_infeasible": false,
+      "n_rules": 8,
+      "rules": [
+        {
+          "conditions": [
+            "type_RealTimeInference >= 0.5"
+          ],
+          "pred": "False",
+          "n_samples": 16724,
+          "purity": 1.0,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 24.5",
+            "type_BatchInference >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 14545,
+          "purity": 1.0,
+          "n_mig": 1
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 24.5",
+            "src_RegionF < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 7598,
+          "purity": 0.846,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand >= 24.5",
+            "src_RegionF >= 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 3830,
+          "purity": 0.568,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand >= 24.5",
+            "GPU_Demand >= 46.5"
+          ],
+          "pred": "True",
+          "n_samples": 2931,
+          "purity": 0.702,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand < 24.5",
+            "GPU_Demand < 15.5"
+          ],
+          "pred": "False",
+          "n_samples": 1299,
+          "purity": 1.0,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE >= 0.5",
+            "GPU_Demand < 24.5",
+            "GPU_Demand >= 15.5"
+          ],
+          "pred": "False",
+          "n_samples": 1220,
+          "purity": 0.913,
+          "n_mig": 0
+        },
+        {
+          "conditions": [
+            "type_RealTimeInference < 0.5",
+            "src_RegionE < 0.5",
+            "GPU_Demand < 24.5",
+            "type_BatchInference < 0.5"
+          ],
+          "pred": "True",
+          "n_samples": 1040,
+          "purity": 0.889,
+          "n_mig": 0
+        }
+      ],
+      "tree_text": "|--- type_RealTimeInference <= 0.50\n|   |--- src_RegionE <= 0.50\n|   |   |--- GPU_Demand <= 24.50\n|   |   |   |--- type_BatchInference <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- type_BatchInference >  0.50\n|   |   |   |   |--- class: True\n|   |   |--- GPU_Demand >  24.50\n|   |   |   |--- src_RegionF <= 0.50\n|   |   |   |   |--- class: True\n|   |   |   |--- src_RegionF >  0.50\n|   |   |   |   |--- class: True\n|   |--- src_RegionE >  0.50\n|   |   |--- GPU_Demand <= 24.50\n|   |   |   |--- GPU_Demand <= 15.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  15.50\n|   |   |   |   |--- class: False\n|   |   |--- GPU_Demand >  24.50\n|   |   |   |--- GPU_Demand <= 46.50\n|   |   |   |   |--- class: False\n|   |   |   |--- GPU_Demand >  46.50\n|   |   |   |   |--- class: True\n|--- type_RealTimeInference >  0.50\n|   |--- class: False\n",
+      "latency_ms": 27.77
+    }
+  },
+  "caliber": "CART max_depth=4, min_samples_leaf=500；y=是否迁移；规则化代价=规则模拟调度 vs 最优解成本差；策略变化呈现=三档迁移率/规则差异 + step4.3 最优策略切换",
+  "note": "规则化代价预期 0.8-2.9% 量级（Q3 逐时版口径）；若 >5% 定位'策略示意'并诚实声明"
+}
