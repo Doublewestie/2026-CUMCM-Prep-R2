@@ -1,0 +1,552 @@
+{
+ "X0_m1_baseline": {
+  "RegionA": {
+   "cost": 61419.23,
+   "ramp": 385.4,
+   "nu": 9.27
+  },
+  "RegionB": {
+   "cost": 56411.62,
+   "ramp": 349.9,
+   "nu": 10.71
+  },
+  "RegionC": {
+   "cost": 53920.48,
+   "ramp": 372.3,
+   "nu": 12.49
+  },
+  "RegionD": {
+   "cost": 7560.59,
+   "ramp": 258.1,
+   "nu": 49.0
+  },
+  "RegionE": {
+   "cost": -4509.74,
+   "ramp": 185.8,
+   "nu": 65.07
+  },
+  "RegionF": {
+   "cost": -2434.01,
+   "ramp": 179.0,
+   "nu": 63.39
+  }
+ },
+ "X13_main_period": {
+  "RegionA": {
+   "peak_main": 479.0,
+   "std_main": 100.4,
+   "ramp_main": 195.0
+  },
+  "RegionB": {
+   "peak_main": 451.7,
+   "std_main": 92.1,
+   "ramp_main": 161.9
+  },
+  "RegionC": {
+   "peak_main": 440.0,
+   "std_main": 87.7,
+   "ramp_main": 164.3
+  },
+  "RegionD": {
+   "peak_main": 228.9,
+   "std_main": 123.8,
+   "ramp_main": 258.1
+  },
+  "RegionE": {
+   "peak_main": 63.6,
+   "std_main": 88.6,
+   "ramp_main": 185.8
+  },
+  "RegionF": {
+   "peak_main": 60.9,
+   "std_main": 90.2,
+   "ramp_main": 179.0
+  }
+ },
+ "experiments": {
+  "X1_ramp_slope120": {
+   "tag": "充电+放电斜坡 ≤120",
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.27,
+     "status": 0
+    },
+    "RegionB": {
+     "cost": 56411.62,
+     "ramp": 349.9,
+     "nu": 10.71,
+     "status": 0
+    },
+    "RegionC": {
+     "cost": 53920.48,
+     "ramp": 372.3,
+     "nu": 12.49,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7563.64,
+     "ramp": 189.1,
+     "nu": 48.99,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4346.79,
+     "ramp": 173.2,
+     "nu": 64.91,
+     "status": 0
+    },
+    "RegionF": {
+     "cost": -2179.47,
+     "ramp": 166.0,
+     "nu": 63.16,
+     "status": 0
+    }
+   }
+  },
+  "X2_ramp_charge120": {
+   "tag": "仅充电斜坡 ≤120",
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.27,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7560.59,
+     "ramp": 258.1,
+     "nu": 48.99,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4509.4,
+     "ramp": 185.8,
+     "nu": 65.07,
+     "status": 0
+    }
+   }
+  },
+  "X3_M0_slope120": {
+   "tag": "M0 全自由+斜坡 120",
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.27,
+     "status": 0
+    },
+    "RegionB": {
+     "cost": 56411.62,
+     "ramp": 349.9,
+     "nu": 10.71,
+     "status": 0
+    },
+    "RegionC": {
+     "cost": 53920.48,
+     "ramp": 372.3,
+     "nu": 12.49,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7563.64,
+     "ramp": 189.1,
+     "nu": 48.99,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4346.79,
+     "ramp": 173.2,
+     "nu": 64.91,
+     "status": 0
+    },
+    "RegionF": {
+     "cost": -2179.47,
+     "ramp": 166.0,
+     "nu": 63.16,
+     "status": 0
+    }
+   }
+  },
+  "X4_slope_rampcap": {
+   "tag": "斜坡120+爬坡≤基准",
+   "results": {
+    "RegionA": {
+     "cost": 61427.44,
+     "ramp": 209.9,
+     "nu": 9.26,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7563.64,
+     "ramp": 189.1,
+     "nu": 48.99,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4346.79,
+     "ramp": 173.2,
+     "nu": 64.91,
+     "status": 0
+    }
+   }
+  },
+  "X5_rules_hourly_RegionD": {
+   "tag": "树规则逐时状态模拟（不聚合）",
+   "tree_acc": 0.968,
+   "n_charge_h": 373,
+   "n_discharge_h": 472,
+   "results": {
+    "RegionD": {
+     "cost": 7782.43,
+     "ramp": 258.1,
+     "nu": 48.79,
+     "status": 0
+    }
+   }
+  },
+  "X6_rules_discharge_RegionD": {
+   "tag": "逐时规则+放电功率模板",
+   "results": {
+    "RegionD": {
+     "cost": 7799.79,
+     "ramp": 249.1,
+     "nu": 48.77,
+     "status": 0
+    }
+   }
+  },
+  "X5_rules_hourly_RegionA": {
+   "tag": "树规则逐时状态模拟（不聚合）",
+   "tree_acc": 0.9784,
+   "n_charge_h": 403,
+   "n_discharge_h": 249,
+   "results": {
+    "RegionA": {
+     "cost": 61898.19,
+     "ramp": 385.4,
+     "nu": 8.99,
+     "status": 0
+    }
+   }
+  },
+  "X6_rules_discharge_RegionA": {
+   "tag": "逐时规则+放电功率模板",
+   "results": {
+    "RegionA": {
+     "cost": 63276.35,
+     "ramp": 385.4,
+     "nu": 8.19,
+     "status": 0
+    }
+   }
+  },
+  "X7_no_closure_charge_RegionA": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.26,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionA": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 479.0,
+    "std_main": 100.4,
+    "ramp_main": 195.0
+   },
+   "cost": 61419.23
+  },
+  "X7_no_closure_charge_RegionB": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionB": {
+     "cost": 56411.62,
+     "ramp": 349.9,
+     "nu": 10.71,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionB": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 451.7,
+    "std_main": 92.1,
+    "ramp_main": 161.9
+   },
+   "cost": 56411.62
+  },
+  "X7_no_closure_charge_RegionC": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionC": {
+     "cost": 53920.48,
+     "ramp": 372.3,
+     "nu": 12.48,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionC": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 440.0,
+    "std_main": 87.7,
+    "ramp_main": 164.3
+   },
+   "cost": 53920.48
+  },
+  "X7_no_closure_charge_RegionD": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionD": {
+     "cost": 7560.59,
+     "ramp": 258.1,
+     "nu": 48.98,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionD": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 228.9,
+    "std_main": 123.8,
+    "ramp_main": 258.1
+   },
+   "cost": 7560.59
+  },
+  "X7_no_closure_charge_RegionE": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionE": {
+     "cost": -4507.05,
+     "ramp": 302.5,
+     "nu": 65.06,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionE": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 82.5,
+    "std_main": 88.7,
+    "ramp_main": 302.5
+   },
+   "cost": -4507.05
+  },
+  "X7_no_closure_charge_RegionF": {
+   "tag": "结算段禁充",
+   "results": {
+    "RegionF": {
+     "cost": -2427.75,
+     "ramp": 337.9,
+     "nu": 63.37,
+     "status": 0
+    }
+   }
+  },
+  "X14_RegionF": {
+   "tag": "结算段禁充+主时段指标",
+   "main": {
+    "peak_main": 117.9,
+    "std_main": 90.3,
+    "ramp_main": 337.9
+   },
+   "cost": -2427.75
+  },
+  "X8_final_exact": {
+   "tag": "终态 SOC(2406)=Init 严格",
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.26,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7560.59,
+     "ramp": 258.1,
+     "nu": 48.98,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4509.74,
+     "ramp": 185.8,
+     "nu": 65.07,
+     "status": 0
+    }
+   }
+  },
+  "X9_gridcharge_RegionA": {
+   "tag": "充电下界=基准 Gc 模板（弃电优先贡献）",
+   "results": {
+    "RegionA": {
+     "cost": 61419.37,
+     "ramp": 382.5,
+     "nu": 9.27,
+     "status": 0
+    }
+   }
+  },
+  "X9_gridcharge_RegionD": {
+   "tag": "充电下界=基准 Gc 模板（弃电优先贡献）",
+   "results": {
+    "RegionD": {
+     "cost": 7563.73,
+     "ramp": 258.1,
+     "nu": 49.0,
+     "status": 0
+    }
+   }
+  },
+  "X9_gridcharge_RegionE": {
+   "tag": "充电下界=基准 Gc 模板（弃电优先贡献）",
+   "results": {
+    "RegionE": {
+     "cost": -4505.95,
+     "ramp": 185.8,
+     "nu": 65.07,
+     "status": 0
+    }
+   }
+  },
+  "X10_discharge182": {
+   "tag": "放电功率≤基准模板 max",
+   "results": {
+    "RegionA": {
+     "cost": 61418.59,
+     "ramp": 385.4,
+     "nu": 9.27,
+     "status": 0
+    },
+    "RegionD": {
+     "cost": 7560.79,
+     "ramp": 251.1,
+     "nu": 49.0,
+     "status": 0
+    },
+    "RegionE": {
+     "cost": -4509.74,
+     "ramp": 185.8,
+     "nu": 65.07,
+     "status": 0
+    }
+   }
+  },
+  "X11_midday_charge_RegionA": {
+   "tag": "时段规则改进：午间充电允许",
+   "charge_hours": [
+    0,
+    1,
+    2,
+    10,
+    11,
+    12,
+    13,
+    14,
+    22,
+    23
+   ],
+   "results": {
+    "RegionA": {
+     "cost": 61419.23,
+     "ramp": 385.4,
+     "nu": 9.27,
+     "status": 0
+    }
+   }
+  },
+  "X11_midday_charge_RegionD": {
+   "tag": "时段规则改进：午间充电允许",
+   "charge_hours": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    10,
+    11,
+    12,
+    13,
+    14,
+    22,
+    23
+   ],
+   "results": {
+    "RegionD": {
+     "cost": 7560.59,
+     "ramp": 258.1,
+     "nu": 49.0,
+     "status": 0
+    }
+   }
+  },
+  "X11_midday_charge_RegionE": {
+   "tag": "时段规则改进：午间充电允许",
+   "charge_hours": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    10,
+    11,
+    12,
+    13,
+    14,
+    22,
+    23
+   ],
+   "results": {
+    "RegionE": {
+     "cost": -4509.74,
+     "ramp": 185.8,
+     "nu": 65.07,
+     "status": 0
+    }
+   }
+  },
+  "X12_pc_template_RegionA": {
+   "tag": "充电功率上限=生成器 24h 均值模板",
+   "results": {
+    "RegionA": {
+     "cost": 62099.75,
+     "ramp": 385.4,
+     "nu": 8.87,
+     "status": 0
+    }
+   }
+  },
+  "X12_pc_template_RegionD": {
+   "tag": "充电功率上限=生成器 24h 均值模板",
+   "results": {
+    "RegionD": {
+     "cost": 7608.4,
+     "ramp": 258.1,
+     "nu": 48.94,
+     "status": 0
+    }
+   }
+  },
+  "X12_pc_template_RegionE": {
+   "tag": "充电功率上限=生成器 24h 均值模板",
+   "results": {
+    "RegionE": {
+     "cost": -4366.73,
+     "ramp": 193.4,
+     "nu": 64.73,
+     "status": 0
+    }
+   }
+  }
+ },
+ "caliber": "交叉实验矩阵（深化证伪）：每个实验一个建模/指标处理变量；X0=Closure 口径修复后 M1 基线；斜坡 120=生成器 |ΔPc|max 量级；X5 规则逐时=树预测状态掩码（不聚合）；X9 下界=各区 GridCharge 24h 均值模板（仅充电域）"
+}

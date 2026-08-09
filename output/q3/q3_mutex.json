@@ -1,0 +1,451 @@
+{
+ "M0_free": {
+  "RegionA": {
+   "cost_wan": 49066.14,
+   "ramp": 285.4,
+   "nu_pct": 19.99,
+   "simul_h": 2190,
+   "solve_s": null
+  },
+  "RegionB": {
+   "cost_wan": 45798.36,
+   "ramp": 259.9,
+   "nu_pct": 20.33,
+   "simul_h": 2190,
+   "solve_s": null
+  },
+  "RegionC": {
+   "cost_wan": 44169.57,
+   "ramp": 287.3,
+   "nu_pct": 21.58,
+   "simul_h": 2190,
+   "solve_s": null
+  },
+  "RegionD": {
+   "cost_wan": -9637.4,
+   "ramp": 379.6,
+   "nu_pct": 75.24,
+   "simul_h": 2327,
+   "solve_s": null
+  },
+  "RegionE": {
+   "cost_wan": -15004.1,
+   "ramp": 181.2,
+   "nu_pct": 84.9,
+   "simul_h": 2400,
+   "solve_s": null
+  },
+  "RegionF": {
+   "cost_wan": -14781.69,
+   "ramp": 289.1,
+   "nu_pct": 83.5,
+   "simul_h": 2393,
+   "solve_s": null
+  }
+ },
+ "M0x_mutex": {
+  "RegionA": {
+   "cost_wan": 56162.41,
+   "ramp": 299.9,
+   "nu_pct": 13.96,
+   "simul_h": 0,
+   "solve_s": 14.6
+  },
+  "RegionB": {
+   "cost_wan": 51898.13,
+   "ramp": 272.9,
+   "nu_pct": 14.89,
+   "simul_h": 0,
+   "solve_s": 12.91
+  },
+  "RegionC": {
+   "cost_wan": 49784.86,
+   "ramp": 299.6,
+   "nu_pct": 16.43,
+   "simul_h": 0,
+   "solve_s": 13.09
+  },
+  "RegionD": {
+   "cost_wan": 222.23,
+   "ramp": 383.3,
+   "nu_pct": 60.01,
+   "simul_h": 0,
+   "solve_s": 600.2
+  },
+  "RegionE": {
+   "cost_wan": -8803.23,
+   "ramp": 343.1,
+   "nu_pct": 72.76,
+   "simul_h": 0,
+   "solve_s": 600.13
+  },
+  "RegionF": {
+   "cost_wan": -7687.78,
+   "ramp": 348.0,
+   "nu_pct": 71.95,
+   "simul_h": 0,
+   "solve_s": 295.23
+  }
+ },
+ "M1_timed": {
+  "RegionA": {
+   "cost_wan": 61419.23,
+   "ramp": 385.4,
+   "nu_pct": 9.27,
+   "simul_h": null,
+   "solve_s": null
+  },
+  "RegionB": {
+   "cost_wan": 56411.62,
+   "ramp": 349.9,
+   "nu_pct": 10.71,
+   "simul_h": null,
+   "solve_s": null
+  },
+  "RegionC": {
+   "cost_wan": 53920.48,
+   "ramp": 372.3,
+   "nu_pct": 12.49,
+   "simul_h": null,
+   "solve_s": null
+  },
+  "RegionD": {
+   "cost_wan": 7560.59,
+   "ramp": 258.1,
+   "nu_pct": 49.0,
+   "simul_h": null,
+   "solve_s": null
+  },
+  "RegionE": {
+   "cost_wan": -4509.74,
+   "ramp": 185.8,
+   "nu_pct": 65.07,
+   "simul_h": null,
+   "solve_s": null
+  },
+  "RegionF": {
+   "cost_wan": -2434.01,
+   "ramp": 179.0,
+   "nu_pct": 63.39,
+   "simul_h": null,
+   "solve_s": null
+  }
+ },
+ "decomposition": {
+  "RegionA": {
+   "conveyor_illusion_wan": -7096.27,
+   "timing_freedom_value_wan": -5256.82,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ],
+    "discharge_hours": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     17,
+     18,
+     19,
+     20,
+     21,
+     23
+    ]
+   }
+  },
+  "RegionB": {
+   "conveyor_illusion_wan": -6099.77,
+   "timing_freedom_value_wan": -4513.48,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     18,
+     19,
+     20,
+     21,
+     22
+    ],
+    "discharge_hours": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     17,
+     18,
+     19,
+     20,
+     21,
+     23
+    ]
+   }
+  },
+  "RegionC": {
+   "conveyor_illusion_wan": -5615.29,
+   "timing_freedom_value_wan": -4135.62,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     18,
+     19,
+     20,
+     22
+    ],
+    "discharge_hours": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     17,
+     18,
+     19,
+     20,
+     21,
+     23
+    ]
+   }
+  },
+  "RegionD": {
+   "conveyor_illusion_wan": -9859.62,
+   "timing_freedom_value_wan": -7338.36,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     22,
+     23
+    ],
+    "discharge_hours": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ]
+   }
+  },
+  "RegionE": {
+   "conveyor_illusion_wan": -6200.87,
+   "timing_freedom_value_wan": -4293.49,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     22,
+     23
+    ],
+    "discharge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ]
+   }
+  },
+  "RegionF": {
+   "conveyor_illusion_wan": -7093.91,
+   "timing_freedom_value_wan": -5253.77,
+   "structure": {
+    "charge_hours": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     22
+    ],
+    "discharge_hours": [
+     0,
+     2,
+     3,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ]
+   }
+  }
+ },
+ "caliber": "M0x=充放互斥 MILP（scipy.optimize.milp/HiGHS，z_t 二进制，time_limit=600s/区，mip_rel_gap=0.01——近似最优需声明）；M0=无互斥 LP（传送带假象）；M1=时段状态机（生成器同构）；M1 时段分离天然互斥（M1x=M1 数学成立，无需 MILP）；传送带假象=M0−M0x；时段自由度红利=M0x−M1"
+}

@@ -1,0 +1,43 @@
+{
+ "X15_scenario_mpc": {
+  "sigma_10": {
+   "status": 0,
+   "scenario_expected_cost_wan": 7560.2269,
+   "n_infeasible_scenarios": 0,
+   "scenario_cost_std": 1.1955,
+   "min_scenario_cost": 7558.6195,
+   "max_scenario_cost": 7562.246,
+   "certainty_equiv_cost_wan": 7559.9302
+  },
+  "sigma_20": {
+   "status": 0,
+   "scenario_expected_cost_wan": 7581.9545,
+   "n_infeasible_scenarios": 1,
+   "scenario_cost_std": 298.9209,
+   "min_scenario_cost": 7558.8521,
+   "max_scenario_cost": 8426.9025,
+   "certainty_equiv_cost_wan": 7559.6347
+  },
+  "sigma_30": {
+   "status": 0,
+   "scenario_expected_cost_wan": 7621.8359,
+   "n_infeasible_scenarios": 0,
+   "scenario_cost_std": 290.6048,
+   "min_scenario_cost": 7561.4424,
+   "max_scenario_cost": 8475.1601,
+   "certainty_equiv_cost_wan": 7559.4301
+  }
+ },
+ "X16_sobol_sym": {
+  "S1_sym_sell": [
+   0.0652,
+   0.0,
+   0.003,
+   0.0846,
+   0.7778
+  ],
+  "varY": 3434802.85,
+  "note": "sell_scale 范围对称化 [0.8,1.2]（原 [0.5,1.5]）；N=128 快速版"
+ },
+ "caliber": "X15=标准随机 MPC（8 场景联合、首时段耦合、D 区首窗口 24h）vs 确定性等价——σ 区分度；X16=Sobol sell 范围对称化（N=128）"
+}

@@ -1,0 +1,289 @@
+{
+ "V2_estimator": {
+  "linear_max_abs_err": 0.007599,
+  "additive_ST_minus_S1_max": 0.001809,
+  "interaction_ST_gt_S1": true,
+  "verdict": "【实证】估计器合格（误差<1%）"
+ },
+ "sobol": {
+  "RegionD": {
+   "cost_wan": {
+    "S1": [
+     0.0125,
+     -0.0001,
+     0.0004,
+     -0.0001,
+     0.9438
+    ],
+    "ST": [
+     0.0155,
+     0.0,
+     0.0003,
+     0.0158,
+     0.9768
+    ],
+    "varY": 17098776.12,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "carbon_t": {
+    "S1": [
+     0.9025,
+     -0.0001,
+     0.035,
+     0.0,
+     0.0014
+    ],
+    "ST": [
+     0.937,
+     0.0,
+     0.0167,
+     0.0,
+     0.0
+    ],
+    "varY": 13153094.83,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "peak_net_MW": {
+    "S1": [
+     -0.0081,
+     -0.0081,
+     -0.0052,
+     0.0,
+     0.9784
+    ],
+    "ST": [
+     0.0002,
+     0.0002,
+     0.0001,
+     0.0,
+     0.9736
+    ],
+    "varY": 2694.77,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "vol_std_MW": {
+    "S1": [
+     1.0169,
+     -0.017,
+     0.0957,
+     0.0,
+     0.0402
+    ],
+    "ST": [
+     0.9335,
+     0.0,
+     0.0177,
+     0.0,
+     0.0009
+    ],
+    "varY": 18.82,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "ramp_p95_MW": {
+    "S1": [
+     1.0543,
+     0.0011,
+     0.507,
+     0.0,
+     0.0033
+    ],
+    "ST": [
+     0.9033,
+     0.0,
+     0.1342,
+     0.0,
+     0.0005
+    ],
+    "varY": 305.25,
+    "degenerate": false,
+    "unreliable": false
+   }
+  },
+  "RegionE": {
+   "cost_wan": {
+    "S1": [
+     0.0012,
+     -0.0004,
+     0.0003,
+     -0.0014,
+     0.9715
+    ],
+    "ST": [
+     0.0018,
+     0.0,
+     0.0001,
+     0.0068,
+     0.9787
+    ],
+    "varY": 17464789.9,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "carbon_t": {
+    "S1": [
+     2.059,
+     0.0094,
+     -0.0044,
+     0.0,
+     -0.0044
+    ],
+    "ST": [
+     0.9682,
+     0.0,
+     0.0219,
+     0.0,
+     0.0
+    ],
+    "varY": 717979.6,
+    "degenerate": false,
+    "unreliable": true
+   },
+   "peak_net_MW": {
+    "S1": [
+     0.2582,
+     0.0531,
+     -0.0208,
+     0.0,
+     1.0239
+    ],
+    "ST": [
+     0.1529,
+     0.0245,
+     0.0095,
+     0.0,
+     0.8718
+    ],
+    "varY": 1178.7,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "vol_std_MW": {
+    "S1": [
+     0.2495,
+     0.0282,
+     0.0053,
+     0.0,
+     0.9749
+    ],
+    "ST": [
+     0.0864,
+     0.0024,
+     0.0014,
+     0.0,
+     0.8647
+    ],
+    "varY": 107.6,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "ramp_p95_MW": {
+    "S1": [
+     0.3957,
+     -0.0115,
+     0.0286,
+     0.0,
+     0.9333
+    ],
+    "ST": [
+     0.1915,
+     0.0055,
+     0.0101,
+     0.0,
+     0.7987
+    ],
+    "varY": 387.47,
+    "degenerate": false,
+    "unreliable": false
+   }
+  },
+  "RegionA": {
+   "cost_wan": {
+    "S1": [
+     0.004,
+     0.0001,
+     -0.0017,
+     0.9975,
+     0.0
+    ],
+    "ST": [
+     0.009,
+     0.0,
+     0.0002,
+     1.0127,
+     0.0
+    ],
+    "varY": 12711185.52,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "carbon_t": {
+    "S1": [
+     0.2422,
+     0.0108,
+     -0.1822,
+     0.0,
+     0.0
+    ],
+    "ST": [
+     0.9363,
+     0.0,
+     0.0174,
+     0.0,
+     0.0
+    ],
+    "varY": 4375073.58,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "peak_net_MW": {
+    "S1": null,
+    "ST": null,
+    "varY": 0.0,
+    "degenerate": true
+   },
+   "vol_std_MW": {
+    "S1": [
+     1.0466,
+     -0.0042,
+     0.0956,
+     0.0,
+     0.0
+    ],
+    "ST": [
+     0.9409,
+     0.0,
+     0.0172,
+     0.0,
+     0.0
+    ],
+    "varY": 4.2,
+    "degenerate": false,
+    "unreliable": false
+   },
+   "ramp_p95_MW": {
+    "S1": [
+     1.777,
+     0.0,
+     1.1851,
+     0.0,
+     0.0
+    ],
+    "ST": [
+     0.9108,
+     0.0,
+     0.07,
+     0.0,
+     0.0
+    ],
+    "varY": 0.54,
+    "degenerate": false,
+    "unreliable": true
+   }
+  }
+ },
+ "caliber": "自实现 Saltelli（scipy.stats.qmc.Sobol，scramble，N=256，5 参数：Cap/ηc/ηd/价格水平/SellLimit）；Y 五指标分别归因；M1 时段约束 LP 黑盒；V2 解析验证门先行（误差<1%）"
+}

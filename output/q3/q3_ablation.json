@@ -1,0 +1,161 @@
+{
+ "RegionA": {
+  "base_cost_wan": 61419.92,
+  "E5_active_constraints": {
+   "sell_saturation": 0.0,
+   "soc_cap_saturation": 0.6232,
+   "soc_min_touch": 0.0415
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": 61722.77,
+   "cap_1.1x": 61117.44,
+   "price_1.1x": 67561.91,
+   "price_0.9x": 55277.93
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": 61117.44,
+   "1.2x": 60816.44,
+   "1.3x": 60590.87
+  },
+  "E8_cap_scale_gain_wan": 829.05
+ },
+ "RegionB": {
+  "base_cost_wan": 56412.45,
+  "E5_active_constraints": {
+   "sell_saturation": 0.0,
+   "soc_cap_saturation": 0.6232,
+   "soc_min_touch": 0.0411
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": 56677.82,
+   "cap_1.1x": 56147.22,
+   "price_1.1x": 62053.7,
+   "price_0.9x": 50771.21
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": 56147.22,
+   "1.2x": 55883.85,
+   "1.3x": 55764.86
+  },
+  "E8_cap_scale_gain_wan": 647.59
+ },
+ "RegionC": {
+  "base_cost_wan": 53921.12,
+  "E5_active_constraints": {
+   "sell_saturation": 0.0,
+   "soc_cap_saturation": 0.6232,
+   "soc_min_touch": 0.0411
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": 54162.69,
+   "cap_1.1x": 53679.78,
+   "price_1.1x": 59313.23,
+   "price_0.9x": 48529.0
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": 53679.78,
+   "1.2x": 53439.87,
+   "1.3x": 53296.7
+  },
+  "E8_cap_scale_gain_wan": 624.42
+ },
+ "RegionD": {
+  "base_cost_wan": 7565.86,
+  "E5_active_constraints": {
+   "sell_saturation": 0.9992,
+   "soc_cap_saturation": 0.543,
+   "soc_min_touch": 0.0411
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": 8035.95,
+   "cap_1.1x": 7095.86,
+   "price_1.1x": 9750.03,
+   "price_0.9x": 5381.68
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": 7095.86,
+   "1.2x": 6675.46,
+   "1.3x": 6608.92
+  },
+  "E8_cap_scale_gain_wan": 956.94
+ },
+ "RegionE": {
+  "base_cost_wan": -4507.05,
+  "E5_active_constraints": {
+   "sell_saturation": 0.9975,
+   "soc_cap_saturation": 0.5347,
+   "soc_min_touch": 0.0415
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": -4231.8,
+   "cap_1.1x": -4516.64,
+   "price_1.1x": -3416.92,
+   "price_0.9x": -5597.19
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": -4516.64,
+   "1.2x": -4517.87,
+   "1.3x": -4517.87
+  },
+  "E8_cap_scale_gain_wan": 10.82
+ },
+ "RegionF": {
+  "base_cost_wan": -2427.12,
+  "E5_active_constraints": {
+   "sell_saturation": 0.9975,
+   "soc_cap_saturation": 0.4936,
+   "soc_min_touch": 0.0428
+  },
+  "E8_sensitivity": {
+   "cap_0.9x": -2109.06,
+   "cap_1.1x": -2443.61,
+   "price_1.1x": -1047.72,
+   "price_0.9x": -3806.52
+  },
+  "E8_cap_scale_curve": {
+   "1.1x": -2443.61,
+   "1.2x": -2446.19,
+   "1.3x": -2447.29
+  },
+  "E8_cap_scale_gain_wan": 20.17
+ },
+ "E4_charge_source_competition": {
+  "normal_W": {
+   "Pc_grid_MWh": 0.0,
+   "note": "弃电优先，购电通道关闭（已证）"
+  },
+  "W_half_scenario": {
+   "Pc_grid_MWh": 21765.3,
+   "Pc_renewable_MWh": 64311.8,
+   "cost_wan": 10932.79,
+   "verdict": "弃电不足→购电充电激活"
+  }
+ },
+ "E7_sell_removal": {
+  "RegionD": {
+   "cost_with_sell": 7565.86,
+   "cost_no_sell": 21841.74,
+   "sell_value_wan": 14275.89
+  },
+  "RegionE": {
+   "cost_with_sell": -4507.05,
+   "cost_no_sell": 10901.38,
+   "sell_value_wan": 15408.43
+  }
+ },
+ "E9_charge_cap": {
+  "RegionA": {
+   "cost_base": 61419.92,
+   "cost_charge2x": 61419.92,
+   "gain_wan": 0.0,
+   "verdict": "充电上限非瓶颈"
+  },
+  "RegionD": {
+   "cost_base": 7565.86,
+   "cost_charge2x": 7565.86,
+   "gain_wan": 0.0,
+   "verdict": "充电上限非瓶颈"
+  }
+ },
+ "caliber": "判别实验群基于 M1（时段状态机约束）；E8 扩容时 MinSOC 同比例缩放；E4 反事实 W×0.5；E7 外送归零；E9 充电上限×2"
+}

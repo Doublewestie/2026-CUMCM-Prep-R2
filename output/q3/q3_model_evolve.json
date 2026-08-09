@@ -1,0 +1,630 @@
+{
+ "comparison": [
+  {
+   "Region": "RegionA",
+   "model": "base",
+   "cost_wan": 62302.26,
+   "carbon_t": 581269.7,
+   "peak_net_MW": 497.0,
+   "vol_std_MW": 96.8,
+   "max_ramp_MW": 385.4,
+   "nu_pct": 8.64
+  },
+  {
+   "Region": "RegionA",
+   "model": "M0",
+   "cost_wan": 49066.14,
+   "carbon_t": 466059.2,
+   "peak_net_MW": 479.0,
+   "vol_std_MW": 97.7,
+   "max_ramp_MW": 285.4,
+   "nu_pct": 19.99
+  },
+  {
+   "Region": "RegionA",
+   "model": "M1",
+   "cost_wan": 61419.23,
+   "carbon_t": 574304.8,
+   "peak_net_MW": 479.0,
+   "vol_std_MW": 102.3,
+   "max_ramp_MW": 385.4,
+   "nu_pct": 9.27
+  },
+  {
+   "Region": "RegionA",
+   "model": "M2",
+   "cost_wan": 62097.03,
+   "carbon_t": 578337.4,
+   "peak_net_MW": 479.0,
+   "vol_std_MW": 95.6,
+   "max_ramp_MW": 385.4,
+   "nu_pct": 8.88
+  },
+  {
+   "Region": "RegionA",
+   "model": "M3",
+   "cost_wan": 61419.92,
+   "carbon_t": 574313.2,
+   "peak_net_MW": 479.0,
+   "vol_std_MW": 101.3,
+   "max_ramp_MW": 385.4,
+   "nu_pct": 9.26,
+   "peak_main_MW": 479.0,
+   "std_main_MW": 99.3,
+   "ramp_main_MW": 140.0
+  },
+  {
+   "Region": "RegionA",
+   "model": "M0x",
+   "cost_wan": 56162.41,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 299.9,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  },
+  {
+   "Region": "RegionB",
+   "model": "base",
+   "cost_wan": 57211.58,
+   "carbon_t": 519698.6,
+   "peak_net_MW": 467.9,
+   "vol_std_MW": 88.8,
+   "max_ramp_MW": 349.9,
+   "nu_pct": 10.13
+  },
+  {
+   "Region": "RegionB",
+   "model": "M0",
+   "cost_wan": 45798.36,
+   "carbon_t": 422738.8,
+   "peak_net_MW": 451.7,
+   "vol_std_MW": 89.2,
+   "max_ramp_MW": 259.9,
+   "nu_pct": 20.33
+  },
+  {
+   "Region": "RegionB",
+   "model": "M1",
+   "cost_wan": 56411.62,
+   "carbon_t": 513637.4,
+   "peak_net_MW": 451.7,
+   "vol_std_MW": 94.1,
+   "max_ramp_MW": 349.9,
+   "nu_pct": 10.71
+  },
+  {
+   "Region": "RegionB",
+   "model": "M2",
+   "cost_wan": 57037.65,
+   "carbon_t": 517272.6,
+   "peak_net_MW": 451.7,
+   "vol_std_MW": 87.7,
+   "max_ramp_MW": 349.9,
+   "nu_pct": 10.33
+  },
+  {
+   "Region": "RegionB",
+   "model": "M3",
+   "cost_wan": 56412.45,
+   "carbon_t": 513647.8,
+   "peak_net_MW": 451.7,
+   "vol_std_MW": 93.2,
+   "max_ramp_MW": 349.9,
+   "nu_pct": 10.7,
+   "peak_main_MW": 451.7,
+   "std_main_MW": 91.2,
+   "ramp_main_MW": 132.4
+  },
+  {
+   "Region": "RegionB",
+   "model": "M0x",
+   "cost_wan": 51898.13,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 272.9,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  },
+  {
+   "Region": "RegionC",
+   "model": "base",
+   "cost_wan": 54636.22,
+   "carbon_t": 483818.1,
+   "peak_net_MW": 455.3,
+   "vol_std_MW": 85.0,
+   "max_ramp_MW": 372.3,
+   "nu_pct": 11.94
+  },
+  {
+   "Region": "RegionC",
+   "model": "M0",
+   "cost_wan": 44169.57,
+   "carbon_t": 396983.4,
+   "peak_net_MW": 440.0,
+   "vol_std_MW": 85.3,
+   "max_ramp_MW": 287.3,
+   "nu_pct": 21.58
+  },
+  {
+   "Region": "RegionC",
+   "model": "M1",
+   "cost_wan": 53920.48,
+   "carbon_t": 478490.9,
+   "peak_net_MW": 440.0,
+   "vol_std_MW": 89.7,
+   "max_ramp_MW": 372.3,
+   "nu_pct": 12.49
+  },
+  {
+   "Region": "RegionC",
+   "model": "M2",
+   "cost_wan": 54479.14,
+   "carbon_t": 481659.3,
+   "peak_net_MW": 440.0,
+   "vol_std_MW": 84.0,
+   "max_ramp_MW": 372.3,
+   "nu_pct": 12.14
+  },
+  {
+   "Region": "RegionC",
+   "model": "M3",
+   "cost_wan": 53921.12,
+   "carbon_t": 478499.5,
+   "peak_net_MW": 440.0,
+   "vol_std_MW": 88.9,
+   "max_ramp_MW": 372.3,
+   "nu_pct": 12.48,
+   "peak_main_MW": 440.0,
+   "std_main_MW": 86.8,
+   "ramp_main_MW": 126.1
+  },
+  {
+   "Region": "RegionC",
+   "model": "M0x",
+   "cost_wan": 49784.86,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 299.6,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  },
+  {
+   "Region": "RegionD",
+   "model": "base",
+   "cost_wan": 8592.64,
+   "carbon_t": 262960.7,
+   "peak_net_MW": 282.6,
+   "vol_std_MW": 135.1,
+   "max_ramp_MW": 209.9,
+   "nu_pct": 47.06
+  },
+  {
+   "Region": "RegionD",
+   "model": "M0",
+   "cost_wan": -9637.4,
+   "carbon_t": 60262.1,
+   "peak_net_MW": 228.9,
+   "vol_std_MW": 85.4,
+   "max_ramp_MW": 379.6,
+   "nu_pct": 75.24
+  },
+  {
+   "Region": "RegionD",
+   "model": "M1",
+   "cost_wan": 7560.59,
+   "carbon_t": 248658.8,
+   "peak_net_MW": 228.9,
+   "vol_std_MW": 124.2,
+   "max_ramp_MW": 258.1,
+   "nu_pct": 49.0
+  },
+  {
+   "Region": "RegionD",
+   "model": "M2",
+   "cost_wan": 7560.79,
+   "carbon_t": 248699.9,
+   "peak_net_MW": 228.9,
+   "vol_std_MW": 122.9,
+   "max_ramp_MW": 251.1,
+   "nu_pct": 49.0
+  },
+  {
+   "Region": "RegionD",
+   "model": "M3",
+   "cost_wan": 7565.86,
+   "carbon_t": 248725.6,
+   "peak_net_MW": 228.9,
+   "vol_std_MW": 123.7,
+   "max_ramp_MW": 251.1,
+   "nu_pct": 48.98,
+   "peak_main_MW": 228.9,
+   "std_main_MW": 123.3,
+   "ramp_main_MW": 251.1
+  },
+  {
+   "Region": "RegionD",
+   "model": "M0x",
+   "cost_wan": 222.23,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 383.3,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  },
+  {
+   "Region": "RegionE",
+   "model": "base",
+   "cost_wan": -2589.29,
+   "carbon_t": 84555.6,
+   "peak_net_MW": 166.1,
+   "vol_std_MW": 116.2,
+   "max_ramp_MW": 257.3,
+   "nu_pct": 61.0
+  },
+  {
+   "Region": "RegionE",
+   "model": "M0",
+   "cost_wan": -15004.1,
+   "carbon_t": 1556.8,
+   "peak_net_MW": -38.8,
+   "vol_std_MW": 23.1,
+   "max_ramp_MW": 181.2,
+   "nu_pct": 84.9
+  },
+  {
+   "Region": "RegionE",
+   "model": "M1",
+   "cost_wan": -4509.74,
+   "carbon_t": 77766.4,
+   "peak_net_MW": 63.6,
+   "vol_std_MW": 88.7,
+   "max_ramp_MW": 185.8,
+   "nu_pct": 65.07
+  },
+  {
+   "Region": "RegionE",
+   "model": "M2",
+   "cost_wan": -4509.32,
+   "carbon_t": 77766.4,
+   "peak_net_MW": 63.6,
+   "vol_std_MW": 88.7,
+   "max_ramp_MW": 185.8,
+   "nu_pct": 65.06
+  },
+  {
+   "Region": "RegionE",
+   "model": "M3",
+   "cost_wan": -4507.05,
+   "carbon_t": 77766.4,
+   "peak_net_MW": 63.6,
+   "vol_std_MW": 88.7,
+   "max_ramp_MW": 252.5,
+   "nu_pct": 65.06,
+   "peak_main_MW": 63.6,
+   "std_main_MW": 88.7,
+   "ramp_main_MW": 252.5
+  },
+  {
+   "Region": "RegionE",
+   "model": "M0x",
+   "cost_wan": -8803.23,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 343.1,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  },
+  {
+   "Region": "RegionF",
+   "model": "base",
+   "cost_wan": 12.61,
+   "carbon_t": 113064.9,
+   "peak_net_MW": 152.5,
+   "vol_std_MW": 109.8,
+   "max_ramp_MW": 241.0,
+   "nu_pct": 58.41
+  },
+  {
+   "Region": "RegionF",
+   "model": "M0",
+   "cost_wan": -14781.69,
+   "carbon_t": 1245.7,
+   "peak_net_MW": 94.6,
+   "vol_std_MW": 62.1,
+   "max_ramp_MW": 289.1,
+   "nu_pct": 83.5
+  },
+  {
+   "Region": "RegionF",
+   "model": "M1",
+   "cost_wan": -2434.01,
+   "carbon_t": 103569.0,
+   "peak_net_MW": 60.9,
+   "vol_std_MW": 90.4,
+   "max_ramp_MW": 179.0,
+   "nu_pct": 63.39
+  },
+  {
+   "Region": "RegionF",
+   "model": "M2",
+   "cost_wan": -2413.33,
+   "carbon_t": 103569.0,
+   "peak_net_MW": 60.9,
+   "vol_std_MW": 90.7,
+   "max_ramp_MW": 179.0,
+   "nu_pct": 63.33
+  },
+  {
+   "Region": "RegionF",
+   "model": "M3",
+   "cost_wan": -2427.12,
+   "carbon_t": 103574.0,
+   "peak_net_MW": 66.9,
+   "vol_std_MW": 90.5,
+   "max_ramp_MW": 232.9,
+   "nu_pct": 63.37,
+   "peak_main_MW": 66.9,
+   "std_main_MW": 90.3,
+   "ramp_main_MW": 232.9
+  },
+  {
+   "Region": "RegionF",
+   "model": "M0x",
+   "cost_wan": -7687.78,
+   "carbon_t": null,
+   "peak_net_MW": null,
+   "vol_std_MW": null,
+   "max_ramp_MW": 348.0,
+   "nu_pct": null,
+   "note": "互斥物理上界（600s MILP 近似，gap 验证稳定）"
+  }
+ ],
+ "e2b": {
+  "RegionA": {
+   "base": {
+    "max": 385.4,
+    "p95": 75.7,
+    "p90": 61.4,
+    "over100": 20
+   },
+   "M0": {
+    "max": 285.4,
+    "p95": 79.9,
+    "p90": 67.1,
+    "over100": 64
+   },
+   "M1": {
+    "max": 385.4,
+    "p95": 106.7,
+    "p90": 68.0,
+    "over100": 134
+   },
+   "M2": {
+    "max": 385.4,
+    "p95": 72.6,
+    "p90": 60.8,
+    "over100": 14
+   },
+   "M3": {
+    "max": 385.4,
+    "p95": 77.8,
+    "p90": 65.3,
+    "over100": 28
+   }
+  },
+  "RegionB": {
+   "base": {
+    "max": 349.9,
+    "p95": 68.4,
+    "p90": 55.4,
+    "over100": 16
+   },
+   "M0": {
+    "max": 259.9,
+    "p95": 74.4,
+    "p90": 62.9,
+    "over100": 37
+   },
+   "M1": {
+    "max": 349.9,
+    "p95": 99.7,
+    "p90": 62.0,
+    "over100": 120
+   },
+   "M2": {
+    "max": 349.9,
+    "p95": 66.2,
+    "p90": 54.4,
+    "over100": 15
+   },
+   "M3": {
+    "max": 349.9,
+    "p95": 71.2,
+    "p90": 60.3,
+    "over100": 17
+   }
+  },
+  "RegionC": {
+   "base": {
+    "max": 372.3,
+    "p95": 67.9,
+    "p90": 55.2,
+    "over100": 16
+   },
+   "M0": {
+    "max": 287.3,
+    "p95": 72.7,
+    "p90": 62.5,
+    "over100": 41
+   },
+   "M1": {
+    "max": 372.3,
+    "p95": 89.6,
+    "p90": 59.4,
+    "over100": 86
+   },
+   "M2": {
+    "max": 372.3,
+    "p95": 64.9,
+    "p90": 52.3,
+    "over100": 13
+   },
+   "M3": {
+    "max": 372.3,
+    "p95": 68.5,
+    "p90": 55.9,
+    "over100": 11
+   }
+  },
+  "RegionD": {
+   "base": {
+    "max": 209.9,
+    "p95": 171.0,
+    "p90": 104.7,
+    "over100": 254
+   },
+   "M0": {
+    "max": 379.6,
+    "p95": 215.6,
+    "p90": 73.5,
+    "over100": 205
+   },
+   "M1": {
+    "max": 258.1,
+    "p95": 181.7,
+    "p90": 60.0,
+    "over100": 202
+   },
+   "M2": {
+    "max": 251.1,
+    "p95": 158.5,
+    "p90": 67.6,
+    "over100": 204
+   },
+   "M3": {
+    "max": 251.1,
+    "p95": 178.1,
+    "p90": 62.1,
+    "over100": 201
+   }
+  },
+  "RegionE": {
+   "base": {
+    "max": 257.3,
+    "p95": 117.4,
+    "p90": 75.6,
+    "over100": 203
+   },
+   "M0": {
+    "max": 181.2,
+    "p95": 62.5,
+    "p90": 28.4,
+    "over100": 69
+   },
+   "M1": {
+    "max": 185.8,
+    "p95": 117.0,
+    "p90": 42.6,
+    "over100": 197
+   },
+   "M2": {
+    "max": 185.8,
+    "p95": 117.0,
+    "p90": 42.6,
+    "over100": 197
+   },
+   "M3": {
+    "max": 252.5,
+    "p95": 117.0,
+    "p90": 42.5,
+    "over100": 197
+   }
+  },
+  "RegionF": {
+   "base": {
+    "max": 241.0,
+    "p95": 162.8,
+    "p90": 77.8,
+    "over100": 202
+   },
+   "M0": {
+    "max": 289.1,
+    "p95": 106.7,
+    "p90": 60.8,
+    "over100": 123
+   },
+   "M1": {
+    "max": 179.0,
+    "p95": 152.2,
+    "p90": 33.3,
+    "over100": 201
+   },
+   "M2": {
+    "max": 179.0,
+    "p95": 152.2,
+    "p90": 37.7,
+    "over100": 201
+   },
+   "M3": {
+    "max": 232.9,
+    "p95": 152.2,
+    "p90": 33.4,
+    "over100": 201
+   }
+  }
+ },
+ "e2a": {
+  "cost_cap_wan": 7560.59,
+  "min_ramp_MW": 258.1,
+  "min_ramp_cost_wan": 7560.59,
+  "status": 0,
+  "conclusion": "最优面内爬坡可降至",
+  "solve_s": 0.6
+ },
+ "timing_summary": {
+  "RegionA": {
+   "m0_s": 0.54,
+   "m1_s": 0.16,
+   "m2_s": 0.17,
+   "m3_s": 0.32
+  },
+  "RegionB": {
+   "m0_s": 0.54,
+   "m1_s": 0.18,
+   "m2_s": 0.16,
+   "m3_s": 0.31
+  },
+  "RegionC": {
+   "m0_s": 0.53,
+   "m1_s": 0.18,
+   "m2_s": 0.17,
+   "m3_s": 0.32
+  },
+  "RegionD": {
+   "m0_s": 0.52,
+   "m1_s": 0.18,
+   "m2_s": 0.17,
+   "m3_s": 0.33
+  },
+  "RegionE": {
+   "m0_s": 0.18,
+   "m1_s": 0.17,
+   "m2_s": 0.17,
+   "m3_s": 0.21
+  },
+  "RegionF": {
+   "m0_s": 0.19,
+   "m1_s": 0.18,
+   "m2_s": 0.17,
+   "m3_s": 0.21
+  }
+ },
+ "caliber": "M0=全时段自由 LP（无互斥——传送带假象，不引用）；M1=时段状态机约束 LP；M2=功率模板；M3=M3_final 主口径（M1+结算段禁充+终态严格+生成器量级斜坡，主时段指标）；M0x=互斥 MILP 物理上界（q3_mutex 产物，gap 验证稳定）；基准=生成器数据；M2 双通道归因=Pc_r=min(Pc,W−cap_h−S)（I7 口径）",
+ "conclusion": "论文主口径=M3_final vs 基准（储能价值保守口径）；M0x=物理上界（区间呈现 [M3, M0x]）；M0 含传送带假象不得引用（互斥约束价值见 q3_mutex）"
+}

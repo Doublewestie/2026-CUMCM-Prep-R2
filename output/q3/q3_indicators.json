@@ -1,0 +1,515 @@
+{
+  "baseline": {
+    "RegionA": {
+      "cost_wan": 62302.2579338745,
+      "carbon_t": 581269.70007832,
+      "peak_net_MW": 497.0016,
+      "vol_std_MW": 96.79949584066992,
+      "max_ramp_MW": 385.411,
+      "mean_net_MW": 388.06451362692144,
+      "nu_pct": 8.642155582159038,
+      "curtail_MWh": 1758755.497899
+    },
+    "RegionB": {
+      "cost_wan": 57211.5791714583,
+      "carbon_t": 519698.55152123,
+      "peak_net_MW": 467.856,
+      "vol_std_MW": 88.8141416305529,
+      "max_ramp_MW": 349.9416,
+      "mean_net_MW": 370.9443405484005,
+      "nu_pct": 10.125782788288895,
+      "curtail_MWh": 1730193.7742480002
+    },
+    "RegionC": {
+      "cost_wan": 54636.219991311096,
+      "carbon_t": 483818.09682631004,
+      "peak_net_MW": 455.2661,
+      "vol_std_MW": 85.04352760142369,
+      "max_ramp_MW": 372.2964,
+      "mean_net_MW": 364.2456088076444,
+      "nu_pct": 11.942843376351808,
+      "curtail_MWh": 1695213.031
+    },
+    "RegionD": {
+      "cost_wan": 8592.64141302708,
+      "carbon_t": 262960.6536425,
+      "peak_net_MW": 282.5815,
+      "vol_std_MW": 135.11283870285965,
+      "max_ramp_MW": 209.8956,
+      "mean_net_MW": 79.9806957208143,
+      "nu_pct": 47.05521965193318,
+      "curtail_MWh": 1019254.8227860001
+    },
+    "RegionE": {
+      "cost_wan": -2589.2946161557957,
+      "carbon_t": 84555.5904512,
+      "peak_net_MW": 166.06040000000002,
+      "vol_std_MW": 116.22146799094789,
+      "max_ramp_MW": 257.2579,
+      "mean_net_MW": -42.61073773078521,
+      "nu_pct": 60.99949393932786,
+      "curtail_MWh": 750809.6857159999
+    },
+    "RegionF": {
+      "cost_wan": 12.609895673499935,
+      "carbon_t": 113064.8827644867,
+      "peak_net_MW": 152.49719999999996,
+      "vol_std_MW": 109.8217861917499,
+      "max_ramp_MW": 240.9611,
+      "mean_net_MW": -14.33861241088492,
+      "nu_pct": 58.408016953428024,
+      "curtail_MWh": 800698.93634
+    }
+  },
+  "lp": {
+    "RegionA": {
+      "cost_wan": 49197.72850677165,
+      "carbon_t": 467911.46977293683,
+      "peak_net_MW": 487.4688740419288,
+      "vol_std_MW": 96.40801126340915,
+      "max_ramp_MW": 207.75159936236648,
+      "mean_net_MW": 311.39861228016895,
+      "nu_pct": 19.83318001970906,
+      "curtail_MWh": 1543313.9462502673
+    },
+    "RegionB": {
+      "cost_wan": 45911.50958496129,
+      "carbon_t": 424293.6699947977,
+      "peak_net_MW": 451.6560022260694,
+      "vol_std_MW": 87.83321790682967,
+      "max_ramp_MW": 198.95512319610515,
+      "mean_net_MW": 301.96969646238847,
+      "nu_pct": 20.194420652524215,
+      "curtail_MWh": 1536359.6014638213
+    },
+    "RegionC": {
+      "cost_wan": 44275.97835756848,
+      "carbon_t": 398412.0562764462,
+      "peak_net_MW": 439.9661003771623,
+      "vol_std_MW": 83.81540201015746,
+      "max_ramp_MW": 193.61097243429066,
+      "mean_net_MW": 299.12835898832475,
+      "nu_pct": 21.448996245908013,
+      "curtail_MWh": 1512207.4146816782
+    },
+    "RegionD": {
+      "cost_wan": -9618.950237447363,
+      "carbon_t": 60577.99625250076,
+      "peak_net_MW": 228.8888026333683,
+      "vol_std_MW": 85.66100416236937,
+      "max_ramp_MW": 379.5537981487086,
+      "mean_net_MW": -117.99150236734862,
+      "nu_pct": 75.18720542282311,
+      "curtail_MWh": 477678.0708753908
+    },
+    "RegionE": {
+      "cost_wan": -14995.049579101229,
+      "carbon_t": 1568.0765960888514,
+      "peak_net_MW": 14.58454065784133,
+      "vol_std_MW": 23.72979973896108,
+      "max_ramp_MW": 234.58454065784133,
+      "mean_net_MW": -211.63058605513845,
+      "nu_pct": 84.87936187078265,
+      "curtail_MWh": 291091.64747662237
+    },
+    "RegionF": {
+      "cost_wan": -14776.482004396375,
+      "carbon_t": 1260.062567183069,
+      "peak_net_MW": 85.14189999999995,
+      "vol_std_MW": 62.17949581394436,
+      "max_ramp_MW": 276.974650075515,
+      "mean_net_MW": -191.1186723953583,
+      "nu_pct": 83.47974393027405,
+      "curtail_MWh": 318036.0851821474
+    }
+  },
+  "m3_final": {
+    "RegionA": {
+      "cost_wan": 61419.92025207831,
+      "carbon_t": 574313.1739104446,
+      "peak_net_MW": 479.0016027915427,
+      "vol_std_MW": 101.33256572751817,
+      "max_ramp_MW": 385.41096315008105,
+      "mean_net_MW": 383.55073171622155,
+      "nu_pct": 9.26057095698295,
+      "curtail_MWh": 1746850.2099909107,
+      "peak_main_MW": 479.0,
+      "std_main_MW": 99.3,
+      "ramp_main_MW": 140.0,
+      "max_ramp_full_MW": 385.4
+    },
+    "RegionB": {
+      "cost_wan": 56412.453683028936,
+      "carbon_t": 513647.77471829765,
+      "peak_net_MW": 451.6560022260695,
+      "vol_std_MW": 93.2161657407456,
+      "max_ramp_MW": 349.94161194796766,
+      "mean_net_MW": 366.7393369550918,
+      "nu_pct": 10.703597188137149,
+      "curtail_MWh": 1719070.1071018009,
+      "peak_main_MW": 451.7,
+      "std_main_MW": 91.2,
+      "ramp_main_MW": 132.4,
+      "max_ramp_full_MW": 349.9
+    },
+    "RegionC": {
+      "cost_wan": 53921.1162685123,
+      "carbon_t": 478499.5422257082,
+      "peak_net_MW": 439.9661003771623,
+      "vol_std_MW": 88.86585260283834,
+      "max_ramp_MW": 372.2963983583394,
+      "mean_net_MW": 360.35016643060106,
+      "nu_pct": 12.477526531064775,
+      "curtail_MWh": 1684919.6955565275,
+      "peak_main_MW": 440.0,
+      "std_main_MW": 86.8,
+      "ramp_main_MW": 126.1,
+      "max_ramp_full_MW": 372.3
+    },
+    "RegionD": {
+      "cost_wan": 7565.855147384411,
+      "carbon_t": 248725.62215649578,
+      "peak_net_MW": 228.8888026333683,
+      "vol_std_MW": 123.71783996329408,
+      "max_ramp_MW": 251.13902980247997,
+      "mean_net_MW": 64.69278289789652,
+      "nu_pct": 48.975961617437335,
+      "curtail_MWh": 982278.0802478839,
+      "peak_main_MW": 228.9,
+      "std_main_MW": 123.3,
+      "ramp_main_MW": 251.1,
+      "max_ramp_full_MW": 251.1
+    },
+    "RegionE": {
+      "cost_wan": -4507.054140135845,
+      "carbon_t": 77766.38601102518,
+      "peak_net_MW": 63.62936660058972,
+      "vol_std_MW": 88.71555191878936,
+      "max_ramp_MW": 252.524999583375,
+      "mean_net_MW": -74.93516835317055,
+      "nu_pct": 65.06326082301813,
+      "curtail_MWh": 672576.9691450913,
+      "peak_main_MW": 63.6,
+      "std_main_MW": 88.7,
+      "ramp_main_MW": 252.5,
+      "max_ramp_full_MW": 252.5
+    },
+    "RegionF": {
+      "cost_wan": -2427.11848086156,
+      "carbon_t": 103574.03357427094,
+      "peak_net_MW": 66.92289999999997,
+      "vol_std_MW": 90.48019942105226,
+      "max_ramp_MW": 232.91899999999998,
+      "mean_net_MW": -53.871908775851814,
+      "nu_pct": 63.37336655205361,
+      "curtail_MWh": 705109.5979397614,
+      "peak_main_MW": 66.9,
+      "std_main_MW": 90.3,
+      "ramp_main_MW": 232.9,
+      "max_ramp_full_MW": 232.9
+    }
+  },
+  "comparison": [
+    {
+      "Region": "RegionA",
+      "metric": "cost_wan",
+      "baseline": 62302.2579,
+      "lp": 49197.7285,
+      "change_pct": -21.034
+    },
+    {
+      "Region": "RegionA",
+      "metric": "carbon_t",
+      "baseline": 581269.7001,
+      "lp": 467911.4698,
+      "change_pct": -19.502
+    },
+    {
+      "Region": "RegionA",
+      "metric": "peak_net_MW",
+      "baseline": 497.0016,
+      "lp": 487.4689,
+      "change_pct": -1.918
+    },
+    {
+      "Region": "RegionA",
+      "metric": "vol_std_MW",
+      "baseline": 96.7995,
+      "lp": 96.408,
+      "change_pct": -0.404
+    },
+    {
+      "Region": "RegionA",
+      "metric": "max_ramp_MW",
+      "baseline": 385.411,
+      "lp": 207.7516,
+      "change_pct": -46.096
+    },
+    {
+      "Region": "RegionA",
+      "metric": "nu_pct",
+      "baseline": 8.6422,
+      "lp": 19.8332,
+      "change_pct": 11.191
+    },
+    {
+      "Region": "RegionA",
+      "metric": "curtail_MWh",
+      "baseline": 1758755.4979,
+      "lp": 1543313.9463,
+      "change_pct": -215441.552
+    },
+    {
+      "Region": "RegionB",
+      "metric": "cost_wan",
+      "baseline": 57211.5792,
+      "lp": 45911.5096,
+      "change_pct": -19.751
+    },
+    {
+      "Region": "RegionB",
+      "metric": "carbon_t",
+      "baseline": 519698.5515,
+      "lp": 424293.67,
+      "change_pct": -18.358
+    },
+    {
+      "Region": "RegionB",
+      "metric": "peak_net_MW",
+      "baseline": 467.856,
+      "lp": 451.656,
+      "change_pct": -3.463
+    },
+    {
+      "Region": "RegionB",
+      "metric": "vol_std_MW",
+      "baseline": 88.8141,
+      "lp": 87.8332,
+      "change_pct": -1.104
+    },
+    {
+      "Region": "RegionB",
+      "metric": "max_ramp_MW",
+      "baseline": 349.9416,
+      "lp": 198.9551,
+      "change_pct": -43.146
+    },
+    {
+      "Region": "RegionB",
+      "metric": "nu_pct",
+      "baseline": 10.1258,
+      "lp": 20.1944,
+      "change_pct": 10.069
+    },
+    {
+      "Region": "RegionB",
+      "metric": "curtail_MWh",
+      "baseline": 1730193.7742,
+      "lp": 1536359.6015,
+      "change_pct": -193834.173
+    },
+    {
+      "Region": "RegionC",
+      "metric": "cost_wan",
+      "baseline": 54636.22,
+      "lp": 44275.9784,
+      "change_pct": -18.962
+    },
+    {
+      "Region": "RegionC",
+      "metric": "carbon_t",
+      "baseline": 483818.0968,
+      "lp": 398412.0563,
+      "change_pct": -17.653
+    },
+    {
+      "Region": "RegionC",
+      "metric": "peak_net_MW",
+      "baseline": 455.2661,
+      "lp": 439.9661,
+      "change_pct": -3.361
+    },
+    {
+      "Region": "RegionC",
+      "metric": "vol_std_MW",
+      "baseline": 85.0435,
+      "lp": 83.8154,
+      "change_pct": -1.444
+    },
+    {
+      "Region": "RegionC",
+      "metric": "max_ramp_MW",
+      "baseline": 372.2964,
+      "lp": 193.611,
+      "change_pct": -47.995
+    },
+    {
+      "Region": "RegionC",
+      "metric": "nu_pct",
+      "baseline": 11.9428,
+      "lp": 21.449,
+      "change_pct": 9.506
+    },
+    {
+      "Region": "RegionC",
+      "metric": "curtail_MWh",
+      "baseline": 1695213.031,
+      "lp": 1512207.4147,
+      "change_pct": -183005.616
+    },
+    {
+      "Region": "RegionD",
+      "metric": "cost_wan",
+      "baseline": 8592.6414,
+      "lp": -9618.9502,
+      "change_pct": -211.944
+    },
+    {
+      "Region": "RegionD",
+      "metric": "carbon_t",
+      "baseline": 262960.6536,
+      "lp": 60577.9963,
+      "change_pct": -76.963
+    },
+    {
+      "Region": "RegionD",
+      "metric": "peak_net_MW",
+      "baseline": 282.5815,
+      "lp": 228.8888,
+      "change_pct": -19.001
+    },
+    {
+      "Region": "RegionD",
+      "metric": "vol_std_MW",
+      "baseline": 135.1128,
+      "lp": 85.661,
+      "change_pct": -36.6
+    },
+    {
+      "Region": "RegionD",
+      "metric": "max_ramp_MW",
+      "baseline": 209.8956,
+      "lp": 379.5538,
+      "change_pct": 80.83
+    },
+    {
+      "Region": "RegionD",
+      "metric": "nu_pct",
+      "baseline": 47.0552,
+      "lp": 75.1872,
+      "change_pct": 28.132
+    },
+    {
+      "Region": "RegionD",
+      "metric": "curtail_MWh",
+      "baseline": 1019254.8228,
+      "lp": 477678.0709,
+      "change_pct": -541576.752
+    },
+    {
+      "Region": "RegionE",
+      "metric": "cost_wan",
+      "baseline": -2589.2946,
+      "lp": -14995.0496,
+      "change_pct": -479.117
+    },
+    {
+      "Region": "RegionE",
+      "metric": "carbon_t",
+      "baseline": 84555.5905,
+      "lp": 1568.0766,
+      "change_pct": -98.146
+    },
+    {
+      "Region": "RegionE",
+      "metric": "peak_net_MW",
+      "baseline": 166.0604,
+      "lp": 14.5845,
+      "change_pct": -91.217
+    },
+    {
+      "Region": "RegionE",
+      "metric": "vol_std_MW",
+      "baseline": 116.2215,
+      "lp": 23.7298,
+      "change_pct": -79.582
+    },
+    {
+      "Region": "RegionE",
+      "metric": "max_ramp_MW",
+      "baseline": 257.2579,
+      "lp": 234.5845,
+      "change_pct": -8.813
+    },
+    {
+      "Region": "RegionE",
+      "metric": "nu_pct",
+      "baseline": 60.9995,
+      "lp": 84.8794,
+      "change_pct": 23.88
+    },
+    {
+      "Region": "RegionE",
+      "metric": "curtail_MWh",
+      "baseline": 750809.6857,
+      "lp": 291091.6475,
+      "change_pct": -459718.038
+    },
+    {
+      "Region": "RegionF",
+      "metric": "cost_wan",
+      "baseline": 12.6099,
+      "lp": -14776.482,
+      "change_pct": -117281.636
+    },
+    {
+      "Region": "RegionF",
+      "metric": "carbon_t",
+      "baseline": 113064.8828,
+      "lp": 1260.0626,
+      "change_pct": -98.886
+    },
+    {
+      "Region": "RegionF",
+      "metric": "peak_net_MW",
+      "baseline": 152.4972,
+      "lp": 85.1419,
+      "change_pct": -44.168
+    },
+    {
+      "Region": "RegionF",
+      "metric": "vol_std_MW",
+      "baseline": 109.8218,
+      "lp": 62.1795,
+      "change_pct": -43.381
+    },
+    {
+      "Region": "RegionF",
+      "metric": "max_ramp_MW",
+      "baseline": 240.9611,
+      "lp": 276.9747,
+      "change_pct": 14.946
+    },
+    {
+      "Region": "RegionF",
+      "metric": "nu_pct",
+      "baseline": 58.408,
+      "lp": 83.4797,
+      "change_pct": 25.072
+    },
+    {
+      "Region": "RegionF",
+      "metric": "curtail_MWh",
+      "baseline": 800698.9363,
+      "lp": 318036.0852,
+      "change_pct": -482662.851
+    }
+  ],
+  "global_anchor": {
+    "curtail_MWh_global": 7754926.0,
+    "nu_pct_global": 32.86,
+    "note": "题目基准全局口径（D4）：弃电≈775.5 万 MWh、NU≈32.9%"
+  },
+  "caliber": "Cost=Σ(price·G−sellp·S)万；Carbon=Σ(carb·G)吨；P_peak=max(G−S)；Vol_std=std(G−S)；Ramp_max=max|Δ(G−S)|；NU=1−Q/W（I5）；时域 0-2406 全 2407h；lp=step3.0 历史 M0（传送带版，不引用）；m3_final=主口径（M1+结算段禁充+终态严格+生成器量级斜坡，主时段指标 ramp_main/peak_main/std_main——X13 边界污染修复）",
+  "spec": "spec_M4_Q3 D-1/D-2（优化题验收：锚点 rel<1e-9）"
+}

@@ -1,0 +1,136 @@
+{
+ "mpc": {
+  "RegionA": {
+   "full_knowledge_cost_wan": 61573.63,
+   "sigma_10": {
+    "mpc_cost_wan": 61573.63,
+    "openloop_cost_wan": 61573.63,
+    "feedback_value_wan": 0.0,
+    "mpc_ramp_MW": 195.0,
+    "mpc_peak_MW": 487.5
+   },
+   "sigma_20": {
+    "mpc_cost_wan": 61573.63,
+    "openloop_cost_wan": 61573.63,
+    "feedback_value_wan": 0.0,
+    "mpc_ramp_MW": 195.0,
+    "mpc_peak_MW": 487.5
+   },
+   "sigma_30": {
+    "mpc_cost_wan": 61573.63,
+    "openloop_cost_wan": 61573.63,
+    "feedback_value_wan": 0.0,
+    "mpc_ramp_MW": 195.0,
+    "mpc_peak_MW": 487.5
+   }
+  },
+  "RegionD": {
+   "full_knowledge_cost_wan": 7613.86,
+   "sigma_10": {
+    "mpc_cost_wan": 7753.34,
+    "openloop_cost_wan": 7613.86,
+    "feedback_value_wan": -0.01,
+    "mpc_ramp_MW": 328.7,
+    "mpc_peak_MW": 228.9
+   },
+   "sigma_20": {
+    "mpc_cost_wan": 7879.74,
+    "openloop_cost_wan": 7613.86,
+    "feedback_value_wan": -0.03,
+    "mpc_ramp_MW": 355.0,
+    "mpc_peak_MW": 228.9
+   },
+   "sigma_30": {
+    "mpc_cost_wan": 7963.9,
+    "openloop_cost_wan": 7613.86,
+    "feedback_value_wan": -0.04,
+    "mpc_ramp_MW": 366.5,
+    "mpc_peak_MW": 235.8
+   }
+  },
+  "RegionE": {
+   "full_knowledge_cost_wan": -4479.59,
+   "sigma_10": {
+    "mpc_cost_wan": -4128.75,
+    "openloop_cost_wan": -4479.34,
+    "feedback_value_wan": -0.04,
+    "mpc_ramp_MW": 363.8,
+    "mpc_peak_MW": 166.6
+   },
+   "sigma_20": {
+    "mpc_cost_wan": -4129.81,
+    "openloop_cost_wan": -4466.9,
+    "feedback_value_wan": -0.03,
+    "mpc_ramp_MW": 358.2,
+    "mpc_peak_MW": 182.1
+   },
+   "sigma_30": {
+    "mpc_cost_wan": -4071.87,
+    "openloop_cost_wan": -4447.29,
+    "feedback_value_wan": -0.04,
+    "mpc_ramp_MW": 395.2,
+    "mpc_peak_MW": 185.3
+   }
+  },
+  "RegionF": {
+   "full_knowledge_cost_wan": -2407.08,
+   "sigma_10": {
+    "mpc_cost_wan": -1873.92,
+    "openloop_cost_wan": -2405.29,
+    "feedback_value_wan": -0.05,
+    "mpc_ramp_MW": 373.3,
+    "mpc_peak_MW": 183.3
+   },
+   "sigma_20": {
+    "mpc_cost_wan": -1874.25,
+    "openloop_cost_wan": -2386.75,
+    "feedback_value_wan": -0.05,
+    "mpc_ramp_MW": 377.7,
+    "mpc_peak_MW": 183.3
+   },
+   "sigma_30": {
+    "mpc_cost_wan": -1863.11,
+    "openloop_cost_wan": -2356.96,
+    "feedback_value_wan": -0.05,
+    "mpc_ramp_MW": 377.7,
+    "mpc_peak_MW": 183.3
+   }
+  }
+ },
+ "open_loop": {},
+ "window_effect": {
+  "RegionA": {
+   "rolling_cost_wan": 61573.63,
+   "full_cost_wan": 61573.63,
+   "window_effect_pct": 0.0
+  },
+  "RegionD": {
+   "rolling_cost_wan": 7879.74,
+   "full_cost_wan": 7613.86,
+   "window_effect_pct": 3.492
+  },
+  "RegionE": {
+   "rolling_cost_wan": -4129.81,
+   "full_cost_wan": -4479.59,
+   "window_effect_pct": 7.808
+  },
+  "RegionF": {
+   "rolling_cost_wan": -1874.25,
+   "full_cost_wan": -2407.08,
+   "window_effect_pct": 22.136
+  }
+ },
+ "standard_scenario_mpc_demo": {
+  "region": "RegionD",
+  "status": 2,
+  "n_scenarios": 8,
+  "window": 24,
+  "first_stage_decision": {
+   "Pc": null,
+   "Pd": null,
+   "G": null
+  },
+  "note": "标准随机 MPC 形式演示（首时段耦合）；全量用确定性等价（预算纪律+诚实声明）"
+ },
+ "caliber": "确定性等价 MPC（场景加权均值，24h 滚动，首时段执行，SOC 递推衔接）+ open-loop 对照 + D 区标准联合场景演示；扰动自造（数据 W 为 T1 确定性模板），σ∈{10,20,30%}，K-means k=12（质量<5%）；MPC 价值=方法论演示+鲁棒对比"
+}
