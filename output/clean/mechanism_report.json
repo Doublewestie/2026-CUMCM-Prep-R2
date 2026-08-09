@@ -1,0 +1,526 @@
+{
+  "caliber": "Phase 4 任务侧机制（训练段 0-2351 vs 冻结段 2376-2399 描述）",
+  "M1_factor_decomp": {
+    "RegionA": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 0.9138977365200814,
+        "dln_n": -0.1399880942283932,
+        "dln_g": 0.01071541365201277,
+        "dln_d": 0.024616862615947862,
+        "share_n": 1.337604511211396
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 1.1322297153356955,
+        "dln_n": 0.1584333416192593,
+        "dln_g": -0.029036400944939162,
+        "dln_d": -0.0039728189156103206,
+        "share_n": 1.2631807932771693
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 0.6596469547759416,
+        "dln_n": -0.38715796066380825,
+        "dln_g": 0.29805449894021213,
+        "dln_d": -0.37276557352594697,
+        "share_n": 0.8382418632039942
+      }
+    ],
+    "RegionB": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 0.8195818459969403,
+        "dln_n": -0.022037757276853982,
+        "dln_g": -0.027468226536600915,
+        "dln_d": -0.1521807456898847,
+        "share_n": 0.10926726478793476
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 1.3799258862089443,
+        "dln_n": 0.08299964502383599,
+        "dln_g": 0.09171431999007097,
+        "dln_d": 0.16382408961877068,
+        "share_n": 0.24517079804777844
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 1.050923854104353,
+        "dln_n": 0.23880356515759507,
+        "dln_g": -0.08986615558856212,
+        "dln_d": -0.03239731397335601,
+        "share_n": 2.0491107711640963
+      }
+    ],
+    "RegionC": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 0.8728320721338201,
+        "dln_n": -0.0779877054393108,
+        "dln_g": -0.008134780179203781,
+        "dln_d": -0.034119042204721714,
+        "share_n": 0.6485921033368633
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 0.8034539922653295,
+        "dln_n": -0.13960060000630276,
+        "dln_g": 0.020094519487409868,
+        "dln_d": -0.1390940355756056,
+        "share_n": 0.5398319309156436
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 0.7135907117221683,
+        "dln_n": -0.020202707317519466,
+        "dln_g": -0.3135877088103591,
+        "dln_d": 0.1761512463173527,
+        "share_n": 0.1281579149509737
+      }
+    ],
+    "RegionD": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 1.1600931913914323,
+        "dln_n": 0.363361136837544,
+        "dln_g": 0.04773202398762244,
+        "dln_d": -0.05573334614610168,
+        "share_n": 1.0225161141692554
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 1.2775539201727963,
+        "dln_n": 0.15506685029903777,
+        "dln_g": 0.01833327120588483,
+        "dln_d": 0.04959750815302712,
+        "share_n": 0.6953744330685971
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 0.8036719605205134,
+        "dln_n": -0.11853860803838125,
+        "dln_g": -0.0014270694300665848,
+        "dln_d": -0.09688518368482098,
+        "share_n": 0.5466365566083637
+      }
+    ],
+    "RegionE": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 0.9805561746928715,
+        "dln_n": 0.2107840214577162,
+        "dln_g": -0.04582242552624215,
+        "dln_d": -0.15621525435412617,
+        "share_n": 24.099678659203708
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 1.5000158837351578,
+        "dln_n": 0.360255124887419,
+        "dln_g": 0.09176470721862157,
+        "dln_d": -0.07884432280425467,
+        "share_n": 0.9653771909133559
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 1.6207162492993774,
+        "dln_n": 0.31752031120534613,
+        "dln_g": 0.047079736190501376,
+        "dln_d": 0.10133958234860593,
+        "share_n": 0.6814623417619391
+      }
+    ],
+    "RegionF": [
+      {
+        "type": "RealTimeInference",
+        "ratio_gh": 0.9271176190665028,
+        "dln_n": 0.19464204118199535,
+        "dln_g": -0.48130318449966897,
+        "dln_d": 0.07892913987138812,
+        "share_n": -0.9369862994284609
+      },
+      {
+        "type": "BatchInference",
+        "ratio_gh": 0.8111273896690084,
+        "dln_n": -0.18122051068902725,
+        "dln_g": 0.03350448307254825,
+        "dln_d": -0.043746517643223376,
+        "share_n": 0.9465063281343999
+      },
+      {
+        "type": "AITraining",
+        "ratio_gh": 1.6549637882555341,
+        "dln_n": 0.4024249677279366,
+        "dln_g": 0.06645284831165926,
+        "dln_d": 0.01743765876896139,
+        "share_n": 0.8274977634350522
+      }
+    ]
+  },
+  "M2_ks_tests": {
+    "RegionA": [
+      {
+        "type": "RealTimeInference",
+        "ks_gpu_stat": 0.048581338954089205,
+        "ks_gpu_p": 0.9993280251385753,
+        "ks_dur_stat": 0.09487071920436291,
+        "ks_dur_p": 0.7170021696938561,
+        "gpu_mean_tr_fz": [
+          4.034962602191685,
+          4.078431372549019
+        ]
+      },
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.0759640931314751,
+        "ks_gpu_p": 0.9667969278576644,
+        "ks_dur_stat": 0.06468424279583078,
+        "ks_dur_p": 0.9936628575732728,
+        "gpu_mean_tr_fz": [
+          13.541385652973636,
+          13.153846153846153
+        ]
+      }
+    ],
+    "RegionB": [
+      {
+        "type": "RealTimeInference",
+        "ks_gpu_stat": 0.07965378043659917,
+        "ks_gpu_p": 0.8935027459805911,
+        "ks_dur_stat": 0.2034414091568589,
+        "ks_dur_p": 0.030820339479048345,
+        "gpu_mean_tr_fz": [
+          3.9855367691994297,
+          3.877551020408163
+        ]
+      },
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.16812100058173357,
+        "ks_gpu_p": 0.23814934031446625,
+        "ks_dur_stat": 0.1885586695411149,
+        "ks_dur_p": 0.13935610057760825,
+        "gpu_mean_tr_fz": [
+          13.356020942408376,
+          14.63888888888889
+        ]
+      },
+      {
+        "type": "AITraining",
+        "ks_gpu_stat": 0.16779098404540102,
+        "ks_gpu_p": 0.8709294717941569,
+        "ks_dur_stat": 0.12892172609487096,
+        "ks_dur_p": 0.9828808342507168,
+        "gpu_mean_tr_fz": [
+          71.80800942285042,
+          65.63636363636364
+        ]
+      }
+    ],
+    "RegionC": [
+      {
+        "type": "RealTimeInference",
+        "ks_gpu_stat": 0.04078238637773972,
+        "ks_gpu_p": 0.99999928193245,
+        "ks_dur_stat": 0.12353861046987862,
+        "ks_dur_p": 0.5550291574288779,
+        "gpu_mean_tr_fz": [
+          4.032671829622459,
+          4.0
+        ]
+      },
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.1159925189775936,
+        "ks_gpu_p": 0.8982444058377537,
+        "ks_dur_stat": 0.2641827716454582,
+        "ks_dur_p": 0.07828878969631765,
+        "gpu_mean_tr_fz": [
+          13.766034691407826,
+          14.045454545454545
+        ]
+      }
+    ],
+    "RegionD": [
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.09245810712355167,
+        "ks_gpu_p": 0.8662700843253504,
+        "ks_dur_stat": 0.14764154269195515,
+        "ks_dur_p": 0.3363834903870441,
+        "gpu_mean_tr_fz": [
+          13.519095630919646,
+          13.76923076923077
+        ]
+      },
+      {
+        "type": "AITraining",
+        "ks_gpu_stat": 0.09312244535276346,
+        "ks_gpu_p": 0.7380177418288175,
+        "ks_dur_stat": 0.13879509507730584,
+        "ks_dur_p": 0.2595777858602878,
+        "gpu_mean_tr_fz": [
+          71.19957348498312,
+          71.09803921568627
+        ]
+      }
+    ],
+    "RegionE": [
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.14819832848726575,
+        "ks_gpu_p": 0.4683702838266845,
+        "ks_dur_stat": 0.11898491376029473,
+        "ks_dur_p": 0.7352795434102796,
+        "gpu_mean_tr_fz": [
+          13.596507786691836,
+          14.903225806451612
+        ]
+      },
+      {
+        "type": "AITraining",
+        "ks_gpu_stat": 0.09560164491328446,
+        "ks_gpu_p": 0.6577915805722954,
+        "ks_dur_stat": 0.11795548006436617,
+        "ks_dur_p": 0.39473631413358856,
+        "gpu_mean_tr_fz": [
+          71.36345431789738,
+          74.80357142857143
+        ]
+      }
+    ],
+    "RegionF": [
+      {
+        "type": "BatchInference",
+        "ks_gpu_stat": 0.16383398627352794,
+        "ks_gpu_p": 0.6963325613091581,
+        "ks_dur_stat": 0.19561695484403074,
+        "ks_dur_p": 0.4794914749691233,
+        "gpu_mean_tr_fz": [
+          13.368052078117175,
+          13.823529411764707
+        ]
+      },
+      {
+        "type": "AITraining",
+        "ks_gpu_stat": 0.12029884163140218,
+        "ks_gpu_p": 0.3138538526033177,
+        "ks_dur_stat": 0.07046676141100251,
+        "ks_dur_p": 0.9007660316475852,
+        "gpu_mean_tr_fz": [
+          70.87226187546148,
+          75.74193548387096
+        ]
+      }
+    ]
+  },
+  "M3_arrival_process": {
+    "RegionA": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.11498,
+        "lambda_fz": 0.00102,
+        "lambda_ratio": 0.008871108018785876,
+        "n_tr": 5749,
+        "n_fz": 51
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.06524,
+        "lambda_fz": 0.00078,
+        "lambda_ratio": 0.011955855303494788,
+        "n_tr": 3262,
+        "n_fz": 39
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.01732,
+        "lambda_fz": 0.00012,
+        "lambda_ratio": 0.006928406466512702,
+        "n_tr": 866,
+        "n_fz": 6
+      }
+    ],
+    "RegionB": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.09818,
+        "lambda_fz": 0.00098,
+        "lambda_ratio": 0.009981666327154207,
+        "n_tr": 4909,
+        "n_fz": 49
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.06494,
+        "lambda_fz": 0.00072,
+        "lambda_ratio": 0.011087157376039422,
+        "n_tr": 3247,
+        "n_fz": 36
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.01698,
+        "lambda_fz": 0.00022,
+        "lambda_ratio": 0.012956419316843347,
+        "n_tr": 849,
+        "n_fz": 11
+      }
+    ],
+    "RegionC": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.08264,
+        "lambda_fz": 0.00078,
+        "lambda_ratio": 0.009438528557599225,
+        "n_tr": 4132,
+        "n_fz": 39
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.04958,
+        "lambda_fz": 0.00044,
+        "lambda_ratio": 0.008874546187979023,
+        "n_tr": 2479,
+        "n_fz": 22
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.016,
+        "lambda_fz": 0.00016,
+        "lambda_ratio": 0.01,
+        "n_tr": 800,
+        "n_fz": 8
+      }
+    ],
+    "RegionD": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.00954,
+        "lambda_fz": 0.00014,
+        "lambda_ratio": 0.014675052410901467,
+        "n_tr": 477,
+        "n_fz": 7
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.06546,
+        "lambda_fz": 0.00078,
+        "lambda_ratio": 0.011915673693858844,
+        "n_tr": 3273,
+        "n_fz": 39
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.11254,
+        "lambda_fz": 0.00102,
+        "lambda_ratio": 0.00906344410876133,
+        "n_tr": 5627,
+        "n_fz": 51
+      }
+    ],
+    "RegionE": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.0127,
+        "lambda_fz": 0.00016,
+        "lambda_ratio": 0.012598425196850395,
+        "n_tr": 635,
+        "n_fz": 8
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.04238,
+        "lambda_fz": 0.00062,
+        "lambda_ratio": 0.0146295422369042,
+        "n_tr": 2119,
+        "n_fz": 31
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.0799,
+        "lambda_fz": 0.00112,
+        "lambda_ratio": 0.01401752190237797,
+        "n_tr": 3995,
+        "n_fz": 56
+      }
+    ],
+    "RegionF": [
+      {
+        "type": "RealTimeInference",
+        "lambda_tr": 0.00968,
+        "lambda_fz": 0.00012,
+        "lambda_ratio": 0.012396694214876033,
+        "n_tr": 484,
+        "n_fz": 6
+      },
+      {
+        "type": "BatchInference",
+        "lambda_tr": 0.03994,
+        "lambda_fz": 0.00034,
+        "lambda_ratio": 0.008512769153730596,
+        "n_tr": 1997,
+        "n_fz": 17
+      },
+      {
+        "type": "AITraining",
+        "lambda_tr": 0.08126,
+        "lambda_fz": 0.00124,
+        "lambda_ratio": 0.015259660349495448,
+        "n_tr": 4063,
+        "n_fz": 62
+      }
+    ]
+  },
+  "M4_baseline_ai_caliber": {
+    "RegionA": {
+      "rel_ceil": 0.14970427303073236,
+      "rel_fractional": 1.2798508540614139e-11,
+      "best": "fractional",
+      "diff_mean_b": 2.4528603078869635e-13,
+      "diff_std_b": 9.608538564581682e-09,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    },
+    "RegionB": {
+      "rel_ceil": 0.14460383507477675,
+      "rel_fractional": 2.5377449305379374e-11,
+      "best": "fractional",
+      "diff_mean_b": -5.53323266308365e-10,
+      "diff_std_b": 1.3577218522478112e-08,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    },
+    "RegionC": {
+      "rel_ceil": 0.14760231774427476,
+      "rel_fractional": 7.874991699438857e-12,
+      "best": "fractional",
+      "diff_mean_b": -1.3836313113572763e-10,
+      "diff_std_b": 6.792894117951476e-09,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    },
+    "RegionD": {
+      "rel_ceil": 0.14701020146878105,
+      "rel_fractional": 1.6095500713901751e-12,
+      "best": "fractional",
+      "diff_mean_b": -1.388189278249527e-10,
+      "diff_std_b": 6.792892350357265e-09,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    },
+    "RegionE": {
+      "rel_ceil": 0.14962148161799182,
+      "rel_fractional": 4.261548509133463e-12,
+      "best": "fractional",
+      "diff_mean_b": -1.5987709702033328e-13,
+      "diff_std_b": 9.608486082211395e-09,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    },
+    "RegionF": {
+      "rel_ceil": 0.14236261012019055,
+      "rel_fractional": 2.1753658380649796e-12,
+      "best": "fractional",
+      "diff_mean_b": -1.3898027132041087e-10,
+      "diff_std_b": 6.792822690327737e-09,
+      "note": "分数 Overlap 与 ceil 整点两种重建口径对照基线列"
+    }
+  }
+}

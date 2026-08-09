@@ -1,0 +1,2216 @@
+{
+  "caliber": "Phase 3 临界点扫描（训练段 0-2351 为主，冻结段描述性）",
+  "T1_w_template": {
+    "RegionA": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    },
+    "RegionB": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    },
+    "RegionC": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    },
+    "RegionD": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    },
+    "RegionE": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    },
+    "RegionF": {
+      "max_abs_resid": 0.004286469243766078,
+      "rel_mean": 2.281625657453527e-06,
+      "unique_values": 13,
+      "formula": "W = 800 + 300*sin(2*pi*(h-4)/24)"
+    }
+  },
+  "T2_sell_saturation": {
+    "RegionA": {
+      "sell_limit": 0.0,
+      "saturation_share": 0.0,
+      "note": "SellLimit=0（无外送能力）"
+    },
+    "RegionB": {
+      "sell_limit": 0.0,
+      "saturation_share": 0.0,
+      "note": "SellLimit=0（无外送能力）"
+    },
+    "RegionC": {
+      "sell_limit": 0.0,
+      "saturation_share": 0.0,
+      "note": "SellLimit=0（无外送能力）"
+    },
+    "RegionD": {
+      "sell_limit": 180.0,
+      "saturation_share": 0.8635204081632653,
+      "sat_peak_share": 0.24126046282619398,
+      "sat_valley_share": 0.276218611521418,
+      "sat_W_mean": 843.8145396356475,
+      "sat_curtail_mean": 470.39379064500247,
+      "unsat_W_mean": 522.7809034267913,
+      "unsat_curtail_mean": 132.91873894081,
+      "sat_hour_of_day": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    "RegionE": {
+      "sell_limit": 220.0,
+      "saturation_share": 0.655187074829932,
+      "sat_peak_share": 0.190785204412719,
+      "sat_valley_share": 0.17326411421155094,
+      "sat_W_mean": 916.9487865022711,
+      "sat_curtail_mean": 408.09614905905255,
+      "unsat_W_mean": 577.7828853267572,
+      "unsat_curtail_mean": 131.38122009864367,
+      "sat_hour_of_day": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "RegionF": {
+      "sell_limit": 220.0,
+      "saturation_share": 0.625,
+      "sat_peak_share": 0.19931972789115646,
+      "sat_valley_share": 0.13401360544217686,
+      "sat_W_mean": 922.7416394557823,
+      "sat_curtail_mean": 458.77719666666667,
+      "unsat_W_mean": 595.4306009070295,
+      "unsat_curtail_mean": 124.33911360544217,
+      "sat_hour_of_day": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  },
+  "T3_soc_bounds": {
+    "RegionA": {
+      "min_touch_h": 0,
+      "cap_touch_h": 1500,
+      "soc_min": 105.4348,
+      "soc_max": 350.0,
+      "at_min_pct": 0.0,
+      "at_cap_pct": 62.31823847112589
+    },
+    "RegionB": {
+      "min_touch_h": 0,
+      "cap_touch_h": 1500,
+      "soc_min": 99.8913,
+      "soc_max": 320.0,
+      "at_min_pct": 0.0,
+      "at_cap_pct": 62.31823847112589
+    },
+    "RegionC": {
+      "min_touch_h": 0,
+      "cap_touch_h": 1500,
+      "soc_min": 92.1196,
+      "soc_max": 300.0,
+      "at_min_pct": 0.0,
+      "at_cap_pct": 62.31823847112589
+    },
+    "RegionD": {
+      "min_touch_h": 100,
+      "cap_touch_h": 1301,
+      "soc_min": 90.0,
+      "soc_max": 900.0,
+      "at_min_pct": 4.154549231408392,
+      "at_cap_pct": 54.05068550062319
+    },
+    "RegionE": {
+      "min_touch_h": 12,
+      "cap_touch_h": 1295,
+      "soc_min": 82.0,
+      "soc_max": 820.0,
+      "at_min_pct": 0.4985459077690071,
+      "at_cap_pct": 53.80141254673868
+    },
+    "RegionF": {
+      "min_touch_h": 19,
+      "cap_touch_h": 1201,
+      "soc_min": 85.0,
+      "soc_max": 850.0,
+      "at_min_pct": 0.7893643539675945,
+      "at_cap_pct": 49.89613626921479
+    }
+  },
+  "T4_max_import": {
+    "RegionA": {
+      "limit": 550.0,
+      "at_limit_pct": 0.0,
+      "max": 497.0016
+    },
+    "RegionB": {
+      "limit": 520.0,
+      "at_limit_pct": 0.0,
+      "max": 467.856
+    },
+    "RegionC": {
+      "limit": 510.0,
+      "at_limit_pct": 0.0,
+      "max": 455.2661
+    },
+    "RegionD": {
+      "limit": 510.0,
+      "at_limit_pct": 0.0,
+      "max": 462.5815
+    },
+    "RegionE": {
+      "limit": 370.0,
+      "at_limit_pct": 0.0,
+      "max": 330.795
+    },
+    "RegionF": {
+      "limit": 340.0,
+      "at_limit_pct": 0.0,
+      "max": 306.9742
+    }
+  },
+  "T5_power_limits": {
+    "RegionA": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 73.0,
+      "discharge_max": 45.0
+    },
+    "RegionB": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 65.7,
+      "discharge_max": 40.5
+    },
+    "RegionC": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 62.05,
+      "discharge_max": 38.25
+    },
+    "RegionD": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 169.3274,
+      "discharge_max": 182.0
+    },
+    "RegionE": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 156.0949,
+      "discharge_max": 166.6069
+    },
+    "RegionF": {
+      "charge_at_limit_pct": 0.0,
+      "discharge_at_limit_pct": 0.0,
+      "charge_max": 155.1683,
+      "discharge_max": 163.1081
+    }
+  },
+  "T6_consume_bottleneck": {
+    "RegionA": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    },
+    "RegionB": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    },
+    "RegionC": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    },
+    "RegionD": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    },
+    "RegionE": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    },
+    "RegionF": {
+      "w_bottleneck_share": 0.0,
+      "note": "W < c(h)*D 时消纳受 W 限制（R1 预测≈0）"
+    }
+  },
+  "T7_label_switch_jump": {
+    "RegionA": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 100.0,
+              "GPU_Utilization_Percent": -2.0,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.6,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -16.7,
+              "GPU_Utilization_Percent": -2.6,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -8.2,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -9.8,
+              "IT_Load_MW": -5.1,
+              "Total_Load_MW": -5.1,
+              "GridPurchase_MW": -20.4
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 1.3,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 3.1,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.2,
+              "IT_Load_MW": 3.1,
+              "Total_Load_MW": 3.1,
+              "GridPurchase_MW": 16.2
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": -33.7,
+              "GPU_Utilization_Percent": -28.1,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 14.5,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 5.1,
+              "IT_Load_MW": 14.5,
+              "Total_Load_MW": 14.5,
+              "GridPurchase_MW": 18.0
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 19.7,
+              "GPU_Utilization_Percent": 16.8,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.6,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 406,
+        "samples": [
+          {
+            "t": 13,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -0.2,
+              "AITrainingPower_MW": -40.6,
+              "GPU_Utilization_Percent": -1.5,
+              "AvailableRenewable_MW": -4.5,
+              "UsedRenewable_MW": -2.9,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -4.6,
+              "IT_Load_MW": -4.9,
+              "Total_Load_MW": -4.9,
+              "GridPurchase_MW": -5.2
+            }
+          },
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -16.7,
+              "GPU_Utilization_Percent": -2.6,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -8.2,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -9.8,
+              "IT_Load_MW": -5.1,
+              "Total_Load_MW": -5.1,
+              "GridPurchase_MW": -20.4
+            }
+          },
+          {
+            "t": 22,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 1.3,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 3.1,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.2,
+              "IT_Load_MW": 3.1,
+              "Total_Load_MW": 3.1,
+              "GridPurchase_MW": 16.2
+            }
+          },
+          {
+            "t": 24,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": -33.7,
+              "GPU_Utilization_Percent": -28.1,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 14.5,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 5.1,
+              "IT_Load_MW": 14.5,
+              "Total_Load_MW": 14.5,
+              "GridPurchase_MW": 18.0
+            }
+          },
+          {
+            "t": 37,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -0.3,
+              "AITrainingPower_MW": 32.0,
+              "GPU_Utilization_Percent": 20.6,
+              "AvailableRenewable_MW": -4.5,
+              "UsedRenewable_MW": -3.5,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -4.6,
+              "IT_Load_MW": -5.4,
+              "Total_Load_MW": -5.4,
+              "GridPurchase_MW": -5.7
+            }
+          }
+        ]
+      }
+    ],
+    "RegionB": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 100.0,
+              "GPU_Utilization_Percent": 4.5,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.7,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -33.1,
+              "GPU_Utilization_Percent": -17.2,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -1.8,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -10.3,
+              "IT_Load_MW": 0.9,
+              "Total_Load_MW": 0.9,
+              "GridPurchase_MW": -12.9
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -32.0,
+              "GPU_Utilization_Percent": -33.2,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 11.4,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.8,
+              "IT_Load_MW": 11.4,
+              "Total_Load_MW": 11.4,
+              "GridPurchase_MW": 22.6
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": -74.7,
+              "GPU_Utilization_Percent": -58.0,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 3.4,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.6,
+              "IT_Load_MW": 3.4,
+              "Total_Load_MW": 3.4,
+              "GridPurchase_MW": 7.2
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 2.1,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.7,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 399,
+        "samples": [
+          {
+            "t": 14,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.4,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 2.6,
+              "AvailableRenewable_MW": -6.1,
+              "UsedRenewable_MW": -4.1,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -6.3,
+              "IT_Load_MW": -4.7,
+              "Total_Load_MW": -4.7,
+              "GridPurchase_MW": -4.8
+            }
+          },
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -33.1,
+              "GPU_Utilization_Percent": -17.2,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -1.8,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -10.3,
+              "IT_Load_MW": 0.9,
+              "Total_Load_MW": 0.9,
+              "GridPurchase_MW": -12.9
+            }
+          },
+          {
+            "t": 22,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -32.0,
+              "GPU_Utilization_Percent": -33.2,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 11.4,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.8,
+              "IT_Load_MW": 11.4,
+              "Total_Load_MW": 11.4,
+              "GridPurchase_MW": 22.6
+            }
+          },
+          {
+            "t": 23,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.2,
+              "AITrainingPower_MW": -3.8,
+              "GPU_Utilization_Percent": -4.7,
+              "AvailableRenewable_MW": 2.0,
+              "UsedRenewable_MW": 4.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 1.8,
+              "IT_Load_MW": 4.7,
+              "Total_Load_MW": 4.7,
+              "GridPurchase_MW": 4.7
+            }
+          },
+          {
+            "t": 38,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.3,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 12.1,
+              "AvailableRenewable_MW": -6.1,
+              "UsedRenewable_MW": -4.9,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -6.2,
+              "IT_Load_MW": -5.5,
+              "Total_Load_MW": -5.5,
+              "GridPurchase_MW": -5.6
+            }
+          }
+        ]
+      }
+    ],
+    "RegionC": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 20.2,
+              "GPU_Utilization_Percent": 5.0,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.8,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 9.9,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": 5.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -11.2,
+              "IT_Load_MW": 7.2,
+              "Total_Load_MW": 7.2,
+              "GridPurchase_MW": -5.6
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -33.1,
+              "GPU_Utilization_Percent": -40.2,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 9.0,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.3,
+              "IT_Load_MW": 9.0,
+              "Total_Load_MW": 9.0,
+              "GridPurchase_MW": 20.6
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": -10.0,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 3.3,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.6,
+              "IT_Load_MW": 3.3,
+              "Total_Load_MW": 3.3,
+              "GridPurchase_MW": 7.0
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": -100.0,
+              "GPU_Utilization_Percent": -50.4,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 0.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.8,
+              "IT_Load_MW": 0.0,
+              "Total_Load_MW": 0.0,
+              "GridPurchase_MW": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 394,
+        "samples": [
+          {
+            "t": 14,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.4,
+              "AITrainingPower_MW": -21.6,
+              "GPU_Utilization_Percent": -8.9,
+              "AvailableRenewable_MW": -6.1,
+              "UsedRenewable_MW": -7.1,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -6.0,
+              "IT_Load_MW": -7.5,
+              "Total_Load_MW": -7.5,
+              "GridPurchase_MW": -7.6
+            }
+          },
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 9.9,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": 5.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -11.2,
+              "IT_Load_MW": 7.2,
+              "Total_Load_MW": 7.2,
+              "GridPurchase_MW": -5.6
+            }
+          },
+          {
+            "t": 22,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -33.1,
+              "GPU_Utilization_Percent": -40.2,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 9.0,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -14.3,
+              "IT_Load_MW": 9.0,
+              "Total_Load_MW": 9.0,
+              "GridPurchase_MW": 20.6
+            }
+          },
+          {
+            "t": 23,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.2,
+              "AITrainingPower_MW": -100.0,
+              "GPU_Utilization_Percent": -20.6,
+              "AvailableRenewable_MW": 2.0,
+              "UsedRenewable_MW": 12.1,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 0.1,
+              "IT_Load_MW": 12.1,
+              "Total_Load_MW": 12.1,
+              "GridPurchase_MW": 12.1
+            }
+          },
+          {
+            "t": 39,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": 0.9,
+              "AITrainingPower_MW": -1.9,
+              "GPU_Utilization_Percent": -5.6,
+              "AvailableRenewable_MW": -7.6,
+              "UsedRenewable_MW": -11.2,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -7.2,
+              "IT_Load_MW": -10.8,
+              "Total_Load_MW": -10.8,
+              "GridPurchase_MW": -10.7
+            }
+          }
+        ]
+      }
+    ],
+    "RegionD": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 23.1,
+              "GPU_Utilization_Percent": 22.9,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 5.1,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 8.4,
+              "IT_Load_MW": 3.3,
+              "Total_Load_MW": 3.3,
+              "GridPurchase_MW": 2.2
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -3.0,
+              "GPU_Utilization_Percent": -2.1,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -8.9,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -13.6,
+              "IT_Load_MW": -7.8,
+              "Total_Load_MW": -7.8,
+              "GridPurchase_MW": -100.0
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": 10.3,
+              "GPU_Utilization_Percent": 5.7,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 10.4,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -37.6,
+              "IT_Load_MW": 12.1,
+              "Total_Load_MW": 12.1,
+              "GridPurchase_MW": 44.4
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": -27.7,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": 5.9,
+              "GPU_Utilization_Percent": 8.4,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 9.0,
+              "RenewableCharge_MW": 4.0,
+              "Curtailment_MW": 4.0,
+              "IT_Load_MW": 10.1,
+              "Total_Load_MW": 10.1,
+              "GridPurchase_MW": 26.5
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": -12.1,
+              "GPU_Utilization_Percent": -10.9,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": -0.4,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 10.3,
+              "IT_Load_MW": -2.2,
+              "Total_Load_MW": -2.2,
+              "GridPurchase_MW": -3.4
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 196,
+        "samples": [
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": -3.0,
+              "GPU_Utilization_Percent": -2.1,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -8.9,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -13.6,
+              "IT_Load_MW": -7.8,
+              "Total_Load_MW": -7.8,
+              "GridPurchase_MW": -100.0
+            }
+          },
+          {
+            "t": 22,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": 10.3,
+              "GPU_Utilization_Percent": 5.7,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 10.4,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -37.6,
+              "IT_Load_MW": 12.1,
+              "Total_Load_MW": 12.1,
+              "GridPurchase_MW": 44.4
+            }
+          },
+          {
+            "t": 41,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.0,
+              "SellPrice_CNY_per_MWh": 31.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.7,
+              "AITrainingPower_MW": 0.4,
+              "GPU_Utilization_Percent": -3.3,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -0.2,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -15.9,
+              "IT_Load_MW": 0.9,
+              "Total_Load_MW": 0.9,
+              "GridPurchase_MW": -95.6
+            }
+          },
+          {
+            "t": 46,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.5,
+              "AITrainingPower_MW": -7.7,
+              "GPU_Utilization_Percent": -14.0,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 6.3,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -35.1,
+              "IT_Load_MW": 8.0,
+              "Total_Load_MW": 8.0,
+              "GridPurchase_MW": 30.2
+            }
+          },
+          {
+            "t": 65,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.0,
+              "SellPrice_CNY_per_MWh": 31.0,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -5.7,
+              "GPU_Utilization_Percent": -6.1,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": 2.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -16.5,
+              "IT_Load_MW": 3.2,
+              "Total_Load_MW": 3.2,
+              "GridPurchase_MW": -94.3
+            }
+          }
+        ]
+      }
+    ],
+    "RegionE": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 6.3,
+              "GPU_Utilization_Percent": 13.0,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 6.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 8.7,
+              "IT_Load_MW": -1.2,
+              "Total_Load_MW": -1.2,
+              "GridPurchase_MW": -11.4
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 30.9,
+              "GPU_Utilization_Percent": 20.2,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -4.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -18.5,
+              "IT_Load_MW": 2.1,
+              "Total_Load_MW": 2.1,
+              "GridPurchase_MW": -100.0
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -25.9,
+              "GPU_Utilization_Percent": -24.0,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 14.4,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -29.2,
+              "IT_Load_MW": 14.4,
+              "Total_Load_MW": 14.4,
+              "GridPurchase_MW": 100.0
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": -27.7,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": 22.9,
+              "GPU_Utilization_Percent": 22.9,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": -0.1,
+              "RenewableCharge_MW": 9.5,
+              "Curtailment_MW": 9.5,
+              "IT_Load_MW": -0.1,
+              "Total_Load_MW": -0.1,
+              "GridPurchase_MW": 23.9
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -2.0,
+              "AITrainingPower_MW": -13.3,
+              "GPU_Utilization_Percent": -10.3,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": 6.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 9.3,
+              "IT_Load_MW": -2.0,
+              "Total_Load_MW": -2.0,
+              "GridPurchase_MW": -12.1
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 472,
+        "samples": [
+          {
+            "t": 5,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.5,
+              "AITrainingPower_MW": -25.2,
+              "GPU_Utilization_Percent": -21.1,
+              "AvailableRenewable_MW": 8.8,
+              "UsedRenewable_MW": 2.4,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 20.4,
+              "IT_Load_MW": 2.4,
+              "Total_Load_MW": 2.4,
+              "GridPurchase_MW": 2.4
+            }
+          },
+          {
+            "t": 8,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 10.7,
+              "GPU_Utilization_Percent": 10.6,
+              "AvailableRenewable_MW": 4.5,
+              "UsedRenewable_MW": 0.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 9.3,
+              "IT_Load_MW": -6.1,
+              "Total_Load_MW": -6.1,
+              "GridPurchase_MW": -16.2
+            }
+          },
+          {
+            "t": 9,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.8,
+              "AITrainingPower_MW": -13.9,
+              "GPU_Utilization_Percent": -8.9,
+              "AvailableRenewable_MW": 2.8,
+              "UsedRenewable_MW": 8.3,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -0.4,
+              "IT_Load_MW": 3.0,
+              "Total_Load_MW": 3.0,
+              "GridPurchase_MW": -7.6
+            }
+          },
+          {
+            "t": 10,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.6,
+              "AITrainingPower_MW": 56.0,
+              "GPU_Utilization_Percent": 52.7,
+              "AvailableRenewable_MW": 0.9,
+              "UsedRenewable_MW": -1.8,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 3.4,
+              "IT_Load_MW": -5.8,
+              "Total_Load_MW": -5.8,
+              "GridPurchase_MW": -14.2
+            }
+          },
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 30.9,
+              "GPU_Utilization_Percent": 20.2,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": -4.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -18.5,
+              "IT_Load_MW": 2.1,
+              "Total_Load_MW": 2.1,
+              "GridPurchase_MW": -100.0
+            }
+          }
+        ]
+      }
+    ],
+    "RegionF": [
+      {
+        "label": "PricePeriod",
+        "n_transitions": 391,
+        "samples": [
+          {
+            "t": 7,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": 0.5,
+              "GPU_Utilization_Percent": 6.2,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": -9.3,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 20.7,
+              "IT_Load_MW": -7.1,
+              "Total_Load_MW": -7.1,
+              "GridPurchase_MW": -3.8
+            }
+          },
+          {
+            "t": 17,
+            "from": "Flat",
+            "to": "Peak",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 23.6,
+              "GPU_Utilization_Percent": 19.4,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": 9.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -22.0,
+              "IT_Load_MW": 7.3,
+              "Total_Load_MW": 7.3,
+              "GridPurchase_MW": -100.0
+            }
+          },
+          {
+            "t": 22,
+            "from": "Peak",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -35.4,
+              "GPU_Utilization_Percent": -33.4,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 13.9,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -30.0,
+              "IT_Load_MW": 11.7,
+              "Total_Load_MW": 11.7,
+              "GridPurchase_MW": 100.0
+            }
+          },
+          {
+            "t": 24,
+            "from": "Flat",
+            "to": "Valley",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -27.7,
+              "SellPrice_CNY_per_MWh": -27.7,
+              "CarbonIntensity_tCO2_per_MWh": 0.8,
+              "AITrainingPower_MW": 22.9,
+              "GPU_Utilization_Percent": 22.7,
+              "AvailableRenewable_MW": 5.5,
+              "UsedRenewable_MW": 14.7,
+              "RenewableCharge_MW": -3.9,
+              "Curtailment_MW": -3.9,
+              "IT_Load_MW": 13.4,
+              "Total_Load_MW": 13.4,
+              "GridPurchase_MW": 33.9
+            }
+          },
+          {
+            "t": 31,
+            "from": "Valley",
+            "to": "Flat",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 35.0,
+              "SellPrice_CNY_per_MWh": 35.0,
+              "CarbonIntensity_tCO2_per_MWh": -1.9,
+              "AITrainingPower_MW": -43.9,
+              "GPU_Utilization_Percent": -43.6,
+              "AvailableRenewable_MW": 6.1,
+              "UsedRenewable_MW": -7.7,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 20.2,
+              "IT_Load_MW": -5.4,
+              "Total_Load_MW": -5.4,
+              "GridPurchase_MW": -2.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "DemandResponse",
+        "n_transitions": 420,
+        "samples": [
+          {
+            "t": 4,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.1,
+              "AITrainingPower_MW": 0.0,
+              "GPU_Utilization_Percent": 1.6,
+              "AvailableRenewable_MW": 9.7,
+              "UsedRenewable_MW": 1.1,
+              "RenewableCharge_MW": -100.0,
+              "Curtailment_MW": 41.9,
+              "IT_Load_MW": 2.1,
+              "Total_Load_MW": 2.1,
+              "GridPurchase_MW": -18.0
+            }
+          },
+          {
+            "t": 10,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.1,
+              "SellPrice_CNY_per_MWh": 0.1,
+              "CarbonIntensity_tCO2_per_MWh": -1.6,
+              "AITrainingPower_MW": 39.7,
+              "GPU_Utilization_Percent": 32.0,
+              "AvailableRenewable_MW": 0.9,
+              "UsedRenewable_MW": -9.8,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": 6.6,
+              "IT_Load_MW": -7.4,
+              "Total_Load_MW": -7.4,
+              "GridPurchase_MW": -4.4
+            }
+          },
+          {
+            "t": 17,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 31.1,
+              "SellPrice_CNY_per_MWh": 31.1,
+              "CarbonIntensity_tCO2_per_MWh": 1.8,
+              "AITrainingPower_MW": 23.6,
+              "GPU_Utilization_Percent": 19.4,
+              "AvailableRenewable_MW": -9.7,
+              "UsedRenewable_MW": 9.0,
+              "RenewableCharge_MW": 0.0,
+              "Curtailment_MW": -22.0,
+              "IT_Load_MW": 7.3,
+              "Total_Load_MW": 7.3,
+              "GridPurchase_MW": -100.0
+            }
+          },
+          {
+            "t": 22,
+            "from": "Medium",
+            "to": "Low",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": -37.9,
+              "SellPrice_CNY_per_MWh": -37.9,
+              "CarbonIntensity_tCO2_per_MWh": 1.6,
+              "AITrainingPower_MW": -35.4,
+              "GPU_Utilization_Percent": -33.4,
+              "AvailableRenewable_MW": -2.0,
+              "UsedRenewable_MW": 13.9,
+              "RenewableCharge_MW": 100.0,
+              "Curtailment_MW": -30.0,
+              "IT_Load_MW": 11.7,
+              "Total_Load_MW": 11.7,
+              "GridPurchase_MW": 100.0
+            }
+          },
+          {
+            "t": 27,
+            "from": "Low",
+            "to": "Medium",
+            "jump_pct": {
+              "ElectricityPrice_CNY_per_MWh": 0.0,
+              "SellPrice_CNY_per_MWh": 0.0,
+              "CarbonIntensity_tCO2_per_MWh": -0.7,
+              "AITrainingPower_MW": 31.2,
+              "GPU_Utilization_Percent": 27.0,
+              "AvailableRenewable_MW": 10.0,
+              "UsedRenewable_MW": 6.2,
+              "RenewableCharge_MW": 13.9,
+              "Curtailment_MW": 13.9,
+              "IT_Load_MW": 6.5,
+              "Total_Load_MW": 6.5,
+              "GridPurchase_MW": 5.5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "T8_binned_jump": {
+    "RegionA": [
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          1032.365753715499,
+          722.926170212766,
+          645.0406808510638,
+          662.4568487394959,
+          538.3128449502134
+        ],
+        "max_delta_rel": 1.5267022616476211,
+        "at_bin": 0
+      },
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          22.294864543524415,
+          32.603038936170215,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.35827035709159,
+        "at_bin": 1
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          146.91600870488324,
+          202.32015808510639,
+          255.06829319148935,
+          286.9392268907563,
+          308.5755833570413
+        ],
+        "max_delta_rel": 0.8666151611599409,
+        "at_bin": 0
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          423.1207506802721,
+          523.276418537415,
+          704.959124744898,
+          882.5544892857143,
+          1009.919203877551
+        ],
+        "max_delta_rel": 0.8397333318179793,
+        "at_bin": 1
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          28.089171974522294,
+          21.45985401459854,
+          NaN,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.3627486248517914,
+        "at_bin": 1
+      }
+    ],
+    "RegionB": [
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          985.4433757961782,
+          697.3346170212766,
+          617.2518454935622,
+          657.144537037037,
+          513.6170781893004
+        ],
+        "max_delta_rel": 1.4832629855788126,
+        "at_bin": 0
+      },
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          20.05813070362473,
+          29.318974576271188,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.353449270050743,
+        "at_bin": 1
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          133.58373694267516,
+          183.47419595744682,
+          229.5844006437768,
+          250.96784398148145,
+          272.7255406035665
+        ],
+        "max_delta_rel": 0.9086699711230486,
+        "at_bin": 0
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          30.375,
+          16.2,
+          NaN,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.8618218157515295,
+        "at_bin": 1
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          414.51713401360547,
+          513.2397634353741,
+          692.7513775510204,
+          869.0334921768708,
+          995.4033599999999
+        ],
+        "max_delta_rel": 0.8379224385929765,
+        "at_bin": 1
+      }
+    ],
+    "RegionC": [
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          959.5568152866241,
+          673.8893617021276,
+          604.2459688195992,
+          650.530625,
+          496.48083554376655
+        ],
+        "max_delta_rel": 1.5145966424330664,
+        "at_bin": 0
+      },
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          18.940983368869933,
+          27.690140466101692,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.3535298106992055,
+        "at_bin": 1
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          126.43719256900212,
+          171.49352425531913,
+          213.44606792873054,
+          229.57401875000002,
+          252.33628978779842
+        ],
+        "max_delta_rel": 0.9032190961766717,
+        "at_bin": 0
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          28.6875,
+          15.3,
+          NaN,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.8618218157515294,
+        "at_bin": 1
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          403.45271224489795,
+          500.03310816326524,
+          678.7275423469389,
+          853.1802328231292,
+          978.1729079591837
+        ],
+        "max_delta_rel": 0.8415212652239356,
+        "at_bin": 1
+      }
+    ],
+    "RegionD": [
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          13.167954352441614,
+          88.7310414893617,
+          113.5771095744681,
+          152.82202063829786,
+          179.41379532908704
+        ],
+        "max_delta_rel": 1.2724624894611876,
+        "at_bin": 0
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          153.1986506802721,
+          225.04379829931972,
+          374.8179681122449,
+          571.0804802721088,
+          689.6869008163266
+        ],
+        "max_delta_rel": 0.9413983768842826,
+        "at_bin": 2
+      },
+      {
+        "x": "GridSell_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          133.17928165137613,
+          NaN,
+          NaN,
+          NaN,
+          471.3516439012345
+        ],
+        "max_delta_rel": NaN,
+        "at_bin": 0
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          621.5496602972399,
+          429.0745106382979,
+          419.34076595744676,
+          355.2522978723404,
+          288.9028025477707
+        ],
+        "max_delta_rel": 1.5900736773291062,
+        "at_bin": 0
+      },
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          102.47425944798302,
+          76.57510404255319,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.2956658609181586,
+        "at_bin": 1
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          77.39423736730362,
+          66.2222119148936,
+          45.92848970588235,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.30902247754415785,
+        "at_bin": 2
+      }
+    ],
+    "RegionE": [
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          92.27177377398719,
+          66.44109766949153,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.2640362797334046,
+        "at_bin": 1
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          NaN,
+          11.31704187035069,
+          33.26447595744681,
+          52.23537744680851,
+          67.95370870488323
+        ],
+        "max_delta_rel": NaN,
+        "at_bin": 0
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          120.5037387755102,
+          166.93726411564626,
+          263.1156882653061,
+          424.6186508503401,
+          508.20817999999997
+        ],
+        "max_delta_rel": 1.0337014363076908,
+        "at_bin": 2
+      },
+      {
+        "x": "GridSell_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          113.25237494692145,
+          156.69903469387754,
+          NaN,
+          NaN,
+          408.54141592977896
+        ],
+        "max_delta_rel": 0.2780808095675256,
+        "at_bin": 1
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          59.33529766454352,
+          62.89624021276596,
+          55.59404788732394,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.13400051731518364,
+        "at_bin": 2
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          NaN,
+          468.98215727948985,
+          367.51419148936174,
+          315.98453191489364,
+          247.01707006369426
+        ],
+        "max_delta_rel": NaN,
+        "at_bin": 0
+      }
+    ],
+    "RegionF": [
+      {
+        "x": "GridPurchase_MW",
+        "y": "ElectricityPrice_CNY_per_MWh",
+        "bin_means": [
+          580.202441613588,
+          390.4181489361702,
+          364.2717021276596,
+          338.62555319148936,
+          293.0489384288747
+        ],
+        "max_delta_rel": 1.685432263508463,
+        "at_bin": 0
+      },
+      {
+        "x": "GridPurchase_MW",
+        "y": "CarbonEmission_tCO2",
+        "bin_means": [
+          0.0,
+          41.315852978723406,
+          55.859357021276594,
+          64.78018382978723,
+          73.5850397027601
+        ],
+        "max_delta_rel": 1.5637460611917717,
+        "at_bin": 0
+      },
+      {
+        "x": "ElectricityPrice_CNY_per_MWh",
+        "y": "ChargePower_MW",
+        "bin_means": [
+          98.10719829424306,
+          67.30452838983051,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_delta_rel": 1.2934954393970988,
+        "at_bin": 1
+      },
+      {
+        "x": "AvailableRenewable_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          113.49684727891155,
+          160.2917586734694,
+          265.51138137755106,
+          452.07795595238105,
+          584.7911234693877
+        ],
+        "max_delta_rel": 0.9710870744446216,
+        "at_bin": 2
+      },
+      {
+        "x": "GridSell_MW",
+        "y": "Curtailment_MW",
+        "bin_means": [
+          101.94066900212316,
+          150.00740413625306,
+          NaN,
+          NaN,
+          458.77719666666667
+        ],
+        "max_delta_rel": 0.2501894313377397,
+        "at_bin": 1
+      },
+      {
+        "x": "SOC_MWh",
+        "y": "DischargePower_MW",
+        "bin_means": [
+          57.777955201698504,
+          56.83546489361702,
+          60.6923376068376,
+          NaN,
+          0.0
+        ],
+        "max_delta_rel": 0.06812378499395115,
+        "at_bin": 2
+      }
+    ]
+  },
+  "T9_mi_matrix": {
+    "RegionA": [
+      {
+        "pair": "GridPurchase_MW~NetGridImport_MW",
+        "mi": 2.4161874493390987
+      },
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.256970885214529
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 2.1335066052968132
+      },
+      {
+        "pair": "IT_Load_MW~GridPurchase_MW",
+        "mi": 1.6264778335762164
+      },
+      {
+        "pair": "IT_Load_MW~NetGridImport_MW",
+        "mi": 1.6264778335762164
+      },
+      {
+        "pair": "Total_Load_MW~GridPurchase_MW",
+        "mi": 1.6264778335762164
+      },
+      {
+        "pair": "Total_Load_MW~NetGridImport_MW",
+        "mi": 1.6264778335762164
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.4713452535498375
+      },
+      {
+        "pair": "UsedRenewable_MW~GridPurchase_MW",
+        "mi": 1.4299722137403248
+      },
+      {
+        "pair": "UsedRenewable_MW~NetGridImport_MW",
+        "mi": 1.4299722137403248
+      }
+    ],
+    "RegionB": [
+      {
+        "pair": "GridPurchase_MW~NetGridImport_MW",
+        "mi": 2.3917626445012985
+      },
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.215018974830753
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 2.0626262040838923
+      },
+      {
+        "pair": "IT_Load_MW~GridPurchase_MW",
+        "mi": 1.6000854207657398
+      },
+      {
+        "pair": "IT_Load_MW~NetGridImport_MW",
+        "mi": 1.6000854207657398
+      },
+      {
+        "pair": "Total_Load_MW~GridPurchase_MW",
+        "mi": 1.6000854207657398
+      },
+      {
+        "pair": "Total_Load_MW~NetGridImport_MW",
+        "mi": 1.6000854207657398
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.4799583281924262
+      },
+      {
+        "pair": "UsedRenewable_MW~GridPurchase_MW",
+        "mi": 1.4690129792655497
+      },
+      {
+        "pair": "UsedRenewable_MW~NetGridImport_MW",
+        "mi": 1.4690129792655497
+      }
+    ],
+    "RegionC": [
+      {
+        "pair": "GridPurchase_MW~NetGridImport_MW",
+        "mi": 2.3618625866157528
+      },
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.169058394365724
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 2.0478203176778007
+      },
+      {
+        "pair": "IT_Load_MW~GridPurchase_MW",
+        "mi": 1.5695211086092193
+      },
+      {
+        "pair": "IT_Load_MW~NetGridImport_MW",
+        "mi": 1.5695211086092193
+      },
+      {
+        "pair": "Total_Load_MW~GridPurchase_MW",
+        "mi": 1.5695211086092193
+      },
+      {
+        "pair": "Total_Load_MW~NetGridImport_MW",
+        "mi": 1.5695211086092193
+      },
+      {
+        "pair": "UsedRenewable_MW~GridPurchase_MW",
+        "mi": 1.4812378610515773
+      },
+      {
+        "pair": "UsedRenewable_MW~NetGridImport_MW",
+        "mi": 1.4812378610515773
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.425797040884229
+      }
+    ],
+    "RegionD": [
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.6954544449576177
+      },
+      {
+        "pair": "GridPurchase_MW~NetGridImport_MW",
+        "mi": 2.1615960587114675
+      },
+      {
+        "pair": "ElectricityPrice_CNY_per_MWh~SellPrice_CNY_per_MWh",
+        "mi": 1.9358881018071894
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.9206554813245622
+      },
+      {
+        "pair": "NetGridImport_MW~CarbonEmission_tCO2",
+        "mi": 1.7898546958460966
+      },
+      {
+        "pair": "AITrainingPower_MW~Baseline_AI_IT_Load_MW",
+        "mi": 1.7527647718844428
+      },
+      {
+        "pair": "GridPurchase_MW~CarbonEmission_tCO2",
+        "mi": 1.683191347268848
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 1.6465496183624606
+      },
+      {
+        "pair": "AITrainingPower_MW~GPU_Utilization_Percent",
+        "mi": 1.5510494571360431
+      },
+      {
+        "pair": "UsedRenewable_MW~IT_Load_MW",
+        "mi": 1.5319833530384908
+      }
+    ],
+    "RegionE": [
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.676690028166607
+      },
+      {
+        "pair": "ElectricityPrice_CNY_per_MWh~SellPrice_CNY_per_MWh",
+        "mi": 1.9358881018071894
+      },
+      {
+        "pair": "GridPurchase_MW~CarbonEmission_tCO2",
+        "mi": 1.8188874722083932
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.7608807145770906
+      },
+      {
+        "pair": "GridPurchase_MW~NetGridImport_MW",
+        "mi": 1.6592611957689363
+      },
+      {
+        "pair": "AITrainingPower_MW~Baseline_AI_IT_Load_MW",
+        "mi": 1.6569985902039153
+      },
+      {
+        "pair": "NetGridImport_MW~CarbonEmission_tCO2",
+        "mi": 1.638308280618874
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 1.5236973350692058
+      },
+      {
+        "pair": "AITrainingPower_MW~GPU_Utilization_Percent",
+        "mi": 1.470062246569158
+      },
+      {
+        "pair": "UsedRenewable_MW~IT_Load_MW",
+        "mi": 1.443472419995385
+      }
+    ],
+    "RegionF": [
+      {
+        "pair": "IT_Load_MW~Total_Load_MW",
+        "mi": 2.648059750020821
+      },
+      {
+        "pair": "ElectricityPrice_CNY_per_MWh~SellPrice_CNY_per_MWh",
+        "mi": 1.9358881018071894
+      },
+      {
+        "pair": "GPU_Utilization_Percent~Baseline_AI_IT_Load_MW",
+        "mi": 1.875458814571831
+      },
+      {
+        "pair": "AITrainingPower_MW~Baseline_AI_IT_Load_MW",
+        "mi": 1.7240874073159396
+      },
+      {
+        "pair": "AvailableRenewable_MW~Curtailment_MW",
+        "mi": 1.6451530956878186
+      },
+      {
+        "pair": "UsedRenewable_MW~IT_Load_MW",
+        "mi": 1.550517468655327
+      },
+      {
+        "pair": "UsedRenewable_MW~Total_Load_MW",
+        "mi": 1.550517468655327
+      },
+      {
+        "pair": "AITrainingPower_MW~GPU_Utilization_Percent",
+        "mi": 1.5486859892569964
+      },
+      {
+        "pair": "GridPurchase_MW~CarbonEmission_tCO2",
+        "mi": 1.4271037241672153
+      },
+      {
+        "pair": "AvailableRenewable_MW~SOC_MWh",
+        "mi": 1.4126631334194308
+      }
+    ]
+  }
+}

@@ -1,0 +1,2741 @@
+{
+  "caliber": "7 关协议（逐点/四段/精度/构造性/反证/敏感性/分级）；残差容差 rel<1e-6",
+  "segments": {
+    "train": [
+      0,
+      2352
+    ],
+    "cal": [
+      2352,
+      2376
+    ],
+    "frozen": [
+      2376,
+      2400
+    ],
+    "closure": [
+      2400,
+      2407
+    ]
+  },
+  "identities": {
+    "RegionA": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.128301244511872e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.6012375578235187e-07,
+            "rel_mean": 6.306629138299064e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 6.311334217621084e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 6.995796930672094e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 6.995797000855291e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 5.684341886080802e-14,
+                "rel_mean": 2.4062810162567034e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.010340736767872647,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 6.3e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999999046,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.6618197360245078e-06,
+            "max_abs": 0.00010000000020227162,
+            "p99_abs": 9.999999997489795e-05,
+            "std": 1.2783595913496335e-05,
+            "rel_mean": 1.3880698944263525e-09
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000020227162,
+                "rel_mean": 1.4205290111288106e-09,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 2.2737367544323206e-13,
+                "rel_mean": 4.352302297353899e-17,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.2737367544323206e-13,
+                "rel_mean": 2.373983071283945e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 1.3565617550193971e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.4e-09 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999894,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.7665841296007618e-05,
+            "max_abs": 7.850000000075852e-05,
+            "p99_abs": 7.147880001838302e-05,
+            "std": 1.753590870139571e-05,
+            "rel_mean": 1.1456244812099988e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 7.850000000075852e-05,
+                "rel_mean": 1.1477361691308791e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 6.024999998999192e-05,
+                "rel_mean": 1.1918300832048008e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 7.379999999557185e-05,
+                "rel_mean": 1.2266139366551676e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.1e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998877,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0,
+            "max_abs": 0.0,
+            "p99_abs": 0.0,
+            "std": 0.0,
+            "rel_mean": 0.0
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 0.0e+00 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998923,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.454092265219288e-06,
+            "max_abs": 0.00010000000007437393,
+            "p99_abs": 9.99999999891088e-05,
+            "std": 1.19705822244119e-05,
+            "rel_mean": 2.1037123266660177e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000007437393,
+                "rel_mean": 2.091394672340137e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 8.526512829121202e-14,
+                "rel_mean": 3.7692593570915384e-16,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 6.028137501520022e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.1e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998992,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.00019591595296874765,
+            "max_abs": 0.0004905217403461393,
+            "p99_abs": 0.0004198260882617433,
+            "std": 9.147456788244547e-05,
+            "rel_mean": 6.495013343967445e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0004905217403461393,
+                "rel_mean": 6.571089530554712e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00016873912699111315,
+                "rel_mean": 4.3922246684271264e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00012034782258751875,
+                "rel_mean": 2.718887501761834e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 3.2869561721327045e-05,
+                "rel_mean": 1.0896929972029187e-07,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 6.5e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998942,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0,
+            "max_abs": 0.0,
+            "p99_abs": 0.0,
+            "std": 0.0,
+            "rel_mean": 0.0
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 0.0e+00 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998964,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "存疑",
+        "slope": 0.945537386345036,
+        "intercept": -7.794625296815943,
+        "r2": 0.943336474386581
+      },
+      "I9_gpu_util": {
+        "grade": "存疑",
+        "slope": 691.5292587176414,
+        "intercept": 15.499294438830695,
+        "r2": 0.8607739294375696
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 2.675610397393627e-07,
+        "hit_rate": 0.33458333333333334,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.35,
+        "pue_ratio_mean": 1.3500000035805093,
+        "pue_ratio_std": 4.017497373425525e-08,
+        "max_dev_from_table": 2.2944515554179645e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14970427303073236,
+        "max_abs": 33.2813333333
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = 62302.26 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": 62302.26
+      }
+    },
+    "RegionB": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.0244479184363573e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.627604171267394e-07,
+            "rel_mean": 6.066744936418449e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 6.068472184676678e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 6.658757336922915e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 7.074929479729717e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.009806311639324881,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 6.1e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998651,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 3.489821384679992e-06,
+            "max_abs": 0.00010000000020227162,
+            "p99_abs": 9.999999997489795e-05,
+            "std": 1.83522010109752e-05,
+            "rel_mean": 2.959579476644027e-09
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000020227162,
+                "rel_mean": 2.9927303374887638e-09,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 3.5335852109333815e-09,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.2737367544323206e-13,
+                "rel_mean": 5.624109761360932e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 1.3773330027822688e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 3.0e-09 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998985,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.655790195224595e-05,
+            "max_abs": 7.98300000042218e-05,
+            "p99_abs": 7.10901999883618e-05,
+            "std": 1.8004799267948852e-05,
+            "rel_mean": 1.2300374821739185e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 7.98300000042218e-05,
+                "rel_mean": 1.2317228043219808e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 7.575999998721272e-05,
+                "rel_mean": 1.3058408887230198e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 6.147999999939202e-05,
+                "rel_mean": 1.347833437415437e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.2e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998886,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0,
+            "max_abs": 0.0,
+            "p99_abs": 0.0,
+            "std": 0.0,
+            "rel_mean": 0.0
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 0.0e+00 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999893,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.82509351939329e-06,
+            "max_abs": 0.00010000000007437393,
+            "p99_abs": 9.99999999891088e-05,
+            "std": 1.6568892365820392e-05,
+            "rel_mean": 3.4883550475979986e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000007437393,
+                "rel_mean": 3.4649300946576846e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 9.99999999891088e-05,
+                "rel_mean": 5.14489617222321e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 9.999999994647624e-05,
+                "rel_mean": 5.144896185383617e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 5.013488320819785e-16,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 3.5e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998979,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0007855165383084942,
+            "max_abs": 0.0015996956550452524,
+            "p99_abs": 0.0015562173941816582,
+            "std": 0.00045319866011085723,
+            "rel_mean": 2.8401126601490057e-06
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0015683913071598,
+                "rel_mean": 2.7753975731414754e-06,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0015840434811025261,
+                "rel_mean": 5.5764847728977636e-06,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0015996956550452524,
+                "rel_mean": 5.6330767543591814e-06,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0015562173941816582,
+                "rel_mean": 5.62665775653425e-06,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "max_abs_corr": 0.08034273244072909,
+            "top": {
+              "UsedRenewable_MW": 0.08034273244072909,
+              "ElectricityPrice_CNY_per_MWh": -0.07074484510232151,
+              "CarbonEmission_tCO2": -0.025786066892059957
+            }
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999825,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.9519847767349405e-18,
+            "max_abs": 7.105427357601002e-15,
+            "p99_abs": 0.0,
+            "std": 1.447977871989488e-16,
+            "rel_mean": 2.9956473890810015e-19
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 7.105427357601002e-15,
+                "rel_mean": 3.065698667312062e-19,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 3.0e-19 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998916,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "存疑",
+        "slope": 0.947545649119497,
+        "intercept": -7.3307566837728695,
+        "r2": 0.9424797361936227
+      },
+      "I9_gpu_util": {
+        "grade": "存疑",
+        "slope": 689.2356965092696,
+        "intercept": 15.627912413819189,
+        "r2": 0.8577736522297097
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 2.2495936424668312e-07,
+        "hit_rate": 0.34708333333333335,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.35,
+        "pue_ratio_mean": 1.3500000031847916,
+        "pue_ratio_std": 3.9728092678010666e-08,
+        "max_dev_from_table": 2.3591248576870782e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14460383507477675,
+        "max_abs": 27.133333333299998
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = 57211.58 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": 57211.58
+      }
+    },
+    "RegionC": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.9192098588106574e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.6472279107356205e-07,
+            "rel_mean": 5.777672145881986e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 5.806127411112465e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 3.762677830044891e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 6.689204845014474e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.00890159728001392,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 5.8e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998777,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.66181990468911e-07,
+            "max_abs": 9.999999997489795e-05,
+            "p99_abs": 2.2737367544323206e-13,
+            "std": 4.07315362164858e-06,
+            "rel_mean": 1.4179409830703792e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 1.4510986145409276e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 4.041784401203113e-18,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.2737367544323206e-13,
+                "rel_mean": 1.616713760481245e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.4e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998797,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.6300278354480523e-05,
+            "max_abs": 7.475999998973748e-05,
+            "p99_abs": 6.788939999808008e-05,
+            "std": 1.799520257871903e-05,
+            "rel_mean": 1.3084415687031607e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 7.475999998973748e-05,
+                "rel_mean": 1.3169647705867432e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 6.070999998541993e-05,
+                "rel_mean": 8.859249670045318e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 5.6199999988848504e-05,
+                "rel_mean": 1.277313176682469e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.3e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998866,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0,
+            "max_abs": 0.0,
+            "p99_abs": 0.0,
+            "std": 0.0,
+            "rel_mean": 0.0
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 0.0e+00 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999881,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 8.309101290503636e-08,
+            "max_abs": 9.99999999891088e-05,
+            "p99_abs": 9.947598300641403e-14,
+            "std": 2.881352867071522e-06,
+            "rel_mean": 8.698868843254257e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 9.99999999891088e-05,
+                "rel_mean": 8.90228621440436e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 5.684341886080802e-14,
+                "rel_mean": 2.138635553737174e-16,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 8.526512829121202e-14,
+                "rel_mean": 2.7585299171392534e-16,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 5.684341886080802e-14,
+                "rel_mean": 1.700281682474275e-16,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 8.7e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998797,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.002233910500021833,
+            "max_abs": 0.004538304354753109,
+            "p99_abs": 0.004490478267769049,
+            "std": 0.001324178533002039,
+            "rel_mean": 8.625382193584152e-06
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0044467391372222664,
+                "rel_mean": 8.422871137735466e-06,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.004492521745987688,
+                "rel_mean": 1.7169826575173177e-05,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.004538304354753109,
+                "rel_mean": 1.7346598428126656e-05,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.004525260876505399,
+                "rel_mean": 1.747254627486249e-05,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "max_abs_corr": 0.07317532038784844,
+            "top": {
+              "ElectricityPrice_CNY_per_MWh": -0.07317532038784844,
+              "UsedRenewable_MW": 0.0697179742328353,
+              "GPU_Utilization_Percent": -0.06237410176312184
+            }
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998567,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0,
+            "max_abs": 0.0,
+            "p99_abs": 0.0,
+            "std": 0.0,
+            "rel_mean": 0.0
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 0.0e+00 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998916,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "推断",
+        "slope": 0.9517230776197095,
+        "intercept": -5.882117077788552,
+        "r2": 0.954171879536404
+      },
+      "I9_gpu_util": {
+        "grade": "存疑",
+        "slope": 698.0390070291667,
+        "intercept": 13.508110355863364,
+        "r2": 0.8859944809527986
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 1.8030029591710714e-07,
+        "hit_rate": 0.3441666666666667,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.38,
+        "pue_ratio_mean": 1.379999999216286,
+        "pue_ratio_std": 3.12835261520804e-08,
+        "max_dev_from_table": 1.8199024531817543e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14760231774427476,
+        "max_abs": 32.117333333299996
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = 54636.22 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": 54636.22
+      }
+    },
+    "RegionD": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.0327561695404856e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.6257547538184173e-07,
+            "rel_mean": 5.757678924974752e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 5.751834093198127e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 6.687058942353051e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 7.080415441490006e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.04116970056673807,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 5.8e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998903,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 7.769007103292094e-06,
+            "max_abs": 0.00010000000020227162,
+            "p99_abs": 0.00010000000008858478,
+            "std": 2.6768325217620712e-05,
+            "rel_mean": 7.136375397096863e-09
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000020227162,
+                "rel_mean": 7.186090405851404e-09,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 7.65474849098021e-09,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 3.82737426942182e-09,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 7.1e-09 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998888,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.4413552139563984e-05,
+            "max_abs": 7.08999999972093e-05,
+            "p99_abs": 6.549099999233477e-05,
+            "std": 1.7592629628829675e-05,
+            "rel_mean": 2.234684871549136e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 7.08999999972093e-05,
+                "rel_mean": 2.2403947071559106e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 5.5479999986118855e-05,
+                "rel_mean": 2.1303916710378798e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 5.225999999947106e-05,
+                "rel_mean": 2.4311972701316685e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.2e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998873,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 2.7004570102091743e-06,
+            "max_abs": 0.00010000000003174137,
+            "p99_abs": 0.00010000000000331966,
+            "std": 1.620966477031425e-05,
+            "rel_mean": 1.9203416652655777e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000003174137,
+                "rel_mean": 1.9652476139006986e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 9.395035556570712e-17,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 7.263388833651307e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.9e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998888,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 6.688824297091621e-06,
+            "max_abs": 0.00010000000008858478,
+            "p99_abs": 0.00010000000003174137,
+            "std": 2.4982835223932428e-05,
+            "rel_mean": 1.7772906247217735e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 1.7849597760068457e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 2.21425389814737e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 1.1071269563109662e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 4.315397527543486e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.8e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998903,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.00016556587219262344,
+            "max_abs": 0.0007154623659744175,
+            "p99_abs": 0.0006010400004788616,
+            "std": 0.00014084249528498847,
+            "rel_mean": 2.462046072804698e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0007154623659744175,
+                "rel_mean": 2.500973391100232e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 5.599999849437154e-05,
+                "rel_mean": 5.2780919625144235e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0001274623672316011,
+                "rel_mean": 1.1607112565686103e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 3.200000162451033e-05,
+                "rel_mean": 4.758557864975256e-08,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.5e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998608,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 3.6604611231513263e-16,
+            "max_abs": 2.842170943040401e-14,
+            "p99_abs": 1.4210854715202004e-14,
+            "std": 2.8439857055298213e-15,
+            "rel_mean": 1.0247446257097512e-17
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 1.014878338579399e-17,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 3.31526923935937e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.0e-17 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998931,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "推断",
+        "slope": 0.9891637237892918,
+        "intercept": -5.593504343003693,
+        "r2": 0.992056501949023
+      },
+      "I9_gpu_util": {
+        "grade": "推断",
+        "slope": 682.5675224467229,
+        "intercept": 4.379257015209361,
+        "r2": 0.979875242256826
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 1.2994805807939128e-07,
+        "hit_rate": 0.09958333333333333,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.28,
+        "pue_ratio_mean": 1.279999999603136,
+        "pue_ratio_std": 3.141253257166886e-08,
+        "max_dev_from_table": 1.9391306871341385e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14701020146878105,
+        "max_abs": 85.07900000000002
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = 8592.64 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": 8592.64
+      }
+    },
+    "RegionE": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.8970544783712904e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.6504746903849451e-07,
+            "rel_mean": 5.372970528678956e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 5.386233544514528e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 5.506641055457388e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 5.506640854212499e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.029455310128097576,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 5.4e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998916,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.1092646485081222e-05,
+            "max_abs": 0.00020000000006348273,
+            "p99_abs": 0.00019999999983610905,
+            "std": 3.550236734786233e-05,
+            "rel_mean": 1.1269794076928521e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00020000000006348273,
+                "rel_mean": 1.1403742940285127e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 9.999999997489795e-05,
+                "rel_mean": 1.2699622783659105e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.2737367544323206e-13,
+                "rel_mean": 2.406299922999584e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 3.3000684658280007e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.1e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998907,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.998486913184604e-05,
+            "max_abs": 6.142000000863845e-05,
+            "p99_abs": 5.6912799998940506e-05,
+            "std": 1.6961070171025893e-05,
+            "rel_mean": 5.688988531672132e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 6.142000000863845e-05,
+                "rel_mean": 5.712494896247146e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 5.029999999806023e-05,
+                "rel_mean": 4.802176360745958e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 4.99999999945544e-05,
+                "rel_mean": 5.931465295984641e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 5.7e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998886,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.0261736606176924e-05,
+            "max_abs": 0.00010000000004595222,
+            "p99_abs": 0.00010000000001753051,
+            "std": 3.034584686501348e-05,
+            "rel_mean": 9.647995173216299e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000004595222,
+                "rel_mean": 9.713710830636815e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000000331966,
+                "rel_mean": 1.1752390880217338e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00010000000001753051,
+                "rel_mean": 3.9174636311927534e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 9.6e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998823,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.0635646067875362e-05,
+            "max_abs": 0.00020000000006348273,
+            "p99_abs": 0.00019999999989295247,
+            "std": 3.4153831346608e-05,
+            "rel_mean": 2.1799880159199692e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00020000000006348273,
+                "rel_mean": 2.2135362077609727e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 8.54041535670052e-09,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00010000000003174137,
+                "rel_mean": 8.540415327572536e-09,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 3.328912470644247e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.2e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998894,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.0019908889041573,
+            "max_abs": 1.0038816344091117,
+            "p99_abs": 1.0038038279574266,
+            "std": 0.0010820919507599476,
+            "rel_mean": 0.001598129782884347
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 1.003765032258542,
+                "rel_mean": 0.0015980624679329785,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 1.0038264086025492,
+                "rel_mean": 0.0016010000276518795,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 1.0038816344091117,
+                "rel_mean": 0.0016009907937805563,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.0038516344091306,
+                "rel_mean": 0.0016010975871256793,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "max_abs_corr": 0.08330773839112014,
+            "top": {
+              "GPU_Utilization_Percent": 0.08330773839112014,
+              "Baseline_AI_IT_Load_MW": 0.08234287989308074,
+              "AITrainingPower_MW": 0.08032188651300791
+            }
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999913,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.4956377239942999e-06,
+            "max_abs": 0.00010000000001753051,
+            "p99_abs": 0.00010000000000331966,
+            "std": 1.2137826829540799e-05,
+            "rel_mean": 4.724868414290599e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000001753051,
+                "rel_mean": 4.7010409529332015e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000000331966,
+                "rel_mean": 1.3162914662440944e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 4.7e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998853,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "推断",
+        "slope": 0.9869448993051533,
+        "intercept": -3.554640699901878,
+        "r2": 0.9925059991548681
+      },
+      "I9_gpu_util": {
+        "grade": "推断",
+        "slope": 685.6234163450421,
+        "intercept": 4.112417368810035,
+        "r2": 0.9809210467053995
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 8.74834904465682e-08,
+        "hit_rate": 0.04708333333333333,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.25,
+        "pue_ratio_mean": 1.2499999996176228,
+        "pue_ratio_std": 3.871449512978066e-08,
+        "max_dev_from_table": 2.3560345097095592e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14962148161799182,
+        "max_abs": 64.1666666667
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = -2589.29 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": -2589.29
+      }
+    },
+    "RegionF": {
+      "I1_it_equals_nonai_plus_ai": {
+        "name": "I1",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.9275181259735827e-07,
+            "max_abs": 3.33300079091714e-07,
+            "p99_abs": 3.3330002224829514e-07,
+            "std": 1.6459318388531677e-07,
+            "rel_mean": 5.455151088312897e-10
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 3.33300079091714e-07,
+                "rel_mean": 5.482451966329575e-10,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 5.109468902811719e-10,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 3.3330002224829514e-07,
+                "rel_mean": 4.716432895239655e-10,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 5.684341886080802e-14,
+                "rel_mean": 2.2982139873732895e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": true,
+            "rel_mean": 0.029266857747983432,
+            "note": "附加调查：workload 展开重建 AI 后 IT=NonAI+AI 复检；重建口径差异见 I11（生成口径发现，Phase 4 M4 深挖）"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 5.5e-10 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998905,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I2_power_balance": {
+        "name": "I2",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.499792276167204e-05,
+            "max_abs": 0.00010000000020227162,
+            "p99_abs": 0.00010000000008858478,
+            "std": 3.570510586959286e-05,
+            "rel_mean": 1.4867438967292289e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000020227162,
+                "rel_mean": 1.479363338281042e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 2.4782496934412726e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 1.6521664635463787e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 3.2199356596045493e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.5e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998905,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I3_carbon": {
+        "name": "I3",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.9964932821094003e-05,
+            "max_abs": 6.322000001546257e-05,
+            "p99_abs": 5.76870000048757e-05,
+            "std": 1.70058836319174e-05,
+            "rel_mean": 4.2502669262565443e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 6.322000001546257e-05,
+                "rel_mean": 4.275269156027949e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 5.133000000512311e-05,
+                "rel_mean": 3.7218789138907826e-07,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 4.17000000041412e-05,
+                "rel_mean": 3.564076711961155e-07,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 4.532999984263597e-07,
+                "rel_mean": 1.3785928759965553e-09,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 4.3e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998907,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I4_netgrid": {
+        "name": "I4",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 8.68300789986388e-06,
+            "max_abs": 0.00010000000003174137,
+            "p99_abs": 0.00010000000001753051,
+            "std": 2.8158589510064245e-05,
+            "rel_mean": 1.0405417812409907e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.00010000000003174137,
+                "rel_mean": 1.0546839948066021e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 9.99999999891088e-05,
+                "rel_mean": 4.9931899306787575e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.00010000000000331966,
+                "rel_mean": 4.993189928461335e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 1.0e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998812,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I5_utilization": {
+        "name": "I5",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 1.2172829281788113e-05,
+            "max_abs": 0.0001000000001454282,
+            "p99_abs": 0.00010000000008858478,
+            "std": 3.269717345664069e-05,
+            "rel_mean": 2.605766742419219e-08
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.0001000000001454282,
+                "rel_mean": 2.5847885989878923e-08,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.00010000000008858478,
+                "rel_mean": 4.459670464113143e-08,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0001000000001454282,
+                "rel_mean": 3.567736374839555e-08,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 1.1368683772161603e-13,
+                "rel_mean": 6.953222833483686e-17,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.6e-08 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.0009999999999998892,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I6_soc_recurrence": {
+        "name": "I6",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 0.0005423606146504669,
+            "max_abs": 0.0013722365582395923,
+            "p99_abs": 0.00126423612814051,
+            "std": 0.0003465068897061454,
+            "rel_mean": 8.515406902833751e-07
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 0.001301591397066204,
+                "rel_mean": 8.247131746502531e-07,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 0.0013210322571239885,
+                "rel_mean": 1.9424233857283897e-06,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 0.0013722365582395923,
+                "rel_mean": 2.0097250929499237e-06,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0013722365582395923,
+                "rel_mean": 2.1544987494869883e-06,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 0.01,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 8.5e-07 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999892,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I7_charge_decomp": {
+        "name": "I7",
+        "grade": "实证",
+        "checks": {
+          "c1_resid": {
+            "mean_abs": 9.712029915457954e-16,
+            "max_abs": 2.842170943040401e-14,
+            "p99_abs": 2.842170943040401e-14,
+            "std": 4.661637300968963e-15,
+            "rel_mean": 2.9475460883995205e-17
+          },
+          "c2_segments": {
+            "all_ok": true,
+            "per_segment": {
+              "train": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 2.943123672233454e-17,
+                "ok": true
+              },
+              "cal": {
+                "max_abs": 1.4210854715202004e-14,
+                "rel_mean": 1.7970474758808625e-17,
+                "ok": true
+              },
+              "frozen": {
+                "max_abs": 2.842170943040401e-14,
+                "rel_mean": 5.3911424276425876e-17,
+                "ok": true
+              },
+              "closure": {
+                "max_abs": 0.0,
+                "rel_mean": 0.0,
+                "ok": true
+              }
+            }
+          },
+          "c3_precision": {
+            "tol": 1e-06,
+            "ok": true
+          },
+          "c4_constructive": {
+            "ok": false,
+            "note": "不适用"
+          },
+          "c5_anticorr": {
+            "status": "pass",
+            "note": "残差相对量级 2.9e-17 低于数值噪声门（1e-6），相关无意义",
+            "max_abs_corr": 0.0
+          },
+          "c6_sensitivity": {
+            "delta": 0.001,
+            "rel_resid_change": 0.000999999999999887,
+            "status": "pass"
+          }
+        },
+        "passed_n": 5,
+        "passed_6": true,
+        "c4_required": false
+      },
+      "I8_ai_training_power": {
+        "grade": "推断",
+        "slope": 0.9953383013656222,
+        "intercept": -3.6386382307758884,
+        "r2": 0.9935125163422454
+      },
+      "I9_gpu_util": {
+        "grade": "推断",
+        "slope": 677.3568342144645,
+        "intercept": 4.306252530956938,
+        "r2": 0.9833904931599734
+      },
+      "I10_consume_template": {
+        "grade": "实证",
+        "rel_mean": 9.83752921689735e-08,
+        "hit_rate": 0.04,
+        "caliber": "主时段 0-2399；分母=Total_Load_MW 列（与 fit_consume_ratio 一致）"
+      },
+      "I13_total_eq_it_x_pue": {
+        "grade": "实证",
+        "pue_table": 1.27,
+        "pue_ratio_mean": 1.2699999993358222,
+        "pue_ratio_std": 3.167145056165737e-08,
+        "max_dev_from_table": 2.0998257155291356e-07
+      },
+      "I11_constructive_ai": {
+        "grade": "存疑",
+        "rel_mean": 0.14236261012019055,
+        "max_abs": 54.110333333300005
+      },
+      "I12_energy_bill": {
+        "grade": "推断",
+        "note": "无独立对照列（数据表无成本/电费列）；按附件1 公式计算全时段电费 = 12.61 万元，仅作口径可计算性声明，不作数值验证",
+        "cost_wan": 12.61
+      }
+    }
+  }
+}

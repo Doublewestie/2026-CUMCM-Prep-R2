@@ -1,0 +1,69 @@
+{
+  "RegionA": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2717,
+      "p1_rolling336": 2.8916,
+      "p2_lgbm": 0.3415
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.9548537869450441
+    }
+  },
+  "RegionB": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2718,
+      "p1_rolling336": 2.8917,
+      "p2_lgbm": 0.335
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.9548537432599514
+    }
+  },
+  "RegionC": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2718,
+      "p1_rolling336": 2.8917,
+      "p2_lgbm": 0.3469
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.9548539363720839
+    }
+  },
+  "RegionD": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2717,
+      "p1_rolling336": 2.8916,
+      "p2_lgbm": 0.3226
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.9548539090507354
+    }
+  },
+  "RegionE": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2719,
+      "p1_rolling336": 2.8918,
+      "p2_lgbm": 0.3332
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.954853510454359
+    }
+  },
+  "RegionF": {
+    "frozen_mape": {
+      "p0_full_tpl": 1.2719,
+      "p1_rolling336": 2.8917,
+      "p2_lgbm": 0.3268
+    },
+    "changepoint": {
+      "t": 1245,
+      "scale": 0.9548542096702437
+    }
+  },
+  "caliber": "冻结段 2376-2399；P0 全段日模板（0-2351 拟合）；P1 滚动 336h 模板（nowcast，shift>=1）；P2 lgbm（部署最优参照）；变点：t=1245 价格等比缩放（D7 实证）"
+}

@@ -1,0 +1,159 @@
+{
+  "RegionA": {
+    "cv": {
+      "s0_direct": {
+        "mean": 4.844,
+        "std": 0.396
+      },
+      "s1_layered_actual": {
+        "mean": 2.547,
+        "std": 0.216
+      },
+      "s2_layered_mean": {
+        "mean": 4.789,
+        "std": 0.373
+      },
+      "s3_tree": {
+        "mean": 4.476,
+        "std": 0.232
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 3.794,
+      "s1_layered_actual": 1.78,
+      "s2_layered_mean": 3.794,
+      "s3_tree": 3.446
+    }
+  },
+  "RegionB": {
+    "cv": {
+      "s0_direct": {
+        "mean": 4.668,
+        "std": 0.316
+      },
+      "s1_layered_actual": {
+        "mean": 2.45,
+        "std": 0.048
+      },
+      "s2_layered_mean": {
+        "mean": 4.621,
+        "std": 0.326
+      },
+      "s3_tree": {
+        "mean": 4.275,
+        "std": 0.171
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 4.067,
+      "s1_layered_actual": 2.505,
+      "s2_layered_mean": 4.067,
+      "s3_tree": 4.828
+    }
+  },
+  "RegionC": {
+    "cv": {
+      "s0_direct": {
+        "mean": 4.682,
+        "std": 0.326
+      },
+      "s1_layered_actual": {
+        "mean": 2.406,
+        "std": 0.13
+      },
+      "s2_layered_mean": {
+        "mean": 4.643,
+        "std": 0.332
+      },
+      "s3_tree": {
+        "mean": 4.249,
+        "std": 0.192
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 4.349,
+      "s1_layered_actual": 2.75,
+      "s2_layered_mean": 4.349,
+      "s3_tree": 4.523
+    }
+  },
+  "RegionD": {
+    "cv": {
+      "s0_direct": {
+        "mean": 15.473,
+        "std": 0.718
+      },
+      "s1_layered_actual": {
+        "mean": 5.331,
+        "std": 0.092
+      },
+      "s2_layered_mean": {
+        "mean": 15.204,
+        "std": 0.651
+      },
+      "s3_tree": {
+        "mean": 12.197,
+        "std": 0.266
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 8.763,
+      "s1_layered_actual": 4.119,
+      "s2_layered_mean": 8.763,
+      "s3_tree": 7.723
+    }
+  },
+  "RegionE": {
+    "cv": {
+      "s0_direct": {
+        "mean": 12.744,
+        "std": 3.854
+      },
+      "s1_layered_actual": {
+        "mean": 4.505,
+        "std": 0.306
+      },
+      "s2_layered_mean": {
+        "mean": 12.541,
+        "std": 3.897
+      },
+      "s3_tree": {
+        "mean": 10.847,
+        "std": 3.098
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 22.936,
+      "s1_layered_actual": 4.56,
+      "s2_layered_mean": 22.936,
+      "s3_tree": 16.94
+    }
+  },
+  "RegionF": {
+    "cv": {
+      "s0_direct": {
+        "mean": 10.348,
+        "std": 0.743
+      },
+      "s1_layered_actual": {
+        "mean": 4.391,
+        "std": 0.311
+      },
+      "s2_layered_mean": {
+        "mean": 10.212,
+        "std": 0.703
+      },
+      "s3_tree": {
+        "mean": 8.866,
+        "std": 0.765
+      }
+    },
+    "frozen_mape": {
+      "s0_direct": 19.815,
+      "s1_layered_actual": 6.291,
+      "s2_layered_mean": 19.815,
+      "s3_tree": 15.683
+    }
+  },
+  "caliber": "S0 NonAI 直接模板（现状）；S1 IT_Load模板-AI实际（说明2 实际任务口径）；S2 IT_Load模板-AI均值模板（纯预测口径）；S3 lgbm（竞技榜参照）；CV=5折TSCV（折内模板拟合）；冻结段=0-2351全段拟合后评估 2376-2399"
+}
