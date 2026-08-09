@@ -689,9 +689,11 @@ output/（csv/json 中间产物）、figures/（png 图）、docs/（日志/总�
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
 | M1 | step0 地基 + EDA 证据链 D1-D9 | ✅ 完成（sum_1 已写） |
-| M2 | step1 预测竞技榜 + 基础调度基线 | 进行中 |
-| M3 | step2 三段式调度 + 规则提取 | ⏳ |
-| M4 | step3 LP + MPC + Sobol | ⏳ |
+| M2 | step1 预测竞技榜 + 基础调度基线 | ✅ 完成（sum_2/5/6/7） |
+| M3 | step2 三段式调度 + 规则提取 | ✅ 完成（sum_4/5） |
+| Q3 探路 | step3 LP 六区域 + MPC 场景框架 | ✅ 完成（sum_5/6/9） |
+| S9 | 结构完备性全谱侦察 + 评估链修复 | ✅ 完成（sum_9/spec_S9） |
+| M4 | step3 LP + MPC + Sobol | ⏳ 暂缓（用户边界） |
 | M5 | step4 双层 + 压力矩阵 | ⏳ |
 | M6 | step5 消融 + baseline_proof + 论文素材包 | ⏳ |
 
@@ -783,3 +785,4 @@ graph TD
 | 2026-08-07 | v2.1 | 三 skill 轻量重审微调（model-evaluation/feature-engineering/reproducible-ml）：§5.3 防泄露三段协议（0-2351 内部 5 折滚动 CV 类选 + 2352-2375 校准 + 2376-2399 冻结）与分层指标（任务侧=覆盖率/区间宽度/pinball，能源侧=MAPE/RMSE）；§5.1b 特征集 v1（循环编码/滞后 shift≥1/log1p 按 EDA）；可复现性落实项（seed_everything/NSGA-II 3 seed mean±std/requirements.txt/TCN 确定性配置）随 step1 实现 |
 | 2026-08-08 | v2.2 | R0-R3 建模缺口闭环（sum_3）：①消纳形式升级 c_r→c_r(h) 日内模板（U=c_r(h)·D，命中率 100%，正弦参数化论文素材，Closure 段 min(W,D)）；②校准段修复 2352-2375（原误用冻结段 2376-2399 作校准决策，漂移假象解除，冻结段回归纯验证）；③冻结段结构研究（需求抬升 z=2.86/100 百分位，滚动重估修复 0.917→0.944，超容率 4.86%≈ε 验证，价格 0.19% 机理=段内结构残差修正）；④SOC 效率分区制（A/B/C 0.93/0.92；D/E/F 0.94/0.93）+ E 区数据表偏移 −1.0 修正（官方反馈背书，Q3 以递推重建）；附录 A/§1.3 同步修正；step0.5/step1.7 新增 |
 | 2026-08-09 | v2.3 | S9 结构完备性全谱侦察（sum_9）：①恒等式集 I1-I13 七关证明（I1 IT=NonAI+AI / I2 功率平衡 / I3 碳排 / I4 NetGrid / I5 利用率 / I6 SOC / I7 充电分解 / I10 消纳模板 / I13 Total=IT×PUE 六区实证，残差 1e-7~1e-9）；②W 精确公式 W=round(800+300·sin(2π(h−4)/24),2)（残差 0.0043MW）；③价格 t=1245 等比缩放变点 0.955；④I11 生成口径破案：Baseline_AI=分数 Overlap；⑤NonAI 恒等式分层 L1（IT_Load 模板−AI 实际，E/F 冻结段 22.9/19.8→4.6/6.3）；⑥L10 评估链修复（点模型 cov 假象剔除/seg_price_level 训练段口径/QRF warning）；⑦临界点（SellLimit 饱和 63-86%/SOC 顶 Cap 50-62%/W 永不瓶颈）；153 测试全绿；附录 C 补恒等式集 |
+| 2026-08-09 | v2.4 | 文档体系补全（agent-memory 收尾）：spec_S9 结构证明协议与投产门新建；Reference/sums/sum_9 方法学教训新建；PLAN.md 里程碑/Step 规划同步（M2/M3/Q3 探路/S9 完成、M4 暂缓）；里程碑表修正；sum_8 增补 S9 叙事（数据公理集/评估链可信度/NonAI 分层）；spec_R0-R3 测试数同步 153；INDEX 补恒等式映射 + PhaseN 不适用标注 |

@@ -52,5 +52,5 @@
 ## 构建状态
 - 代码：step1.0/1.2/1.3 修改 + step0.5/step1.7 新建 ✅
 - 产物：baseline_metrics/kappa_fit/rigor_pack/frozen_structure/soc_rebuilt ✅
-- 测试：70 passed ✅（含 11 项新增守卫）
+- 测试：153 passed ✅（含 11 项守卫 + 58 恒等式守卫，S9 后更新）
 - 文档：sum_3/sum_2 修正/CONSTITUTION/INDEX/PLAN_details v2.2 ✅

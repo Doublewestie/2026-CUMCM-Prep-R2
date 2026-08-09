@@ -49,6 +49,11 @@
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
 |----------|--------------|------|
+| 恒等式集 I1-I13（7 关证明，CONSTITUTION 入册） | step0.6_identity_proof.py:run_identity | identity_proof.json |
+| I1 IT=NonAI+AI | step0.6_identity_proof.py:main（I1_it_equals_nonai_plus_ai） | rel 6e-10 |
+| I2 功率平衡 G+W+Pd=Load+Pc+S+Q | step0.6_identity_proof.py:main（I2_power_balance） | W=Available 全进 |
+| I10 消纳=c_r(h)×Total_Load | step0.6_identity_proof.py:main（I10） | 主时段命中 100% |
+| W 精确公式 round(800+300sin,2) | step0.6_thresholds.py:t1_w_template + step3.1_scenario_mpc.py:gen_scenarios | 残差 0.0043MW |
 | 白名单可达集合（时延≤MaxLatency） | step0_loader.py:build_whitelist | 预计算三层可达集 |
 | 任务小时占用展开（GPU-hour 重叠折算） | step0_loader.py:expand_occupancy | 195,047 行占用表 |
 | 18 序列聚合（区域×类型 GPU 需求） | step0_loader.py:build_series | series_gpu_demand.csv |
@@ -97,4 +102,4 @@ storage_params.csv / quality_report.json / figures/eda/eda_summary.json
 ## Phase 文档
 | Phase | Reference/docs/PhaseN | 内容 |
 |-------|------------------------|------|
-| （待建） | | |
+| （不适用） | | 竞赛题无开源代码对照（paper_code_summary/reference_analysis/guidance 为论文复现项目模板）——决策：跳过 PhaseN 三文件，方法论学习记入 Reference/sums/（sum_9 已建） |
