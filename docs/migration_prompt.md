@@ -20,14 +20,19 @@
 - **`Code/docs/sums/sum_3_建模缺口闭环.md` — R0-R3 修复（消纳模板/SOC/校准段/冻结段结构）**
 - `Code/docs/sums/sum_4_M3_Q2三段式调度.md` — 构造→NSGA-II→规则
 - **`Code/docs/sums/sum_5_准确层修复与Q3铺路.md` — B1-B6 修复闭环/五方法裁决/Q3 LP 铺路**
+- `Code/docs/sums/sum_6_地基修复与Q3探路.md` — F1-F3 地基/素材四件套/六区域 LP
+- `Code/docs/sums/sum_7_问题修复与反思落地.md` — 16 项问题闭环/E1 语义修正/κ 过度预留
+- **`Code/docs/sums/sum_8_高层总结与论文叙事.md` — 论文叙事总纲（全局）**
 - `Code/docs/reviews/review_A0_错误结论清算.md` — 错误 vs 结论三关清算
 - `Code/docs/reviews/review_A1-A6_审查定稿.md` — 审查结论
+- `Code/docs/reviews/review_B8_正确率清单.md` — 全指标透明化
+- `Code/docs/reviews/review_A11_错误修复总账.md` — 动态错误-修复总账
 - `Code/Reference/docs/CONSTITUTION.md` — 硬约束速查（口径/约束/预测纪律/工程纪律）
 - `Code/Reference/docs/INDEX.md` — 公式↔代码↔文档映射
 
 ### 速读（了解近期动态）
-- `Code/docs/logs/latest_4.log` — R0-R3 建模缺口闭环
-- `Code/docs/logs/latest_3.log` — agent-memory 衔接修正 + PLAN_details v2.1
+- `Code/docs/logs/latest_7.log` — 16 项问题修复 + E1 语义修正
+- `Code/docs/logs/latest_6.log` — 地基修复 F1-F3 + Q3 探路扩大
 
 ### 必读（代码现状）
 - 运行 `python step0_loader.py` 生成 clean/ 产物（或核验 output/clean/ 已存在）
@@ -45,15 +50,17 @@
 - **Phase 1（M1 地基）**: step0 三件套（config/loader/eda）跑通并验证；output/clean/ 全量产物（质量报告零 NaN、白名单、占用 195,047 行、18 序列）；figures/eda/figD1-D9 九图；sum_1 落盘；PLAN_details v2.0 完整建模方案
 - **Phase 2（M2 预测系统+调度闭环 ✅）**: step1.0 基线锚点（消纳系数逆向，锚点全中）→ step1.1 竞技榜（42×8 全量，任务侧 143/144 拒、TabPFN 统治结构类）→ step1.2 预留闭环（κ_ε=0.05）+ E1 胜负手（gap 0.073pp，结构套利主导）→ step1.2+ 机理（空间 4.6%>>时间 0.001%）→ step1.2++ 实验群 → step1.3/1.4 严谨性补强（η 档案/oracle 上界/敏感性全稳）→ step1.5/1.6 Q1 收尾（冻结段/构造数据指纹）；sum_2 落盘；50+ 测试全绿
 - **Phase 2+（R0-R3 建模缺口闭环 ✅）**: 队友批判驱动重构——①消纳形式升级 c_r→c_r(h) 日内模板（U=c(h)·D，命中率 100%，正弦参数化）②校准段修复 2352-2375（原误用冻结段 2376-2399，漂移假象解除，伪/真差 0.2pp）③冻结段结构研究（需求抬升 z=2.86/100 百分位，滚动重估修复 0.917→0.944，超容率 4.86%≈ε）④SOC 效率分区制（A/B/C 0.93/0.92；D/E/F 0.94/0.93）+ E 区偏移修正（官方背书）；sum_3 落盘；70 测试全绿
+- **Phase 3（M3 Q2 三段式 ✅ + 准确层修复 ✅）**: step2.0 构造层（成本 −4.75%）→ step2.1 自研 NSGA-II（五方法裁决：成本端点五方法收敛=构造解）→ step2.2 CART 规则 → step2.3 时延裁决（T1）+ baseline_proof（Q2 vs local −4.57%）→ 准确层 B1-B6（类选 v3/v4 集合级 Jaccard 0.80、E1 干净对照、五方法裁决）→ 地基 F1-F3（充电口径/滚动 κ 0.965/目标共线实锤）→ 16 项问题闭环（任务侧冻结段覆盖率 88.2%、跨段 89 结清等）→ **E1 语义修正：实际任务全知下预测与预留均无价值（Q2 语境）**；sum_4-7 落盘；95 测试全绿
+- **Q3 探路 ✅（M4 主线暂缓）**: step3.0 LP（HiGHS 0.1s/区域、六区域全量：西区利用率 75-85%+负成本=弃电充电外送套利、东区充电功率瓶颈）+ step3.1 MPC 场景框架（AR(1)+K-means+窗口效应 D 0.06%/E 2.17%）
 
 ### 待完成（按优先级）
-1. **M3**: step2 三段式调度 + 规则提取（时延目标 T1-T3 两阶段探索；Q2 定调=迁移为主，E1a 实证）
-2. **M4**: step3 LP + MPC + Sobol
-3. **M5**: step4 双层 + 压力矩阵
-4. **M6**: step5 消融 A-J + baseline_proof + 论文素材包
+1. **M4（暂缓，用户边界）**: step3 MPC 全量 + Sobol 完整版（LP 已铺路：0.1s/区域、场景框架、窗口效应已知）
+2. **M5**: step4 双层 + 压力矩阵
+3. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8）
 
 ### 当前聚焦
-**M3：Q2 碳感知多目标调度（迁移为主）** — 构造层（白名单+价差启发式，E1a 代码即雏形）→ NSGA-II → CART 规则提取
+**M4 前置探路已完成**（LP/场景/窗口效应）；待用户放开 M4 主线后执行 MPC 全量。
+文档维护中（INDEX/migration_prompt/README 已同步至 sum_7）。
 
 ---
 

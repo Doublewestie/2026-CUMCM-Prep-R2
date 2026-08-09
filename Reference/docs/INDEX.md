@@ -26,6 +26,18 @@
 | B5 | step1.9_e1_v2.py（E1 干净对照） | docs/sums/sum_5 | ✅ |
 | B6 | step2.4_method_arena.py / step2.4+_verdict.py（五方法裁决） | docs/sums/sum_5 | ✅ |
 | C4 | step3.0_lp_baseline.py（Q3 LP 框架+标定） | docs/sums/sum_5 | ✅ |
+| B7 | step1.8_deploy_gate.py v4（类选集合级+假阳性清零） | docs/sums/sum_6 | ✅ |
+| B9 | step1.0_baseline_schedule.py（充电口径选项） | docs/sums/sum_6 | ✅ |
+| B10 | step1.2+_rolling_kappa.py（滚动 κ 闭环） | docs/sums/sum_6 | ✅ |
+| C5-8 | step2.5_materials.py（甘特图/边际/剪枝/Sobol 探索） | docs/sums/sum_6 | ✅ |
+| D | step3.0 --all / step3.1_scenario_mpc.py（Q3 探路扩大） | docs/sums/sum_6 | ✅ |
+| P1/A1/A2 | step1.2+_deploy_retrain.py（说明5 重训+冻结段覆盖率） | docs/sums/sum_7 | ✅ |
+| P2 | step1.2++_t3_reverse.py（T3 反证链） | docs/sums/sum_7 | ✅ |
+| A3-5/C2/C5 | step2.5+_review_fix.py（跨段/分类型/区域NU/TOPSIS/边际） | docs/sums/sum_7 | ✅ |
+| B3 | step1.9_e1_v2.py（E1 真 κ 版+语义修正） | docs/sums/sum_7 | ✅ |
+| C4 | tests/test_algorithm_correctness.py（算法正确性） | docs/sums/sum_7 | ✅ |
+| 审查 | docs/reviews/review_A0/A1-A6/B8（错误清算/审查/正确率清单） | — | ✅ |
+| 总结 | docs/sums/sum_8_高层总结与论文叙事.md | 论文叙事总纲 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
@@ -59,6 +71,16 @@
 | 五方法判别（NSGA-II/III/MOEA-D/ALNS/拉格朗日） | step2.4_method_arena.py:main | method_front_*.csv |
 | 五方法裁决（2D HV/成本端点共识） | step2.4+_verdict.py:main | method_verdict.json |
 | Q3 LP（附件1 平衡+弃电下界，HiGHS） | step3.0_lp_baseline.py:solve_region | lp_calibration.json |
+| Q3 LP 六区域全量（西区负成本/东区充电瓶颈） | step3.0_lp_baseline.py:solve_all_regions | lp_all_regions.json |
+| Q3 MPC 场景（AR(1)+K-means+窗口效应） | step3.1_scenario_mpc.py:main | scenario_report.json |
+| 滚动 κ（nowcast 336h，B1/B10） | step1.2+_rolling_kappa.py:rolling_q | kappa_fit_rolling.json |
+| 说明5 重训+任务侧冻结段覆盖率（P1/A1/A2） | step1.2+_deploy_retrain.py:main | deploy_retrain.json |
+| T3 反证链（白名单放宽，P2） | step1.2++_t3_reverse.py:main | t3_reverse.json |
+| E1 v2 真 κ 版（κ 过度预留发现，B3） | step1.9_e1_v2.py:main | e1_v2.json |
+| 跨段结清/分类型/区域NU/TOPSIS/时延边际（A3-5/C2/C5） | step2.5+_review_fix.py:main | review_fix.json |
+| 素材四件套（甘特图/边际/剪枝/Sobol 探索，C5-8） | step2.5_materials.py:main | materials.json |
+| 充电口径选项（B2/B9） | step1.0_baseline_schedule.py:evaluate_schedule | — |
+| 类选 v4（集合级 Jaccard 主指标） | step1.8_deploy_gate.py:main | deploy_gate.json |
 
 ## 产物清单（output/clean/）
 workload_clean.csv / region_time_clean.csv / whitelist.csv / occupancy_local.csv
