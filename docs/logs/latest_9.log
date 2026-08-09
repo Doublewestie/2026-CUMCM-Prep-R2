@@ -1,0 +1,29 @@
+2026-08-09 S9 结构完备性全谱侦察完成 + 四疑点排查（恒等式集/竞技榜性能/126 核查/S 恒等验证/漂移澄清）
+
+- 14:00-16:00 Phase 1-4: step0.6 四件套（恒等式 7 关证明 I1-I13 / D1-D7 全谱 / T1-T9 临界点 / M1-M4 机制）
+  - 恒等式集 I1-I7/I10/I13 六区实证（残差 1e-7~1e-9）；W 公式 W=round(800+300sin,2) 残差 0.0043MW
+  - 价格 t=1245 等比缩放变点 0.955；SellLimit 饱和 63-86%；SOC 顶 Cap 50-62%
+  - I11 破案：Baseline_AI=分数 Overlap（ceil 整点逐时差 15%）
+- 16:00-17:00 L10 评估链修复: 点模型 cov 假象剔除 / seg_price_level train-only / QRF warning
+  - 竞技榜全量重跑 55.6 分钟（resume 逻辑陷阱：旧表存在跳 CV——已删表强跑）
+  - 类选结论不变（任务 0/144 拒、能源 126/192 过、Jaccard 0.791）
+- 17:00-18:00 L1/L4 实验: NonAI 恒等式分层（E/F 冻结段 22.9→4.6/19.8→6.3；S2≡S0 数学恒等）
+  - 滚动重估适用域裁决（价格无增益）；修复 rolling hod 键错位 bug（25.2%→2.89%）
+- 18:00-19:00 测试守卫 + 文档: tests/test_identity.py 58 守卫；sum_9/CONSTITUTION/INDEX/
+  review_A11 #35-40/README/migration_prompt/PLAN_details v2.3；153 passed 全绿
+- 19:00-20:00 四疑点排查（用户质疑驱动）:
+  - 竞技榜慢源=deep 逐点预测+网络重建+每 epoch 验证（perf 优化待执行）
+  - 126/192=验证门设计行为（renewable 全拒正确、18/24 序列有入选）
+  - S2≡S0 逐时段恒等实证（max|差|=5e-8）；CV S1=oracle 口径声明入 sum_9
+  - "PricePeriod 漂移"=误报，真因 bug #39（数据核查映射一致）
+- 20:00 文档补 3 处完成；待 commit A-F 分部分 + push
+- 20:30-22:00 perf 优化与验收（用户批准）:
+  - deep `_predict_roll` GPU 化 + 网络实例复用 + 验证张量缓存（单序列 deep 20s→0.8-3.8s）
+  - 全量重跑验收发现两个回归：deep cat 维度 bug（#41，energy 126→108 假象）+
+    deep/TabPFN 无 seed（#42，deep_lstm 9↔10 翻转）——修复后 energy 126/192 恢复
+  - 计时结构：CV 26 分钟 + 融合 28 分钟（52% 主耗时，fuse_energy 重复 fit，M6 可选优化）
+  - 可复现性：每折 fit 前 seed_everything(SEED)；两次运行 max diff=0
+  - 下游 step1.5/1.8 重跑：Jaccard 0.797、树类统治不变；153 passed 全绿
+  - review_A11 #41-43 追加；sum_9 性能段更新
+- 22:00 待 commit A-E 分部分 + push
+- 测试状态: 153 passed
