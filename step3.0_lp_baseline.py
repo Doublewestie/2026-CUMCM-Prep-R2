@@ -63,6 +63,10 @@ def load_region_data(r: str) -> dict:
 def solve_region(d: dict, n_hours: int = HOURS) -> dict:
     """单区域 LP（scipy HiGHS）——附件1 口径终版.
 
+    ⚠️ DEPRECATED：Q3 主流程已迁移至 step3.3+_q3_model_evolve.solve_region_timed
+    （含 Closure 口径修复/时段约束/斜坡/互斥等全部参数化能力）。
+    本函数保留用于 lp_baseline 历史产物追溯，不再作为新实验入口。
+
     平衡式: G + W + Pd = D + Pc + S + Q（W=可用新能源全进，Q=弃电松弛）
     利用率 = 1 − Q/W（(消纳+充电+外送)/W 等价）
     消纳能力（R1 实证）: 直接消纳 ≤ min(W, c(h)·D) → 弃电下界
@@ -101,7 +105,11 @@ def solve_region(d: dict, n_hours: int = HOURS) -> dict:
     bub = np.zeros(n_ineq)
     Aub[0, idx(5, T - 1)] = -1.0
     bub[0] = -d["init_soc"]
+    # 口径（sum_10 修复 #1 对齐 solve_region_timed）：主时段消纳=R1 模板 c_h·D；
+    # Closure 段 2400-2406 = min(W, D)（R1 Closure 口径，全消纳）
     cap_h = np.minimum(d["W"][:T], d["c_h"][np.arange(T) % 24] * d["D"][:T])
+    closure = np.arange(T) >= 2400
+    cap_h[closure] = np.minimum(d["W"][:T], d["D"][:T])[closure]
     for t in range(T):
         Aub[1 + t, idx(0, t)] = -1.0          # -Pc
         Aub[1 + t, idx(3, t)] = -1.0          # -S
