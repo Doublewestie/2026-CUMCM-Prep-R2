@@ -1,4 +1,4 @@
-"""step4.4_q4_ablation — Q4 消融与收敛验证：联合 vs 交替 + 组件消融 + 单调性守卫.
+﻿"""step4.4_q4_ablation — Q4 消融与收敛验证：联合 vs 交替 + 组件消融 + 单调性守卫.
 
 方法（Q4 方案定稿 step4.4，三层验收的求解层）:
   ① 结构消融（联合 vs 交替）:
@@ -183,7 +183,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(FIG_Q4 / "fig_q4_ablation.png", bbox_inches="tight")
     plt.close(fig)
-    print(json.dumps(report, ensure_ascii=False, indent=2, default=float)[:2500])
+    print(json.dumps(report, ensure_ascii=True, indent=2, default=float)[:2500])
 
 
 if __name__ == "__main__":

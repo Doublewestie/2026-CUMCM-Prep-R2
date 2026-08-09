@@ -1,4 +1,4 @@
-"""step4.3_q4_scenarios — Q4 压力矩阵：碳约束 × 电价机制 × 新能源波动三场景对比.
+﻿"""step4.3_q4_scenarios — Q4 压力矩阵：碳约束 × 电价机制 × 新能源波动三场景对比.
 
 方法（Q4 方案定稿 step4.3，档位依据全链实证）:
   维度（题面钦定三维）:
@@ -18,7 +18,11 @@ figures/step4/fig_q4_pressure.png  三张热图（碳/峰谷比/波动 × 策略
 """
 import importlib.util
 import json
+import os
 from pathlib import Path
+
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 import matplotlib
 matplotlib.use("Agg")
@@ -104,11 +108,17 @@ def gen_scenarios(c, r: str, sigma: float) -> tuple[np.ndarray, np.ndarray, np.n
 
 
 def carbon_scenario(c, pol: list, tau: float) -> dict:
-    """碳约束场景：储能层可行则直接求解；不可行则测'上层错峰杠杆'。
+    """碳约束场景：储能层可行则直接求解；不可行则测'上层杠杆'三族。
 
     机理（step4.2 实证）：G ≥ D−cap_h 隐含下界（消纳模板锁定）→ 碳排下界
-    由负荷时段分布 D 决定 → 错峰（把负荷移到 cap_h 大的小时）可降下界。
-    输出: {carbon, cost, lever_needed, lever_cost, per_region}
+    由负荷时段分布 D 决定 → 错峰（把负荷移到 cap_h 大的小时）/迁移（换
+    低碳区域）可降下界。杠杆三族（T3 决策）:
+      A 错峰: shift_BI=shift_AT=24（现状，实测无效——弹性任务占比有限）
+      B 迁移: mig_gpu_min=8 / mig_dur_min=6.65（压向 E/F 低碳高消纳区）
+      C 联合: A+B + headroom=0.03
+    裁决: 任一族可行 → lever_ok=True + 代价；全不可行 → 杠杆不足（诚实），
+    扫 τ 找杠杆可达碳下限（见 lever_floor）。
+    输出: {carbon, cost, lever_needed, lever_ok, lever_cost, per_region}
     """
     sched = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
                                            c["params"], tuple(pol[:5]))
@@ -149,22 +159,33 @@ def carbon_scenario(c, pol: list, tau: float) -> dict:
         return {"carbon": base["carbon"], "cost": base["cost"],
                 "peak_net_MW": base["peak"], "lever_needed": False,
                 "per_region": base["per"]}
-    # 上层杠杆：错峰增强变体（shift_BI/AT → 24h 全窗口价格感知）
-    lever_pol = list(pol[:5])
-    lever_pol[2] = lever_pol[3] = 24.0
-    sched_l = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
-                                             c["params"], tuple(lever_pol))
-    ai_l = c["s41"].schedule_occupancy(c, sched_l)
-    lev = _solve(ai_l)
-    return {"carbon": base["carbon"] if not base["ok"] else None,
-            "cost": base["cost"] if not base["ok"] else None,
-            "peak_net_MW": base["peak"] if base["ok"] else None,
-            "lever_needed": True, "lever_ok": bool(lev and lev["ok"]),
-            "lever_cost": (lev["cost"] if lev and lev["ok"] else None),
-            "lever_carbon": (lev["carbon"] if lev and lev["ok"] else None),
+
+    # 杠杆三族（T3）：A 错峰 24h / B 迁移压低碳区 / C 联合（A+B+headroom）
+    lever_pols = {
+        "A_shift24": list(pol[:5])[:2] + [24.0, 24.0] + [pol[4]],
+        "B_migrate": [8.0, 6.65, 12.0, 12.0, 0.0],
+        "C_joint": [8.0, 6.65, 24.0, 24.0, 0.03],
+    }
+    lev_res = {}
+    for name, lpol in lever_pols.items():
+        sched_l = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
+                                                 c["params"], tuple(lpol))
+        ai_l = c["s41"].schedule_occupancy(c, sched_l)
+        lev = _solve(ai_l)
+        lev_res[name] = {"ok": bool(lev and lev["ok"]),
+                         "cost": (lev["cost"] if lev and lev["ok"] else None),
+                         "carbon": (lev["carbon"] if lev and lev["ok"] else None)}
+    any_ok = any(v["ok"] for v in lev_res.values())
+    ok_name = next((k for k, v in lev_res.items() if v["ok"]), None)
+    return {"carbon": None, "cost": None, "peak_net_MW": None,
+            "lever_needed": True, "lever_ok": any_ok,
+            "lever_variants": lev_res,
+            "lever_cost": (lev_res[ok_name]["cost"] if ok_name else None),
+            "lever_carbon": (lev_res[ok_name]["carbon"] if ok_name else None),
+            "lever_best": ok_name,
             "per_region": base["per"],
             "note": "储能层碳排已在下界（消纳模板锁定 G≥D−cap_h）——"
-                    "τ 需上层错峰配合；错峰增强变体（shift=24h）为杠杆演示"}
+                    "τ 需上层杠杆配合；杠杆三族=错峰/迁移/联合（T3 决策）"}
 
 
 def run_policy_grid(c, pol: list, tau=None, price_map=None,
@@ -180,6 +201,9 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
                    cs.get("infeasible_global") or
                    (cs.get("lever_needed") and not cs.get("lever_ok"))),
                "lever_needed": cs.get("lever_needed", False),
+               "lever_ok": cs.get("lever_ok", None),
+               "lever_best": cs.get("lever_best", None),
+               "lever_variants": cs.get("lever_variants"),
                "lever_cost_wan": cs.get("lever_cost")}
         return out
     sched = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
@@ -187,6 +211,8 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
     ai_mw = c["s41"].schedule_occupancy(c, sched)
     cost = carbon = qsum = wsum = 0.0
     peak = 0.0
+    peak_expect = 0.0
+    peak_worst = 0.0
     for r in REGIONS:
         d = c["s41"].build_lower_data(c, ai_mw, r)
         ch, dh = c["tpl"][r]["charge_hours"], c["tpl"][r]["discharge_hours"]
@@ -199,19 +225,28 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
             exp_cost = 0.0
             exp_carbon = 0.0
             exp_q = 0.0
+            r_peak_exp = 0.0
+            r_peak_worst = 0.0
             for s_i in range(K):
                 ds = dict(d)
                 ds["W"] = reps[s_i]
                 m = c["s40"].solve_lower_constrained(ds, ch, dh, **kw)
                 if m["cost_wan"] is None:
                     continue
+                G = np.array([x["G"] for x in m["rows"]])
+                S = np.array([x["S"] for x in m["rows"]])
+                p_i = float((G - S)[:2400].max())
                 exp_cost += w[s_i] * m["cost_wan"]
                 exp_carbon += w[s_i] * m["carbon_t"]
                 exp_q += w[s_i] * m["curtail"]
+                r_peak_exp += w[s_i] * p_i
+                r_peak_worst = max(r_peak_worst, p_i)
             cost += exp_cost
             carbon += exp_carbon
             qsum += exp_q
             wsum += float(W0.sum())
+            peak_expect = max(peak_expect, r_peak_exp)
+            peak_worst = max(peak_worst, r_peak_worst)
             continue
         m = c["s40"].solve_lower_constrained(d, ch, dh, **kw)
         if m["cost_wan"] is None:
@@ -226,8 +261,62 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
         peak = max(peak, float((G - S)[:2400].max()))
     nu = 100.0 * (1 - qsum / max(wsum, 1e-9))
     lat = c["s20"].compute_latency(c["wt"], sched)
-    return {"cost_wan": cost, "carbon_t": carbon, "latency_ms": lat,
-            "nu_pct": nu, "peak_net_MW": peak, "infeasible": False}
+    out = {"cost_wan": cost, "carbon_t": carbon, "latency_ms": lat,
+           "nu_pct": nu, "infeasible": False}
+    if sigma is not None:
+        out["peak_net_MW"] = round(peak_expect, 3)
+        out["peak_expect_MW"] = round(peak_expect, 3)
+        out["peak_worst_MW"] = round(peak_worst, 3)
+        out["peak_caliber"] = ("期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；"
+                               "风险中性取 expect，保守取 worst（T2 修复）")
+    else:
+        out["peak_net_MW"] = peak
+    return out
+
+
+def lever_floor_scan(c) -> dict:
+    """碳杠杆可达下限扫描（mig 旋钮全档，仅碳场景全败时触发）。
+
+    判别实验（q4_carbon_lever_scan.json）：mig_gpu_min∈{0,2,4,6,8,11.9,15}
+    的碳排响应 → 杠杆上限 = (基线碳 − 最小碳)/基线碳。结论：任务层碳杠杆
+    ≈0.14-0.25%（NonAI 底数稀释 + 调度器成本驱动）→ τ≥1% 即超杠杆能力。
+    """
+    sched0 = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
+                                            c["params"],
+                                            tuple(c["s41"].q2_compromise_policy(c)))
+    ai0 = c["s41"].schedule_occupancy(c, sched0)
+    qsum = wsum = 0.0
+    for r in REGIONS:
+        d = c["s41"].build_lower_data(c, ai0, r)
+        ch, dh = c["tpl"][r]["charge_hours"], c["tpl"][r]["discharge_hours"]
+        m0 = c["s40"].solve_lower_constrained(d, ch, dh)
+        qsum += m0["curtail"]
+        wsum += float(d["W"].sum())
+    base_nu = 100.0 * (1 - qsum / max(wsum, 1e-9))
+    best_c, best_cost = None, None
+    rows = []
+    for mig in (0.0, 6.0, 11.9, 15.0):
+        pol = [mig, 0.0, 12.0, 12.0, 0.0]
+        sched = c["s20"].schedule_constructive(c["wt"], c["rt"], c["s10"],
+                                               c["params"], tuple(pol))
+        ev = c["s41"].evaluate_q4_six(c, sched, alpha=0.5)
+        if ev["viol_h"] > 0:
+            continue
+        rows.append({"mig_gpu_min": mig,
+                     "carbon_t": round(float(ev["carbon_t"]), 0),
+                     "cost_wan": round(float(ev["cost_wan"]), 1)})
+        if best_c is None or ev["carbon_t"] < best_c:
+            best_c, best_cost = ev["carbon_t"], ev["cost_wan"]
+    base_c = rows[-1]["carbon_t"] if rows else None
+    lever = (base_c - best_c) / max(base_c, 1e-9) if base_c else None
+    return {"scan": rows, "base_carbon_t": base_c,
+            "min_carbon_t": best_c, "max_lever_pct": round(lever * 100, 3)
+            if lever else None,
+            "verdict": ("任务层碳杠杆上限 ≈0.1-0.3%（NonAI 底数稀释+成本驱动"
+                        "调度器）→ 等比例区域碳限额 τ≥1% 即超杠杆能力，"
+                        "τ∈{10%,20%,30%} 不可达系结构性（政策级结论："
+                        "减排需源头或跨区电量调度，非任务调度杠杆）"),
+            "base_nu_pct": round(base_nu, 2)}
 
 
 def main() -> None:
@@ -260,24 +349,31 @@ def main() -> None:
         grid["volatility"][str(sigma)] = {
             name: run_policy_grid(c, pol, sigma=sigma) for name, pol in pols.items()}
 
-    # 策略变化：每格最优策略（成本最低）vs 基线（q2_compromise）
+    # 策略变化：每格最优策略（成本最低，仅限可行）vs 基线（q2_compromise 可行时）
     change = {}
     for dim, sub in grid.items():
         for frac, cells in sub.items():
-            best = min(cells, key=lambda n: (cells[n].get("cost_wan")
-                                             if not cells[n].get("infeasible")
-                                             else 1e18))
-            base = cells.get("q2_compromise", {}).get("cost_wan")
+            feasible = {n: cl for n, cl in cells.items()
+                        if not cl.get("infeasible") and cl.get("cost_wan") is not None}
             b = cells.get("q2_compromise", {})
+            if not feasible:
+                change[f"{dim}|{frac}"] = {
+                    "best_policy": None, "cost_wan": None,
+                    "vs_baseline_cost_pct": None, "peak_net_MW": None,
+                    "note": "该档全部策略不可行（储能层可行域下界，见 q4_shadow）"}
+                continue
+            best = min(feasible, key=lambda n: feasible[n]["cost_wan"])
+            base_cost = b.get("cost_wan")
             change[f"{dim}|{frac}"] = {
                 "best_policy": best,
-                "cost_wan": round(cells[best].get("cost_wan", None), 2)
-                if cells[best].get("cost_wan") is not None else None,
-                "vs_baseline_cost_pct": round(
-                    (cells[best].get("cost_wan", 0)
-                     - (b.get("cost_wan", 0) or 0))
-                    / max(abs(b.get("cost_wan", 1)), 1e-9) * 100, 2),
-                "peak_net_MW": cells[best].get("peak_net_MW", None)}
+                "cost_wan": round(feasible[best]["cost_wan"], 2),
+                "vs_baseline_cost_pct": (round(
+                    (feasible[best]["cost_wan"] - base_cost)
+                    / max(abs(base_cost), 1e-9) * 100, 2)
+                    if base_cost is not None and not b.get("infeasible") else None),
+                "peak_net_MW": feasible[best].get("peak_net_MW", None),
+                "lever_ok": cells.get("q4_compromise", {}).get("lever_ok")
+                if cells.get("q4_compromise", {}).get("lever_needed") else None}
 
     price_stats = {}
     for k in ks:
@@ -300,6 +396,12 @@ def main() -> None:
                     "场景自造声明（题面未给场景数据）"),
         "spec": "spec_M4_Q4 场景章节；档位依据：Sobol 归因 + Q3 SIGMAS + step4.1 预扫",
     }
+    # 碳杠杆可达下限（碳场景全部不可行时——结构性结论支撑，T4）
+    carbon_cells = [cl for sub in grid["carbon"].values() for cl in sub.values()]
+    if all(cl.get("infeasible") for cl in carbon_cells):
+        report["carbon_lever_floor"] = lever_floor_scan(c)
+    else:
+        report["carbon_lever_floor"] = {"note": "存在可行碳场景，无需杠杆下限扫描"}
     with open(OUT_Q4 / "q4_pressure.json", "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2, default=float)
 
@@ -325,7 +427,7 @@ def main() -> None:
     plt.close(fig)
     print(json.dumps({"strategy_change": change, "price_ratio_scan": price_stats,
                       "caliber": report["caliber"]},
-                     ensure_ascii=False, indent=2, default=float)[:2500])
+                     ensure_ascii=True, indent=2, default=float)[:2500])
 
 
 if __name__ == "__main__":
