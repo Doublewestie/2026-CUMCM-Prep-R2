@@ -26,4 +26,10 @@
   - 下游 step1.5/1.8 重跑：Jaccard 0.797、树类统治不变；153 passed 全绿
   - review_A11 #41-43 追加；sum_9 性能段更新
 - 22:00 待 commit A-E 分部分 + push
+- 22:30 文档体系补全（agent-memory 收尾）: spec_S9 结构证明协议与投产门新建；
+  Reference/sums/sum_9 方法学教训（10 条迁移检查项）新建；PLAN.md 里程碑/Step 规划
+  同步（M2/M3/Q3 探路/S9 完成、M4 暂缓）；PLAN_details 里程碑表修正 + v2.4；
+  sum_8 增补 S9 叙事（数据公理集/评估链可信度/NonAI 分层）；spec_R0-R3 测试数
+  70→153；INDEX 补恒等式映射 + PhaseN 不适用标注（决策记录）
+- 22:40 待 commit C1-C3 分部分 + push
 - 测试状态: 153 passed
