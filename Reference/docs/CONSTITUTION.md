@@ -85,6 +85,18 @@
   逐位稳定 222 万）为区间上界；M0（无互斥）含传送带假象不得引用；
   step3.0 solve_region 已 deprecated（口径对齐 solve_region_timed）
 
+- **Q4 定稿（sum_11）**: 正式预算 40×30×3（--smoke 12/4/1 供 CI；--pop/--gen/--seed
+  灵活）；收敛判据=MC 超体积末 5 代范围<5σ；种子方差 rel_std<0.1% 验收；
+  **α 固定 0.5**（评估器参数不可优化——α=1 使 1−QOS≡0 游戏化，总账 #45）；
+  **储能结构锁定**【实证】：任务层电力侧可优化面 0.14-0.55%（vs Q2 4.57%），
+  oracle 贪心迁移真实评估反噬 −3.4%（储能时段相位错配）——联合帕累托主轴=
+  时延/QOS，Q3 E6 坍缩同构传承；**碳杠杆上限 0.239%**（NonAI 稀释+成本驱动
+  调度器）→ 等比例区域碳限额 τ≥1% 结构性不可达（政策级结论）；
+  **影子价格**：数值差分为准——储能 LP 退化【实证】（HiGHS marginals 为
+  顶点基内梯度，验证门 rel 28-45% 否决解析对偶）；π_sell 唯一可行载体
+  （SellLimit 收紧 2-20% 成本单调 164,768→172,761 万）；波动峰值双口径
+  （expect=max_r Σwᵢ峰ᵢ / worst=max_r maxᵢ峰ᵢ，期望与基线同量级）
+
 ## 工程纪律
 - 环境: mathorcup（D:\Anaconda\envs\mathorcup\python.exe）；pandas 3.0.2
 - 命名: step{N}.{M}{suffix}_{desc}.py；产物落 output/，图落 figures/

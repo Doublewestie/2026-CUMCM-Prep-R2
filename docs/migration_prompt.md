@@ -17,17 +17,19 @@
 ### 必读（决策历史）
 - `Code/docs/sums/sum_1` 至 `sum_8`（数据侦察→论文叙事总纲）
 - **`Code/docs/sums/sum_9_结构完备性全谱侦察.md` — 恒等式集 I1-I13 七关证明/W 精确公式/价格变点/分数 Overlap 破案/NonAI 分层 L1/L10 评估链修复**
+- **`Code/docs/sums/sum_10_Q3全量执行.md` — DR 状态机逆向/M3_final 主口径/互斥物理上界 M0x/传送带假象**
+- **`Code/docs/sums/sum_11_Q4定稿.md` — Q4 正式预算/前沿坍缩归因（储能结构锁定）/碳杠杆上限 0.239%/对偶退化发现/195 全绿**
 - `Code/docs/reviews/review_A0_错误结论清算.md` — 错误 vs 结论三关清算
 - `Code/docs/reviews/review_A1-A6_审查定稿.md` — 审查结论
 - `Code/docs/reviews/review_B8_正确率清单.md` — 全指标透明化
-- `Code/docs/reviews/review_A11_错误修复总账.md` — 动态错误-修复总账（含 #35-40 S9 新增）
+- `Code/docs/reviews/review_A11_错误修复总账.md` — 动态错误-修复总账（#1-51，含 Q4 轮 #44-51）
 - `Code/Reference/docs/CONSTITUTION.md` — 硬约束速查（口径/恒等式集/约束/预测纪律/工程纪律）
 - `Code/Reference/docs/INDEX.md` — 公式↔代码↔文档映射
 
 ### 速读（了解近期动态）
+- `Code/docs/logs/latest_12.log` — Q4 定稿全记录（正式预算/坍缩归因/碳杠杆/对偶退化）
 - `Code/docs/logs/latest_11.log` — Q3 发现回灌定稿（M3_final 主口径/斜坡假象修正/M0x gap 验证）
 - `Code/docs/logs/latest_10.log` — Q3 M4 全量执行（DR 状态机/传送带假象/交叉实验）
-- `Code/docs/logs/latest_9.log` — S9 全谱侦察完成 + perf 验收
 
 ### 必读（代码现状）
 - 运行 `python step0_loader.py` 生成 clean/ 产物（或核验 output/clean/ 已存在）
@@ -37,7 +39,14 @@
 - 运行 `python step0.6_identity_proof.py` 生成恒等式集证明（S9；tests 守卫依赖）
 - 运行 `python step0.7_nonai_layered.py` 生成 NonAI 分层实验（L1）
 - 运行 `python step3.3_q3_dr_reverse.py` 生成 DR 储能状态机逆向（Q3 主口径基础）
-- 测试：`python -m pytest tests/ -q`（当前 175 passed）
+- 运行 `python step4.0_q4_bilevel.py` 生成 Q4 双层正式前沿（默认 40×30×3；
+  `--smoke` 12/4/1 供 CI；`--pop/--gen/--seed` 灵活预算；产物含收敛曲线+种子方差）
+- 运行 `python step4.1_q4_indicators.py` 生成 Q4 六指标章程
+- 运行 `python step4.2_q4_shadow.py` 生成影子价格（数值差分+对偶退化诊断）
+- 运行 `python step4.3_q4_scenarios.py` 生成压力矩阵（波动峰值双口径/碳杠杆三族）
+- 运行 `python step4.4_q4_ablation.py` / `step4.5_q4_rules.py` 消融与规则层
+- 运行 `python step4.6_q4_collapse.py` 生成前沿坍缩归因判别（储能结构锁定）
+- 测试：`python -m pytest tests/ -q`（当前 195 passed）
 
 ---
 
@@ -52,14 +61,15 @@
 - **Q3 探路 ✅（M4 主线暂缓）**: step3.0 LP（HiGHS 0.1s/区域、六区域全量：西区利用率 75-85%+负成本=弃电充电外送套利、东区充电功率瓶颈）+ step3.1 MPC 场景框架（AR(1)+K-means+窗口效应 D 0.06%/E 2.17%）
 - **S9 结构完备性全谱侦察 ✅**: step0.6 四件套（恒等式 7 关证明 I1-I13/漂移相关周期变点全谱/临界点扫描/任务机制分解）+ step0.7 两实验（NonAI 恒等式分层 L1：E/F 冻结段 22.9→4.6、滚动重估适用域 L4）+ L10 评估链修复（点模型 cov 假象剔除/seg_price_level 训练段口径/QRF warning）；恒等式集入 CONSTITUTION；153 测试全绿
 - **Q3 M4 全量 ✅（sum_10）**: DR 储能状态机逆向（时段模板六区同构/充放互斥/SOC 全深度循环）→ 模型演进 M0/M1/M2/M3_final → **M3_final 主口径**（时段状态机+结算段禁充+终态严格+生成器量级斜坡，主时段指标）→ **互斥物理上界 M0x**（传送带假象实证：无互斥 LP 同时充放 91-97%）→ 交叉实验矩阵（斜坡物理性/规则逐时/σ 区分度/Sobol 对称）→ MPC/Sobol；175 测试全绿
+- **Q4 定稿 ✅（sum_11，本轮）**: 正式预算 40×30×3（收敛曲线+种子方差 0.014%）→ α 游戏化修复（固定 0.5）→ 前沿坍缩归因（**储能结构锁定**【实证】：跨度 0.14-0.55% vs Q2 4.57%，oracle 反噬 −3.4% 相位错配）→ 碳杠杆三族全败 + **任务层碳杠杆上限 0.239%**（结构性）→ 影子价格对偶验证门（**储能 LP 退化**【实证】：marginals 不可投产，数值差分为准，π_sell 唯一可行载体）→ 波动峰值双口径 → 195 测试全绿
 
 ### 待完成（按优先级）
-1. **M4 收尾项**: step4 Q4 双层 NSGA-II×LP（solve_region_timed 为下层组件，Q3 主口径 M3_final）+ 影子价格 + 压力矩阵
-2. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；Q3 主口径见 sum_10 §11）
+1. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；Q3 主口径见 sum_10 §11；Q4 口径见 sum_11 §八）
+2. **Q3 反思 P1 项**（sum_11 §九）：无储能双锚/分窗分布/斜坡活跃率/基准终态对称性/全网峰值/波动 MPC 跨题闭环（复用 Q4 评估器）
 
 ### 当前聚焦
-**Q3 M4 已定稿**（M3_final 主口径 + M0x 上界，175 测试全绿）；下一步 Q4（step4 双层）。
-文档维护中（INDEX/migration_prompt/README/CONSTITUTION 已同步至 sum_10/latest_11）。
+**Q4 已定稿**（正式预算 + 坍缩归因 + 碳杠杆结论 + 对偶退化，195 测试全绿）；下一步 M6（论文素材包）或 Q3 反思 P1 项。
+文档维护中（sum_11/latest_12/总账 44-51/README/PLAN 已同步）。
 
 ---
 
@@ -81,6 +91,12 @@
 8. 环境：mathorcup（D:\Anaconda\envs\mathorcup\python.exe）；pandas 3.0.2
 9. 命名：step{N}.{M}{suffix}_{desc}.py 平铺根目录；产物 output/、图 figures/
 10. 论文每个数字可追溯到唯一文件（数据核查纪律）
+11. Q4 口径（sum_11）：六指标六目标最小化（QOS=α·完成率+(1−α)·裕度，α 固定 0.5——
+    评估器参数不可优化，α=1 目标游戏化总账 #45）；D=(NonAI+调度 AI)×PUE；
+    正式预算 40×30×3（--smoke 12/4/1 供 CI）；储能结构锁定【实证】
+    （任务层电力侧可优化面 0.14-0.55%，oracle 相位错配反噬 −3.4%）；
+    碳限额 τ≥1% 结构性不可达（杠杆上限 0.239%）；影子价格数值差分为准
+    （储能 LP 退化，HiGHS 对偶不可投产）；π_sell 唯一可行载体
 
 ## Step 5: 回退策略
 1. 先读 PLAN_details.md 对应章节（完整模型/公式/流程图）

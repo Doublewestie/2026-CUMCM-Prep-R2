@@ -58,6 +58,14 @@
 | Q3-M4 | step3.7++_q3_extras.py（X15 σ 区分度 + X16 Sobol 对称） | docs/sums/sum_10 §10.2 | ✅ |
 | Q3-M4 | solve_m3/main_period_indicators（M3_final 主口径回灌） | docs/sums/sum_10 §11 | ✅ |
 | Q3-M4 | tests/test_q3.py（22 守卫，175 全绿） | docs/sums/sum_10 | ✅ |
+| Q4 | step4.0_q4_bilevel.py（正式预算 40×30×3 + 收敛曲线 + 种子方差） | docs/sums/sum_11 | ✅ |
+| Q4 | step4.1_q4_indicators.py（六指标章程/D 口径/维度预检/α 扫描/峰谷比预扫） | docs/sums/sum_11 | ✅ |
+| Q4 | step4.2_q4_shadow.py（数值差分影子价格 + 对偶退化诊断 dual_verify） | docs/sums/sum_11 §五 | ✅ |
+| Q4 | step4.3_q4_scenarios.py（压力矩阵 + 波动峰值双口径 + 碳杠杆三族 + lever_floor） | docs/sums/sum_11 §二/§四 | ✅ |
+| Q4 | step4.4_q4_ablation.py（组件消融/joint vs alternate/单调性） | docs/sums/sum_11 §六 | ✅ |
+| Q4 | step4.5_q4_rules.py（CART 迁移规则 + 规则化代价） | docs/sums/sum_11 §六 | ✅ |
+| Q4 | step4.6_q4_collapse.py（前沿坍缩归因：判别 A 极端策略 + 判别 B oracle） | docs/sums/sum_11 §三 | ✅ |
+| Q4 | tests/test_q4_v2.py（+10 定稿守卫，195 全绿） | docs/sums/sum_11 §六 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |
@@ -106,6 +114,11 @@
 | 素材四件套（甘特图/边际/剪枝/Sobol 探索，C5-8） | step2.5_materials.py:main | materials.json |
 | 充电口径选项（B2/B9） | step1.0_baseline_schedule.py:evaluate_schedule | — |
 | 类选 v4（集合级 Jaccard 主指标） | step1.8_deploy_gate.py:main | deploy_gate.json |
+| Q4 六指标评估器（六目标最小化，α 固定 0.5） | step4.1_q4_indicators.py:evaluate_q4_six | q4_indicators.json |
+| Q4 下层储能 LP（M3_final + 碳/峰值/卖电限额参数化） | step4.0_q4_bilevel.py:solve_lower_constrained | — |
+| Q4 影子价格（数值差分 + HiGHS marginals 退化诊断） | step4.2_q4_shadow.py:shadow_prices/dual_verify | q4_shadow.json |
+| Q4 碳杠杆上限（mig 旋钮扫描 0.239%） | step4.3_q4_scenarios.py:lever_floor_scan | q4_pressure.json |
+| Q4 坍缩归因（oracle 解析边际贪心迁移） | step4.6_q4_collapse.py:oracle_migration | q4_collapse.json |
 
 ## 产物清单（output/clean/）
 workload_clean.csv / region_time_clean.csv / whitelist.csv / occupancy_local.csv

@@ -34,13 +34,14 @@ mathorcup 环境（Python 3.13.12, pandas 3.0.2, torch 2.11+cu130, tabpfn 7.1.1,
 ## Step 规划（math-name 规范，代码平铺根目录）
 step0 数据地基 ✅ → step1 Q1（预测+基础调度）✅ → R0-R3 建模缺口闭环 ✅
 → step2 Q2（三段式调度）✅ → step3 Q3（LP+场景探路 ✅，MPC 全量=M4 暂缓）
-→ S9 结构完备性全谱侦察 ✅ → step4 Q4 → step5 消融/论文图
+→ S9 结构完备性全谱侦察 ✅ → step4 Q4（双层定稿 ✅）→ step5 消融/论文图
 
 ## 里程碑
 M1 数据地基+EDA 证据链（D1-D9） ✅
 M2 step1 预测竞技榜+基础调度基线 ✅ → M3 step2 三段式调度+规则提取 ✅
 Q3 探路 ✅（LP 六区域+场景框架）→ S9 全谱侦察+评估链修复 ✅
-M4 step3 LP+MPC+Sobol（暂缓，用户边界）→ M5 step4 双层+压力矩阵 → M6 step5 消融+论文素材包
+M4 step3 LP+MPC+Sobol ✅ → M5 step4 双层+压力矩阵 ✅（sum_11 定稿）
+→ M6 step5 消融+论文素材包（下一步）
 
 ## 风险
 NSGA-II 计算量 → 任务批聚合(约500批)+固定α扫θ；MPC 场景爆炸 → K-means 缩减 8-16；
