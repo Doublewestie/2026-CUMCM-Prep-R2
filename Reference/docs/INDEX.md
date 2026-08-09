@@ -45,6 +45,19 @@
 | L1 | step0.7_nonai_layered.py（NonAI 恒等式分层） | output/robust/nonai_layered.json | ✅ |
 | L4 | step0.7_rolling_energy.py（滚动重估适用域裁决） | output/robust/rolling_energy_price.json | ✅ |
 | L10 | step1.1/1.5（点模型 cov 剔除 + seg_price_level train-only + QRF 修复） | tests/test_identity.py 守卫 | ✅ |
+| Q3-M4 | step3.2_q3_indicators.py（四指标评估器+基准对照） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.3_q3_dr_reverse.py（DR 储能状态机逆向 E-DR1） | docs/sums/sum_10 + CONSTITUTION DR 条目 | ✅ |
+| Q3-M4 | step3.3+_q3_model_evolve.py（M0/M1/M2 演进+三对照+E2a/E2b） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.3++_q3_pareto.py（E1 共线/E3 双方法/E6 坍缩） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.4_q3_ablation.py（E4-E9 判别实验群） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.4+_q3_storage_rules.py（CART 策略规则+模拟损失） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.5_q3_mpc.py（确定性等价 MPC+open-loop 对照+窗口效应） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.6_q3_sobol.py（自实现 Saltelli+LHS+V2 验证门） | docs/sums/sum_10 | ✅ |
+| Q3-M4 | step3.7_q3_cross_experiments.py（X0-X14 交叉实验：斜坡/规则逐时/结算段/主时段指标） | docs/sums/sum_10 §10 | ✅ |
+| Q3-M4 | step3.7+_q3_mutex.py（充放互斥 MILP M0x——传送带假象） | docs/sums/sum_10 §10.1 | ✅ |
+| Q3-M4 | step3.7++_q3_extras.py（X15 σ 区分度 + X16 Sobol 对称） | docs/sums/sum_10 §10.2 | ✅ |
+| Q3-M4 | solve_m3/main_period_indicators（M3_final 主口径回灌） | docs/sums/sum_10 §11 | ✅ |
+| Q3-M4 | tests/test_q3.py（22 守卫，175 全绿） | docs/sums/sum_10 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |

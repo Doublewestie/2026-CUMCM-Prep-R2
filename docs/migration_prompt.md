@@ -25,8 +25,9 @@
 - `Code/Reference/docs/INDEX.md` — 公式↔代码↔文档映射
 
 ### 速读（了解近期动态）
-- `Code/docs/logs/latest_7.log` — 16 项问题修复 + E1 语义修正
-- `Code/docs/logs/latest_6.log` — 地基修复 F1-F3 + Q3 探路扩大
+- `Code/docs/logs/latest_11.log` — Q3 发现回灌定稿（M3_final 主口径/斜坡假象修正/M0x gap 验证）
+- `Code/docs/logs/latest_10.log` — Q3 M4 全量执行（DR 状态机/传送带假象/交叉实验）
+- `Code/docs/logs/latest_9.log` — S9 全谱侦察完成 + perf 验收
 
 ### 必读（代码现状）
 - 运行 `python step0_loader.py` 生成 clean/ 产物（或核验 output/clean/ 已存在）
@@ -35,7 +36,8 @@
 - 运行 `python step1.7_frozen_structure.py` 生成冻结段结构研究（R2）
 - 运行 `python step0.6_identity_proof.py` 生成恒等式集证明（S9；tests 守卫依赖）
 - 运行 `python step0.7_nonai_layered.py` 生成 NonAI 分层实验（L1）
-- 测试：`python -m pytest tests/ -q`（当前 153 passed）
+- 运行 `python step3.3_q3_dr_reverse.py` 生成 DR 储能状态机逆向（Q3 主口径基础）
+- 测试：`python -m pytest tests/ -q`（当前 175 passed）
 
 ---
 
@@ -49,15 +51,15 @@
 - **Phase 3（M3 Q2 三段式 ✅ + 准确层修复 ✅）**: step2.0 构造层（成本 −4.75%）→ step2.1 自研 NSGA-II（五方法裁决：成本端点五方法收敛=构造解）→ step2.2 CART 规则 → step2.3 时延裁决（T1）+ baseline_proof（Q2 vs local −4.57%）→ 准确层 B1-B6（类选 v3/v4 集合级 Jaccard 0.80、E1 干净对照、五方法裁决）→ 地基 F1-F3（充电口径/滚动 κ 0.965/目标共线实锤）→ 16 项问题闭环（任务侧冻结段覆盖率 88.2%、跨段 89 结清等）→ **E1 语义修正：实际任务全知下预测与预留均无价值（Q2 语境）**；sum_4-7 落盘；95 测试全绿
 - **Q3 探路 ✅（M4 主线暂缓）**: step3.0 LP（HiGHS 0.1s/区域、六区域全量：西区利用率 75-85%+负成本=弃电充电外送套利、东区充电功率瓶颈）+ step3.1 MPC 场景框架（AR(1)+K-means+窗口效应 D 0.06%/E 2.17%）
 - **S9 结构完备性全谱侦察 ✅**: step0.6 四件套（恒等式 7 关证明 I1-I13/漂移相关周期变点全谱/临界点扫描/任务机制分解）+ step0.7 两实验（NonAI 恒等式分层 L1：E/F 冻结段 22.9→4.6、滚动重估适用域 L4）+ L10 评估链修复（点模型 cov 假象剔除/seg_price_level 训练段口径/QRF warning）；恒等式集入 CONSTITUTION；153 测试全绿
+- **Q3 M4 全量 ✅（sum_10）**: DR 储能状态机逆向（时段模板六区同构/充放互斥/SOC 全深度循环）→ 模型演进 M0/M1/M2/M3_final → **M3_final 主口径**（时段状态机+结算段禁充+终态严格+生成器量级斜坡，主时段指标）→ **互斥物理上界 M0x**（传送带假象实证：无互斥 LP 同时充放 91-97%）→ 交叉实验矩阵（斜坡物理性/规则逐时/σ 区分度/Sobol 对称）→ MPC/Sobol；175 测试全绿
 
 ### 待完成（按优先级）
-1. **M4（暂缓，用户边界）**: step3 MPC 全量 + Sobol 完整版（LP 已铺路：0.1s/区域、场景框架、窗口效应已知；W 公式模板已入场景生成）
-2. **M5**: step4 双层 + 压力矩阵
-3. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；恒等式集=口径公理章素材）
+1. **M4 收尾项**: step4 Q4 双层 NSGA-II×LP（solve_region_timed 为下层组件，Q3 主口径 M3_final）+ 影子价格 + 压力矩阵
+2. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；Q3 主口径见 sum_10 §11）
 
 ### 当前聚焦
-**S9 已完成**（恒等式集/NonAI 分层/评估链修复，153 测试全绿）；M4 主线待用户放开后执行 MPC 全量。
-文档维护中（INDEX/migration_prompt/README/CONSTITUTION 已同步至 sum_9）。
+**Q3 M4 已定稿**（M3_final 主口径 + M0x 上界，175 测试全绿）；下一步 Q4（step4 双层）。
+文档维护中（INDEX/migration_prompt/README/CONSTITUTION 已同步至 sum_10/latest_11）。
 
 ---
 
