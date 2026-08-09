@@ -1,0 +1,13 @@
+2026-08-09 文档体系完善（P1-P7，用户批准）
+
+- 21:00 文档体系评判：5 处缺口（INDEX 未同步/migration_prompt 落后/README 落后/
+  缺高层总结/缺错误总账）
+- 21:20 P1 INDEX.md 全量同步（sum_5-7 全部 step 映射，11 行新增）
+- 21:30 P2 migration_prompt Step 2/3 更新（sum_6-8/reviews/当前聚焦 M4 暂缓）
+- 21:40 P3 README 进度更新（M3 ✅/Q3 探路/95 测试/速览表扩充）
+- 22:00 P4 sum_8 高层总结与论文叙事（叙事主线 7 环节/教训清单 14 条/素材就绪度表）
+- 22:20 P5 review_A11 错误修复总账（A0 后 18 条动态清单：17-34 号，16 已修/2 M6）
+- 22:40 P6 CONSTITUTION 补口径（类选 v4/κ 双版本/E1 语义/跨段 89/充电选项）
+- 23:00 P7 commit ff352c0 + push
+- 文档体系现状：logs 9 篇/sums 8 篇/reviews 4 篇/specs 2 篇/INDEX 全映射/
+  migration_prompt 实时——"说清"达标
