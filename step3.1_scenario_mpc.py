@@ -32,9 +32,17 @@ FIG_Q3 = FIGURES / "step3"
 
 def gen_scenarios(rt: pd.DataFrame, r: str, n_scen: int = 64,
                   sigma: float = 0.2, phi: float = 0.8) -> np.ndarray:
-    """AR(1) 扰动场景：W 模板 × (1+ε_t)，ε_t=φ·ε_{t-1}+σ·z_t。"""
+    """AR(1) 扰动场景：W 模板 × (1+ε_t)，ε_t=φ·ε_{t-1}+σ·z_t。
+
+    L5（T1 实证投产）: W 模板 = round(800 + 300·sin(2π(h−4)/24), 2) 的确定性
+    阶梯模板（数据列=公式，max 残差 0.0043MW）——扰动乘在确定性模板上。
+    """
     sub = rt[rt.Region == r].sort_values("Hour")
     W = sub["AvailableRenewable_MW"].to_numpy()
+    h = np.arange(len(W))
+    formula = np.round(800 + 300 * np.sin(2 * np.pi * (h - 4) / 24), 2)
+    max_dev = float(np.max(np.abs(W - formula)))
+    assert max_dev < 0.05, f"{r} W 模板与公式偏差 {max_dev}（T1 实证应 <0.005）"
     T = len(W)
     rng = np.random.RandomState(hash(r) % 2**32)
     S = np.zeros((n_scen, T))

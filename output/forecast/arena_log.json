@@ -7,19 +7,19 @@
     "region_time_clean.csv": "c37e88dd689a44b3",
     "series_arrivals.csv": "b9ca27173d8b990f",
     "series_gpu_demand.csv": "c31bca3214ea1c4f",
-    "storage_params.csv": "a230a86195651a67"
+    "soc_rebuilt.csv": "460b6b3795204f13"
   },
   "torch_cuda": true,
   "python": "3.13.12",
-  "start": "2026-08-08 01:35:19",
-  "resume": true,
+  "start": "2026-08-09 15:02:36",
+  "calibration": {
+    "first_series_s": 41.1,
+    "projected_total_h": 0.48
+  },
   "passed_counts": {
-    "task": 1,
+    "task": 0,
     "energy": 18,
     "passed_models": {
-      "RegionC|RealTimeInference": [
-        "tabpfn"
-      ],
       "energy|RegionA|price": [
         "lgbm_point",
         "xgboost_point",
@@ -204,10 +204,7 @@
       "fuse": "统计基线(无入选)"
     },
     "RegionC|RealTimeInference": {
-      "fuse": "入选模型等权分位数",
-      "names": [
-        "tabpfn"
-      ]
+      "fuse": "统计基线(无入选)"
     },
     "RegionC|BatchInference": {
       "fuse": "统计基线(无入选)"
@@ -264,8 +261,8 @@
     },
     "energy|RegionA|price": {
       "fuse": "stacking",
-      "meta_mape": 0.2883843284416415,
-      "best_single_mape": 1.0413620698783925,
+      "meta_mape": 0.2903160223835395,
+      "best_single_mape": 1.0790458214893381,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -297,8 +294,8 @@
     },
     "energy|RegionB|price": {
       "fuse": "stacking",
-      "meta_mape": 0.29386556151287196,
-      "best_single_mape": 1.0908247145261019,
+      "meta_mape": 0.29139466166884914,
+      "best_single_mape": 1.0985001283387636,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -330,8 +327,8 @@
     },
     "energy|RegionC|price": {
       "fuse": "stacking",
-      "meta_mape": 0.2996348159206775,
-      "best_single_mape": 1.1229457152568487,
+      "meta_mape": 0.30621654125816955,
+      "best_single_mape": 1.093129208330067,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -363,8 +360,8 @@
     },
     "energy|RegionD|price": {
       "fuse": "stacking",
-      "meta_mape": 0.30017180181046793,
-      "best_single_mape": 1.1302544527375367,
+      "meta_mape": 0.30123763585646707,
+      "best_single_mape": 1.1320560369259607,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -396,8 +393,8 @@
     },
     "energy|RegionE|price": {
       "fuse": "stacking",
-      "meta_mape": 0.2987521368220082,
-      "best_single_mape": 1.017164949913688,
+      "meta_mape": 0.29438414783764,
+      "best_single_mape": 1.0666377060238623,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -429,8 +426,8 @@
     },
     "energy|RegionF|price": {
       "fuse": "stacking",
-      "meta_mape": 0.2988288552397682,
-      "best_single_mape": 1.0935481763555723,
+      "meta_mape": 0.29719727879303276,
+      "best_single_mape": 1.0978593270843218,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -462,8 +459,8 @@
     },
     "energy|RegionA|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 0.5493431883840849,
-      "best_single_mape": 0.11405316813726542,
+      "meta_mape": 0.5490087891415534,
+      "best_single_mape": 0.11519975431735399,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -503,8 +500,8 @@
     },
     "energy|RegionB|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 0.6035592032067622,
-      "best_single_mape": 0.11955018187258296,
+      "meta_mape": 0.6029672572685307,
+      "best_single_mape": 0.11787780618465588,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -544,8 +541,8 @@
     },
     "energy|RegionC|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 0.6487084269775595,
-      "best_single_mape": 0.11952353350220321,
+      "meta_mape": 0.6474538047009643,
+      "best_single_mape": 0.11771784112476924,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -585,8 +582,8 @@
     },
     "energy|RegionD|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 0.892856166543127,
-      "best_single_mape": 0.1183848239415146,
+      "meta_mape": 0.8913565019423543,
+      "best_single_mape": 0.11603348345370819,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -626,8 +623,8 @@
     },
     "energy|RegionE|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 1.453895655475917,
-      "best_single_mape": 0.1205806508681529,
+      "meta_mape": 1.4526242840576449,
+      "best_single_mape": 0.11738847380304825,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -667,8 +664,8 @@
     },
     "energy|RegionF|carbon": {
       "fuse": "最优单模型(等权OOF均值)",
-      "meta_mape": 1.3282686289055081,
-      "best_single_mape": 0.11998773142802811,
+      "meta_mape": 1.3268157506807414,
+      "best_single_mape": 0.11587343768761163,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -708,8 +705,8 @@
     },
     "energy|RegionA|nonai": {
       "fuse": "stacking",
-      "meta_mape": 4.068143795007314,
-      "best_single_mape": 4.219365658831835,
+      "meta_mape": 4.072500400142728,
+      "best_single_mape": 4.217007380544963,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -741,8 +738,8 @@
     },
     "energy|RegionB|nonai": {
       "fuse": "stacking",
-      "meta_mape": 3.9962240637024733,
-      "best_single_mape": 4.072419523387243,
+      "meta_mape": 3.9903930448245717,
+      "best_single_mape": 4.0675161708609675,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -774,8 +771,8 @@
     },
     "energy|RegionC|nonai": {
       "fuse": "stacking",
-      "meta_mape": 3.9283799845816216,
-      "best_single_mape": 4.036337721056282,
+      "meta_mape": 3.9259944004227854,
+      "best_single_mape": 4.033777540737582,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -807,8 +804,8 @@
     },
     "energy|RegionD|nonai": {
       "fuse": "stacking",
-      "meta_mape": 11.240741470965215,
-      "best_single_mape": 11.57457068157835,
+      "meta_mape": 11.20907906373086,
+      "best_single_mape": 11.57844148144821,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -848,8 +845,8 @@
     },
     "energy|RegionE|nonai": {
       "fuse": "stacking",
-      "meta_mape": 9.380365933920702,
-      "best_single_mape": 10.11828662363655,
+      "meta_mape": 9.3584438143579,
+      "best_single_mape": 10.11447201311416,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -889,8 +886,8 @@
     },
     "energy|RegionF|nonai": {
       "fuse": "stacking",
-      "meta_mape": 8.073646314008492,
-      "best_single_mape": 8.356613850512018,
+      "meta_mape": 8.087500776734213,
+      "best_single_mape": 8.356519318868049,
       "names": [
         "lgbm_point",
         "xgboost_point",
@@ -929,6 +926,6 @@
       ]
     }
   },
-  "elapsed_s": 1566.8,
-  "end": "2026-08-08 02:01:26"
+  "elapsed_s": 3282.9,
+  "end": "2026-08-09 15:57:19"
 }

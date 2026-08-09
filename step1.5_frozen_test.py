@@ -63,12 +63,8 @@ def eval_frozen(s11, name, info):
             else:
                 m.fit(X.iloc[:SEG_TRAIN], y[:SEG_TRAIN])
                 point = m.predict_point(X.iloc[seg], 0)
-                q = m.predict_quantile(X.iloc[seg], 0)
-                if q is None:
-                    sd = float(np.std(y[:SEG_TRAIN])) + 1e-8
-                    z = np.array([-1.2816, 0.0, 1.2816])
-                    q = {a: point + z[i] * sd
-                         for i, a in enumerate((0.10, 0.50, 0.90))}
+                q = m.predict_quantile(X.iloc[seg], 0)  # L10: 点模型 q=None
+                # （原实现合成全序列 std 区间 -> cov≈1.0 度量假象，已移除）
             sc = s11.evaluate_fold(info["layer"], y_true, point, q)
             rows.append({"model": m.name, "family": m.family,
                          "mape": sc["mape"], "rmse": sc["rmse"],

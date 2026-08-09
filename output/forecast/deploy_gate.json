@@ -6,17 +6,17 @@
   "cv_best_dist": {
     "tabpfn": 18,
     "gbm_quantile": 6,
+    "deep_tcn": 6,
     "xgboost_point": 6,
-    "deep_lstm": 5,
-    "qrf_quantile": 4,
-    "deep_tcn": 3
+    "deep_lstm": 3,
+    "qrf_quantile": 3
   },
   "deploy_best_dist": {
     "lgbm_quantile": 6,
     "lgbm_point": 6,
-    "qrf_quantile": 2,
+    "gbm_quantile": 2,
     "xgboost_point": 1,
-    "gbm_quantile": 1
+    "qrf_quantile": 1
   },
   "per_series": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "series": "RegionB|AITraining",
-      "cv_best": "deep_lstm",
+      "cv_best": "deep_tcn",
       "deploy_best": null,
       "mismatch": true
     },
@@ -69,7 +69,7 @@
     },
     {
       "series": "RegionC|RealTimeInference",
-      "cv_best": "qrf_quantile",
+      "cv_best": "deep_lstm",
       "deploy_best": null,
       "mismatch": true
     },
@@ -99,7 +99,7 @@
     },
     {
       "series": "RegionE|BatchInference",
-      "cv_best": "deep_lstm",
+      "cv_best": "deep_tcn",
       "deploy_best": null,
       "mismatch": true
     },
@@ -117,7 +117,7 @@
     },
     {
       "series": "RegionF|BatchInference",
-      "cv_best": "deep_lstm",
+      "cv_best": "deep_tcn",
       "deploy_best": null,
       "mismatch": true
     },
@@ -208,7 +208,7 @@
     {
       "series": "energy|RegionD|nonai",
       "cv_best": "tabpfn",
-      "deploy_best": "qrf_quantile",
+      "deploy_best": "gbm_quantile",
       "mismatch": true
     },
     {
@@ -281,97 +281,97 @@
       {
         "series": "RegionA|AITraining",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.57
+        "gap_std_ratio": 0.51
       },
       {
         "series": "RegionA|BatchInference",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.18
+        "gap_std_ratio": 0.22
       },
       {
         "series": "RegionA|RealTimeInference",
         "cv_best": "deep_lstm",
-        "gap_std_ratio": 0.71
+        "gap_std_ratio": 0.11
       },
       {
         "series": "RegionB|AITraining",
-        "cv_best": "deep_lstm",
+        "cv_best": "deep_tcn",
         "gap_std_ratio": 0.06
       },
       {
         "series": "RegionB|BatchInference",
         "cv_best": "deep_tcn",
-        "gap_std_ratio": 0.01
+        "gap_std_ratio": 0.07
       },
       {
         "series": "RegionB|RealTimeInference",
         "cv_best": "qrf_quantile",
-        "gap_std_ratio": 0.21
+        "gap_std_ratio": 0.19
       },
       {
         "series": "RegionC|AITraining",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.28
+        "gap_std_ratio": 0.25
       },
       {
         "series": "RegionC|BatchInference",
         "cv_best": "deep_tcn",
-        "gap_std_ratio": 0.19
+        "gap_std_ratio": 0.11
       },
       {
         "series": "RegionC|RealTimeInference",
-        "cv_best": "qrf_quantile",
-        "gap_std_ratio": 0.12
+        "cv_best": "deep_lstm",
+        "gap_std_ratio": 0.05
       },
       {
         "series": "RegionD|AITraining",
         "cv_best": "qrf_quantile",
-        "gap_std_ratio": 0.32
+        "gap_std_ratio": 0.21
       },
       {
         "series": "RegionD|BatchInference",
         "cv_best": "deep_tcn",
-        "gap_std_ratio": 0.34
+        "gap_std_ratio": 0.13
       },
       {
         "series": "RegionD|RealTimeInference",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.49
+        "gap_std_ratio": 0.51
       },
       {
         "series": "RegionE|AITraining",
         "cv_best": "deep_lstm",
-        "gap_std_ratio": 0.31
+        "gap_std_ratio": 0.62
       },
       {
         "series": "RegionE|BatchInference",
-        "cv_best": "deep_lstm",
-        "gap_std_ratio": 0.19
+        "cv_best": "deep_tcn",
+        "gap_std_ratio": 0.02
       },
       {
         "series": "RegionE|RealTimeInference",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.41
+        "gap_std_ratio": 0.4
       },
       {
         "series": "RegionF|AITraining",
         "cv_best": "qrf_quantile",
-        "gap_std_ratio": 0.19
+        "gap_std_ratio": 0.13
       },
       {
         "series": "RegionF|BatchInference",
-        "cv_best": "deep_lstm",
-        "gap_std_ratio": 0.1
+        "cv_best": "deep_tcn",
+        "gap_std_ratio": 0.01
       },
       {
         "series": "RegionF|RealTimeInference",
         "cv_best": "gbm_quantile",
-        "gap_std_ratio": 0.25
+        "gap_std_ratio": 0.3
       },
       {
         "series": "energy|RegionA|nonai",
         "cv_best": "tabpfn",
-        "gap_std_ratio": 0.87
+        "gap_std_ratio": 0.81
       },
       {
         "series": "energy|RegionA|price",
@@ -381,7 +381,7 @@
       {
         "series": "energy|RegionB|nonai",
         "cv_best": "tabpfn",
-        "gap_std_ratio": 0.49
+        "gap_std_ratio": 0.55
       },
       {
         "series": "energy|RegionB|price",
@@ -391,7 +391,7 @@
       {
         "series": "energy|RegionC|nonai",
         "cv_best": "tabpfn",
-        "gap_std_ratio": 0.74
+        "gap_std_ratio": 0.84
       },
       {
         "series": "energy|RegionC|price",
@@ -416,7 +416,7 @@
       {
         "series": "energy|RegionF|nonai",
         "cv_best": "tabpfn",
-        "gap_std_ratio": 0.75
+        "gap_std_ratio": 0.74
       },
       {
         "series": "energy|RegionF|price",

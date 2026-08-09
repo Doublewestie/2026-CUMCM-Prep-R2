@@ -97,11 +97,16 @@ def make_series_dict() -> dict[str, dict]:
 
 @lru_cache(maxsize=1)
 def _price_lookup():
-    """能源侧外生特征查找表：逐时 PricePeriod + 区域段内电价水平（H1 外生已知）。"""
+    """能源侧外生特征查找表：逐时 PricePeriod + 区域段内电价水平（H1 外生已知）。
+
+    L10 修复: 段均电价水平只用训练段 0-2351 计算（原实现用全 2407h——
+    含测试段，构成目标泄露；实测泄漏量 0.013pp 但口径必须干净）。
+    """
     rt = pd.read_csv(CLEAN / "region_time_clean.csv")
+    rt_tr = rt[rt.Hour < SEG_TRAIN]
     pp = rt.pivot_table(index="Hour", columns="Region", values="PricePeriod",
                         aggfunc="first")
-    seg = rt.groupby(["Region", "PricePeriod"])[
+    seg = rt_tr.groupby(["Region", "PricePeriod"])[
         "ElectricityPrice_CNY_per_MWh"].mean().reset_index()
     level = {r: {row["PricePeriod"]: row["ElectricityPrice_CNY_per_MWh"]
                  for row in seg[seg.Region == r].to_dict("records")}
@@ -232,12 +237,14 @@ def make_tree_models(layer: str) -> list:
         family = "树类"
 
         def fit(self, X, y):
-            super().fit(X, y)
+            Xa = np.asarray(X)
+            super().fit(Xa, y)
             self._y_train = np.asarray(y, dtype=float)
             self._order = np.argsort(self._y_train)
             self._leaf_inds = []
             for t in self.estimators_:
-                leaves = t.apply(X)
+                leaves = t.apply(Xa)   # numpy：RF 子树无 feature_names_in_，
+                # 传 DataFrame 会触发 sklearn 特征名 warning（数值无影响）
                 d = {}
                 for i, l in enumerate(leaves):
                     d.setdefault(l, []).append(i)
@@ -245,14 +252,15 @@ def make_tree_models(layer: str) -> list:
             return self
 
         def predict_point(self, X, t0):
-            return self.predict(X)
+            return self.predict(np.asarray(X))
 
         def predict_quantile(self, X, t0):
             """Meinshausen QRF：叶内样本权重条件分位数（非树均值分位数）.
 
             w_i(x) = Σ_tree 1[x_i ∈ leaf_tree(x)] / n_trees，防均值化陷阱。
             """
-            app = np.stack([t.apply(X) for t in self.estimators_])
+            Xa = np.asarray(X)
+            app = np.stack([t.apply(Xa) for t in self.estimators_])
             order = self._order
             ys = self._y_train[order]
             out = np.zeros((len(QUANTILES), len(X)))
@@ -325,6 +333,7 @@ def make_deep_models(layer: str) -> list:
             self._mu = 0.0
             self._sd = 1.0
             self._state = None
+            self._net = None          # perf: 网络实例复用（predict 不重建）
 
         def _to_windows(self, y):
             w = MODEL_PARAMS["deep"]["window"]
@@ -332,12 +341,16 @@ def make_deep_models(layer: str) -> list:
             return xw, y[w:]
 
         def _build_net(self):
-            p = MODEL_PARAMS["deep"]
-            return (_TCNNet(p["window"], p["hidden"]) if self.kind == "tcn"
-                    else _LSTMNet(p["window"], p["hidden"])).to(self.dev)
+            """perf: 网络实例缓存——fit 重建一次，predict 复用（加载 best state）。"""
+            if self._net is None:
+                p = MODEL_PARAMS["deep"]
+                self._net = (_TCNNet(p["window"], p["hidden"]) if self.kind == "tcn"
+                             else _LSTMNet(p["window"], p["hidden"])).to(self.dev)
+            return self._net
 
         def fit(self, y_tr, y_va=None):
             p = MODEL_PARAMS["deep"]
+            self._net = None          # perf: 每次 fit 强制重建（跨折状态隔离）
             xw, yw = self._to_windows(y_tr)
             self._mu = float(yw.mean())
             self._sd = float(yw.std()) + 1e-8
@@ -350,6 +363,13 @@ def make_deep_models(layer: str) -> list:
                 torch.tensor((yw - self._mu) / self._sd, dtype=torch.float32))
             dl = torch.utils.data.DataLoader(ds, batch_size=p["batch"],
                                              shuffle=True, generator=torch.Generator().manual_seed(SEED))
+            xva_t = None
+            yva_ref = None
+            if y_va is not None and len(y_va) >= p["window"] + 2:
+                xva, yva = self._to_windows(y_va)
+                xva_t = torch.tensor((xva - self._mu) / self._sd,
+                                     dtype=torch.float32).unsqueeze(1).to(self.dev)
+                yva_ref = (yva - self._mu) / self._sd   # float64 参照（与原版一致）
             best, patience = float("inf"), 0
             net.train()
             for ep in range(p["epochs"]):
@@ -360,14 +380,11 @@ def make_deep_models(layer: str) -> list:
                     loss.backward()
                     opt.step()
                 val_loss = float("inf")
-                if y_va is not None and len(y_va) >= p["window"] + 2:
-                    xva, yva = self._to_windows(y_va)
-                    xva = (xva - self._mu) / self._sd
+                if xva_t is not None:      # perf: 验证张量一次性构建，逐 epoch 复用
                     net.eval()
                     with torch.no_grad():
-                        pred = net(torch.tensor(xva, dtype=torch.float32)
-                                   .unsqueeze(1).to(self.dev)).cpu().numpy().ravel()
-                    val_loss = float(np.mean((pred - (yva - self._mu) / self._sd) ** 2))
+                        pred = net(xva_t).cpu().numpy().ravel()
+                    val_loss = float(np.mean((pred - yva_ref) ** 2))
                     net.train()
                 if val_loss < best:
                     best = val_loss
@@ -382,23 +399,27 @@ def make_deep_models(layer: str) -> list:
             return self
 
         def _predict_roll(self, n):
+            """perf: 滚动预测 GPU 化——w 保持 GPU tensor，消除逐点 CPU-GPU 往返。"""
             p = MODEL_PARAMS["deep"]
             net = self._build_net()
             net.load_state_dict(self._state)
             net.eval()
-            w = np.asarray(self._hist[-p["window"]:], dtype=float)
-            out = []
-            for i in range(n):
-                xt = torch.tensor((w - self._mu) / self._sd,
-                                  dtype=torch.float32).view(1, 1, -1)
-                with torch.no_grad():
-                    pred = net(xt.to(self.dev)).item() * self._sd + self._mu
-                out.append(pred)
-                nxt = (self._actual[i] if (self._actual is not None
-                                           and i < len(self._actual))
-                       else pred)
-                w = np.r_[w[1:], nxt]
-            return np.asarray(out)
+            hist = np.asarray(self._hist[-p["window"]:], dtype=float)
+            w = torch.tensor((hist - self._mu) / self._sd,
+                             dtype=torch.float32).view(1, 1, -1).to(self.dev)
+            out = np.zeros(n)
+            with torch.no_grad():
+                for i in range(n):
+                    pred = net(w)                    # (1,1) 前向留在 GPU
+                    out[i] = pred.item() * self._sd + self._mu
+                    if (self._actual is not None and i < len(self._actual)):
+                        nw = torch.tensor([[(self._actual[i] - self._mu) / self._sd]],
+                                          dtype=torch.float32,
+                                          device=self.dev).view(1, 1, 1)
+                    else:
+                        nw = pred.view(1, 1, 1)   # fix: pred 是 (1,1)，cat 需 3 维
+                    w = torch.cat([w[:, :, 1:], nw], dim=2)
+            return out
 
         def predict_point(self, X, t0):
             return self._predict_roll(len(X))
@@ -474,7 +495,9 @@ def build_model_pool(layer: str) -> list:
 
 
 def evaluate_fold(layer: str, y_true: np.ndarray, point: np.ndarray,
-                  q: dict) -> dict:
+                  q: dict | None) -> dict:
+    """分层指标；q=None（点模型）时 cov/width/pinball 无定义 -> None（L10 修复：
+    原实现用全序列 std 合成区间，产出无意义的 cov≈1.0 假象）。"""
     mape = float("nan")
     if layer == "energy":
         mape = float(np.mean(np.abs(y_true - point) / (np.abs(y_true) + 1e-9)) * 100)
@@ -483,6 +506,9 @@ def evaluate_fold(layer: str, y_true: np.ndarray, point: np.ndarray,
         if pos.any():
             mape = float(np.mean(np.abs(y_true[pos] - point[pos]) / y_true[pos]) * 100)
     rmse = float(np.sqrt(np.mean((y_true - point) ** 2)))
+    if q is None:
+        return {"mape": mape, "rmse": rmse, "cov": None, "width": None,
+                "pinball": None}
     q10, q50, q90 = q[0.10], q[0.50], q[0.90]
     cov = float(np.mean((y_true >= q10) & (y_true <= q90)))
     width = float(np.mean(q90 - q10))
@@ -511,6 +537,7 @@ def run_cv_series(name: str, layer: str, y: np.ndarray, X: pd.DataFrame,
         scores = []
         try:
             for tr, va in tscv.split(np.arange(SEG_TRAIN)):
+                seed_everything(SEED)   # 可复现性：每折 fit 前重置全局 RNG
                 t0 = int(tr[-1]) + 1
                 m = _fresh_model(m)
                 y_tr, y_va = y[tr], y[va]
@@ -527,14 +554,12 @@ def run_cv_series(name: str, layer: str, y: np.ndarray, X: pd.DataFrame,
                     else:
                         m.fit(X_tr, y_tr)
                     point = m.predict_point(X_va, t0)
-                    q = m.predict_quantile(X_va, t0)
-                    if q is None:
-                        sd = float(np.std(y_tr)) + 1e-8
-                        z = norm.ppf(QUANTILES)
-                        q = {a: point + z[i] * sd for i, a in enumerate(QUANTILES)}
+                    q = m.predict_quantile(X_va, t0)  # L10: 点模型 q=None（不再合成
+                    # 全序列 std 区间——该合成产出 cov≈1.0 的度量假象）
                 assert not np.isnan(point).any(), f"{m.name} point 含 NaN"
-                for k, v in q.items():
-                    assert not np.isnan(v).any(), f"{m.name} q{k} 含 NaN"
+                if q is not None:
+                    for k, v in q.items():
+                        assert not np.isnan(v).any(), f"{m.name} q{k} 含 NaN"
                 scores.append(evaluate_fold(layer, y_va, point, q))
             sdf = pd.DataFrame(scores)
             rows.append({
@@ -567,6 +592,8 @@ def apply_gate(row: dict, base: dict) -> str:
     if base is None:
         return "通过:统计基线(门)"
     if row["layer"] == "task":
+        if row.get("cov_mean") is None or np.isnan(row["cov_mean"]):
+            return "拒绝:点模型无分位数（任务侧裁决=覆盖率/pinball）"  # L10
         cov_gain = row["cov_mean"] - base["cov_mean"]
         cov_sig = (cov_gain >= base["cov_std"] and row["cov_mean"] >= 0.90
                    and cov_gain > 0)
@@ -660,6 +687,7 @@ def fuse_energy(y: np.ndarray, X: pd.DataFrame, pool: list,
     for tr, va in tscv.split(np.arange(SEG_TRAIN)):
         t0 = int(tr[-1]) + 1
         for m0 in passed:
+            seed_everything(SEED)   # 可复现性：融合 OOF 每折 fit 前重置 RNG
             m = _fresh_model(m0)
             if m.family == "深度":
                 m._hist = y[tr].copy()
@@ -685,6 +713,7 @@ def fuse_energy(y: np.ndarray, X: pd.DataFrame, pool: list,
 
     full, full_w = {}, {}
     for m0 in passed:
+        seed_everything(SEED)   # 可复现性：全段 fit 前重置 RNG
         m = _fresh_model(m0)
         if m.family == "深度":
             m._hist = y[:MODEL_PARAMS["deep"]["window"]].copy()
@@ -729,6 +758,7 @@ def fuse_task(y: np.ndarray, pool: list, passed: list) -> tuple[dict, dict]:
             m.fit(y[:SEG_TRAIN], y[SEG_TRAIN - 100:SEG_TRAIN])
             q = m.predict_quantile(None, 0)
         else:
+            seed_everything(SEED)
             m.fit(X_task.iloc[:SEG_TRAIN], y[:SEG_TRAIN])
             q = m.predict_quantile(X_task, 0)
         for a in QUANTILES:
@@ -830,17 +860,19 @@ def main() -> None:
             log.setdefault("fuse_task", {})[name] = fmeta
 
     hour_idx = pd.RangeIndex(HOURS_TOTAL, name="Hour")
-    fuse_t = pd.DataFrame({"Hour": hour_idx})
+    tcols = {"Hour": hour_idx}          # perf: 一次构建，避免逐列 insert 碎片化
     for name in act_t:
         for a in ALL_QUANTILES:
-            fuse_t[f"{name}_q{int(a*100)}"] = qkappa[a][name]
-        fuse_t[f"{name}_actual"] = act_t[name]
+            tcols[f"{name}_q{int(a*100)}"] = qkappa[a][name]
+        tcols[f"{name}_actual"] = act_t[name]
+    fuse_t = pd.DataFrame(tcols)
     fuse_t.to_csv(OUT_F / "fuse_quantiles_task.csv", index=False,
                   encoding="utf-8-sig")
-    fuse_e = pd.DataFrame({"Hour": hour_idx})
+    ecols = {"Hour": hour_idx}
     for name in act_e:
-        fuse_e[f"{name}_pred"] = pred_e[name]
-        fuse_e[f"{name}_actual"] = act_e[name]
+        ecols[f"{name}_pred"] = pred_e[name]
+        ecols[f"{name}_actual"] = act_e[name]
+    fuse_e = pd.DataFrame(ecols)
     fuse_e.to_csv(OUT_F / "fuse_point_energy.csv", index=False,
                   encoding="utf-8-sig")
 
