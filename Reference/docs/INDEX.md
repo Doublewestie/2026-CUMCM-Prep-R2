@@ -38,6 +38,13 @@
 | C4 | tests/test_algorithm_correctness.py（算法正确性） | docs/sums/sum_7 | ✅ |
 | 审查 | docs/reviews/review_A0/A1-A6/B8（错误清算/审查/正确率清单） | — | ✅ |
 | 总结 | docs/sums/sum_8_高层总结与论文叙事.md | 论文叙事总纲 | ✅ |
+| S9 | step0.6_identity_proof.py（恒等式 7 关证明 I1-I13） | docs/sums/sum_9 + CONSTITUTION 恒等式集 | ✅ |
+| S9 | step0.6_spectrum.py（D1-D7 漂移/相关/周期/变点全谱） | docs/sums/sum_9 | ✅ |
+| S9 | step0.6_thresholds.py（T1-T9 临界点：W 公式/SellLimit/SOC 边界） | docs/sums/sum_9 + CONSTITUTION | ✅ |
+| S9 | step0.6_mechanism.py（M1-M4：三因子分解/分数 Overlap 破案） | docs/sums/sum_9 | ✅ |
+| L1 | step0.7_nonai_layered.py（NonAI 恒等式分层） | output/robust/nonai_layered.json | ✅ |
+| L4 | step0.7_rolling_energy.py（滚动重估适用域裁决） | output/robust/rolling_energy_price.json | ✅ |
+| L10 | step1.1/1.5（点模型 cov 剔除 + seg_price_level train-only + QRF 修复） | tests/test_identity.py 守卫 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |

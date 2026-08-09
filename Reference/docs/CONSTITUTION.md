@@ -10,6 +10,17 @@
 - SOC 递推: SOC(t) = SOC(t−1) + ηc·ChargePower(t) − DischargePower(t)/ηd
 - 新能源利用率 = (直接消纳 + 新能源充电 + 外送) / 可用新能源
 
+## 恒等式集（step0.6 七关证明，output/clean/identity_proof.json，实证入册）
+- I1 IT_Load = NonAI + Baseline_AI（六区逐点 rel 6e-10）；I13 Total_Load = IT_Load×PUE
+- I2 功率平衡（W=Available 全进口径实证；UsedRenewable 变体不成立）
+- I3 碳排 = 购电×碳强度；I4 NetGrid = 购−售；I7 充电 = 购电充电+新能源充电
+- I5 利用率 ≡ 1−Q/W；I6 SOC 递推（分区效率）；I10 消纳 = c_r(h)×Total_Load（主时段）
+- I11 生成口径：Baseline_AI = Σ g×P×overlap_frac（分数重叠；ceil 整点总量等价/逐时差 15%）
+- W 精确公式: W = round(800+300·sin(2π(h−4)/24), 2)（六区同，max 残差 0.0043MW）
+- 模板族（D6 周期谱）: renewable 日模板 / carbon 周模板 / GridSell·GridCharge·SOC 强周期
+- 价格 t=1245 变点: 六区同步等比缩放 0.955（三时段同幅）
+- 冻结段任务收尾结构: AI 漂移谱区域异构（A−21/B+18/C−28/D−20/E+55/F+52），AT 数量主导
+
 ## 约束（不可变）
 - GPU 容量: 调度占用 ≤ Available_GPU（A630 B585 C540 D1472 E1012 F966）
 - 时延白名单: 实时≤20ms / 批量≤80ms / 训练≤150ms（预计算可达集合）
@@ -30,6 +41,12 @@
 - E1 语义: 实际任务全知下预测与预留均无价值（Q2 语境，说明 2 推论）；
   κ 过度预留实证（真 κ 版 gap 4.81pp = 需求水平被当预留）
 - 跨段任务定义: 执行跨入收尾段（StartHour+dur>2399），实测 89 个（RT 24+弹性 65）
+- 临界点（step0.6_thresholds）: GridSell 顶 SellLimit（D 86%/E 66%/F 63% 饱和）；
+  SOC 顶 Cap（A-C 62%/D-F 50-54%）；W 永不瓶颈；谷价充电阈值（价格>60 分位充电恒 0）
+- NonAI 分层口径（L1）: NonAÎ = IT_Load 模板 − AI 实际（I1 投产；E/F 冻结段 22.9→4.6）；
+  均值口径与直接模板数学等价（S2≡S0）——增益=AI 实际信息（说明2 合法）
+- 点模型不产出 cov/width/pinball（L10：原 ±1.28σ 合成 = cov≈1.0 度量假象）；
+  确定性序列（renewable/carbon 模板）覆盖率为退化指标
 
 ## 工程纪律
 - 环境: mathorcup（D:\Anaconda\envs\mathorcup\python.exe）；pandas 3.0.2
