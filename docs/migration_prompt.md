@@ -39,6 +39,7 @@
 - 运行 `python step0.6_identity_proof.py` 生成恒等式集证明（S9；tests 守卫依赖）
 - 运行 `python step0.7_nonai_layered.py` 生成 NonAI 分层实验（L1）
 - 运行 `python step3.3_q3_dr_reverse.py` 生成 DR 储能状态机逆向（Q3 主口径基础）
+- 运行 `python step3.8_q3_rigor.py` 生成 Q3 严谨性四件套（双锚分解/斜坡活跃率/终态对称性/分窗分布）
 - 运行 `python step4.0_q4_bilevel.py` 生成 Q4 双层正式前沿（默认 40×30×3；
   `--smoke` 12/4/1 供 CI；`--pop/--gen/--seed` 灵活预算；产物含收敛曲线+种子方差）
 - 运行 `python step4.1_q4_indicators.py` 生成 Q4 六指标章程
@@ -46,7 +47,7 @@
 - 运行 `python step4.3_q4_scenarios.py` 生成压力矩阵（波动峰值双口径/碳杠杆三族）
 - 运行 `python step4.4_q4_ablation.py` / `step4.5_q4_rules.py` 消融与规则层
 - 运行 `python step4.6_q4_collapse.py` 生成前沿坍缩归因判别（储能结构锁定）
-- 测试：`python -m pytest tests/ -q`（当前 195 passed）
+- 测试：`python -m pytest tests/ -q`（当前 200 passed）
 
 ---
 
@@ -64,8 +65,8 @@
 - **Q4 定稿 ✅（sum_11，本轮）**: 正式预算 40×30×3（收敛曲线+种子方差 0.014%）→ α 游戏化修复（固定 0.5）→ 前沿坍缩归因（**储能结构锁定**【实证】：跨度 0.14-0.55% vs Q2 4.57%，oracle 反噬 −3.4% 相位错配）→ 碳杠杆三族全败 + **任务层碳杠杆上限 0.239%**（结构性）→ 影子价格对偶验证门（**储能 LP 退化**【实证】：marginals 不可投产，数值差分为准，π_sell 唯一可行载体）→ 波动峰值双口径 → 195 测试全绿
 
 ### 待完成（按优先级）
-1. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；Q3 主口径见 sum_10 §11；Q4 口径见 sum_11 §八）
-2. **Q3 反思 P1 项**（sum_11 §九）：无储能双锚/分窗分布/斜坡活跃率/基准终态对称性/全网峰值/波动 MPC 跨题闭环（复用 Q4 评估器）
+1. **M6**: step5 消融 A-J + baseline_proof + 论文写作（叙事总纲见 sum_8；Q3 主口径见 sum_10 §11 + step3.8 双锚；Q4 口径见 sum_11 §八）
+2. **Q3 反思 P2 项**（sum_11 §九）：全网峰值/波动 MPC 跨题闭环/循环寿命/CVaR/弃电边际价值曲线（按论文需要取舍）
 
 ### 当前聚焦
 **Q4 已定稿**（正式预算 + 坍缩归因 + 碳杠杆结论 + 对偶退化，195 测试全绿）；下一步 M6（论文素材包）或 Q3 反思 P1 项。

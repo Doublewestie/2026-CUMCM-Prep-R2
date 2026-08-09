@@ -1,0 +1,1263 @@
+{
+ "regions": {
+  "RegionA": {
+   "baseline": {
+    "cost_wan": 62302.2579338745,
+    "carbon_t": 581269.70007832,
+    "peak_main_MW": 497.0016,
+    "std_main_MW": 94.6412076581116,
+    "ramp_main_MW": 139.9568,
+    "nu_pct": 8.642155582159038
+   },
+   "no_storage": {
+    "cost_wan": 64601.01129265165,
+    "carbon_t": 594466.0205129369,
+    "peak_main_MW": 479.0016027915427,
+    "std_main_MW": 79.38913346116033,
+    "ramp_main_MW": 107.75159936236639,
+    "nu_pct": 7.33011567810885
+   },
+   "m3_final": {
+    "cost_wan": 61419.92025207831,
+    "carbon_t": 574313.1739104446,
+    "peak_main_MW": 479.0016027915427,
+    "std_main_MW": 99.33736637622857,
+    "ramp_main_MW": 139.95683690664038,
+    "nu_pct": 9.26057095698295
+   },
+   "decomposition": {
+    "storage_value_wan": -3181.1,
+    "gen_subopt_wan": 2298.8,
+    "storage_value_pct": -4.924,
+    "gen_subopt_pct": 3.69
+   },
+   "slope_binding": {
+    "ramp_c_limit": 66.0,
+    "ramp_d_limit": 45.0,
+    "n_hours": 2406,
+    "binding_c_hours": 249,
+    "binding_d_hours": 399,
+    "max_dpc": 66.0,
+    "max_dpd": 45.0,
+    "binding_c_pct": 10.349,
+    "binding_d_pct": 16.584
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 206.8041,
+    "init_soc": 157.5,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 4389.4,
+     "m3_cost_wan": 4326.7,
+     "improve_vs_base_pct": 1.429,
+     "improve_vs_nostore_pct": 4.704
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 4444.5,
+     "m3_cost_wan": 4381.5,
+     "improve_vs_base_pct": 1.417,
+     "improve_vs_nostore_pct": 4.707
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 4494.7,
+     "m3_cost_wan": 4431.1,
+     "improve_vs_base_pct": 1.416,
+     "improve_vs_nostore_pct": 4.698
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 4510.1,
+     "m3_cost_wan": 4446.2,
+     "improve_vs_base_pct": 1.417,
+     "improve_vs_nostore_pct": 4.698
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 4500.2,
+     "m3_cost_wan": 4436.5,
+     "improve_vs_base_pct": 1.415,
+     "improve_vs_nostore_pct": 4.694
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 4448.3,
+     "m3_cost_wan": 4385.2,
+     "improve_vs_base_pct": 1.418,
+     "improve_vs_nostore_pct": 4.706
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 4390.5,
+     "m3_cost_wan": 4328.3,
+     "improve_vs_base_pct": 1.418,
+     "improve_vs_nostore_pct": 4.706
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 4334.4,
+     "m3_cost_wan": 4273.0,
+     "improve_vs_base_pct": 1.417,
+     "improve_vs_nostore_pct": 4.696
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 4253.8,
+     "m3_cost_wan": 4193.4,
+     "improve_vs_base_pct": 1.421,
+     "improve_vs_nostore_pct": 4.717
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 4212.0,
+     "m3_cost_wan": 4152.1,
+     "improve_vs_base_pct": 1.421,
+     "improve_vs_nostore_pct": 4.714
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 4224.6,
+     "m3_cost_wan": 4165.0,
+     "improve_vs_base_pct": 1.41,
+     "improve_vs_nostore_pct": 4.68
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 4231.5,
+     "m3_cost_wan": 4171.8,
+     "improve_vs_base_pct": 1.412,
+     "improve_vs_nostore_pct": 4.683
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 4266.4,
+     "m3_cost_wan": 4206.2,
+     "improve_vs_base_pct": 1.411,
+     "improve_vs_nostore_pct": 4.684
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 4340.5,
+     "m3_cost_wan": 4279.5,
+     "improve_vs_base_pct": 1.407,
+     "improve_vs_nostore_pct": 4.666
+    }
+   ]
+  },
+  "RegionB": {
+   "baseline": {
+    "cost_wan": 57211.5791714583,
+    "carbon_t": 519698.55152123,
+    "peak_main_MW": 467.856,
+    "std_main_MW": 86.65134307736706,
+    "ramp_main_MW": 138.97840000000002,
+    "nu_pct": 10.125782788288895
+   },
+   "no_storage": {
+    "cost_wan": 59196.92124536529,
+    "carbon_t": 530845.1762087976,
+    "peak_main_MW": 451.6560022260695,
+    "std_main_MW": 72.74246608574964,
+    "ramp_main_MW": 120.61372341488766,
+    "nu_pct": 8.941662745084022
+   },
+   "m3_final": {
+    "cost_wan": 56412.453683028936,
+    "carbon_t": 513647.77471829765,
+    "peak_main_MW": 451.6560022260695,
+    "std_main_MW": 91.22043613188661,
+    "ramp_main_MW": 132.38522706921862,
+    "nu_pct": 10.703597188137149
+   },
+   "decomposition": {
+    "storage_value_wan": -2784.5,
+    "gen_subopt_wan": 1985.3,
+    "storage_value_pct": -4.704,
+    "gen_subopt_pct": 3.47
+   },
+   "slope_binding": {
+    "ramp_c_limit": 59.0,
+    "ramp_d_limit": 40.0,
+    "n_hours": 2406,
+    "binding_c_hours": 249,
+    "binding_d_hours": 399,
+    "max_dpc": 59.00000000000001,
+    "max_dpd": 40.00000000000001,
+    "binding_c_pct": 10.349,
+    "binding_d_pct": 16.584
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 191.9613,
+    "init_soc": 144.0,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 4047.6,
+     "m3_cost_wan": 3990.8,
+     "improve_vs_base_pct": 1.403,
+     "improve_vs_nostore_pct": 4.478
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 4092.5,
+     "m3_cost_wan": 4035.4,
+     "improve_vs_base_pct": 1.396,
+     "improve_vs_nostore_pct": 4.488
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 4136.1,
+     "m3_cost_wan": 4078.4,
+     "improve_vs_base_pct": 1.394,
+     "improve_vs_nostore_pct": 4.482
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 4125.5,
+     "m3_cost_wan": 4067.7,
+     "improve_vs_base_pct": 1.402,
+     "improve_vs_nostore_pct": 4.508
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 4116.0,
+     "m3_cost_wan": 4058.3,
+     "improve_vs_base_pct": 1.401,
+     "improve_vs_nostore_pct": 4.505
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 4107.0,
+     "m3_cost_wan": 4049.8,
+     "improve_vs_base_pct": 1.392,
+     "improve_vs_nostore_pct": 4.476
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 4032.5,
+     "m3_cost_wan": 3976.0,
+     "improve_vs_base_pct": 1.4,
+     "improve_vs_nostore_pct": 4.498
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 3989.8,
+     "m3_cost_wan": 3934.2,
+     "improve_vs_base_pct": 1.393,
+     "improve_vs_nostore_pct": 4.479
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 3932.8,
+     "m3_cost_wan": 3878.0,
+     "improve_vs_base_pct": 1.394,
+     "improve_vs_nostore_pct": 4.48
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 3905.9,
+     "m3_cost_wan": 3851.7,
+     "improve_vs_base_pct": 1.388,
+     "improve_vs_nostore_pct": 4.464
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 3854.7,
+     "m3_cost_wan": 3800.7,
+     "improve_vs_base_pct": 1.4,
+     "improve_vs_nostore_pct": 4.502
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 3852.6,
+     "m3_cost_wan": 3798.5,
+     "improve_vs_base_pct": 1.404,
+     "improve_vs_nostore_pct": 4.514
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 3906.4,
+     "m3_cost_wan": 3851.8,
+     "improve_vs_base_pct": 1.396,
+     "improve_vs_nostore_pct": 4.491
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 3969.5,
+     "m3_cost_wan": 3914.2,
+     "improve_vs_base_pct": 1.392,
+     "improve_vs_nostore_pct": 4.479
+    }
+   ]
+  },
+  "RegionC": {
+   "baseline": {
+    "cost_wan": 54636.219991311096,
+    "carbon_t": 483818.09682631004,
+    "peak_main_MW": 455.2661,
+    "std_main_MW": 82.85770381714846,
+    "ramp_main_MW": 141.72359999999998,
+    "nu_pct": 11.942843376351808
+   },
+   "no_storage": {
+    "cost_wan": 56459.586820218465,
+    "carbon_t": 493837.3683772462,
+    "peak_main_MW": 439.96610037716226,
+    "std_main_MW": 69.62681942249041,
+    "ramp_main_MW": 122.88044113820024,
+    "nu_pct": 10.821391555547832
+   },
+   "m3_final": {
+    "cost_wan": 53921.1162685123,
+    "carbon_t": 478499.5422257082,
+    "peak_main_MW": 439.9661003771623,
+    "std_main_MW": 86.83508927949399,
+    "ramp_main_MW": 126.12900935006212,
+    "nu_pct": 12.477526531064775
+   },
+   "decomposition": {
+    "storage_value_wan": -2538.5,
+    "gen_subopt_wan": 1823.4,
+    "storage_value_pct": -4.496,
+    "gen_subopt_pct": 3.337
+   },
+   "slope_binding": {
+    "ramp_c_limit": 56.0,
+    "ramp_d_limit": 38.0,
+    "n_hours": 2406,
+    "binding_c_hours": 249,
+    "binding_d_hours": 399,
+    "max_dpc": 56.0,
+    "max_dpd": 38.00000000000001,
+    "binding_c_pct": 10.349,
+    "binding_d_pct": 16.584
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 179.0746,
+    "init_soc": 135.0,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 3878.9,
+     "m3_cost_wan": 3828.1,
+     "improve_vs_base_pct": 1.31,
+     "improve_vs_nostore_pct": 4.26
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 3892.7,
+     "m3_cost_wan": 3841.6,
+     "improve_vs_base_pct": 1.313,
+     "improve_vs_nostore_pct": 4.3
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 3952.0,
+     "m3_cost_wan": 3900.5,
+     "improve_vs_base_pct": 1.305,
+     "improve_vs_nostore_pct": 4.276
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 3950.2,
+     "m3_cost_wan": 3898.5,
+     "improve_vs_base_pct": 1.31,
+     "improve_vs_nostore_pct": 4.292
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 3976.5,
+     "m3_cost_wan": 3924.9,
+     "improve_vs_base_pct": 1.298,
+     "improve_vs_nostore_pct": 4.252
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 3919.7,
+     "m3_cost_wan": 3868.6,
+     "improve_vs_base_pct": 1.305,
+     "improve_vs_nostore_pct": 4.274
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 3862.1,
+     "m3_cost_wan": 3811.6,
+     "improve_vs_base_pct": 1.307,
+     "improve_vs_nostore_pct": 4.281
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 3809.3,
+     "m3_cost_wan": 3759.5,
+     "improve_vs_base_pct": 1.306,
+     "improve_vs_nostore_pct": 4.276
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 3752.6,
+     "m3_cost_wan": 3703.5,
+     "improve_vs_base_pct": 1.307,
+     "improve_vs_nostore_pct": 4.279
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 3717.6,
+     "m3_cost_wan": 3669.1,
+     "improve_vs_base_pct": 1.305,
+     "improve_vs_nostore_pct": 4.275
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 3682.0,
+     "m3_cost_wan": 3633.7,
+     "improve_vs_base_pct": 1.312,
+     "improve_vs_nostore_pct": 4.296
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 3686.1,
+     "m3_cost_wan": 3637.7,
+     "improve_vs_base_pct": 1.313,
+     "improve_vs_nostore_pct": 4.3
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 3703.1,
+     "m3_cost_wan": 3654.3,
+     "improve_vs_base_pct": 1.318,
+     "improve_vs_nostore_pct": 4.317
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 3756.6,
+     "m3_cost_wan": 3707.2,
+     "improve_vs_base_pct": 1.316,
+     "improve_vs_nostore_pct": 4.312
+    }
+   ]
+  },
+  "RegionD": {
+   "baseline": {
+    "cost_wan": 8592.64141302708,
+    "carbon_t": 262960.6536425,
+    "peak_main_MW": 282.5815,
+    "std_main_MW": 134.65433418315862,
+    "ramp_main_MW": 209.8956,
+    "nu_pct": 47.05521965193318
+   },
+   "no_storage": {
+    "cost_wan": 26590.96921358953,
+    "carbon_t": 281272.1896772027,
+    "peak_main_MW": 408.8888026333683,
+    "std_main_MW": 70.63300826274089,
+    "ramp_main_MW": 75.52086303896277,
+    "nu_pct": 21.901673268156163
+   },
+   "m3_final": {
+    "cost_wan": 7565.855147384411,
+    "carbon_t": 248725.62215649578,
+    "peak_main_MW": 228.8888026333683,
+    "std_main_MW": 123.26780124622111,
+    "ramp_main_MW": 251.13902980247997,
+    "nu_pct": 48.975961617437335
+   },
+   "decomposition": {
+    "storage_value_wan": -19025.1,
+    "gen_subopt_wan": 17998.3,
+    "storage_value_pct": -71.547,
+    "gen_subopt_pct": 209.462
+   },
+   "slope_binding": {
+    "ramp_c_limit": 121.0,
+    "ramp_d_limit": 182.0,
+    "n_hours": 2406,
+    "binding_c_hours": 593,
+    "binding_d_hours": 81,
+    "max_dpc": 121.0,
+    "max_dpd": 182.0,
+    "binding_c_pct": 24.647,
+    "binding_d_pct": 3.367
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 225.9765,
+    "init_soc": 405.0,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 1591.3,
+     "m3_cost_wan": 1531.6,
+     "improve_vs_base_pct": 3.755,
+     "improve_vs_nostore_pct": 17.794
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 1619.1,
+     "m3_cost_wan": 1556.7,
+     "improve_vs_base_pct": 3.851,
+     "improve_vs_nostore_pct": 17.752
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 1630.4,
+     "m3_cost_wan": 1567.5,
+     "improve_vs_base_pct": 3.861,
+     "improve_vs_nostore_pct": 17.785
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 1649.5,
+     "m3_cost_wan": 1586.3,
+     "improve_vs_base_pct": 3.832,
+     "improve_vs_nostore_pct": 17.66
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 1637.6,
+     "m3_cost_wan": 1574.5,
+     "improve_vs_base_pct": 3.851,
+     "improve_vs_nostore_pct": 17.725
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 1629.9,
+     "m3_cost_wan": 1567.3,
+     "improve_vs_base_pct": 3.836,
+     "improve_vs_nostore_pct": 17.662
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 1607.2,
+     "m3_cost_wan": 1545.4,
+     "improve_vs_base_pct": 3.84,
+     "improve_vs_nostore_pct": 17.675
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 1584.9,
+     "m3_cost_wan": 1524.1,
+     "improve_vs_base_pct": 3.836,
+     "improve_vs_nostore_pct": 17.658
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 1563.1,
+     "m3_cost_wan": 1503.1,
+     "improve_vs_base_pct": 3.834,
+     "improve_vs_nostore_pct": 17.653
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 1547.4,
+     "m3_cost_wan": 1488.1,
+     "improve_vs_base_pct": 3.832,
+     "improve_vs_nostore_pct": 17.648
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 1535.1,
+     "m3_cost_wan": 1476.1,
+     "improve_vs_base_pct": 3.843,
+     "improve_vs_nostore_pct": 17.699
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 1543.9,
+     "m3_cost_wan": 1484.9,
+     "improve_vs_base_pct": 3.827,
+     "improve_vs_nostore_pct": 17.646
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 1544.2,
+     "m3_cost_wan": 1484.6,
+     "improve_vs_base_pct": 3.857,
+     "improve_vs_nostore_pct": 17.774
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 1566.6,
+     "m3_cost_wan": 1506.3,
+     "improve_vs_base_pct": 3.851,
+     "improve_vs_nostore_pct": 17.754
+    }
+   ]
+  },
+  "RegionE": {
+   "baseline": {
+    "cost_wan": -2589.2946161557957,
+    "carbon_t": 84555.5904512,
+    "peak_main_MW": 166.06040000000002,
+    "std_main_MW": 116.17624884185149,
+    "ramp_main_MW": 257.2579,
+    "nu_pct": 60.99949393932786
+   },
+   "no_storage": {
+    "cost_wan": 14621.26813158499,
+    "carbon_t": 92877.23192153889,
+    "peak_main_MW": 283.6293666005898,
+    "std_main_MW": 52.54603925433777,
+    "ramp_main_MW": 54.020541240133696,
+    "nu_pct": 33.52418963942632
+   },
+   "m3_final": {
+    "cost_wan": -4507.054140135845,
+    "carbon_t": 77766.38601102518,
+    "peak_main_MW": 63.62936660058972,
+    "std_main_MW": 88.65619297528602,
+    "ramp_main_MW": 252.524999583375,
+    "nu_pct": 65.06326082301813
+   },
+   "decomposition": {
+    "storage_value_wan": -19128.3,
+    "gen_subopt_wan": 17210.6,
+    "storage_value_pct": -130.825,
+    "gen_subopt_pct": 664.682
+   },
+   "slope_binding": {
+    "ramp_c_limit": 155.0,
+    "ramp_d_limit": 167.0,
+    "n_hours": 2406,
+    "binding_c_hours": 104,
+    "binding_d_hours": 10,
+    "max_dpc": 155.0,
+    "max_dpd": 167.0,
+    "binding_c_pct": 4.323,
+    "binding_d_pct": 0.416
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 217.2489,
+    "init_soc": 370.0,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 815.8,
+     "m3_cost_wan": 767.1,
+     "improve_vs_base_pct": 5.97,
+     "improve_vs_nostore_pct": 25.369
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 830.6,
+     "m3_cost_wan": 779.7,
+     "improve_vs_base_pct": 6.131,
+     "improve_vs_nostore_pct": 25.401
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 837.2,
+     "m3_cost_wan": 785.9,
+     "improve_vs_base_pct": 6.129,
+     "improve_vs_nostore_pct": 25.264
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 841.5,
+     "m3_cost_wan": 790.0,
+     "improve_vs_base_pct": 6.122,
+     "improve_vs_nostore_pct": 25.002
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 844.3,
+     "m3_cost_wan": 792.8,
+     "improve_vs_base_pct": 6.094,
+     "improve_vs_nostore_pct": 25.087
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 835.2,
+     "m3_cost_wan": 784.2,
+     "improve_vs_base_pct": 6.106,
+     "improve_vs_nostore_pct": 25.262
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 821.0,
+     "m3_cost_wan": 770.5,
+     "improve_vs_base_pct": 6.141,
+     "improve_vs_nostore_pct": 25.137
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 805.7,
+     "m3_cost_wan": 756.2,
+     "improve_vs_base_pct": 6.152,
+     "improve_vs_nostore_pct": 25.152
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 793.5,
+     "m3_cost_wan": 744.6,
+     "improve_vs_base_pct": 6.158,
+     "improve_vs_nostore_pct": 25.408
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 785.9,
+     "m3_cost_wan": 737.6,
+     "improve_vs_base_pct": 6.15,
+     "improve_vs_nostore_pct": 25.315
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 785.5,
+     "m3_cost_wan": 737.4,
+     "improve_vs_base_pct": 6.13,
+     "improve_vs_nostore_pct": 25.278
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 781.4,
+     "m3_cost_wan": 733.2,
+     "improve_vs_base_pct": 6.163,
+     "improve_vs_nostore_pct": 25.308
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 797.5,
+     "m3_cost_wan": 748.6,
+     "improve_vs_base_pct": 6.13,
+     "improve_vs_nostore_pct": 25.089
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 803.7,
+     "m3_cost_wan": 754.5,
+     "improve_vs_base_pct": 6.117,
+     "improve_vs_nostore_pct": 25.105
+    }
+   ]
+  },
+  "RegionF": {
+   "baseline": {
+    "cost_wan": 12.609895673499935,
+    "carbon_t": 113064.8827644867,
+    "peak_main_MW": 152.49719999999996,
+    "std_main_MW": 109.56712583967975,
+    "ramp_main_MW": 240.9611,
+    "nu_pct": 58.408016953428024
+   },
+   "no_storage": {
+    "cost_wan": 17858.489236840385,
+    "carbon_t": 122000.3739118417,
+    "peak_main_MW": 280.9087610256177,
+    "std_main_MW": 41.68351141933705,
+    "ramp_main_MW": 53.753205274635576,
+    "nu_pct": 31.68745163715654
+   },
+   "m3_final": {
+    "cost_wan": -2427.11848086156,
+    "carbon_t": 103574.03357427094,
+    "peak_main_MW": 66.92289999999997,
+    "std_main_MW": 90.27846587561007,
+    "ramp_main_MW": 232.91899999999998,
+    "nu_pct": 63.37336655205361
+   },
+   "decomposition": {
+    "storage_value_wan": -20285.6,
+    "gen_subopt_wan": 17845.9,
+    "storage_value_pct": -113.591,
+    "gen_subopt_pct": 141522.815
+   },
+   "slope_binding": {
+    "ramp_c_limit": 145.0,
+    "ramp_d_limit": 163.0,
+    "n_hours": 2406,
+    "binding_c_hours": 104,
+    "binding_d_hours": 22,
+    "max_dpc": 145.0,
+    "max_dpd": 163.0,
+    "binding_c_pct": 4.323,
+    "binding_d_pct": 0.914
+   },
+   "terminal_symmetry": {
+    "generator_soc_2406": 189.1754,
+    "init_soc": 382.5,
+    "strict_terminal": false,
+    "closure_charge_hours": 0,
+    "closure_discharge_hours": 0,
+    "closure_note": "Closure 段基准充放行为（2400-2405）——优化侧结算段禁充的对称性检查"
+   },
+   "weekly": [
+    {
+     "week": 1,
+     "hours": [
+      0,
+      168
+     ],
+     "base_cost_wan": 1028.0,
+     "m3_cost_wan": 968.1,
+     "improve_vs_base_pct": 5.822,
+     "improve_vs_nostore_pct": 22.634
+    },
+    {
+     "week": 2,
+     "hours": [
+      168,
+      336
+     ],
+     "base_cost_wan": 1049.6,
+     "m3_cost_wan": 985.6,
+     "improve_vs_base_pct": 6.094,
+     "improve_vs_nostore_pct": 22.583
+    },
+    {
+     "week": 3,
+     "hours": [
+      336,
+      504
+     ],
+     "base_cost_wan": 1061.6,
+     "m3_cost_wan": 997.6,
+     "improve_vs_base_pct": 6.023,
+     "improve_vs_nostore_pct": 22.449
+    },
+    {
+     "week": 4,
+     "hours": [
+      504,
+      672
+     ],
+     "base_cost_wan": 1065.2,
+     "m3_cost_wan": 999.8,
+     "improve_vs_base_pct": 6.135,
+     "improve_vs_nostore_pct": 22.831
+    },
+    {
+     "week": 5,
+     "hours": [
+      672,
+      840
+     ],
+     "base_cost_wan": 1058.2,
+     "m3_cost_wan": 995.9,
+     "improve_vs_base_pct": 5.886,
+     "improve_vs_nostore_pct": 22.439
+    },
+    {
+     "week": 6,
+     "hours": [
+      840,
+      1008
+     ],
+     "base_cost_wan": 1049.8,
+     "m3_cost_wan": 986.8,
+     "improve_vs_base_pct": 5.998,
+     "improve_vs_nostore_pct": 22.573
+    },
+    {
+     "week": 7,
+     "hours": [
+      1008,
+      1176
+     ],
+     "base_cost_wan": 1043.7,
+     "m3_cost_wan": 979.2,
+     "improve_vs_base_pct": 6.181,
+     "improve_vs_nostore_pct": 22.723
+    },
+    {
+     "week": 8,
+     "hours": [
+      1176,
+      1344
+     ],
+     "base_cost_wan": 1020.8,
+     "m3_cost_wan": 959.2,
+     "improve_vs_base_pct": 6.036,
+     "improve_vs_nostore_pct": 22.52
+    },
+    {
+     "week": 9,
+     "hours": [
+      1344,
+      1512
+     ],
+     "base_cost_wan": 1004.3,
+     "m3_cost_wan": 943.7,
+     "improve_vs_base_pct": 6.037,
+     "improve_vs_nostore_pct": 22.711
+    },
+    {
+     "week": 10,
+     "hours": [
+      1512,
+      1680
+     ],
+     "base_cost_wan": 1001.0,
+     "m3_cost_wan": 940.4,
+     "improve_vs_base_pct": 6.053,
+     "improve_vs_nostore_pct": 22.579
+    },
+    {
+     "week": 11,
+     "hours": [
+      1680,
+      1848
+     ],
+     "base_cost_wan": 989.1,
+     "m3_cost_wan": 928.7,
+     "improve_vs_base_pct": 6.114,
+     "improve_vs_nostore_pct": 22.661
+    },
+    {
+     "week": 12,
+     "hours": [
+      1848,
+      2016
+     ],
+     "base_cost_wan": 1001.0,
+     "m3_cost_wan": 938.8,
+     "improve_vs_base_pct": 6.216,
+     "improve_vs_nostore_pct": 22.694
+    },
+    {
+     "week": 13,
+     "hours": [
+      2016,
+      2184
+     ],
+     "base_cost_wan": 998.0,
+     "m3_cost_wan": 936.6,
+     "improve_vs_base_pct": 6.161,
+     "improve_vs_nostore_pct": 22.788
+    },
+    {
+     "week": 14,
+     "hours": [
+      2184,
+      2352
+     ],
+     "base_cost_wan": 1016.6,
+     "m3_cost_wan": 954.1,
+     "improve_vs_base_pct": 6.142,
+     "improve_vs_nostore_pct": 22.547
+    }
+   ]
+  }
+ },
+ "summary": {
+  "week_improve_m3_vs_base": {
+   "n": 84,
+   "mean_pct": 3.357,
+   "min_pct": 1.298,
+   "max_pct": 6.216,
+   "p25_pct": 1.396,
+   "p75_pct": 6.041
+  },
+  "week_improve_m3_vs_nostore": {
+   "n": 84,
+   "mean_pct": 13.171,
+   "min_pct": 4.252,
+   "max_pct": 25.408
+  },
+  "caliber": "Q3 反思 P1 四件套：三档双锚（无储能=模板消纳 G=D−min(W,c_h·D)）；斜坡活跃率=binding 小时（|ΔP|≥99%·R，GEN_SLOPE 生成器量级）；终态对称性=生成器 SOC(2406) vs Init + Closure 段充放；分窗=14 周改进率分布（替代 bootstrap，数据确定性声明）"
+ }
+}
