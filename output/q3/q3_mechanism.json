@@ -1,0 +1,451 @@
+{
+ "regions": {
+  "RegionA": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 33871.0,
+     "discharge_MWh": 28980.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 61419.2
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 33871.0,
+     "discharge_MWh": 28980.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 61419.2
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 33871.0,
+     "discharge_MWh": 28980.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 61419.2
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 33871.0,
+     "discharge_MWh": 28980.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 61419.2
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 33871.0,
+     "discharge_MWh": 28980.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 61419.2
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 90.0,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.45,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 0.0,
+     "p95": 90.0
+    },
+    "touch_cap_pct": 66.473,
+    "touch_min_pct": 12.422,
+    "near_cap_5pct_pct": 66.473
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 0,
+    "sell_positive_when_sellprice": 0.0,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 500
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 64,
+    "n_infeasible": 0,
+    "infeasible_pct": 0.0,
+    "expected_wan": 56805.4,
+    "cvar90_wan": 56863.7,
+    "spread_wan": 94.6,
+    "note": "E/F 低 W 尾部场景触发购电上限 max_import 瓶颈（LP infeasible）——【实证】新能源骤降尾部=购电上限硬约束；CVaR 在可行域内计算，infeasible_pct 即尾部风险度量；Q3 MPC 均值场景口径不受影响（非逐场景期望）"
+   }
+  },
+  "RegionB": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 30967.7,
+     "discharge_MWh": 26496.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 56411.6
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 30967.7,
+     "discharge_MWh": 26496.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 56411.6
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 30967.7,
+     "discharge_MWh": 26496.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 56411.6
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 30967.7,
+     "discharge_MWh": 26496.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 56411.6
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 30967.7,
+     "discharge_MWh": 26496.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 56411.6
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 90.0,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.39,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 0.0,
+     "p95": 90.0
+    },
+    "touch_cap_pct": 66.473,
+    "touch_min_pct": 12.422,
+    "near_cap_5pct_pct": 66.473
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 0,
+    "sell_positive_when_sellprice": 0.0,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 500
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 64,
+    "n_infeasible": 0,
+    "infeasible_pct": 0.0,
+    "expected_wan": 52272.8,
+    "cvar90_wan": 52322.9,
+    "spread_wan": 81.1,
+    "note": "E/F 低 W 尾部场景触发购电上限 max_import 瓶颈（LP infeasible）——【实证】新能源骤降尾部=购电上限硬约束；CVaR 在可行域内计算，infeasible_pct 即尾部风险度量；Q3 MPC 均值场景口径不受影响（非逐场景期望）"
+   }
+  },
+  "RegionC": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 29032.3,
+     "discharge_MWh": 24840.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 53920.5
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 29032.3,
+     "discharge_MWh": 24840.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 53920.5
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 29032.3,
+     "discharge_MWh": 24840.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 53920.5
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 29032.3,
+     "discharge_MWh": 24840.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 53920.5
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 29032.3,
+     "discharge_MWh": 24840.0,
+     "sell_MWh": 0.0,
+     "cost_wan": 53920.5
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 90.0,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.36,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 0.0,
+     "p95": 90.0
+    },
+    "touch_cap_pct": 66.473,
+    "touch_min_pct": 12.422,
+    "near_cap_5pct_pct": 66.473
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 0,
+    "sell_positive_when_sellprice": 0.0,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 500
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 64,
+    "n_infeasible": 0,
+    "infeasible_pct": 0.0,
+    "expected_wan": 50366.6,
+    "cvar90_wan": 50414.4,
+    "spread_wan": 80.0,
+    "note": "E/F 低 W 尾部场景触发购电上限 max_import 瓶颈（LP infeasible）——【实证】新能源骤降尾部=购电上限硬约束；CVaR 在可行域内计算，infeasible_pct 即尾部风险度量；Q3 MPC 均值场景口径不受影响（非逐场景期望）"
+   }
+  },
+  "RegionD": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 86075.1,
+     "discharge_MWh": 75246.9,
+     "sell_MWh": 433148.1,
+     "cost_wan": 21844.8
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 86075.1,
+     "discharge_MWh": 75246.9,
+     "sell_MWh": 433148.1,
+     "cost_wan": 14706.8
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 86075.1,
+     "discharge_MWh": 75246.9,
+     "sell_MWh": 433148.1,
+     "cost_wan": 7568.9
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 86075.1,
+     "discharge_MWh": 75246.9,
+     "sell_MWh": 433260.0,
+     "cost_wan": 430.4
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 86075.1,
+     "discharge_MWh": 75246.9,
+     "sell_MWh": 433260.0,
+     "cost_wan": -6708.7
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 89.9,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.68,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 0.0,
+     "p95": 80.6
+    },
+    "touch_cap_pct": 54.009,
+    "touch_min_pct": 4.113,
+    "near_cap_5pct_pct": 54.051
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 2407,
+    "sell_positive_when_sellprice": 1.0,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 699
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 64,
+    "n_infeasible": 0,
+    "infeasible_pct": 0.0,
+    "expected_wan": 1419.3,
+    "cvar90_wan": 1569.3,
+    "spread_wan": 314.7,
+    "note": "E/F 低 W 尾部场景触发购电上限 max_import 瓶颈（LP infeasible）——【实证】新能源骤降尾部=购电上限硬约束；CVaR 在可行域内计算，infeasible_pct 即尾部风险度量；Q3 MPC 均值场景口径不受影响（非逐场景期望）"
+   }
+  },
+  "RegionE": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 78194.5,
+     "discharge_MWh": 68357.6,
+     "sell_MWh": 528926.6,
+     "cost_wan": 11065.2
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 78194.5,
+     "discharge_MWh": 68357.6,
+     "sell_MWh": 528926.6,
+     "cost_wan": 3360.5
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 78194.5,
+     "discharge_MWh": 68357.6,
+     "sell_MWh": 528926.6,
+     "cost_wan": -4344.3
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 78194.5,
+     "discharge_MWh": 68357.6,
+     "sell_MWh": 529540.0,
+     "cost_wan": -12051.8
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 78194.5,
+     "discharge_MWh": 68357.6,
+     "sell_MWh": 529540.0,
+     "cost_wan": -19762.8
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 89.6,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.55,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 1.36,
+     "p95": 82.08
+    },
+    "touch_cap_pct": 44.828,
+    "touch_min_pct": 4.071,
+    "near_cap_5pct_pct": 53.469
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 2407,
+    "sell_positive_when_sellprice": 1.0,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 705
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 6,
+    "n_infeasible": 58,
+    "infeasible_pct": 90.6,
+    "expected_wan": -5785.6,
+    "cvar90_wan": -5652.9,
+    "spread_wan": 290.2,
+    "note": "E/F 低 W 尾部场景触发购电上限 max_import 瓶颈（LP infeasible）——【实证】新能源骤降尾部=购电上限硬约束；CVaR 在可行域内计算，infeasible_pct 即尾部风险度量；Q3 MPC 均值场景口径不受影响（非逐场景期望）"
+   }
+  },
+  "RegionF": {
+   "sellp_curve": [
+    {
+     "sellp_scale": 0.0,
+     "charge_MWh": 81032.8,
+     "discharge_MWh": 70838.9,
+     "sell_MWh": 529052.4,
+     "cost_wan": 14049.5
+    },
+    {
+     "sellp_scale": 0.5,
+     "charge_MWh": 81032.8,
+     "discharge_MWh": 70838.9,
+     "sell_MWh": 529052.4,
+     "cost_wan": 5938.1
+    },
+    {
+     "sellp_scale": 1.0,
+     "charge_MWh": 81032.8,
+     "discharge_MWh": 70838.9,
+     "sell_MWh": 529052.4,
+     "cost_wan": -2173.2
+    },
+    {
+     "sellp_scale": 1.5,
+     "charge_MWh": 81032.8,
+     "discharge_MWh": 70838.9,
+     "sell_MWh": 529540.0,
+     "cost_wan": -10286.9
+    },
+    {
+     "sellp_scale": 2.0,
+     "charge_MWh": 81032.8,
+     "discharge_MWh": 70838.9,
+     "sell_MWh": 529540.0,
+     "cost_wan": -18403.8
+    }
+   ],
+   "cycle_life": {
+    "equivalent_cycles": 89.6,
+    "deg_frac_per_cycle": 0.0002,
+    "deg_cost_est_wan": 0.6,
+    "note": "退化参数为假设（0.02%/等效循环）——仅作量级参考，不参与主口径"
+   },
+   "soc_margin": {
+    "dist_to_cap_pct": {
+     "p5": 0.0,
+     "p50": 13.27,
+     "p95": 84.5
+    },
+    "touch_cap_pct": 40.382,
+    "touch_min_pct": 4.071,
+    "near_cap_5pct_pct": 49.356
+   },
+   "physical_consistency": {
+    "sellprice_pos_hours": 2407,
+    "sell_positive_when_sellprice": 0.9996,
+    "charge_dual_channel_resid": {
+     "max_rel": 0.0,
+     "mean_rel": 0.0,
+     "n_charge_hours": 799
+    }
+   },
+   "cvar": {
+    "sigma": 0.2,
+    "alpha": 0.9,
+    "n_scenarios": 0,
+    "n_infeasible": 64,
+    "note": "全部场景 infeasible（购电上限瓶颈）"
+   }
+  }
+ },
+ "caliber": "Q3 反思 P2 五件套：弃电边际价值=sellp 缩放扫描切换点；等效循环=ΣPc·ηc/Cap；退化参数 0.02%/循环为假设；SOC 裕度=距 Cap/MinSOC 分布；物理一致性=数据列自洽；CVaR=AR(1) 场景成本分布尾部（α=0.9）"
+}
