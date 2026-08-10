@@ -2,10 +2,14 @@
 
 ## Step 1: 加载方法论 skill（项目级 .opencode/skills/）
 
-- math-methods — 全局方法哲学（逻辑链/三关闸门/结论分级/国特思维）
-- math-verification — 模型验证思维（验证工具箱/强度分级/证伪轮——异常数字先过判别实验）
-- math-materials — 研究素材组织思维（素材七要素/口径声明/数字总表/路线叙事——论文手交接协议）
-- math-name — 代码命名规范；gent-memory — 文档体系
+- `math-methods` — 全局方法哲学（逻辑链/三关闸门/结论分级/国特思维）
+- `math-verification` — 模型验证思维（验证工具箱/强度分级/证伪轮——异常数字先过判别实验）
+- `math-materials` — 研究素材组织思维（素材七要素/口径声明/数字总表/路线叙事——论文手交接协议）
+- `math-review` — 数模复查协议（质量门：五大类拷问/问题分级 P0-P1-P2/收敛判定——
+  对已完成一问做系统性自检，产出"第 N 问复查报告.md"）
+- `math-auto` — 自主迭代执行协议（集大成编排：分层调度+研究循环控制+质量门+
+  回灌+记录+提交——用户不在场时从起点跑到终点）
+- `math-name` — 代码命名规范；`agent-memory` — 文档体系
 
 ## Step 1: 加载 project-reference skill
 
