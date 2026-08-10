@@ -9,13 +9,21 @@
     "ramp_main_MW": 139.9568,
     "nu_pct": 8.642155582159038
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 64601.01129265165,
     "carbon_t": 594466.0205129369,
     "peak_main_MW": 479.0016027915427,
     "std_main_MW": 79.38913346116033,
     "ramp_main_MW": 107.75159936236639,
     "nu_pct": 7.33011567810885
+   },
+   "no_storage_lp": {
+    "cost_wan": 64446.61075117831,
+    "carbon_t": 592294.4757404446,
+    "peak_main_MW": 479.0016027915427,
+    "std_main_MW": 79.38913346116033,
+    "ramp_main_MW": 107.75159936236639,
+    "nu_pct": 7.501157209622411
    },
    "m3_final": {
     "cost_wan": 61419.92025207831,
@@ -26,10 +34,12 @@
     "nu_pct": 9.26057095698295
    },
    "decomposition": {
-    "storage_value_wan": -3181.1,
-    "gen_subopt_wan": 2298.8,
-    "storage_value_pct": -4.924,
-    "gen_subopt_pct": 3.69
+    "storage_value_wan": -3026.7,
+    "gen_subopt_wan": 2144.4,
+    "lp_freedom_value_wan": -154.4,
+    "storage_value_pct": -4.696,
+    "gen_subopt_pct": 3.442,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 66.0,
@@ -216,13 +226,21 @@
     "ramp_main_MW": 138.97840000000002,
     "nu_pct": 10.125782788288895
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 59196.92124536529,
     "carbon_t": 530845.1762087976,
     "peak_main_MW": 451.6560022260695,
     "std_main_MW": 72.74246608574964,
     "ramp_main_MW": 120.61372341488766,
     "nu_pct": 8.941662745084022
+   },
+   "no_storage_lp": {
+    "cost_wan": 59064.164192211865,
+    "carbon_t": 529023.4443521643,
+    "peak_main_MW": 451.6560022260695,
+    "std_main_MW": 72.74246608574964,
+    "ramp_main_MW": 120.61372341488772,
+    "nu_pct": 9.09511656436206
    },
    "m3_final": {
     "cost_wan": 56412.453683028936,
@@ -233,10 +251,12 @@
     "nu_pct": 10.703597188137149
    },
    "decomposition": {
-    "storage_value_wan": -2784.5,
-    "gen_subopt_wan": 1985.3,
-    "storage_value_pct": -4.704,
-    "gen_subopt_pct": 3.47
+    "storage_value_wan": -2651.7,
+    "gen_subopt_wan": 1852.6,
+    "lp_freedom_value_wan": -132.8,
+    "storage_value_pct": -4.49,
+    "gen_subopt_pct": 3.238,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 59.0,
@@ -423,13 +443,21 @@
     "ramp_main_MW": 141.72359999999998,
     "nu_pct": 11.942843376351808
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 56459.586820218465,
     "carbon_t": 493837.3683772462,
     "peak_main_MW": 439.96610037716226,
     "std_main_MW": 69.62681942249041,
     "ramp_main_MW": 122.88044113820024,
     "nu_pct": 10.821391555547832
+   },
+   "no_storage_lp": {
+    "cost_wan": 56335.16840199628,
+    "carbon_t": 492169.3456983482,
+    "peak_main_MW": 439.9661003771623,
+    "std_main_MW": 69.62681942249043,
+    "ramp_main_MW": 122.88044113820024,
+    "nu_pct": 10.969504522455653
    },
    "m3_final": {
     "cost_wan": 53921.1162685123,
@@ -440,10 +468,12 @@
     "nu_pct": 12.477526531064775
    },
    "decomposition": {
-    "storage_value_wan": -2538.5,
-    "gen_subopt_wan": 1823.4,
-    "storage_value_pct": -4.496,
-    "gen_subopt_pct": 3.337
+    "storage_value_wan": -2414.1,
+    "gen_subopt_wan": 1698.9,
+    "lp_freedom_value_wan": -124.4,
+    "storage_value_pct": -4.285,
+    "gen_subopt_pct": 3.11,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 56.0,
@@ -630,13 +660,21 @@
     "ramp_main_MW": 209.8956,
     "nu_pct": 47.05521965193318
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 26590.96921358953,
     "carbon_t": 281272.1896772027,
     "peak_main_MW": 408.8888026333683,
     "std_main_MW": 70.63300826274089,
     "ramp_main_MW": 75.52086303896277,
     "nu_pct": 21.901673268156163
+   },
+   "no_storage_lp": {
+    "cost_wan": 12259.363683602347,
+    "carbon_t": 280384.0049299046,
+    "peak_main_MW": 228.8888026333683,
+    "std_main_MW": 70.6330082627409,
+    "ramp_main_MW": 75.52086303896283,
+    "nu_pct": 44.50472107134199
    },
    "m3_final": {
     "cost_wan": 7565.855147384411,
@@ -647,10 +685,12 @@
     "nu_pct": 48.975961617437335
    },
    "decomposition": {
-    "storage_value_wan": -19025.1,
-    "gen_subopt_wan": 17998.3,
-    "storage_value_pct": -71.547,
-    "gen_subopt_pct": 209.462
+    "storage_value_wan": -4693.5,
+    "gen_subopt_wan": 3666.7,
+    "lp_freedom_value_wan": -14331.6,
+    "storage_value_pct": -38.285,
+    "gen_subopt_pct": 42.673,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 121.0,
@@ -837,13 +877,21 @@
     "ramp_main_MW": 257.2579,
     "nu_pct": 60.99949393932786
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 14621.26813158499,
     "carbon_t": 92877.23192153889,
     "peak_main_MW": 283.6293666005898,
     "std_main_MW": 52.54603925433777,
     "ramp_main_MW": 54.020541240133696,
     "nu_pct": 33.52418963942632
+   },
+   "no_storage_lp": {
+    "cost_wan": -831.8473193800022,
+    "carbon_t": 92488.73110417805,
+    "peak_main_MW": 63.62936660058972,
+    "std_main_MW": 52.546039254337764,
+    "ramp_main_MW": 54.02054124013364,
+    "nu_pct": 61.09013445307553
    },
    "m3_final": {
     "cost_wan": -4507.054140135845,
@@ -854,10 +902,12 @@
     "nu_pct": 65.06326082301813
    },
    "decomposition": {
-    "storage_value_wan": -19128.3,
-    "gen_subopt_wan": 17210.6,
-    "storage_value_pct": -130.825,
-    "gen_subopt_pct": 664.682
+    "storage_value_wan": -3675.2,
+    "gen_subopt_wan": 1757.4,
+    "lp_freedom_value_wan": -15453.1,
+    "storage_value_pct": -441.813,
+    "gen_subopt_pct": 67.874,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 155.0,
@@ -1044,13 +1094,21 @@
     "ramp_main_MW": 240.9611,
     "nu_pct": 58.408016953428024
    },
-   "no_storage": {
+   "no_storage_template": {
     "cost_wan": 17858.489236840385,
     "carbon_t": 122000.3739118417,
     "peak_main_MW": 280.9087610256177,
     "std_main_MW": 41.68351141933705,
     "ramp_main_MW": 53.753205274635576,
     "nu_pct": 31.68745163715654
+   },
+   "no_storage_lp": {
+    "cost_wan": 1598.4174859898967,
+    "carbon_t": 121648.07553038074,
+    "peak_main_MW": 60.90876102561765,
+    "std_main_MW": 41.68351141933705,
+    "ramp_main_MW": 53.75320527463566,
+    "nu_pct": 59.2427622806831
    },
    "m3_final": {
     "cost_wan": -2427.11848086156,
@@ -1061,10 +1119,12 @@
     "nu_pct": 63.37336655205361
    },
    "decomposition": {
-    "storage_value_wan": -20285.6,
-    "gen_subopt_wan": 17845.9,
-    "storage_value_pct": -113.591,
-    "gen_subopt_pct": 141522.815
+    "storage_value_wan": -4025.5,
+    "gen_subopt_wan": 1585.8,
+    "lp_freedom_value_wan": -16260.1,
+    "storage_value_pct": -251.845,
+    "gen_subopt_pct": 12575.898,
+    "note": "主对照=无储能 LP（同框架零储能，对照纯度达标）；旧模板版无储能（无 LP 自由度+无外送）混入lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）"
    },
    "slope_binding": {
     "ramp_c_limit": 145.0,
@@ -1258,6 +1318,6 @@
    "min_pct": 4.252,
    "max_pct": 25.408
   },
-  "caliber": "Q3 反思 P1 四件套：三档双锚（无储能=模板消纳 G=D−min(W,c_h·D)）；斜坡活跃率=binding 小时（|ΔP|≥99%·R，GEN_SLOPE 生成器量级）；终态对称性=生成器 SOC(2406) vs Init + Closure 段充放；分窗=14 周改进率分布（替代 bootstrap，数据确定性声明）"
+  "caliber": "Q3 反思 P1 四件套 v2：三档双锚主对照=无储能 LP（solve_m3 零储能同框架，1-1 纯度修正）；模板无储能作参考（lp_freedom_value=LP 自由度+外送收入红利，D 区 1.44 亿）；斜坡活跃率=binding 小时（|ΔP|≥99%·R）；终态对称性=生成器 SOC(2406) vs Init；分窗=14 周改进率分布（替代 bootstrap）"
  }
 }

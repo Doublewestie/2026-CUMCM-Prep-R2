@@ -1,0 +1,34 @@
+{
+ "independent": {
+  "cost_wan": 164244.2,
+  "sys_peak_main_MW": 1773.4,
+  "region_peak_max_MW": 479.0,
+  "region_peak_sum_MW": 2128.8,
+  "simultaneity_coef": 3.7023,
+  "simultaneity_normalized": 0.8331,
+  "per_region_peak": {
+   "RegionA": 479.0,
+   "RegionB": 451.7,
+   "RegionC": 456.6,
+   "RegionD": 279.0,
+   "RegionE": 239.4,
+   "RegionF": 223.1
+  }
+ },
+ "joint_sweep": [
+  {
+   "frac": 0.95,
+   "infeasible": true
+  },
+  {
+   "frac": 0.9,
+   "infeasible": true
+  },
+  {
+   "frac": 0.85,
+   "infeasible": true
+  }
+ ],
+ "verdict": "【实证】全网峰值=各区域购电下界之和的结构（1,773 MW ≈ 区域峰值和 2,129 的 83%，62% 同时性）；联合削峰约束 5% 即 infeasible——与区域级'峰值限额 2% infeasible'（q4_shadow）同源：储能层内降峰空间=0 的全网版（G 已在下界，削峰须上层错峰/迁移）",
+ "caliber": "#5 全网峰值伴随口径：六区联合 LP（块对角+耦合 Σ(G−S)≤P̄）；独立解=Q4 基线调度 × M3_final 同框架；说明 7 无潮流、区域独立成立——全网峰值仅作观测/敏感性，不入主优化"
+}

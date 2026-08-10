@@ -1,0 +1,20 @@
+{
+ "region": "RegionD",
+ "sigma": 0.2,
+ "n_scen_mpc": 16,
+ "n_scen_ol": 64,
+ "window_h": 24,
+ "certainty_equiv_wan": 965.98,
+ "open_loop_expected_wan": 1268.33,
+ "mpc_wan": 5945.66,
+ "full_knowledge_wan": 965.92,
+ "mpc_deterministic_sanity_wan": 1017.79,
+ "feedback_value_wan": -0.47,
+ "mpc_vs_ce_wan": 0.5,
+ "n_windows": 2407,
+ "n_fallback": 0,
+ "volatility_cost_pct": 31.308,
+ "mechanism": "波动下窗口 MPC 结构性保守：首时段 S(0)/G(0) 跨场景耦合→ 受最坏 W 场景钳制（S 增 1 → 低 W 场景 G 必增，边际=price）→ S 均值 126 vs 全知 180（弃电少卖 30%）、G +8%；terminal value λ 扫描（0-500）无效——保守性在耦合本身；确定性场景 sanity：MPC 1,018 vs 全知 966（仅 5.4% 截断，框架正确）→ 波动下 MPC 劣于 OL 是信息劣势+耦合保守的数学必然",
+ "verdict": "【跨题归因修正】Q3'MPC 反馈≈0'不是'W 确定性'所致——波动环境（σ=0.2）下窗口 MPC 反馈价值仍为负（结构性保守：首时段耦合最坏场景钳制 + 视界截断，terminal value 无效）；储能优化主口径=全时段求解（M3_final/OL），MPC 仅方法论演示（Q3 结论归因从'数据特征'修正为'方法结构'，总账 +55）",
+ "caliber": "#17 跨题闭环：Q4 语境 D 区 σ=0.2（AI=0 基线负荷）；真首时段耦合滚动 MPC（24h 窗口 × 16 原始场景联合 LP，首时段Pc/Pd/G/S/SOC 跨场景一致，SOC 递推衔接，滑动 1h 每步重解，窗口末 SOC≥起点循环约束）；OL=64 原始场景条件期望（1-2 口径）；CE=均值场景；全知=模板。X15 用 k=8 K-means 中心受截断——本实验 64/16 原始场景修正"
+}

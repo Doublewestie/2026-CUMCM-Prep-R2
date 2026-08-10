@@ -77,6 +77,98 @@
     "n_moved": 859,
     "total_gain_approx": 4574.54,
     "rounds": 25,
+    "trajectory": [
+      {
+        "round": 0,
+        "n_moved": 0,
+        "cost_wan": 163871.17,
+        "carbon_t": 1903961.0,
+        "latency_ms": 27.795,
+        "peak_net_MW": 478.53,
+        "viol_h": 0
+      },
+      {
+        "round": 3,
+        "n_moved": 520,
+        "cost_wan": 167692.92,
+        "carbon_t": 1932957.0,
+        "latency_ms": 31.859,
+        "peak_net_MW": 541.56,
+        "viol_h": 0
+      },
+      {
+        "round": 6,
+        "n_moved": 779,
+        "cost_wan": 169163.92,
+        "carbon_t": 1946031.0,
+        "latency_ms": 33.732,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 9,
+        "n_moved": 840,
+        "cost_wan": 169508.1,
+        "carbon_t": 1949126.0,
+        "latency_ms": 34.136,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 12,
+        "n_moved": 855,
+        "cost_wan": 169584.03,
+        "carbon_t": 1949864.0,
+        "latency_ms": 34.237,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 15,
+        "n_moved": 859,
+        "cost_wan": 169604.67,
+        "carbon_t": 1950082.0,
+        "latency_ms": 34.266,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 18,
+        "n_moved": 859,
+        "cost_wan": 169604.67,
+        "carbon_t": 1950082.0,
+        "latency_ms": 34.266,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 21,
+        "n_moved": 859,
+        "cost_wan": 169604.67,
+        "carbon_t": 1950082.0,
+        "latency_ms": 34.266,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 24,
+        "n_moved": 859,
+        "cost_wan": 169604.67,
+        "carbon_t": 1950082.0,
+        "latency_ms": 34.266,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      },
+      {
+        "round": 25,
+        "n_moved": 859,
+        "cost_wan": 169604.67,
+        "carbon_t": 1950082.0,
+        "latency_ms": 34.266,
+        "peak_net_MW": 549.87,
+        "viol_h": 0
+      }
+    ],
     "cost_wan": 169604.66576795193,
     "carbon_t": 1950082.1796097206,
     "latency_ms": 34.26633473528164,

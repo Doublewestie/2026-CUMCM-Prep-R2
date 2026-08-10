@@ -1,0 +1,134 @@
+{
+ "RegionD": {
+  "base": {
+   "sell_sat_pct": 99.92,
+   "soc_cap_pct": 54.51,
+   "cost": 7565.9
+  },
+  "perturbed": [
+   {
+    "sell_sat_pct": 99.92,
+    "soc_cap_pct": 54.51,
+    "cost": 7565.9
+   },
+   {
+    "sell_sat_pct": 99.92,
+    "soc_cap_pct": 54.51,
+    "cost": 7565.9
+   },
+   {
+    "sell_sat_pct": 99.92,
+    "soc_cap_pct": 54.51,
+    "cost": 7565.9
+   },
+   {
+    "sell_sat_pct": 99.92,
+    "soc_cap_pct": 54.51,
+    "cost": 7565.9
+   },
+   {
+    "sell_sat_pct": 99.92,
+    "soc_cap_pct": 54.51,
+    "cost": 7565.9
+   }
+  ],
+  "sell_sat_range": [
+   99.92,
+   99.92
+  ],
+  "soc_cap_range": [
+   54.51,
+   54.51
+  ],
+  "stable_sell": true,
+  "stable_soc": true
+ },
+ "RegionE": {
+  "base": {
+   "sell_sat_pct": 99.75,
+   "soc_cap_pct": 53.47,
+   "cost": -4507.1
+  },
+  "perturbed": [
+   {
+    "sell_sat_pct": 99.75,
+    "soc_cap_pct": 53.47,
+    "cost": -4507.1
+   },
+   {
+    "sell_sat_pct": 99.75,
+    "soc_cap_pct": 53.47,
+    "cost": -4507.1
+   },
+   {
+    "sell_sat_pct": 99.75,
+    "soc_cap_pct": 53.47,
+    "cost": -4507.1
+   },
+   {
+    "sell_sat_pct": 99.75,
+    "soc_cap_pct": 53.47,
+    "cost": -4507.0
+   },
+   {
+    "sell_sat_pct": 99.75,
+    "soc_cap_pct": 53.47,
+    "cost": -4507.1
+   }
+  ],
+  "sell_sat_range": [
+   99.75,
+   99.75
+  ],
+  "soc_cap_range": [
+   53.47,
+   53.47
+  ],
+  "stable_sell": true,
+  "stable_soc": true
+ },
+ "RegionA": {
+  "base": {
+   "sell_sat_pct": 0.0,
+   "soc_cap_pct": 62.57,
+   "cost": 61419.9
+  },
+  "perturbed": [
+   {
+    "sell_sat_pct": 0.0,
+    "soc_cap_pct": 62.57,
+    "cost": 61419.9
+   },
+   {
+    "sell_sat_pct": 0.0,
+    "soc_cap_pct": 62.57,
+    "cost": 61419.9
+   },
+   {
+    "sell_sat_pct": 0.0,
+    "soc_cap_pct": 62.57,
+    "cost": 61419.9
+   },
+   {
+    "sell_sat_pct": 0.0,
+    "soc_cap_pct": 62.57,
+    "cost": 61419.9
+   },
+   {
+    "sell_sat_pct": 0.0,
+    "soc_cap_pct": 62.57,
+    "cost": 61419.9
+   }
+  ],
+  "sell_sat_range": [
+   0.0,
+   0.0
+  ],
+  "soc_cap_range": [
+   62.57,
+   62.57
+  ],
+  "stable_sell": true,
+  "stable_soc": true
+ }
+}

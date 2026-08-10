@@ -308,107 +308,125 @@
     "volatility": {
       "0.1": {
         "construct": {
-          "cost_wan": 163832.2370425699,
-          "carbon_t": 1903768.4124098697,
+          "cost_wan": 164652.51633040485,
+          "carbon_t": 1904098.8939591404,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 35.496772553330715,
+          "nu_pct": 35.271272716506665,
           "infeasible": false,
           "peak_net_MW": 478.526,
           "peak_expect_MW": 478.526,
-          "peak_worst_MW": 478.526,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_worst_MW": 495.901,
+          "n_infeasible_scenarios": 8,
+          "infeasible_pct": 2.1,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q2_compromise": {
-          "cost_wan": 164224.77434130423,
-          "carbon_t": 1906371.5545517285,
+          "cost_wan": 165040.86823423338,
+          "carbon_t": 1906697.6492181649,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 35.47438188087254,
+          "nu_pct": 35.25113638842464,
           "infeasible": false,
           "peak_net_MW": 479.002,
           "peak_expect_MW": 479.002,
-          "peak_worst_MW": 479.002,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_worst_MW": 489.037,
+          "n_infeasible_scenarios": 9,
+          "infeasible_pct": 2.3,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q4_compromise": {
-          "cost_wan": 163827.48099192185,
-          "carbon_t": 1903835.7068596398,
+          "cost_wan": 164644.64935873536,
+          "carbon_t": 1904163.1395204861,
           "latency_ms": 27.76490953862777,
-          "nu_pct": 35.497776222408916,
+          "nu_pct": 35.273576989990794,
           "infeasible": false,
           "peak_net_MW": 478.526,
           "peak_expect_MW": 478.526,
-          "peak_worst_MW": 478.526,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_worst_MW": 501.257,
+          "n_infeasible_scenarios": 9,
+          "infeasible_pct": 2.3,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         }
       },
       "0.2": {
         "construct": {
-          "cost_wan": 164434.71994040723,
-          "carbon_t": 1881380.9082646146,
+          "cost_wan": 166348.76102582028,
+          "carbon_t": 1696608.5240803626,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 36.47749272391031,
+          "nu_pct": 46.0577217033461,
           "infeasible": false,
-          "peak_net_MW": 479.145,
-          "peak_expect_MW": 479.145,
-          "peak_worst_MW": 518.101,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 505.112,
+          "peak_expect_MW": 505.112,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 150,
+          "infeasible_pct": 39.1,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q2_compromise": {
-          "cost_wan": 164903.55178474373,
-          "carbon_t": 1887448.2300937783,
+          "cost_wan": 166709.97360998148,
+          "carbon_t": 1699157.023631551,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 36.30540341431426,
+          "nu_pct": 46.04882932477591,
           "infeasible": false,
-          "peak_net_MW": 479.653,
-          "peak_expect_MW": 479.653,
-          "peak_worst_MW": 520.665,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 504.894,
+          "peak_expect_MW": 504.894,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 146,
+          "infeasible_pct": 38.0,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q4_compromise": {
-          "cost_wan": 164431.9223394279,
-          "carbon_t": 1881453.0040918745,
+          "cost_wan": 166359.14385730057,
+          "carbon_t": 1696743.9079539203,
           "latency_ms": 27.76490953862777,
-          "nu_pct": 36.47852709948699,
+          "nu_pct": 46.063961703839496,
           "infeasible": false,
-          "peak_net_MW": 479.145,
-          "peak_expect_MW": 479.145,
-          "peak_worst_MW": 518.101,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 504.413,
+          "peak_expect_MW": 504.413,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 147,
+          "infeasible_pct": 38.3,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         }
       },
       "0.3": {
         "construct": {
-          "cost_wan": 164872.1951792927,
-          "carbon_t": 1849037.6167589661,
+          "cost_wan": 167469.28643634488,
+          "carbon_t": 1701492.1856381116,
           "latency_ms": 27.795350103819555,
-          "nu_pct": 37.61254265009325,
+          "nu_pct": 45.263867756080764,
           "infeasible": false,
-          "peak_net_MW": 478.526,
-          "peak_expect_MW": 478.526,
-          "peak_worst_MW": 510.0,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 543.954,
+          "peak_expect_MW": 543.954,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 191,
+          "infeasible_pct": 49.7,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q2_compromise": {
-          "cost_wan": 165290.52995428685,
-          "carbon_t": 1851819.5513576395,
+          "cost_wan": 168056.08209352475,
+          "carbon_t": 1705273.750230305,
           "latency_ms": 26.28738355505838,
-          "nu_pct": 37.59685037411228,
+          "nu_pct": 45.304912225916695,
           "infeasible": false,
-          "peak_net_MW": 479.002,
-          "peak_expect_MW": 479.002,
-          "peak_worst_MW": 510.0,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 544.394,
+          "peak_expect_MW": 544.394,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 187,
+          "infeasible_pct": 48.7,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         },
         "q4_compromise": {
-          "cost_wan": 164863.93624501146,
-          "carbon_t": 1849089.2608777825,
+          "cost_wan": 167628.74538596484,
+          "carbon_t": 1702596.2688856374,
           "latency_ms": 27.76490953862777,
-          "nu_pct": 37.61333519555551,
+          "nu_pct": 45.302103245518175,
           "infeasible": false,
-          "peak_net_MW": 478.526,
-          "peak_expect_MW": 478.526,
-          "peak_worst_MW": 510.0,
-          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；风险中性取 expect，保守取 worst（T2 修复）"
+          "peak_net_MW": 543.954,
+          "peak_expect_MW": 543.954,
+          "peak_worst_MW": 550.0,
+          "n_infeasible_scenarios": 193,
+          "infeasible_pct": 50.3,
+          "peak_caliber": "期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正：K-means 中心截断低估 25.6% 已弃用）；E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告"
         }
       }
     }
@@ -451,23 +469,23 @@
     },
     "volatility|0.1": {
       "best_policy": "q4_compromise",
-      "cost_wan": 163827.48,
+      "cost_wan": 164644.65,
       "vs_baseline_cost_pct": -0.24,
       "peak_net_MW": 478.526,
       "lever_ok": null
     },
     "volatility|0.2": {
-      "best_policy": "q4_compromise",
-      "cost_wan": 164431.92,
-      "vs_baseline_cost_pct": -0.29,
-      "peak_net_MW": 479.145,
+      "best_policy": "construct",
+      "cost_wan": 166348.76,
+      "vs_baseline_cost_pct": -0.22,
+      "peak_net_MW": 505.112,
       "lever_ok": null
     },
     "volatility|0.3": {
-      "best_policy": "q4_compromise",
-      "cost_wan": 164863.94,
-      "vs_baseline_cost_pct": -0.26,
-      "peak_net_MW": 478.526,
+      "best_policy": "construct",
+      "cost_wan": 167469.29,
+      "vs_baseline_cost_pct": -0.35,
+      "peak_net_MW": 543.954,
       "lever_ok": null
     }
   },

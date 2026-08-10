@@ -1,0 +1,40 @@
+{
+ "base": {
+  "cost": 164260.6,
+  "carbon": 1906557.7,
+  "peak": 479.0,
+  "infeasible_regions": [],
+  "nu": 35.5
+ },
+ "scan": {
+  "0.9": {
+   "cost": 170782.0,
+   "carbon": 1741314.0,
+   "peak": 485.5,
+   "nu": 18.23,
+   "infeasible_regions": [
+    "RegionE",
+    "RegionF"
+   ]
+  },
+  "1.0": {
+   "cost": 164260.6,
+   "carbon": 1906558.0,
+   "peak": 479.0,
+   "nu": 35.48,
+   "infeasible_regions": [],
+   "d_cost_vs_base_pct": 0.0,
+   "d_carbon_vs_base_pct": 0.0
+  },
+  "1.1": {
+   "cost": 155410.8,
+   "carbon": 1830178.0,
+   "peak": 472.5,
+   "nu": 37.09,
+   "infeasible_regions": [],
+   "d_cost_vs_base_pct": -5.388,
+   "d_carbon_vs_base_pct": -4.006
+  }
+ },
+ "caliber": "c_h 消纳模板 10% 全局扰动（R1 模板 Q4 外推假设敏感性）；q2_compromise 策略；infeasible=购电上限击穿（G下界=D-cap_h 推高）"
+}
