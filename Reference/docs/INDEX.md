@@ -66,6 +66,12 @@
 | Q4 | step4.5_q4_rules.py（CART 迁移规则 + 规则化代价） | docs/sums/sum_11 §六 | ✅ |
 | Q4 | step4.6_q4_collapse.py（前沿坍缩归因：判别 A 极端策略 + 判别 B oracle） | docs/sums/sum_11 §三 | ✅ |
 | Q4 | tests/test_q4_v2.py（+10 定稿守卫，195 全绿） | docs/sums/sum_11 §六 | ✅ |
+| 证伪轮 | step4.7_q4_mpc.py（#17 波动 MPC 跨题闭环：结构性保守归因修正） | docs/sums/sum_12 | ✅ |
+| 证伪轮 | step4.8_q4_system_peak.py（#5 全网峰值伴随口径：六区联合 LP） | docs/sums/sum_12 | ✅ |
+| 证伪轮 | step3.10_q3_sobol_interaction.py（#18 Sobol 交互热图：S1>1 机理） | docs/sums/sum_12 | ✅ |
+| 证伪轮 | step3.8 v2（无储能 LP 对照双锚净化） | docs/sums/sum_12 §一 | ✅ |
+| 证伪轮 | step4.3 v2（64 原始场景波动修正） | docs/sums/sum_12 §一 | ✅ |
+| 证伪轮 | tests/test_phase4.py（+10 守卫，215 全绿） | docs/sums/sum_12 | ✅ |
 
 ## 公式映射（论文编号 ↔ 代码位置）
 | 论文公式 | 代码文件:行号 | 说明 |

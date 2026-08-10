@@ -1,4 +1,4 @@
-# Migration Prompt — C 题项目入口
+﻿# Migration Prompt — C 题项目入口
 
 ## Step 1: 加载 project-reference skill
 
@@ -19,6 +19,7 @@
 - **`Code/docs/sums/sum_9_结构完备性全谱侦察.md` — 恒等式集 I1-I13 七关证明/W 精确公式/价格变点/分数 Overlap 破案/NonAI 分层 L1/L10 评估链修复**
 - **`Code/docs/sums/sum_10_Q3全量执行.md` — DR 状态机逆向/M3_final 主口径/互斥物理上界 M0x/传送带假象**
 - **`Code/docs/sums/sum_11_Q4定稿.md` — Q4 正式预算/前沿坍缩归因（储能结构锁定）/碳杠杆上限 0.239%/对偶退化发现/195 全绿**
+- **`Code/docs/sums/sum_12_结论证伪与口径修正.md` — 双锚净化（D −38.3%）/波动截断修正/碳构造上界 1.4%/MPC 归因修正/#5 全网峰值/#18 Sobol 交互/215 全绿**
 - `Code/docs/reviews/review_A0_错误结论清算.md` — 错误 vs 结论三关清算
 - `Code/docs/reviews/review_A1-A6_审查定稿.md` — 审查结论
 - `Code/docs/reviews/review_B8_正确率清单.md` — 全指标透明化
@@ -27,6 +28,7 @@
 - `Code/Reference/docs/INDEX.md` — 公式↔代码↔文档映射
 
 ### 速读（了解近期动态）
+- `Code/docs/logs/latest_14.log` — 结论证伪轮（双锚净化/波动截断/碳上界/MPC 归因修正）
 - `Code/docs/logs/latest_12.log` — Q4 定稿全记录（正式预算/坍缩归因/碳杠杆/对偶退化）
 - `Code/docs/logs/latest_11.log` — Q3 发现回灌定稿（M3_final 主口径/斜坡假象修正/M0x gap 验证）
 - `Code/docs/logs/latest_10.log` — Q3 M4 全量执行（DR 状态机/传送带假象/交叉实验）
@@ -47,7 +49,7 @@
 - 运行 `python step4.3_q4_scenarios.py` 生成压力矩阵（波动峰值双口径/碳杠杆三族）
 - 运行 `python step4.4_q4_ablation.py` / `step4.5_q4_rules.py` 消融与规则层
 - 运行 `python step4.6_q4_collapse.py` 生成前沿坍缩归因判别（储能结构锁定）
-- 测试：`python -m pytest tests/ -q`（当前 200 passed）
+- 测试：`python -m pytest tests/ -q`（当前 215 passed）
 
 ---
 
