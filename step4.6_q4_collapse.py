@@ -132,14 +132,18 @@ def build_pue_grid(c) -> np.ndarray:
     return np.array([float(g.loc[r, "PUE"]) for r in REGIONS])
 
 
-def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200) -> dict:
+def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200,
+                     track: bool = True) -> dict:
     """逐任务贪心迁移：每轮选边际收益最大的可行迁移，直至无正收益或轮次上限。
 
     可行性（GPU + 购电双联合，T3 升级）: 白名单时延 + 目标区 GPU 容量 +
       区域购电上限 max_import（每轮重解下层 LP 拿当前 G 解，迁移增量
       ΔG=ΔAI×PUE 保守全量检查——首版 oracle 因缺购电检查击穿 max_import
       致 LP infeasible，错误-修复总账 +4）。
-    返回: oracle 调度 + 迁移任务数 + 收益序列（真实 Q4 评估器最终裁决）。
+    track=True: 每 track_every 轮用真实 Q4 评估器评估当前调度 → 迁移轨迹
+      （A2 部分迁移验证：反噬是否过冲——若 10% 迁移量即最优，则全量反噬
+      系贪心过冲而非结构锁定）。
+    返回: oracle 调度 + 迁移任务数 + 收益序列 + 轨迹（真实 Q4 评估器裁决）。
     """
     s20 = c["s20"]
     params = c["params"]
@@ -156,6 +160,8 @@ def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200) ->
     elastic = wt[wt.TaskType != "RealTimeInference"].copy()
     moved_ids = set()
     gains = []
+    trajectory = []
+    track_every = 3
     # 占用矩阵增量维护（2407×6）：替代逐次全量 build_occupancy（O(n) → O(dur)）
     occ = np.zeros((2407, len(REG)))
     r_idx = np.array([REG.index(r) for r in wt["Region"]])
@@ -167,7 +173,6 @@ def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200) ->
                   gg[i])
     p_task = {"RealTimeInference": 0.08, "BatchInference": 0.10,
               "AITraining": 0.16}
-    n_infeas_prev = 0
     for _round in range(max_rounds):
         # 轮末重解下层 LP → 当前 G 解（购电上限检查的基准）
         ai_mw = c["s41"].schedule_occupancy(c, sched)
@@ -181,6 +186,14 @@ def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200) ->
                 continue
             G = np.array([x["G"] for x in m["rows"]])
             g_sol[r] = {"G": G, "max_import": d["max_import"]}
+        if track and (_round % track_every == 0 or _round == 0):
+            ev = c["s41"].evaluate_q4_six(c, sched, alpha=0.5)
+            trajectory.append({"round": _round, "n_moved": len(moved_ids),
+                               "cost_wan": round(float(ev.get("cost_wan", -1)), 2),
+                               "carbon_t": round(float(ev.get("carbon_t", -1)), 0),
+                               "latency_ms": round(float(ev.get("latency_ms", -1)), 3),
+                               "peak_net_MW": round(float(ev.get("peak_net_MW", -1)), 2),
+                               "viol_h": int(ev.get("viol_h", -1))})
         candidates = []
         for _, task in elastic.iterrows():
             tid = task["TaskID"]
@@ -230,9 +243,17 @@ def oracle_migration(c, max_rounds: int = 25, max_moves_per_round: int = 200) ->
             gains.append(g)
         if len(gains) >= 1000 or (len(moved_ids) >= 2000):
             break
+    if track:
+        ev = c["s41"].evaluate_q4_six(c, sched, alpha=0.5)
+        trajectory.append({"round": _round + 1, "n_moved": len(moved_ids),
+                           "cost_wan": round(float(ev.get("cost_wan", -1)), 2),
+                           "carbon_t": round(float(ev.get("carbon_t", -1)), 0),
+                           "latency_ms": round(float(ev.get("latency_ms", -1)), 3),
+                           "peak_net_MW": round(float(ev.get("peak_net_MW", -1)), 2),
+                           "viol_h": int(ev.get("viol_h", -1))})
     return {"sched": sched, "n_moved": len(moved_ids),
             "total_gain_approx": round(float(sum(gains)), 2),
-            "rounds": _round + 1}
+            "rounds": _round + 1, "trajectory": trajectory}
 
 
 # ---------- 裁决 ----------

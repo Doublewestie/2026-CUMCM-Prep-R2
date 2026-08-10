@@ -59,7 +59,11 @@ def baseline_series(c, r: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
 
 
 def no_storage_series(c, d: dict) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """无储能口径：G = D − min(W, c_h·D)，S=0，Q = W − min(W, c_h·D)。"""
+    """模板无储能口径（参考）：G = D − min(W, c_h·D)，S=0，Q = W − min(W, c_h·D)。
+
+    注：该口径为"模板消纳"参考（无 LP 优化自由度、无外送）——论文主对照
+    用 no_storage_lp（solve_m3 零储能同框架，对照纯度达标）。
+    """
     T = len(d["D"])
     cap_h = np.minimum(d["W"], np.asarray(d["c_h"])[np.arange(T) % 24] * d["D"])
     Q = d["W"] - cap_h
@@ -120,6 +124,15 @@ def main() -> None:
         Gn, Sn, Qn = no_storage_series(c, d)
         mn = metrics(Gn, Sn, Qn, price, sellp, carbon, W,
                      nu_denom=W.sum())
+        # 无储能 LP 对照（同框架零储能：solve_m3(d, [], []) → Pc=Pd=0、
+        # SOC 恒定=init、终态恒满足）——对照纯度达标（只差储能，1-1 修正）
+        m_ns = s33.solve_m3(d, [], [], region=r)
+        assert m_ns["cost_wan"] is not None, f"{r} 无储能 LP 不可行"
+        Gns = np.array([x["G"] for x in m_ns["rows"]])
+        Sns = np.array([x["S"] for x in m_ns["rows"]])
+        Qns = np.array([x["Q"] for x in m_ns["rows"]])
+        mns = metrics(Gns, Sns, Qns, price, sellp, carbon, W,
+                      nu_denom=W.sum())
         m3 = s33.solve_m3(d, ch, dh, region=r)
         G3 = np.array([x["G"] for x in m3["rows"]])
         S3 = np.array([x["S"] for x in m3["rows"]])
@@ -127,9 +140,10 @@ def main() -> None:
         mm = metrics(G3, S3, Q3v, price, sellp, carbon, W,
                      nu_denom=W.sum())
 
-        # 三档分解
-        storage_value = mm["cost_wan"] - mn["cost_wan"]
-        gen_subopt = mn["cost_wan"] - mb["cost_wan"]
+        # 三档分解（主对照=LP 版；模板版作参考）
+        storage_value = mm["cost_wan"] - mns["cost_wan"]
+        gen_subopt = mns["cost_wan"] - mb["cost_wan"]
+        lp_freedom = mns["cost_wan"] - mn["cost_wan"]
         # 斜坡活跃率
         sl = slope_binding(d, m3["rows"], r, s33)
         # 基准终态对称性
@@ -165,14 +179,19 @@ def main() -> None:
                 week_improve["m3_vs_nostore"].append((cn - cm) / abs(cn) * 100)
 
         report["regions"][r] = {
-            "baseline": mb, "no_storage": mn, "m3_final": mm,
+            "baseline": mb, "no_storage_template": mn,
+            "no_storage_lp": mns, "m3_final": mm,
             "decomposition": {
                 "storage_value_wan": round(storage_value, 1),
                 "gen_subopt_wan": round(gen_subopt, 1),
+                "lp_freedom_value_wan": round(lp_freedom, 1),
                 "storage_value_pct": round(
-                    storage_value / max(abs(mn["cost_wan"]), 1e-9) * 100, 3),
+                    storage_value / max(abs(mns["cost_wan"]), 1e-9) * 100, 3),
                 "gen_subopt_pct": round(
-                    gen_subopt / max(abs(mb["cost_wan"]), 1e-9) * 100, 3)},
+                    gen_subopt / max(abs(mb["cost_wan"]), 1e-9) * 100, 3),
+                "note": ("主对照=无储能 LP（同框架零储能，对照纯度达标）；"
+                         "旧模板版无储能（无 LP 自由度+无外送）混入"
+                         "lp_freedom_value——D 区约 1.44 亿（1-1 修正，总账 +52）")},
             "slope_binding": sl,
             "terminal_symmetry": {
                 "generator_soc_2406": soc_2406,
@@ -199,10 +218,11 @@ def main() -> None:
             "mean_pct": round(float(np.mean(week_improve["m3_vs_nostore"])), 3),
             "min_pct": round(float(np.min(week_improve["m3_vs_nostore"])), 3),
             "max_pct": round(float(np.max(week_improve["m3_vs_nostore"])), 3)},
-        "caliber": ("Q3 反思 P1 四件套：三档双锚（无储能=模板消纳 G=D−min(W,c_h·D)）；"
-                    "斜坡活跃率=binding 小时（|ΔP|≥99%·R，GEN_SLOPE 生成器量级）；"
-                    "终态对称性=生成器 SOC(2406) vs Init + Closure 段充放；"
-                    "分窗=14 周改进率分布（替代 bootstrap，数据确定性声明）")}
+        "caliber": ("Q3 反思 P1 四件套 v2：三档双锚主对照=无储能 LP（solve_m3 零储能"
+                    "同框架，1-1 纯度修正）；模板无储能作参考（lp_freedom_value="
+                    "LP 自由度+外送收入红利，D 区 1.44 亿）；斜坡活跃率=binding 小时"
+                    "（|ΔP|≥99%·R）；终态对称性=生成器 SOC(2406) vs Init；"
+                    "分窗=14 周改进率分布（替代 bootstrap）")}
 
     with open(OUT_Q3 / "q3_rigor.json", "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=1, default=float)
@@ -214,8 +234,8 @@ def main() -> None:
         sl = rr["slope_binding"]
         ts = rr["terminal_symmetry"]
         print(f"{r}: 储能价值 {dec['storage_value_wan']} 万 "
-              f"({dec['storage_value_pct']}%) | 生成器次优 "
-              f"{dec['gen_subopt_wan']} 万 ({dec['gen_subopt_pct']}%) | "
+              f"({dec['storage_value_pct']}%) | LP自由度 {dec['lp_freedom_value_wan']} 万 | "
+              f"生成器次优 {dec['gen_subopt_wan']} 万 ({dec['gen_subopt_pct']}%) | "
               f"斜坡 binding C{sl['binding_c_pct']}%/D{sl['binding_d_pct']}% | "
               f"SOC2406={ts['generator_soc_2406']} vs Init={ts['init_soc']} | "
               f"Closure 充{ts['closure_charge_hours']}h/放{ts['closure_discharge_hours']}h")

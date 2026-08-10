@@ -29,7 +29,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.cluster import KMeans
+# K-means 已弃用（1-2 修正：中心截断低估波动成本 25.6%）
 
 from step0_config import FIGURES, OUTPUT, REGIONS, HOURS_TOTAL
 
@@ -41,7 +41,7 @@ OUT_Q4 = OUTPUT / "q4"
 FIG_Q4 = FIGURES / "step4"
 SIGMAS = (0.10, 0.20, 0.30)
 PHI = 0.8
-N_SCEN, K = 64, 12
+N_SCEN = 64  # 原始场景数（1-2 修正：弃 K-means 中心截断）
 
 
 def _load_mod(filename: str):
@@ -90,7 +90,12 @@ def price_reconstruct(c, k: float) -> dict[str, np.ndarray]:
 
 
 def gen_scenarios(c, r: str, sigma: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """W 场景：模板×AR(1) 扰动 → K-means 缩减（Q3 MPC 同款）。"""
+    """W 场景：模板×AR(1) 扰动（原始 64 场景，1-2 修正——K-means 中心
+    截断低估波动成本 25.6%，D 区 S4 实证；Q3 X15 用 64 场景期望未污染）。
+
+    返回原始场景（等权）——E/F 区低 W 尾部触发购电上限瓶颈（step3.9：
+    W×0.2 即 infeasible），期望限定可行域 + infeasible_pct 双报告。
+    """
     sub = c["rt"][c["rt"].Region == r].sort_values("Hour").reset_index(drop=True)
     W = sub["AvailableRenewable_MW"].to_numpy()
     T = len(W)
@@ -102,9 +107,8 @@ def gen_scenarios(c, r: str, sigma: float) -> tuple[np.ndarray, np.ndarray, np.n
         for t in range(1, T):
             eps[t] = PHI * eps[t - 1] + sigma * z[t]
         S[s] = W * np.clip(1 + eps, 0.1, 2.0)
-    km = KMeans(n_clusters=K, random_state=0, n_init=5).fit(S)
-    w = np.bincount(km.labels_, minlength=K) / len(km.labels_)
-    return km.cluster_centers_, w, W
+    w = np.ones(N_SCEN) / N_SCEN
+    return S, w, W
 
 
 def carbon_scenario(c, pol: list, tau: float) -> dict:
@@ -213,6 +217,7 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
     peak = 0.0
     peak_expect = 0.0
     peak_worst = 0.0
+    n_infeas_total = 0
     for r in REGIONS:
         d = c["s41"].build_lower_data(c, ai_mw, r)
         ch, dh = c["tpl"][r]["charge_hours"], c["tpl"][r]["discharge_hours"]
@@ -227,11 +232,14 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
             exp_q = 0.0
             r_peak_exp = 0.0
             r_peak_worst = 0.0
-            for s_i in range(K):
+            w_sum = 0.0
+            n_infeas = 0
+            for s_i in range(N_SCEN):
                 ds = dict(d)
                 ds["W"] = reps[s_i]
                 m = c["s40"].solve_lower_constrained(ds, ch, dh, **kw)
                 if m["cost_wan"] is None:
+                    n_infeas += 1
                     continue
                 G = np.array([x["G"] for x in m["rows"]])
                 S = np.array([x["S"] for x in m["rows"]])
@@ -241,12 +249,21 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
                 exp_q += w[s_i] * m["curtail"]
                 r_peak_exp += w[s_i] * p_i
                 r_peak_worst = max(r_peak_worst, p_i)
+                w_sum += w[s_i]
+            # 条件期望（可行域）：E/F 低 W 尾部 infeasible（购电上限瓶颈，
+            # step3.9 实证）——不可行占比即尾部风险度量
+            if w_sum > 1e-12:
+                exp_cost /= w_sum
+                exp_carbon /= w_sum
+                exp_q /= w_sum
+                r_peak_exp /= w_sum
             cost += exp_cost
             carbon += exp_carbon
             qsum += exp_q
             wsum += float(W0.sum())
             peak_expect = max(peak_expect, r_peak_exp)
             peak_worst = max(peak_worst, r_peak_worst)
+            n_infeas_total += n_infeas
             continue
         m = c["s40"].solve_lower_constrained(d, ch, dh, **kw)
         if m["cost_wan"] is None:
@@ -267,8 +284,13 @@ def run_policy_grid(c, pol: list, tau=None, price_map=None,
         out["peak_net_MW"] = round(peak_expect, 3)
         out["peak_expect_MW"] = round(peak_expect, 3)
         out["peak_worst_MW"] = round(peak_worst, 3)
-        out["peak_caliber"] = ("期望峰值=max_r(Σwᵢ·峰ᵢ)；最坏峰值=max_r(maxᵢ 峰ᵢ)；"
-                               "风险中性取 expect，保守取 worst（T2 修复）")
+        out["n_infeasible_scenarios"] = n_infeas_total
+        out["infeasible_pct"] = round(
+            n_infeas_total / (len(REGIONS) * N_SCEN) * 100, 1)
+        out["peak_caliber"] = ("期望峰值=max_r(Σwᵢ·峰ᵢ/Σwᵢ 条件期望)；"
+                               "最坏峰值=max_r(maxᵢ 峰ᵢ)；64 原始场景（1-2 修正："
+                               "K-means 中心截断低估 25.6% 已弃用）；"
+                               "E/F 低 W 尾部购电上限瓶颈→条件期望+占比双报告")
     else:
         out["peak_net_MW"] = peak
     return out
