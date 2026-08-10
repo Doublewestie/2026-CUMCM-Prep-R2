@@ -1,0 +1,100 @@
+{
+ "Q1": {
+  "cost_wan": 192871.87719559588,
+  "carbon_t": 2108008.077355303,
+  "curtail_MWh": 7846756.593259398,
+  "utilization_pct": 32.067232683563255,
+  "overcap_hours": 113,
+  "overcap_by_region": {
+   "RegionA": 3,
+   "RegionB": 4,
+   "RegionC": 6,
+   "RegionD": 3,
+   "RegionE": 30,
+   "RegionF": 67
+  },
+  "note": "附件基线（本地执行，模板消纳口径）——弃电 784.7 万 MWh/利用率 32.1%/超容 113h（E 30/F 67）"
+ },
+ "Q2": {
+  "cost_improve_pct": 4.571478616092779,
+  "carbon_improve_pct": 4.313976104532484,
+  "latency_ratio": 5.257476711011676,
+  "nu_pp": 0.7762630831758912,
+  "q2_cost_wan": 184054.7805731425,
+  "note": "附件基线 vs Q2 三段式（模板消纳口径）；五方法端点共识"
+ },
+ "Q3": {
+  "regions": {
+   "RegionA": {
+    "storage_value_wan": -3026.7,
+    "storage_value_pct": -4.696,
+    "gen_subopt_wan": 2144.4,
+    "gen_subopt_pct": 3.442,
+    "m3_cost_wan": 61419.92025207831,
+    "baseline_cost_wan": 62302.2579338745
+   },
+   "RegionB": {
+    "storage_value_wan": -2651.7,
+    "storage_value_pct": -4.49,
+    "gen_subopt_wan": 1852.6,
+    "gen_subopt_pct": 3.238,
+    "m3_cost_wan": 56412.453683028936,
+    "baseline_cost_wan": 57211.5791714583
+   },
+   "RegionC": {
+    "storage_value_wan": -2414.1,
+    "storage_value_pct": -4.285,
+    "gen_subopt_wan": 1698.9,
+    "gen_subopt_pct": 3.11,
+    "m3_cost_wan": 53921.1162685123,
+    "baseline_cost_wan": 54636.219991311096
+   },
+   "RegionD": {
+    "storage_value_wan": -4693.5,
+    "storage_value_pct": -38.285,
+    "gen_subopt_wan": 3666.7,
+    "gen_subopt_pct": 42.673,
+    "m3_cost_wan": 7565.855147384411,
+    "baseline_cost_wan": 8592.64141302708
+   },
+   "RegionE": {
+    "storage_value_wan": -3675.2,
+    "storage_value_pct": -441.813,
+    "gen_subopt_wan": 1757.4,
+    "gen_subopt_pct": 67.874,
+    "m3_cost_wan": -4507.054140135845,
+    "baseline_cost_wan": -2589.2946161557957
+   },
+   "RegionF": {
+    "storage_value_wan": -4025.5,
+    "storage_value_pct": -251.845,
+    "gen_subopt_wan": 1585.8,
+    "gen_subopt_pct": 12575.898,
+    "m3_cost_wan": -2427.11848086156,
+    "baseline_cost_wan": 12.609895673499935
+   }
+  },
+  "caliber": "双锚 LP 对照（sum_12 净化口径）：储能价值 vs 无储能 LP；生成器次优 vs 基准；百分比对 E/F 负基数失真用绝对值"
+ },
+ "Q4": {
+  "baseline": {
+   "cost_wan": 164260.59204357772,
+   "carbon_t": 1906557.7340721753,
+   "latency_ms": 26.28738355505838,
+   "qos": 0.8657501000000001,
+   "nu_pct": 35.47512113520772,
+   "peak_net_MW": 479.0016003960002
+  },
+  "compromise": {
+   "cost_wan": 163864.20871940974,
+   "carbon_t": 1904018.0291826616,
+   "latency_ms": 27.76490953862777,
+   "one_minus_qos": 0.1698766833333334,
+   "one_minus_nu": 0.6450199943071375,
+   "peak_net_MW": 478.52640035208117
+  },
+  "improve_vs_baseline_pct": 0.241,
+  "caliber": "Q4 基线=Q2 折中×M3_final；折中=正式前沿 TOPSIS；波动/峰值主时段"
+ },
+ "discipline": "论文每个数字可追溯唯一产物文件（数据核查纪律）；口径声明见 docs/materials/08_口径声明大全.md；修正历史见 docs/sums/sum_12"
+}
