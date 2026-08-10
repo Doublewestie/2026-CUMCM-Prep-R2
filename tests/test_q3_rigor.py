@@ -32,15 +32,21 @@ def rigor():
 
 
 def test_double_anchor_storage_value(rigor):
-    """储能价值（vs 无储能）为正且大于单锚报告（vs 生成器）。"""
+    """储能价值（vs 无储能 LP 对照）为正且生成器次优为正（1-1 纯度修正）。"""
     for r in ("RegionA", "RegionB", "RegionC", "RegionD"):
         dec = rigor["regions"][r]["decomposition"]
         assert dec["storage_value_wan"] < 0, f"{r} 储能价值非正"
         assert dec["gen_subopt_wan"] > 0, f"{r} 生成器次优代价非正"
-    # D 区储能价值应显著（>30%——单锚仅 −11%）
+    # D 区储能价值（LP 对照修正后 −38.3%，非模板版 −71.5%——1-1 修正）
     d_dec = rigor["regions"]["RegionD"]["decomposition"]
-    assert d_dec["storage_value_pct"] < -30, \
-        f"D 区储能价值异常: {d_dec['storage_value_pct']}%"
+    assert -45 < d_dec["storage_value_pct"] < -30, \
+        f"D 区储能价值异常: {d_dec['storage_value_pct']}%（应约 −38%）"
+    # LP 自由度红利被正确分离（D 区 >1 亿，原模板对照混入）
+    assert d_dec["lp_freedom_value_wan"] < -10000, \
+        f"D 区 LP 自由度价值异常: {d_dec['lp_freedom_value_wan']}"
+    # no_storage_lp 字段存在且成本 < 模板版（LP 优化+外送更优）
+    assert rigor["regions"]["RegionD"]["no_storage_lp"]["cost_wan"] < \
+        rigor["regions"]["RegionD"]["no_storage_template"]["cost_wan"]
 
 
 def test_slope_binding_active(rigor):
