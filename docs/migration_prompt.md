@@ -1,5 +1,12 @@
 ﻿# Migration Prompt — C 题项目入口
 
+## Step 1: 加载方法论 skill（项目级 .opencode/skills/）
+
+- math-methods — 全局方法哲学（逻辑链/三关闸门/结论分级/国特思维）
+- math-verification — 模型验证思维（验证工具箱/强度分级/证伪轮——异常数字先过判别实验）
+- math-materials — 研究素材组织思维（素材七要素/口径声明/数字总表/路线叙事——论文手交接协议）
+- math-name — 代码命名规范；gent-memory — 文档体系
+
 ## Step 1: 加载 project-reference skill
 
 加载 `agent-memory`，了解 `Code/docs/` 下的 `logs/`、`sums/`、`specs/` 目录结构。
