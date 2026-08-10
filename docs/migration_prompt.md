@@ -12,7 +12,9 @@
   从起点跑到终点）
   回灌+记录+提交——用户不在场时从起点跑到终点）
 - `math-name` — 代码命名规范；`agent-memory` — 文档体系
-- `math-wisdom-reflect` — 赛后高层经验总结协议（悟理：思维模式/陷阱档案
+- `math-wisdom-reflect` — 赛后高层经验总结协议（双主体悟理：轨A 你的事件深挖
+  + 轨B AI 执行复盘；三检验+各自确认过滤；最高层领悟开篇；产出
+  docs/lessons/ 供下次复用）
   提炼，三检验+当事人确认过滤，产出 docs/lessons/ 供下次复用）
 
 ## Step 1: 加载 project-reference skill
