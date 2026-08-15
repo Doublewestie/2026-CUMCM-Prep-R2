@@ -1,0 +1,29 @@
+2026-08-15 素材-代码一致性核查修复轮：6 处核查错误验证 + 7 处扩展发现 + 补算落盘
+
+- 09:00-10:00 素材-代码一致性核查（依据"素材审查对话记录_素材与代码一致性核查.txt"）：
+  对话记录 6 处全部独立验证属实（5-2 HV 0.033→0.224 实为 0.0016→0.0275；
+  前沿 87→98；3-3 0.952 全库无产物（仅 kappa_fit.json 覆盖率 0.9526 误匹配）；
+  2-5 κ 路径实为 robust/；2-3 88.2% 实为 deploy_retrain.json；
+  2-4 0.073pp 实为 e1_mechanism.json）——素材未修复
+- 10:00-11:00 扩展核查新增 7 处：5.26× 映射 delay_scan.json 错（对话记录误判
+  "一致"，唯一来源 q5/baseline_proof_all.json latency_ratio=5.2575）；
+  4-3 双锚表 D/E 行历史值混用（D 7,614→产物 7,565.86、−4,645→−4,693.5 且与
+  −38.3% 不自洽；E −4,480→−4,507.05、−3,648→−3,675.2）；
+  09 L50 "M3 7,569"无产物（实为 7,565.86）；守卫表行和 120≠215；
+  价格变点映射代码非产物；09 未收录 q5/baseline_proof_all.json；
+  10 叙事 0.952 引用连带
+- 11:00-12:00 修复：新增 step2.6_q2_corr_persist.py（E-F3 目标退化补算——
+  区域价格-碳 Pearson 0.9524 复现、前沿相关 0.974/−0.987/−0.926 复现、
+  箱内 spread bin_y_std_ratio=0.082），写入 review_fix.json B11_corr_matrix
+  （原 5 字段保留）；素材 7 文件 14 处对齐产物（05 5-2 HV/前沿数、
+  02 三处映射、03 3-3 补算标注、04 4-3 D/E 行 + 自洽恒等重算、
+  09 六处 + 新增全题改进率章节 + 守卫表补全、10 叙事、00 维护记录）
+- 12:00-12:10 验证：残留错误值 grep 零匹配；B/C 区双锚复核（−4.49/−4.285 一致）；
+  pytest 215 passed 全绿（135s）
+- 12:10-13:00 环境确认：DSH（非 opencode）权限体系——settings.yaml
+  defaultPreset 原 read-only（ConstrainedLanguage→pwsh 乱码/写操作弹框）；
+  用户安装的 dsh-auto-mode 插件（@nanmicoder/dsh-auto-mode v0.1.2，
+  profiles/web bundles 注册）已激活：Auto 预设=分类器自动裁决，
+  DSH_HOME 修改被 auto-mode hard deny（验证生效）；pwsh 中文乱码随
+  全语言模式消失；python 子进程需 PYTHONIOENCODING=utf-8
+- 测试状态: 215 passed（全绿，产物变更无破坏）
