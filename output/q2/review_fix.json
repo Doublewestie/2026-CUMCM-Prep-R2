@@ -62,5 +62,66 @@
       }
     },
     "note": "等权 ±25% 扰动下折中解漂移（成本/时延变化量）"
+  },
+  "B11_corr_matrix": {
+    "region_price_carbon_pearson": 0.9524,
+    "region_means": {
+      "RegionA": {
+        "price": 707.5,
+        "carbon": 0.62
+      },
+      "RegionB": {
+        "price": 678.0,
+        "carbon": 0.58
+      },
+      "RegionC": {
+        "price": 658.3,
+        "carbon": 0.55
+      },
+      "RegionD": {
+        "price": 422.5,
+        "carbon": 0.42
+      },
+      "RegionE": {
+        "price": 373.4,
+        "carbon": 0.22
+      },
+      "RegionF": {
+        "price": 393.0,
+        "carbon": 0.26
+      }
+    },
+    "corr_matrix": {
+      "cost_wan": {
+        "cost_wan": 1.0,
+        "carbon_t": 0.974,
+        "latency_ms": -0.954,
+        "nu_pct": -0.926
+      },
+      "carbon_t": {
+        "cost_wan": 0.974,
+        "carbon_t": 1.0,
+        "latency_ms": -0.862,
+        "nu_pct": -0.987
+      },
+      "latency_ms": {
+        "cost_wan": -0.954,
+        "carbon_t": -0.862,
+        "latency_ms": 1.0,
+        "nu_pct": 0.771
+      },
+      "nu_pct": {
+        "cost_wan": -0.926,
+        "carbon_t": -0.987,
+        "latency_ms": 0.771,
+        "nu_pct": 1.0
+      }
+    },
+    "bin_spread": {
+      "n_bins": 10,
+      "median_bin_carbon_std_ratio": 0.0818,
+      "note": "成本分箱内碳排 std 中位 / 全局 std——箱内零 spread 证明相关性=共线而非相关漂移"
+    },
+    "note": "E-F3 补算落盘（素材 3-3 核查 #3 修复）：区域级 price-carbon Pearson 0.9524≈0.952；前沿相关 cost-carbon 0.974/NU-carbon -0.987/NU-cost -0.926——四目标实际 2 独立维度（成本-碳-利用率共线 + 时延）"
   }
 }
